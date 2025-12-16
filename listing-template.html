@@ -52,10 +52,17 @@
       margin-bottom: 24px;
     }
     .details {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 40px;
-      margin-top: 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+@media (max-width: 900px) {
+  .details {
+    grid-template-columns: 1fr;
+  }
+}
+
     }
     .box {
       background: #ffffff;
@@ -97,16 +104,25 @@
  <div class="hero">
 
   <!-- MAIN IMAGE -->
-  <img src="/assets/images/listings/property-001/1.jpg"
-       alt="Property image"
-       style="width:100%; height:420px; object-fit:cover; border-radius:8px;">
+<img src="/assets/images/listings/property-001/1.jpg"
+     style="
+       width:100%;
+       height:clamp(260px, 40vw, 460px);
+       object-fit:cover;
+       border-radius:10px;
+     ">
+
 
   <!-- IMAGE GRID -->
-  <div style="
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
-    gap:12px;
-    margin-top:16px;
+ <div style="
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+  gap:10px;
+  margin-top:18px;
+">
+
+">
+
   ">
 
     <img src="/assets/images/listings/property-001/2.jpg" style="width:100%; border-radius:6px;">
@@ -186,6 +202,7 @@ supporting financing and due diligence processes.
   <li>Outdoor storage area</li>
   <li>Separate laundry room</li>
 </ul>
+</div>
 
 
     <!-- FACTS -->
