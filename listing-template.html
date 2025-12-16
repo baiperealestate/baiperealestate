@@ -57,11 +57,12 @@ h1 {
 /* HERO IMAGE */
 .hero img:first-child {
   width: 100%;
-  height: clamp(260px, 40vw, 460px);
-  object-fit: cover;
+  height: clamp(420px, 45vw, 650px); /* adjusts for desktop & mobile */
+  object-fit: cover;                  /* crops instead of stretching */
   border-radius: 10px;
   margin-bottom: 16px;
 }
+
 
 /* GALLERY */
 .gallery {
