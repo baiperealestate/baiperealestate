@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Property Listing | Bai Pe Real Estate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detailed property listing by Bai Pe Real Estate in Curaçao.">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #F4F6FC;
+      color: #0f514f;
+    }
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #0f514f;
+      font-weight: 500;
+    }
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .hero img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    h1 {
+      margin-top: 24px;
+      font-size: 32px;
+    }
+    .price {
+      color: #D8AE5E;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 8px 0;
+    }
+    .location {
+      opacity: 0.8;
+      margin-bottom: 24px;
+    }
+    .details {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    .box {
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 8px;
+    }
+    ul {
+      padding-left: 18px;
+      line-height: 1.8;
+    }
+    .cta {
+      margin-top: 24px;
+      padding: 16px;
+      background: #0f514f;
+      color: #ffffff;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="/">
+    <img src="/assets/images/logo.png" alt="Bai Pe Real Estate" style="height:48px;">
+  </a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/listings.html">Listings</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO IMAGE -->
+  <div class="hero">
+    <img src="https://via.placeholder.com/1200x600" alt="Property image">
+  </div>
+
+  <!-- BASIC INFO -->
+  <h1>Modern Residential Property</h1>
+  <div class="price">XCG 730,000</div>
+  <div class="location">Willemstad, Curaçao</div>
+
+  <!-- CONTENT -->
+  <div class="details">
+
+    <!-- DESCRIPTION -->
+    <div class="box">
+      <h2>Property description</h2>
+      <p>
+        This well-maintained property is located in a desirable area of Curaçao
+        and is suitable for both residential use and long-term investment.
+      </p>
+
+      <h3>Key features</h3>
+      <ul>
+        <li>3 bedrooms</li>
+        <li>2 bathrooms</li>
+        <li>Private parking</li>
+        <li>Good rental potential</li>
+      </ul>
+    </div>
+
+    <!-- FACTS -->
+    <div class="box">
+      <h2>Property details</h2>
+      <ul>
+        <li>Type: Residential home</li>
+        <li>Plot size: 450 m²</li>
+        <li>Living area: 160 m²</li>
+        <li>Ownership: Full ownership</li>
+        <li>Status: Available</li>
+      </ul>
+
+      <a href="/contact.html" class="cta">
+        Request full details
+      </a>
+    </div>
+
+  </div>
+
+</main>
+
+</body>
+</html>
