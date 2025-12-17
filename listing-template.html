@@ -1,278 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Property Listing | Bai Pe Real Estate</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Detailed property listing by Bai Pe Real Estate in Curaçao.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Move-in ready property with pool and studio in Grote Berg, Curaçao. Listed by Bai Pe Real Estate." />
+
   <style>
- /* ================= GENERAL STYLES ================= */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #F4F6FC;
-  color: #0f514f;
-}
+    /* ================= GENERAL STYLES ================= */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #F4F6FC;
+      color: #0f514f;
+    }
 
-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 16px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #0f514f;
-  font-weight: 500;
-}
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #0f514f;
+      font-weight: 500;
+    }
 
-/* ================= MAIN CONTENT ================= */
-main {
-  max-width: 1100px;   /* professional text width */
-  margin: 40px auto;
-  padding: 0 20px;
-}
+    /* ================= MAIN CONTENT ================= */
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-h1 {
-  margin-top: 24px;
-  font-size: 32px;
-}
+    h1 {
+      margin-top: 24px;
+      font-size: 32px;
+    }
 
-.price {
-  color: #D8AE5E;
-  font-size: 24px;
-  font-weight: bold;
-  margin: 8px 0;
-}
+    h2 {
+      margin-top: 0;
+    }
 
-.location {
-  opacity: 0.8;
-  margin-bottom: 24px;
-}
+    .price {
+      color: #D8AE5E;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 8px 0;
+    }
 
-/* ================= HERO IMAGE ================= */
-.hero img:first-child {
-  width: 100%;
-  height: clamp(420px, 45vw, 650px);  /* responsive height */
-  object-fit: cover;                   /* crops without stretching */
-  border-radius: 10px;
-  margin-bottom: 16px;
-}
+    .location {
+      opacity: 0.8;
+      margin-bottom: 24px;
+    }
 
-/* ================= GALLERY ================= */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 14px;
-  margin-top: 24px;
-}
+    /* ================= HERO IMAGE ================= */
+    .hero img.main-image {
+      width: 100%;
+      height: clamp(260px, 40vw, 460px);
+      object-fit: cover;
+      border-radius: 10px;
+    }
 
-.gallery img {
-  width: 100%;
-  aspect-ratio: 4 / 3;        /* default ratio for mobile & tablets */
-  object-fit: cover;
-  border-radius: 8px;
-  background: #e5e7eb;
-  transition: transform 0.25s ease;
-}
+    /* ================= GALLERY ================= */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
 
-.gallery img:hover {
-  transform: scale(1.03);
-}
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #e5e7eb;
+      transition: transform 0.25s ease;
+    }
 
-/* DESKTOP LARGE SCREENS — taller gallery images */
-@media (min-width: 1200px) {
-  .gallery img {
-    aspect-ratio: 3 / 2;   /* slightly taller on large screens */
-  }
-}
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
 
-/* ================= DETAILS SECTION ================= */
-.details {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 40px;
-  margin-top: 40px;
-}
+    @media (min-width: 1200px) {
+      .gallery img {
+        aspect-ratio: 3 / 2;
+      }
+    }
 
-@media (max-width: 900px) {
-  .details {
-    grid-template-columns: 1fr;  /* stacked on mobile */
-  }
-}
+    /* ================= DETAILS SECTION ================= */
+    .details {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
 
-/* ================= BOXES ================= */
-.box {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 8px;
-}
+    @media (max-width: 900px) {
+      .details {
+        grid-template-columns: 1fr;
+      }
+    }
 
-ul {
-  padding-left: 18px;
-  line-height: 1.8;
-}
+    /* ================= BOXES ================= */
+    .box {
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 8px;
+    }
 
-.cta {
-  margin-top: 24px;
-  padding: 16px;
-  background: #0f514f;
-  color: #ffffff;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  font-weight: bold;
-}
+    ul {
+      padding-left: 18px;
+      line-height: 1.8;
+    }
 
+    .cta {
+      margin-top: 24px;
+      padding: 16px;
+      background: #0f514f;
+      color: #ffffff;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+
+    /* ================= WHATSAPP BUTTON ================= */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: #ffffff;
+      padding: 14px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <a href="/">
-    <img src="/assets/images/logo.png" alt="Bai Pe Real Estate" style="height:48px;">
-  </a>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/listings.html">Listings</a>
-    <a href="/contact.html">Contact</a>
-  </nav>
-</header>
+  <!-- HEADER -->
+  <header>
+    <a href="/">
+      <img src="/assets/images/logo.png" alt="Bai Pe Real Estate" style="height:48px;" />
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/listings.html">Listings</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
 
-<main>
+  <!-- MAIN CONTENT -->
+  <main>
 
-  <!-- HERO IMAGE -->
- <div class="hero">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <img src="/assets/images/listings/property-001/1.jpg" alt="Main property image" class="main-image" />
 
-  <!-- MAIN IMAGE -->
-<img src="/assets/images/listings/property-002/1.jpg"
+      <div class="gallery">
+        <img src="/assets/images/listings/property-001/2.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/3.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/4.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/5.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/6.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/7.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/8.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/9.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/10.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/11.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/12.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/13.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/14.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/15.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/16.jpg" alt="Property image" />
+        <img src="/assets/images/listings/property-001/17.jpg" alt="Property image" />
+      </div>
+    </section>
 
-     style="
-       width:100%;
-       height:clamp(260px, 40vw, 460px);
-       object-fit:cover;
-       border-radius:10px;
-     ">
+    <!-- BASIC INFO -->
+    <h1>Move-in Ready Residential Property with Pool & Studio</h1>
+    <div class="price">XCG 730,000</div>
+    <div class="location">Grote Berg, Curaçao</div>
 
+    <!-- DETAILS -->
+    <section class="details">
 
-  <!-- IMAGE GRID -->
-<div class="gallery">
+      <!-- DESCRIPTION -->
+      <div class="box">
+        <h2>Property Description</h2>
+        <p>
+          This move-in ready residential property is located in the desirable area of Grote Berg, Curaçao. Situated on owned land, the home offers a high level of comfort, privacy, and functionality, making it suitable for both owner-occupation and investment purposes.
+        </p>
+        <p>
+          The property features a modern interior layout with high-quality finishes throughout. In addition to the main residence, the home includes a private swimming pool and a detached studio, providing excellent flexibility for guest accommodation or rental income.
+        </p>
+        <p>
+          A recent valuation report is available, supporting financing and due diligence.
+        </p>
 
-<div class="gallery">
-  <img src="/assets/images/listings/property-002/2.jpg" alt="Property image">
-  <img src="/assets/images/listings/property-002/3.jpg" alt="Property image">
-  <img src="/assets/images/listings/property-002/4.jpg" alt="Property image">
-  <img src="/assets/images/listings/property-002/5.jpg" alt="Property image">
-  <img src="/assets/images/listings/property-002/6.jpg" alt="Property image">
-  <img src="/assets/images/listings/property-002/7.jpg" alt="Property image">
-</div>
+        <h3>Interior Features</h3>
+        <ul>
+          <li>3 bedrooms, all equipped with air-conditioning</li>
+          <li>2 modern bathrooms, including a spacious en-suite</li>
+          <li>Open-plan living and dining area with air-conditioning</li>
+          <li>High-end kitchen with cooking island</li>
+          <li>Pop-up electrical charging station</li>
+          <li>Integrated wine cooler</li>
+          <li>Built-in grill</li>
+          <li>Soft-close cabinets and drawers</li>
+          <li>Integrated spice racks and waste system</li>
+          <li>Extractor hood</li>
+        </ul>
 
-</div>
+        <h3>Exterior Features</h3>
+        <ul>
+          <li>Large covered rear porch with sunset views</li>
+          <li>Private swimming pool</li>
+          <li>Detached studio suitable for rental or guest accommodation</li>
+          <li>Outdoor storage area</li>
+          <li>Separate laundry room</li>
+        </ul>
+      </div>
 
-  </div>
+      <!-- FACTS -->
+      <aside class="box">
+        <h2>Property Details</h2>
+        <ul>
+          <li><strong>Location:</strong> Grote Berg, Curaçao</li>
+          <li><strong>Land size:</strong> 715 m² (owned land)</li>
+          <li><strong>Status:</strong> Move-in ready</li>
+          <li><strong>Asking price:</strong> XCG 730,000</li>
+          <li><strong>Valuation report:</strong> Available</li>
+        </ul>
 
-  <!-- BASIC INFO -->
-  <h1>Move-in Ready Residential Property with Pool & Studio</h1>
-  <div class="price">XCG 700.000,- </div>
-<div class="location"> Juan Domingo nearby Mahuma</div>
+        <h3>Additional Information</h3>
+        <ul>
+          <li>Furniture available by separate agreement</li>
+          <li>Property in excellent condition</li>
+          <li>Ready for immediate occupancy</li>
+        </ul>
 
+        <a href="/contact.html" class="cta">Request Full Details & Viewing</a>
+      </aside>
 
-  <!-- CONTENT -->
-  <div class="details">
+    </section>
 
-    <!-- DESCRIPTION -->
-    <div class="box">
-      <h2>Property description</h2>
-     <p>
-This turn-key apartment complex is located in the quiet residential neighborhood of Juan Domingo nearby Mahuma and is built on 484 m² of freehold land (eigendomsgrond). Constructed in 2020, the property is well maintained and fully rented, offering immediate rental income from day one.
-An excellent opportunity for investors seeking stable cash flow combined with future value growth.
+  </main>
 
-</p>
-
-<p>
-The complex consists of three spacious 2-bedroom apartments, each designed for comfortable long-term living. All units are currently rented, ensuring secure and ongoing income for the new owner.
-The fully asphalted yard provides a low-maintenance exterior, while private parking is available for each apartment. The property is strategically located close to the main road, beaches, and just minutes from the airport, making it highly attractive to tenants.
-
-</p>
-
-<p>
-A recent valuation report is available, confirming the market value and
-supporting financing and due diligence processes.
-</p>
-
-
-      <h3>Interior features</h3>
-<ul>
-  <li>3 bedrooms, all equipped with air-conditioning</li>
-  <li>2 modern bathrooms, including a spacious en-suite bathroom</li>
-  <li>Open-plan living and dining area with air-conditioning</li>
-  <li>High-end kitchen with cooking island</li>
-  <li>Pop-up electrical charging station</li>
-  <li>Integrated wine cooler</li>
-  <li>Built-in grill</li>
-  <li>Soft-close cabinets and drawers</li>
-  <li>Integrated spice racks and built-in waste system</li>
-  <li>Extractor hood</li>
-</ul>
-      
-<h3>Exterior features</h3>
-<ul>
-  <li>Large covered rear porch with sunset views</li>
-  <li>Private swimming pool</li>
-  <li>Detached studio suitable for rental or guest accommodation</li>
-  <li>Outdoor storage area</li>
-  <li>Separate laundry room</li>
-</ul>
-</div>
-
-
-    <!-- FACTS -->
-    <div class="box">
-     <h2>Property details</h2>
-<ul>
-  <li>Location: Grote Berg, Curaçao</li>
-  <li>Land size: 715 m² (owned land)</li>
-  <li>Status: Move-in ready</li>
-  <li>Asking price: XCG 730.000,- </li>
-  <li>Valuation report: Available</li>
-</ul>
-
-      <h3>Additional information</h3>
-<ul>
-  <li>Furniture available for purchase by separate agreement</li>
-  <li>Property in excellent condition</li>
-  <li>Ready for immediate occupancy</li>
-</ul>
-
-
-      <a href="/contact.html" class="cta">
-        Request full details & viewing
-      </a>
-    </div>
-
-
-  </div>
-</main>
-<a href="https://wa.me/59996654776" target="_blank"
-   style="
-     position:fixed;
-     bottom:20px;
-     right:20px;
-     background:#25D366;
-     color:#ffffff;
-     padding:14px 18px;
-     border-radius:50px;
-     text-decoration:none;
-     font-weight:bold;
-     box-shadow:0 4px 10px rgba(0,0,0,0.2);
-     z-index:1000;
-   ">
-  WhatsApp
-</a>
+  <!-- WHATSAPP BUTTON -->
+  <a href="https://wa.me/59996654776" target="_blank" class="whatsapp">WhatsApp</a>
 
 </body>
 </html>
