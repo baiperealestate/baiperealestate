@@ -148,7 +148,73 @@
     }
   </style>
 </head>
+<script src="/js/listings.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
 
+  const listing = listings.find(l => l.id === id);
+
+  if (!listing) {
+    document.body.innerHTML = "<h1>Property not found</h1>";
+  }
+
+  // BASIC INFO
+  document.getElementById("title").innerText = listing.title;
+  document.getElementById("price").innerText = listing.price;
+  document.getElementById("location").innerText = listing.location;
+
+  // HERO IMAGE
+  document.querySelector(".main-image").src =
+    `/assets/images/listings/${listing.id}/1.jpg`;
+
+  // GALLERY
+  const gallery = document.querySelector(".gallery");
+  gallery.innerHTML = "";
+  for (let i = 2; i <= listing.galleryCount; i++) {
+    const img = document.createElement("img");
+    img.src = `/assets/images/listings/${listing.id}/${i}.jpg`;
+    img.alt = "Property image";
+    gallery.appendChild(img);
+  }
+
+  // DESCRIPTION
+  document.getElementById("description").innerHTML = listing.description;
+
+  // INTERIOR
+  const interior = document.getElementById("interior");
+  listing.interior.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    interior.appendChild(li);
+  });
+
+  // EXTERIOR
+  const exterior = document.getElementById("exterior");
+  listing.exterior.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    exterior.appendChild(li);
+  });
+
+  // PROPERTY DETAILS
+  const details = document.getElementById("property-details");
+  listing.propertyDetails.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    details.appendChild(li);
+  });
+
+  // ADDITIONAL INFO
+  const additional = document.getElementById("additional-info");
+  listing.additionalInfo.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    additional.appendChild(li);
+  });
+</script>
+
+  
 <body>
 
   <!-- HEADER -->
