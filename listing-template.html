@@ -37,6 +37,7 @@
       color: var(--text);
       font-weight: 500;
     }
+<div id="statusBadge"></div>
 
     /* HERO */
     .hero {
@@ -304,3 +305,19 @@
 
 </body>
 </html>
+const badge = document.getElementById("statusBadge");
+
+const badge = document.getElementById("statusBadge");
+
+if (listing.status) {
+  badge.className = `status-badge status-${listing.status.toLowerCase().replace(" ", "-")}`;
+  badge.innerText = listing.status;
+}
+.hero .status-badge {
+  position: relative;
+  top: auto;
+  left: auto;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
