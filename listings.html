@@ -94,12 +94,9 @@
   <h1>Property Listings</h1>
   <p>Selected residential and investment opportunities in Curaçao.</p>
 
-  <div class="grid">
 
-   <div class="grid" id="listingsGrid"></div>
+<div class="grid" id="listingsGrid"></div>
 
-<script src="/js/listings.js"></script>
-<script>
   const grid = document.getElementById("listingsGrid");
 
   listings.forEach(listing => {
@@ -142,6 +139,29 @@
    ">
   WhatsApp
 </a>
+<script src="/js/listings.js"></script>
+<script>
+  const grid = document.getElementById("listingsGrid");
+
+  listings.forEach(listing => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <img src="${listing.thumbnail}" alt="${listing.title}">
+      <div class="card-content">
+        <div class="price">${listing.price}</div>
+        <div class="location">${listing.location}</div>
+        <p>${listing.status} — ${listing.title}</p>
+        <a href="listing.html?id=${listing.id}" class="btn">
+          View property
+        </a>
+      </div>
+    `;
+
+    grid.appendChild(card);
+  });
+</script>
 
 </body>
 </html>
