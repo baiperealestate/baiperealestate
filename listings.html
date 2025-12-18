@@ -96,39 +96,30 @@
 
   <div class="grid">
 
-    <!-- LISTING CARD 1 -->
-    <div class="card">
-      <img src="/assets/images/listings/property-002/1.jpg" alt="Property image">
-      <div class="card-content">
-        <div class="price">XCG 700.000,-</div>
-        <div class="location">Curaçao,Willemstad</div>
-        <p>For Sale  —  Turn-Key Investment Property. </p>
-       <a href="/listing-template.html" class="btn">View property</a>
-      </div>
-    </div>
+   <div class="grid" id="listingsGrid"></div>
 
-    <!-- LISTING CARD 2 -->
-    <div class="card">
-      <img src="/assets/images/listings/property-001/1.jpg" alt="Property image">
+<script src="/js/listings.js"></script>
+<script>
+  const grid = document.getElementById("listingsGrid");
+
+  listings.forEach(listing => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <img src="${listing.thumbnail}" alt="Property image">
       <div class="card-content">
-        <div class="price"> XCG 730.000,- </div>
-        <div class="location">Curaçao,Willemstad</div>
-        <p>For Sale  —  Well-located home suitable for living or investment.</p>
-        <a href="/listing-template.html" class="btn">View property</a>
+        <div class="price">${listing.price}</div>
+        <div class="location">${listing.location}</div>
+        <p>${listing.status} — ${listing.title}</p>
+        <a href="listing-template.html?id=${listing.id}" class="btn">View property</a>
       </div>
-    </div>
-    
-  <!-- LISTING CARD 3 -->
-    <div class="card">
-      <img src="/assets/images/listings/property-003/1.jpg" alt="Property image">
-      <div class="card-content">
-        <div class="price"> XCG 2,500,- p/m </div>
-        <div class="location">Curaçao,Willemstad</div>
-        <p>For Rent — Fully Furnished 1-Bedroom Apartment </p>
-       <a href="/listing-template.html" class="btn">View property</a>
-      </div>
-    </div>
-  </div>
+    `;
+
+    grid.appendChild(card);
+  });
+</script>
+
   <p style="margin-top:48px; font-size:14px; opacity:0.7;">
   All information is provided for indicative purposes only. Availability, pricing,
   and specifications are subject to change. Final details are confirmed through the notary.
