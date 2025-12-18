@@ -135,7 +135,26 @@
     card.className = "card";
 
     card.innerHTML = `
-      <img src="${listing.thumbnail}" alt="${listing.title}">
+      <div style="position:relative;">
+  <img src="${listing.thumbnail}" alt="${listing.title}">
+  <div class="status-badge status-${listing.status.toLowerCase().replace(" ", "-")}">
+    ${listing.status}
+  </div>
+</div>
+
+.status-under-contract {
+  background: #D8AE5E;
+  color: #ffffff;
+}
+
+.status-sold {
+  background: #111827;
+}
+
+.card:has(.status-sold) {
+  opacity: 0.75;
+}
+
       <div class="card-content">
         <div class="price">${listing.price}</div>
         <div class="location">${listing.location}</div>
