@@ -1,1 +1,18 @@
+[
+  {
+    "id": "villa-jan-thiel",
+    "title": "Luxury Villa in Jan Thiel",
+    "price": "ANG 1,250,000",
+    "location": "Jan Thiel, Curaçao",
+    "category": "For Sale",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "size": "320 m²",
+    "images": [
+      "assets/images/properties/villa1-1.jpg",
+      "assets/images/properties/villa1-2.jpg"
+    ],
+    "description": "Beautiful luxury villa with sea view."
+  }
+]
 
