@@ -1,18 +1,234 @@
+/* ===============================
+   GLOBAL RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===============================
+   BRAND VARIABLES
+================================ */
 :root {
   --primary-color: #0F514F;
   --secondary-color: #D8AE5E;
   --background-color: #F4F6FC;
   --text-color: #1E1E1E;
+  --muted-text: #6b7280;
   --white: #ffffff;
-}
 
+  --container-width: 1200px;
+  --border-radius: 8px;
+  --transition: 0.3s ease;
+}
 body {
-  margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
+  line-height: 1.6;
 }
 
-<a href="https://wa.me/59996654776" class="whatsapp-btn">
-  WhatsApp Us
-</a>
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: auto;
+  padding: 0 20px;
+}
+
+header {
+  background-color: var(--white);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header-inner {
+  max-width: var(--container-width);
+  margin: auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+nav a {
+  margin-left: 25px;
+  font-weight: 500;
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+nav a:hover {
+  color: var(--secondary-color);
+}
+.hero {
+  background: linear-gradient(
+      rgba(15, 81, 79, 0.7),
+      rgba(15, 81, 79, 0.7)
+    ),
+    url("../images/hero.jpg") center/cover no-repeat;
+  color: var(--white);
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background-color: #c39a45;
+}
+
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.property-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+}
+
+.property-card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.property-content {
+  padding: 20px;
+}
+
+.property-content h3 {
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.property-content p {
+  color: var(--muted-text);
+  font-size: 0.9rem;
+}
+
+.property-price {
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.property-detail {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.property-detail h1 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.property-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.feature-box {
+  background-color: var(--background-color);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+form {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  max-width: 600px;
+  margin: auto;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: var(--border-radius);
+  border: 1px solid #d1d5db;
+}
+
+form button {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: var(--white);
+  padding: 14px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
