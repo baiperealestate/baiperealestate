@@ -1,18 +1,30 @@
 [
   {
-    "id": "villa-jan-thiel",
+    "id": "jan-thiel-villa",
     "title": "Luxury Villa in Jan Thiel",
     "price": "ANG 1,250,000",
     "location": "Jan Thiel, Curaçao",
     "category": "For Sale",
+    "type": "Residential",
     "bedrooms": 4,
     "bathrooms": 3,
     "size": "320 m²",
-    "images": [
-      "assets/images/properties/villa1-1.jpg",
-      "assets/images/properties/villa1-2.jpg"
-    ],
-    "description": "Beautiful luxury villa with sea view."
+    "image": "assets/images/properties/villa1.jpg",
+    "description": "Luxury villa with swimming pool and sea view."
+  },
+ 
+  {
+    "id": "willemstad-apartment",
+    "title": "Modern Apartment in Willemstad",
+    "price": "ANG 2,500 / month",
+    "location": "Willemstad, Curaçao",
+    "category": "For Rent",
+    "type": "Residential",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "size": "90 m²",
+    "image": "assets/images/properties/apartment1.jpg",
+    "description": "Modern apartment close to the city center."
   }
 ]
 
