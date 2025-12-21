@@ -1,17 +1,22 @@
 [
-  {
-    "id": "jan-thiel-villa",
-    "title": "Luxury Villa in Jan Thiel",
-    "price": "ANG 1,250,000",
-    "location": "Jan Thiel, Curaçao",
-    "category": "For Sale",
-    "type": "Residential",
-    "bedrooms": 4,
-    "bathrooms": 3,
-    "size": "320 m²",
-    "image": "assets/images/properties/villa1.jpg",
-    "description": "Luxury villa with swimming pool and sea view."
-  },
+ {
+  "id": "jan-thiel-villa",
+  "title": "Luxury Villa in Jan Thiel",
+  "price": "ANG 1,250,000",
+  "location": "Jan Thiel, Curaçao",
+  "category": "For Sale",
+  "type": "Residential",
+  "bedrooms": 4,
+  "bathrooms": 3,
+  "size": "320 m²",
+  "images": [
+    "assets/images/properties/villa1-1.jpg",
+    "assets/images/properties/villa1-2.jpg",
+    "assets/images/properties/villa1-3.jpg"
+  ],
+  "description": "Luxury villa with swimming pool, private parking and stunning sea views."
+}
+
  
   {
     "id": "willemstad-apartment",
