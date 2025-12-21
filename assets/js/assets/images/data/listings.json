@@ -17,19 +17,5 @@
   "description": "Luxury villa with swimming pool, private parking and stunning sea views."
 }
 
- 
-  {
-    "id": "willemstad-apartment",
-    "title": "Modern Apartment in Willemstad",
-    "price": "ANG 2,500 / month",
-    "location": "Willemstad, Curaçao",
-    "category": "For Rent",
-    "type": "Residential",
-    "bedrooms": 2,
-    "bathrooms": 2,
-    "size": "90 m²",
-    "image": "assets/images/properties/apartment1.jpg",
-    "description": "Modern apartment close to the city center."
-  }
-]
+
 
