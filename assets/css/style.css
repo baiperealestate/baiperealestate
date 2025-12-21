@@ -248,3 +248,13 @@ footer {
 html {
   scroll-behavior: smooth;
 }
+
+#languageSwitcher {
+  margin-left: 20px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background-color: var(--white);
+  font-weight: 500;
+  cursor: pointer;
+}
