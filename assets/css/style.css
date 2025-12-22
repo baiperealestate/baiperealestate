@@ -347,3 +347,35 @@ html {
     height: 56px;
   }
 }
+.logo img {
+  height: 44px;          /* mobile default */
+  width: auto;
+  max-width: 180px;      /* prevents oversized logo */
+  transition: all 0.3s ease;
+  display: block;
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  .logo img {
+    height: 52px;
+    max-width: 220px;
+  }
+}
+
+/* Desktop / Large screens */
+@media (min-width: 1200px) {
+  .logo img {
+    height: 58px;
+    max-width: 260px;
+  }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: white;
+}
+
