@@ -417,4 +417,24 @@ html {
     grid-template-columns: 1fr;
   }
 }
+.about-page {
+  padding: 100px 20px;
+}
+
+.about-page-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.about-page h1 {
+  color: #0F514F;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.about-page p {
+  font-size: 17px;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
 
