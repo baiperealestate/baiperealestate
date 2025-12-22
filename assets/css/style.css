@@ -335,3 +335,15 @@ html {
   text-decoration: none;
   font-size: 14px;
 }
+
+.logo img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .logo img {
+    height: 56px;
+  }
+}
