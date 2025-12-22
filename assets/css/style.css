@@ -372,4 +372,9 @@ html {
   padding: 18px 24px;
   background: white;
 }
+@media (max-width: 480px) {
+  .logo img {
+    height: 40px;
+  }
+}
 
