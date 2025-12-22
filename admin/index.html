@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bai Pe Real Estate | Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">Bai Pe Real Estate – Admin</div>
+  </div>
+</header>
+
+<section class="container" style="margin-top:40px;">
+  <h1>Listings Overview</h1>
+  <p>Internal dashboard – do not share publicly.</p>
+
+  <div id="adminListings"></div>
+</section>
+
+<script>
+fetch("../data/listings.json")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("adminListings");
+
+    data.forEach(p => {
+      container.innerHTML += `
+        <div style="background:#fff; padding:20px; border-radius:8px; margin-bottom:15px;">
+          <strong>${p.title}</strong><br>
+          ${p.location}<br>
+          ${p.price}<br><br>
+
+          <button onclick="copyLink('${p.id}')">Copy Listing Link</button>
+          <button onclick="whatsapp('${p.title}')">WhatsApp Text</button>
+        </div>
+      `;
+    });
+  });
+
+function copyLink(id) {
+  const url = `${window.location.origin}/listing.html?id=${id}`;
+  navigator.clipboard.writeText(url);
+  alert("Listing link copied");
+}
+
+function whatsapp(title) {
+  const msg = `Hello, I am interested in: ${title}`;
+  window.open(`https://wa.me/59996654776?text=${encodeURIComponent(msg)}`);
+}
+</script>
+
+</body>
+</html>
