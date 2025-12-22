@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real Estate Blog | Bai Pe Real Estate</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">Bai Pe Real Estate</div>
+  </div>
+</header>
+
+<section class="container" style="margin-top:40px;">
+  <h1>Real Estate Insights</h1>
+  <div id="blogList"></div>
+</section>
+
+<script>
+fetch("../data/blog.json")
+  .then(res => res.json())
+  .then(posts => {
+    const list = document.getElementById("blogList");
+    posts.forEach(p => {
+      list.innerHTML += `
+        <div style="background:#fff; padding:20px; margin-bottom:20px; border-radius:8px;">
+          <h3>${p.title}</h3>
+          <small>${p.date}</small>
+          <p>${p.excerpt}</p>
+          <a href="post.html?id=${p.id}" class="btn">Read More</a>
+        </div>
+      `;
+    });
+  });
+</script>
+
+</body>
+</html>
 
