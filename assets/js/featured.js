@@ -21,3 +21,13 @@ fetch("data/listings.json")
     });
   });
 
+<section class="container" style="margin-top:60px;">
+  <h2>Why Choose Bai Pe Real Estate</h2>
+
+  <div class="property-features">
+    <div class="feature-box">✔ Local Market Expertise</div>
+    <div class="feature-box">✔ Transparent & Honest Guidance</div>
+    <div class="feature-box">✔ Residential & Investment Properties</div>
+    <div class="feature-box">✔ Personal & Professional Service</div>
+  </div>
+</section>
