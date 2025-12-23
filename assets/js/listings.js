@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="details">
               ${item.bedrooms} Beds • ${item.bathrooms} Baths • ${item.size}
             </p>
-            <a href="${item.url}" class="btn-small">View Details</a>
+            
+            <a href="listing.html?id=${item.id}" class="btn-small">View Details</a>
+
           </div>
         `;
 
