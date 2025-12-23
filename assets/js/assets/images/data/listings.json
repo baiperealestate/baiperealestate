@@ -1,39 +1,16 @@
-[
-  {
-    "id": "House-Grote Berg",
-    "title": "Luxury Villa Jan Thiel",
-    "price": "ANG 1,250,000",
-    "location": "Jan Thiel, Curaçao",
-    "category": "For Sale",
-    "bedrooms": 4,
-    "bathrooms": 3,
-    "size": "600 m²",
-    "image": "assets/images/listings/Grote-Berg/cover.jpg",
-    "url": "listing-villa-jan-thiel.html"
-  },
-  {
-    "id": "apartment-punda",
-    "title": "Modern Apartment Punda",
-    "price": "ANG 2,200 / month",
-    "location": "Punda, Curaçao",
-    "category": "For Rent",
-    "bedrooms": 2,
-    "bathrooms": 1,
-    "size": "85 m²",
-    "image": "assets/images/listings/apartment-punda/cover.jpg",
-    "url": "listing-apartment-punda.html"
-  },
-  {
-    "id": "house-salina",
-    "title": "Family Home Salina",
-    "price": "ANG 875,000",
-    "location": "Salina, Curaçao",
-    "category": "For Sale",
-    "bedrooms": 3,
-    "bathrooms": 2,
-    "size": "420 m²",
-    "image": "assets/images/listings/house-salina/cover.jpg",
-    "url": "listing-house-salina.html"
-  }
-]
-
+{
+  "id": "villa-jan-thiel",
+  "title": "Luxury Villa Jan Thiel",
+  "price": "ANG 1,250,000",
+  "location": "Jan Thiel, Curaçao",
+  "category": "For Sale",
+  "bedrooms": 4,
+  "bathrooms": 3,
+  "size": "600 m²",
+  "description": "Luxury villa located in the exclusive Jan Thiel area with modern design and strong investment potential.",
+  "images": [
+    "assets/images/listings/villa-jan-thiel/cover.jpg",
+    "assets/images/listings/villa-jan-thiel/img1.jpg",
+    "assets/images/listings/villa-jan-thiel/img2.jpg"
+  ]
+}
