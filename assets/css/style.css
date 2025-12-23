@@ -536,13 +536,4 @@ html {
   object-fit: cover;
   border-radius: 10px;
 }
-.logo img {
-  height: 48px;
-}
-
-@media (max-width: 768px) {
-  .logo img {
-    height: 36px;
-  }
-}
 
