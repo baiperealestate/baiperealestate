@@ -1,16 +1,20 @@
 {
-  "id": "villa-jan-thiel",
-  "title": "Luxury Villa Jan Thiel",
-  "price": "ANG 1,250,000",
-  "location": "Jan Thiel, Curaçao",
+  "id": " Modern Family Home-Grote Berg",
+  "title": "Modern Family Home Grote Berg",
+  "price": "XCGG 730,000" ,
+  "location": "Grote Berg, Curaçao",
   "category": "For Sale",
-  "bedrooms": 4,
-  "bathrooms": 3,
-  "size": "600 m²",
-  "description": "Luxury villa located in the exclusive Jan Thiel area with modern design and strong investment potential.",
+  "bedrooms": 3,
+  "bathrooms": 2,
+  "size": "715m²",
+  "description": "Grote Berg, Curaçao
+
+Work where you vacation. Live where others escape.
+Bai Pe Real Estate proudly presents this move-in-ready modern family home located in the desirable neighborhood of Grote Berg, Curaçao. Situated on 715 m² of owned land, this property combines contemporary comfort, privacy, and strong investment potential — making it ideal for both personal living and income generation.
+Designed for relaxed Caribbean living, the home features open, airy spaces, a private swimming pool, and a detached studio perfect for rental income, guests, or a home office. With its recent price reduction and turnkey condition, this property represents a rare opportunity in today’s market.",
   "images": [
-    "assets/images/listings/villa-jan-thiel/cover.jpg",
-    "assets/images/listings/villa-jan-thiel/img1.jpg",
-    "assets/images/listings/villa-jan-thiel/img2.jpg"
+    "assets/images/listings/Grote-Berg/cover.jpg",
+    "assets/images/listings/Grote-Berg/img1.jpg",
+    "assets/images/listings/Grote-Berg/img2.jpg"
   ]
 }
