@@ -1,1 +1,18 @@
+{
+  "id": "house-brakkeput",
+  "title": "Family Home for Sale in Brakkeput",
+  "price": "ANG 895,000",
+  "location": "Brakkeput, Curaçao",
+  "category": "For Sale",
+  "bedrooms": 3,
+  "bathrooms": 2,
+  "size": "180 m²",
+  "description": "Well-maintained family home located in the popular Brakkeput area. The property offers a spacious living area, private parking, and is close to schools, supermarkets, and main roads. Ideal for owner-occupiers or long-term investment.",
+  "images": [
+    "assets/images/listings/house-brakkeput/cover.jpg",
+    "assets/images/listings/house-brakkeput/img1.jpg",
+    "assets/images/listings/house-brakkeput/img2.jpg",
+    "assets/images/listings/house-brakkeput/img3.jpg"
+  ]
+}
 
