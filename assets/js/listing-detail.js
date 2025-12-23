@@ -1,55 +1,25 @@
-const container = document.getElementById("propertyDetail");
-
-// Get ID from URL
 const params = new URLSearchParams(window.location.search);
-const propertyId = params.get("id");
+const listingId = params.get('id');
 
-fetch("data/listings.json")
+fetch('data/listings.json')
   .then(res => res.json())
-  .then(data => {
-    const property = data.find(item => item.id === propertyId);
+  .then(listings => {
+    const listing = listings.find(item => item.id === listingId);
 
-    if (!property) {
-      container.innerHTML = "<p>Property not found.</p>";
-      return;
-    }
+    if (!listing) return;
 
-    renderProperty(property);
-  })
-  .catch(err => {
-    container.innerHTML = "<p>Error loading property.</p>";
-    console.error(err);
+    document.getElementById('title').textContent = listing.title;
+    document.getElementById('price').textContent = listing.price;
+    document.getElementById('location').textContent = listing.location;
+    document.getElementById('description').textContent = listing.description;
+    document.getElementById('bedrooms').textContent = listing.bedrooms;
+    document.getElementById('bathrooms').textContent = listing.bathrooms;
+    document.getElementById('size').textContent = listing.size;
+
+    const gallery = document.getElementById('gallery');
+    listing.images.forEach(img => {
+      const image = document.createElement('img');
+      image.src = img;
+      gallery.appendChild(image);
+    });
   });
-
-function renderProperty(property) {
-  const imagesHtml = property.images
-    .map(img => `<img src="${img}" alt="${property.title}">`)
-    .join("");
-
-  container.innerHTML = `
-    <div class="property-detail">
-
-      <h1>${property.title}</h1>
-      <p>${property.location}</p>
-      <h2 class="property-price">${property.price}</h2>
-
-      <div class="property-gallery" style="margin:25px 0;">
-        ${imagesHtml}
-      </div>
-
-      <div class="property-features">
-        <div class="feature-box">${property.bedrooms} Bedrooms</div>
-        <div class="feature-box">${property.bathrooms} Bathrooms</div>
-        <div class="feature-box">${property.size}</div>
-        <div class="feature-box">${property.category}</div>
-      </div>
-
-      <p style="margin-top:20px;">${property.description}</p>
-
-      <a href="contact.html" class="btn" style="margin-top:25px;">
-        Contact Agent
-      </a>
-
-    </div>
-  `;
-}
