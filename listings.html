@@ -80,3 +80,26 @@
 </body>
 </html>
 
+<script>
+fetch("data/listings.json")
+  .then(response => response.json())
+  .then(listings => {
+    const container = document.getElementById("listings-container");
+
+    listings.forEach(listing => {
+      const card = document.createElement("div");
+      card.className = "listing-card";
+
+      card.innerHTML = `
+        <img src="${listing.image}" alt="${listing.title}">
+        <h3>${listing.title}</h3>
+        <p><strong>${listing.price}</strong></p>
+        <p>${listing.location}</p>
+        <p>${listing.description}</p>
+        <a href="contact.html" class="btn">View Details</a>
+      `;
+
+      container.appendChild(card);
+    });
+  });
+</script>
