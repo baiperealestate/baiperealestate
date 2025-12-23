@@ -1,59 +1,27 @@
-const listingsGrid = document.getElementById("listingsGrid");
-const categoryFilter = document.getElementById("categoryFilter");
-
-let properties = [];
-
-// Fetch listings
-fetch("data/listings.json")
+fetch('data/listings.json')
   .then(response => response.json())
-  .then(data => {
-    properties = data;
-    displayListings(properties);
+  .then(listings => {
+    const container = document.getElementById('listings-container');
+
+    listings.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'property-card';
+
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.title}">
+        <div class="property-info">
+          <span class="badge">${item.category}</span>
+          <h3>${item.title}</h3>
+          <p class="price">${item.price}</p>
+          <p class="location">${item.location}</p>
+          <p class="details">
+            ${item.bedrooms} Beds • ${item.bathrooms} Baths • ${item.size}
+          </p>
+          <a href="${item.url}" class="btn-small">View Details</a>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
   })
-  .catch(error => {
-    listingsGrid.innerHTML = "<p>Unable to load listings.</p>";
-    console.error(error);
-  });
-
-// Display properties
-function displayListings(listings) {
-  listingsGrid.innerHTML = "";
-
-  if (listings.length === 0) {
-    listingsGrid.innerHTML = "<p>No properties found.</p>";
-    return;
-  }
-
-  listings.forEach(property => {
-    const card = document.createElement("div");
-    card.className = "property-card";
-
-    card.innerHTML = `
-      <img src="${property.image}" alt="${property.title}">
-      <div class="property-content">
-        <h3>${property.title}</h3>
-        <p>${property.location}</p>
-        <p>${property.bedrooms} Beds • ${property.bathrooms} Baths • ${property.size}</p>
-        <div class="property-price">${property.price}</div>
-        <a href="listing.html?id=${property.id}" class="btn" style="margin-top:15px; display:inline-block;">
-          View Details
-        </a>
-      </div>
-    `;
-
-    listingsGrid.appendChild(card);
-  });
-}
-
-// Filter by category
-categoryFilter.addEventListener("change", () => {
-  const value = categoryFilter.value;
-
-  if (value === "all") {
-    displayListings(properties);
-  } else {
-    const filtered = properties.filter(p => p.category === value || p.type === value);
-    displayListings(filtered);
-  }
-});
-
+  .catch(error => console.error('Listings error:', error));
