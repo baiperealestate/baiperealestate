@@ -100,7 +100,10 @@ fetch("data/listings.json")
         <p><strong>${listing.price}</strong></p>
         <p>${listing.location}</p>
         <p>${listing.description}</p>
-        <a href="contact.html" class="btn">View Details</a>
+        <a href="contact.html" <a href="property.html?id=${listing.id}" class="btn">
+  View Details
+</a>
+
       `;
 
       container.appendChild(card);
