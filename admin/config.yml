@@ -2,21 +2,25 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images/properties"
-public_folder: "/images/properties"
+media_folder: "assets/images/listings"
+public_folder: "/assets/images/listings"
 
 collections:
-  - name: "properties"
-    label: "Properties"
-    folder: "_properties"
+  - name: "listings"
+    label: "Listings"
+    folder: "content/listings"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Property Title", name: "title", widget: "string" }
       - { label: "Price", name: "price", widget: "string" }
       - { label: "Location", name: "location", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - label: "Gallery Images"
+      - { label: "Property Type", name: "type", widget: "select", options: ["For Sale", "For Rent", "Commercial"] }
+      - { label: "Bedrooms", name: "bedrooms", widget: "number" }
+      - { label: "Bathrooms", name: "bathrooms", widget: "number" }
+      - { label: "Size (m²)", name: "size", widget: "number" }
+      - label: "Image Gallery"
         name: "images"
         widget: "list"
         field: { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "text" }
