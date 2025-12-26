@@ -63,6 +63,28 @@
   <div id="listings-container" class="listings-grid">
     <!-- Listings load here automatically -->
 
+<div id="properties"></div>
+
+<script>
+fetch('/content/listings.json')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('properties');
+
+    data.forEach(property => {
+      container.innerHTML += `
+        <div class="property">
+          <h2>${property.title}</h2>
+          <p><strong>${property.price}</strong> — ${property.location}</p>
+          <p>${property.description}</p>
+          <div class="gallery">
+            ${property.images.map(img => `<img src="${img.image}" />`).join('')}
+          </div>
+        </div>
+      `;
+    });
+  });
+</script>
 
 
     
