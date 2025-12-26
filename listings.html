@@ -59,7 +59,7 @@
 <!-- LISTINGS GRID -->
 <section class="listings">
   <h1>Available Properties</h1>
-
+ 
   <div id="listings-container" class="listings-grid">
     <!-- Listings load here automatically -->
 
@@ -86,6 +86,20 @@ fetch('/content/listings.json')
   });
 </script>
 
+
+
+<section class="listings">
+  <div id="listings-container"></div>
+</section>
+
+<script>
+fetch('/content/listings/')
+  .then(() => {
+    const listings = document.querySelectorAll('[data-listing]');
+  });
+</script>
+
+    
 
     
   </div>
