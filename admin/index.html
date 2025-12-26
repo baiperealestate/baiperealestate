@@ -4,7 +4,24 @@
   <meta charset="utf-8" />
   <title>Admin</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <button onclick="netlifyIdentity.open()">Login</button>
+
 </head>
+  <!-- Netlify Identity -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
 <body>
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 </body>
