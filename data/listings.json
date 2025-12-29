@@ -17,21 +17,4 @@
     "description": "Modern luxury villa located in the heart of Jan Thiel. Perfect for investment or private living."
   },
 
-  {
-    "id": "apartment-pietermaai",
-    "title": "Modern Apartment Pietermaai",
-    "price": "$2,200 / month",
-    "location": "Pietermaai, Curaçao",
-    "category": "For Rent",
-    "bedrooms": 2,
-    "bathrooms": 2,
-    "size": "110 m²",
-    "images": [
-      "assets/images/listing-2/1.jpg",
-      "assets/images/listing-2/2.jpg"
-    ],
-    "video": "",
-    "description": "Stylish apartment in Pietermaai with walking distance to restaurants and nightlife."
-  }
-]
-
+  
