@@ -1,20 +1,15 @@
 [
   {
-    "id": " Single family home & detached studio-Grote Berg",
-    "title": "Single family home & detached in Grote Berg",
-    "price": "XCG 730,000",
-    "location": "Grote Berg, Curaçao",
+    "id": "test-listing",
+    "title": "Test Property Curaçao",
+    "price": "$500,000",
+    "location": "Willemstad",
     "category": "For Sale",
     "bedrooms": 3,
     "bathrooms": 2,
-    "size": "715 m² Owned Land",
-    "images": [
-      "assets/images/listing1/Cover.jpg",
-      "assets/images/listing1/img1.jpg",
-      "assets/images/listing1/3.jpg"
-    ],
-    "video": "https://www.youtube.com/embed/VIDEO_ID",
-    "description": "Modern luxury villa located in the heart of Jan Thiel. Perfect for investment or private living."
-  },
-
-  
+    "size": "150 m²",
+    "images": ["assets/images/test.jpg"],
+    "video": "",
+    "description": "This is a test listing."
+  }
+]
