@@ -67,12 +67,8 @@
 
 <script src="js/listings.js"></script>
 
-    
   </div>
 </section>
-
-
-
 
 <!-- WHATSAPP -->
 <a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
@@ -82,33 +78,6 @@
   <p>© 2025 Bai Pe Real Estate | Curaçao</p>
 </footer>
 
-<script src="assets/js/listings.js"></script>
 </body>
 </html>
 
-<script>
-fetch("data/listings.json")
-  .then(response => response.json())
-  .then(listings => {
-    const container = document.getElementById("listings-container");
-
-    listings.forEach(listing => {
-      const card = document.createElement("div");
-      card.className = "listing-card";
-
-      card.innerHTML = `
-        <img src="${listing.image}" alt="${listing.title}">
-        <h3>${listing.title}</h3>
-        <p><strong>${listing.price}</strong></p>
-        <p>${listing.location}</p>
-        <p>${listing.description}</p>
-        <a href="contact.html" <a href="property.html?id=${listing.id}" class="btn">
-  View Details
-</a>
-
-      `;
-
-      container.appendChild(card);
-    });
-  });
-</script>
