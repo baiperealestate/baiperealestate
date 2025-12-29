@@ -1,25 +1,32 @@
 const params = new URLSearchParams(window.location.search);
-const listingId = params.get('id');
+const listingId = params.get("id");
 
-fetch('data/listings.json')
+fetch("data/listings.json")
   .then(res => res.json())
-  .then(listings => {
-    const listing = listings.find(item => item.id === listingId);
-
+  .then(data => {
+    const listing = data.find(l => l.id === listingId);
     if (!listing) return;
 
-    document.getElementById('title').textContent = listing.title;
-    document.getElementById('price').textContent = listing.price;
-    document.getElementById('location').textContent = listing.location;
-    document.getElementById('description').textContent = listing.description;
-    document.getElementById('bedrooms').textContent = listing.bedrooms;
-    document.getElementById('bathrooms').textContent = listing.bathrooms;
-    document.getElementById('size').textContent = listing.size;
+    document.getElementById("listing-details").innerHTML = `
+      <h1>${listing.title}</h1>
+      <p class="price">${listing.price}</p>
 
-    const gallery = document.getElementById('gallery');
-    listing.images.forEach(img => {
-      const image = document.createElement('img');
-      image.src = img;
-      gallery.appendChild(image);
-    });
+      <div class="gallery">
+        ${listing.images.map(img => `<img src="${img}">`).join("")}
+      </div>
+
+      ${listing.video ? `
+        <iframe src="${listing.video}" frameborder="0" allowfullscreen></iframe>
+      ` : ""}
+
+      <p>${listing.description}</p>
+
+      <ul class="features">
+        <li>Bedrooms: ${listing.bedrooms}</li>
+        <li>Bathrooms: ${listing.bathrooms}</li>
+        <li>Size: ${listing.size}</li>
+      </ul>
+
+      <a href="https://wa.me/59996654776" class="btn">Contact Agent</a>
+    `;
   });
