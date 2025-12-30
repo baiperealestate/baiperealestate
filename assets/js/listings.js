@@ -7,17 +7,22 @@ fetch("data/listings.json")
 
     data.forEach(listing => {
       container.innerHTML += `
-        <div class="listing-card">
-          <img src="${listing.images[0]}" alt="${listing.title}">
-          <div class="listing-info">
-            <h3>${listing.title}</h3>
-            <p class="price">${listing.price}</p>
-            <p>${listing.location}</p>
-            <a href="listing.html?id=${listing.id}" class="btn">
-              View Details
-            </a>
-          </div>
-        </div>
-      `;
+  <div class="property-card">
+    <div class="property-image">
+      <img src="${listing.images[0]}" alt="${listing.title}">
+    </div>
+
+    <div class="property-content">
+      <h3>${listing.title}</h3>
+      <p class="property-location">${listing.location}</p>
+      <p class="property-price">${listing.price}</p>
+
+      <a href="listing.html?id=${listing.id}" class="property-btn">
+        View Details
+      </a>
+    </div>
+  </div>
+`;
+  
     });
   });
