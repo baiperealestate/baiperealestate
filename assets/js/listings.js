@@ -1,26 +1,14 @@
-fetch("assets/data/listings.json")
-  .then(res => res.json())
-  .then(data => {
-    const container = document.getElementById("listings");
-    container.innerHTML = "";
+const params = new URLSearchParams(window.location.search);
+const propertyId = parseInt(params.get("id"));
 
-    data.forEach(listing => {
-      const card = document.createElement("div");
-      card.className = "listing-card";
+const property = properties.find(p => p.id === propertyId);
 
-      card.innerHTML = `
-        <img src="${listing.images[0]}" alt="${listing.title}">
-        <div class="listing-info">
-          <h3>${listing.title}</h3>
-          <p class="price">${listing.price}</p>
-          <p class="location">${listing.location}</p>
-          <a href="listing.html?id=${listing.id}" class="view-btn">
-            View Details
-          </a>
-        </div>
-      `;
-
-      container.appendChild(card);
-    });
-  })
-  .catch(err => console.error(err));
+if (property) {
+  document.getElementById("propertyTitle").textContent = property.title;
+  document.getElementById("propertyPrice").textContent = property.price;
+  document.getElementById("propertyLocation").textContent = property.location;
+  document.getElementById("propertyCategory").textContent = property.category;
+  document.getElementById("propertyType").textContent = property.type;
+  document.getElementById("propertyImage").src = property.image;
+  document.getElementById("propertyDescription").textContent = property.description;
+}
