@@ -755,7 +755,7 @@ html {
     columns: 1;
   }
 }
-{
+body {
       font-family: Arial, sans-serif;
       background-color: #F4F6FC;
       color: #0F514F;
