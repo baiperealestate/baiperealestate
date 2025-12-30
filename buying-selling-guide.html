@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buying & Selling Guides | Bai Pe Real Estate</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F4F6FC;
+      color: #0F514F;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0F514F;
+      padding: 15px 20px;
+    }
+    header .logo img {
+      height: 50px;
+    }
+    nav a {
+      color: #F4F6FC;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover { color: #D8AE5E; }
+
+    .guide-section { max-width: 900px; margin: 50px auto; padding: 0 20px; }
+
+    .guide-card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .guide-card h2 { color: #0F514F; margin-bottom: 15px; }
+    .guide-card p { color: #333; margin-bottom: 20px; line-height: 1.6; }
+
+    .cta-btn {
+      background-color: #D8AE5E;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      display: inline-block;
+    }
+    .cta-btn:hover { background-color: #c49f54; }
+
+    form { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+    input, textarea { padding: 10px; border-radius: 5px; border: 1px solid #ccc; width: 100%; }
+    button {
+      background-color: #D8AE5E;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    button:hover { background-color: #c49f54; }
+
+    footer {
+      background-color: #0F514F;
+      color: #F4F6FC;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
+      </a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="listings.html">Listings</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="guide-section">
+  <div class="guide-card">
+    <h2>Buyer’s Guide</h2>
+    <p>Download our complete Buyer’s Guide PDF to learn the step-by-step process of buying a property in Curaçao.</p>
+    <a href="YOUR_GOOGLE_DRIVE_PDF_LINK" target="_blank" class="cta-btn">Read / Download PDF</a>
+  </div>
+
+  <div class="guide-card">
+    <h2>Seller’s Guide</h2>
+    <p>Download our Seller’s Guide PDF to understand how to sell your property effectively and get the best value.</p>
+    <a href="https://drive.google.com/file/d/1ZxUstmkfqDRYdCIuqpC9dcgbFT9wOXGF/view?usp=drive_link" target="_blank" class="cta-btn">Read / Download PDF</a>
+  </div>
+
+  <div class="guide-card">
+    <h2>Need Assistance?</h2>
+    <p>Fill out the form below and our professional team will contact you to help with your buying or selling process.</p>
+    <form action="YOUR_FORM_HANDLER_URL" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <textarea name="message" placeholder="How can we assist you?" rows="4" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Bai Pe Real Estate | Curaçao</p>
+</footer>
+
+</body>
+</html>
