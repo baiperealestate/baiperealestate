@@ -4,29 +4,52 @@ const listingId = params.get("id");
 fetch("data/listings.json")
   .then(res => res.json())
   .then(data => {
-    const listing = data.find(l => l.id === listingId);
+    const listing = data.find(item => item.id === listingId);
     if (!listing) return;
 
-    document.getElementById("listing-details").innerHTML = `
-      <h1>${listing.title}</h1>
-      <p class="price">${listing.price}</p>
+    const container = document.getElementById("listing-details");
 
-      <div class="gallery">
-        ${listing.images.map(img => `<img src="${img}">`).join("")}
+    // Image slider
+    const imagesHtml = listing.images.map(img =>
+      `<img src="${img}" class="slide">`
+    ).join("");
+
+    // Features
+    const featuresHtml = listing.features.map(f =>
+      `<li>${f}</li>`
+    ).join("");
+
+    container.innerHTML = `
+      <div class="slider">
+        ${imagesHtml}
       </div>
 
-      ${listing.video ? `
-        <iframe src="${listing.video}" frameborder="0" allowfullscreen></iframe>
-      ` : ""}
+      <h1>${listing.title}</h1>
+      <p class="price">${listing.price}</p>
+      <p class="location">${listing.location}</p>
 
-      <p>${listing.description}</p>
+      <p class="description">${listing.description}</p>
 
+      <h3>Property Features</h3>
       <ul class="features">
-        <li>Bedrooms: ${listing.bedrooms}</li>
-        <li>Bathrooms: ${listing.bathrooms}</li>
-        <li>Size: ${listing.size}</li>
+        ${featuresHtml}
       </ul>
-
-      <a href="https://wa.me/59996654776" class="btn">Contact Agent</a>
     `;
+
+    activateSlider();
   });
+
+function activateSlider() {
+  let index = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  slides.forEach((s, i) => {
+    s.style.display = i === 0 ? "block" : "none";
+  });
+
+  setInterval(() => {
+    slides[index].style.display = "none";
+    index = (index + 1) % slides.length;
+    slides[index].style.display = "block";
+  }, 4000);
+}
