@@ -1,3 +1,5 @@
+console.log("Listings JS loaded");
+
 fetch("data/listings.json")
   .then(res => res.json())
   .then(data => {
