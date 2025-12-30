@@ -1,17 +1,21 @@
-const params = new URLSearchParams(window.location.search);
-const propertyId = parseInt(params.get("id"));
+fetch("assets/data/listings.json")
+  .then(response => response.json())
+  .then(data => {
+    const listingsContainer = document.getElementById("listings");
 
-const property = properties.find(p => p.id === propertyId);
+    data.forEach(property => {
+      const card = document.createElement("a");
+      card.href = `listing.html?id=${property.id}`;
+      card.className = "listing-card";
 
-if (!property) {
-  document.querySelector(".container").innerHTML =
-    "<h2>Property not found</h2>";
-} else {
-  document.getElementById("propertyTitle").textContent = property.title;
-  document.getElementById("propertyPrice").textContent = property.price;
-  document.getElementById("propertyLocation").textContent = property.location;
-  document.getElementById("propertyCategory").textContent = property.category;
-  document.getElementById("propertyType").textContent = property.type;
-  document.getElementById("propertyImage").src = property.image;
-  document.getElementById("propertyDescription").textContent = property.description;
-}
+      card.innerHTML = `
+        <img src="${property.images[0]}" alt="${property.title}">
+        <h3>${property.title}</h3>
+        <p>${property.price}</p>
+        <p>${property.location}</p>
+      `;
+
+      listingsContainer.appendChild(card);
+    });
+  })
+  .catch(error => console.error("Listings error:", error));
