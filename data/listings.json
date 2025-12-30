@@ -1,30 +1,22 @@
 [
   {
-    "id": "listing-1",
-    "title": "Luxury Villa Jan Thiel",
+    "id": "villa-bluebay-001",
+    "title": "Luxury Villa – Blue Bay Curaçao",
     "price": "$1,250,000",
-    "location": "Jan Thiel, Curaçao",
-    "bedrooms": 4,
-    "bathrooms": 3,
-    "size": "320 m²",
+    "type": "For Sale",
+    "location": "Blue Bay, Curaçao",
     "images": [
-      "images/property1/1.jpg",
-      "images/property1/2.jpg"
+      "assets/images/bluebay/1.jpg",
+      "assets/images/bluebay/2.jpg",
+      "assets/images/bluebay/3.jpg"
     ],
-    "description": "Modern luxury villa with private pool."
-  },
-
-  {
-    "id": "listing-2",
-    "title": "Modern Apartment Pietermaai",
-    "price": "$2,200 / month",
-    "location": "Pietermaai, Curaçao",
-    "bedrooms": 2,
-    "bathrooms": 2,
-    "size": "110 m²",
-    "images": [
-      "images/property2/1.jpg"
-    ],
-    "description": "Fully furnished apartment in city center."
+    "description": "Modern luxury villa located in Blue Bay with ocean views.",
+    "features": [
+      "4 Bedrooms",
+      "3 Bathrooms",
+      "Private Pool",
+      "Ocean View",
+      "Gated Community"
+    ]
   }
 ]
