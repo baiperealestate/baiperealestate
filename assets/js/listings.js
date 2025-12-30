@@ -45,7 +45,7 @@
       "Move-in ready condition"
     ]
   }
-]
+];
 
 
 
