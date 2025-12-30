@@ -663,4 +663,41 @@ html {
   text-decoration: none;
   font-size: 14px;
 }
+.property-gallery {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.property-gallery img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.property-gallery .nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  font-size: 32px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.property-gallery .prev { left: 10px; }
+.property-gallery .next { right: 10px; }
+
+.features {
+  columns: 2;
+  margin-top: 20px;
+}
+
+@media(max-width: 768px) {
+  .features {
+    columns: 1;
+  }
+}
    
