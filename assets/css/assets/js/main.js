@@ -7,7 +7,7 @@
 .listing-card {
   background: #fff;
   border-radius: 12px;
-  overflow: hidden;
+  overflow: hidden; 
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   transition: transform 0.3s ease;
 }
