@@ -1,15 +1,30 @@
 [
   {
-    "id": "test-listing",
-    "title": "Test Property Curaçao",
-    "price": "$500,000",
-    "location": "Willemstad",
-    "category": "For Sale",
-    "bedrooms": 3,
+    "id": "listing-1",
+    "title": "Luxury Villa Jan Thiel",
+    "price": "$1,250,000",
+    "location": "Jan Thiel, Curaçao",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "size": "320 m²",
+    "images": [
+      "images/property1/1.jpg",
+      "images/property1/2.jpg"
+    ],
+    "description": "Modern luxury villa with private pool."
+  },
+
+  {
+    "id": "listing-2",
+    "title": "Modern Apartment Pietermaai",
+    "price": "$2,200 / month",
+    "location": "Pietermaai, Curaçao",
+    "bedrooms": 2,
     "bathrooms": 2,
-    "size": "150 m²",
-    "images": ["assets/images/test.jpg"],
-    "video": "",
-    "description": "This is a test listing."
+    "size": "110 m²",
+    "images": [
+      "images/property2/1.jpg"
+    ],
+    "description": "Fully furnished apartment in city center."
   }
 ]
