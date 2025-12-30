@@ -545,44 +545,6 @@ html {
     height: 36px;
   }
 
-.listings-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.listing-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-.listing-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.listing-info {
-  padding: 16px;
-}
-
-.price {
-  color: #D8AE5E;
-  font-weight: bold;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
-  gap: 10px;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 8px;
-}
 
 .listing-card {
   background: white;
