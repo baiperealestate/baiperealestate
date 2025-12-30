@@ -1,66 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Property Details | Bai Pe Real Estate</title>
+
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
 <header>
-   <header class="navbar">
-  <div class="logo">
-  <a href="index.html">
-    <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
-  </a>
-</div>
+  <div class="header-inner">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
+      </a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="listings.html">Listings</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
+<section class="container">
+  <h1 id="propertyTitle"></h1>
+  <p id="propertyPrice"></p>
+</section>
 
-<main class="property-page">
+<section class="container property-details">
+  <img id="propertyImage" src="" alt="Property Image">
 
-  <!-- GALLERY -->
-  <section class="gallery">
-    <button class="nav prev">‹</button>
-    <img id="mainImage" />
-    <button class="nav next">›</button>
-  </section>
+  <ul>
+    <li><strong>Location:</strong> <span id="propertyLocation"></span></li>
+    <li><strong>Category:</strong> <span id="propertyCategory"></span></li>
+    <li><strong>Type:</strong> <span id="propertyType"></span></li>
+  </ul>
 
-  <!-- PROPERTY INFO -->
-  <section class="property-info">
-    <h1 id="title"></h1>
-    <p class="price" id="price"></p>
-    <p class="location" id="location"></p>
+  <p id="propertyDescription"></p>
+</section>
 
-    <div class="description" id="description"></div>
+<a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
 
-    <h3>Property Features</h3>
-    <ul class="features" id="features"></ul>
-  </section>
+<footer>
+  <p>© 2025 Bai Pe Real Estate | Curaçao</p>
+</footer>
 
-  <!-- CONTACT FORM -->
-  <aside class="contact-box">
-    <h3>Request Information</h3>
-
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-      <input type="tel" name="phone" placeholder="Phone / WhatsApp">
-      <textarea name="message" placeholder="I’m interested in this property"></textarea>
-
-      <button type="submit">Contact Agent</button>
-    </form>
-
-    <a class="whatsapp-btn" href="https://wa.me/59996654776">
-      WhatsApp Agent
-    </a>
-  </aside>
-
-</main>
-
-<script src="assets/js/listing-details.js"></script>
-
-
+<script src="assets/js/listing.js"></script>
 </body>
 </html>
