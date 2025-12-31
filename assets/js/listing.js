@@ -18,4 +18,4 @@ fetch("assets/data/listings.json")
       listingsContainer.appendChild(card);
     });
   })
-  .catch(error => console.error("Listings error:", error));
+ 
