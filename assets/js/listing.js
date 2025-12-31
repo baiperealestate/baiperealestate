@@ -1,4 +1,4 @@
-fetch("assets/data/listings.json")
+fetch("/assets/data/listings.json")
   .then(response => response.json())
   .then(data => {
     const listingsContainer = document.getElementById("listings");
