@@ -10,83 +10,47 @@
   <style>
     body {
       background-color: #F4F6FC;
-      color: #0F514F;
       font-family: Arial, sans-serif;
+      color: #0F514F;
       margin: 0;
     }
 
     .guide-section {
       max-width: 900px;
-      margin: 60px auto;
+      margin: 50px auto;
       padding: 0 20px;
     }
 
     .guide-card {
       background: #ffffff;
-      border-radius: 12px;
-      padding: 30px;
+      border-radius: 10px;
+      padding: 25px;
       margin-bottom: 30px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    .guide-card h2 {
-      margin-top: 0;
-      color: #0F514F;
-    }
-
-    .guide-card p {
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .cta-btn {
-      display: inline-block;
+    .cta-btn, button {
       background-color: #D8AE5E;
       color: #ffffff;
-      padding: 12px 26px;
-      border-radius: 6px;
+      padding: 12px 25px;
+      border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
     }
 
-    .cta-btn:hover {
-      background-color: #c29a4f;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+    .cta-btn:hover, button:hover {
+      background-color: #c49f54;
     }
 
     input, textarea {
-      padding: 12px;
-      border-radius: 6px;
+      padding: 10px;
+      border-radius: 5px;
       border: 1px solid #ccc;
-      font-size: 14px;
-    }
-
-    button {
-      background-color: #0F514F;
-      color: #ffffff;
-      padding: 14px;
-      border: none;
-      border-radius: 6px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #0c4341;
-    }
-
-    footer {
-      background-color: #0F514F;
-      color: #F4F6FC;
-      text-align: center;
-      padding: 25px 0;
-      margin-top: 60px;
+      width: 100%;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -114,36 +78,25 @@
 
   <div class="guide-card">
     <h2>Buyer’s Guide</h2>
-    <p>
-      Learn the complete step-by-step process of buying property in Curaçao.
-      Download our professional Buyer’s Guide prepared by Bai Pe Real Estate.
-    </p>
-    <a href="https://drive.google.com/file/d/1PEQf0-ltNY0MicPgW2vd6xcrIAKc_-3c/view"
-       target="_blank"
-       class="cta-btn">
+    <p>Download our complete Buyer’s Guide to understand the buying process in Curaçao.</p>
+    <a class="cta-btn" target="_blank"
+       href="https://drive.google.com/file/d/1PEQf0-ltNY0MicPgW2vd6xcrIAKc_-3c/view">
        Read / Download PDF
     </a>
   </div>
 
   <div class="guide-card">
     <h2>Seller’s Guide</h2>
-    <p>
-      Understand how to sell your property professionally and obtain the best
-      market value with our Seller’s Guide.
-    </p>
-    <a href="https://drive.google.com/file/d/1JYMDqC6aQ8vuDdiJPibRgVSVagrD4xUp/view"
-       target="_blank"
-       class="cta-btn">
+    <p>Learn how to sell your property professionally and maximize value.</p>
+    <a class="cta-btn" target="_blank"
+       href="https://drive.google.com/file/d/1JYMDqC6aQ8vuDdiJPibRgVSVagrD4xUp/view">
        Read / Download PDF
     </a>
   </div>
 
   <div class="guide-card">
-    <h2>Need Professional Assistance?</h2>
-    <p>
-      Fill out the form below and one of our real estate specialists will contact
-      you personally.
-    </p>
+    <h2>Need Assistance?</h2>
+    <p>Fill out the form and our team will contact you.</p>
 
     <form action="https://formspree.io/f/xzdpvjnk" method="POST">
       <input type="text" name="name" placeholder="Full Name" required>
