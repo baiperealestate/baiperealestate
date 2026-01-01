@@ -1,22 +1,40 @@
-const gallery = document.getElementById('imageGallery');
+const params = new URLSearchParams(window.location.search);
+const listingId = params.get("id");
 
-gallery.innerHTML = `
-  <div class="slider">
-    <button id="prev">‹</button>
-    <img id="sliderImg" src="${property.images[0]}">
-    <button id="next">›</button>
-  </div>
-`;
+fetch("/assets/data/listings.json")
+  .then(res => res.json())
+  .then(data => {
+    const property = data.find(item => item.id === listingId);
+    if (!property) return;
 
-let index = 0;
-const img = document.getElementById('sliderImg');
+    // SLIDESHOW
+    let currentIndex = 0;
+    const imageEl = document.getElementById("mainImage");
 
-document.getElementById('next').onclick = () => {
-  index = (index + 1) % property.images.length;
-  img.src = property.images[index];
-};
+    imageEl.src = property.images[currentIndex];
 
-document.getElementById('prev').onclick = () => {
-  index = (index - 1 + property.images.length) % property.images.length;
-  img.src = property.images[index];
-};
+    document.getElementById("prevBtn").onclick = () => {
+      currentIndex =
+        currentIndex === 0 ? property.images.length - 1 : currentIndex - 1;
+      imageEl.src = property.images[currentIndex];
+    };
+
+    document.getElementById("nextBtn").onclick = () => {
+      currentIndex =
+        currentIndex === property.images.length - 1 ? 0 : currentIndex + 1;
+      imageEl.src = property.images[currentIndex];
+    };
+
+    // DESCRIPTION
+    document.getElementById("propertyTitle").textContent = property.title;
+    document.getElementById("propertyDescription").textContent =
+      property.description;
+
+    // FEATURES
+    const featuresList = document.getElementById("featuresList");
+    property.features.forEach(feature => {
+      const li = document.createElement("li");
+      li.textContent = feature;
+      featuresList.appendChild(li);
+    });
+  });
