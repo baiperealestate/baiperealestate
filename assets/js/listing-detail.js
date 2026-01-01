@@ -1,40 +1,38 @@
 const params = new URLSearchParams(window.location.search);
-const listingId = params.get("id");
+const propertyId = params.get("id");
 
 fetch("/assets/data/listings.json")
   .then(res => res.json())
   .then(data => {
-    const property = data.find(item => item.id === listingId);
+    const property = data.find(p => p.id === propertyId);
     if (!property) return;
 
-    // SLIDESHOW
-    let currentIndex = 0;
-    const imageEl = document.getElementById("mainImage");
-
-    imageEl.src = property.images[currentIndex];
-
-    document.getElementById("prevBtn").onclick = () => {
-      currentIndex =
-        currentIndex === 0 ? property.images.length - 1 : currentIndex - 1;
-      imageEl.src = property.images[currentIndex];
-    };
-
-    document.getElementById("nextBtn").onclick = () => {
-      currentIndex =
-        currentIndex === property.images.length - 1 ? 0 : currentIndex + 1;
-      imageEl.src = property.images[currentIndex];
-    };
-
-    // DESCRIPTION
-    document.getElementById("propertyTitle").textContent = property.title;
-    document.getElementById("propertyDescription").textContent =
-      property.description;
+    // TEXT CONTENT
+    document.getElementById("propertyTitle").innerText = property.title;
+    document.getElementById("propertyDescription").innerText = property.description;
 
     // FEATURES
     const featuresList = document.getElementById("featuresList");
+    featuresList.innerHTML = "";
     property.features.forEach(feature => {
       const li = document.createElement("li");
-      li.textContent = feature;
+      li.innerText = feature;
       featuresList.appendChild(li);
     });
-  });
+
+    // IMAGE SLIDER
+    let currentImage = 0;
+    const mainImage = document.getElementById("mainImage");
+    mainImage.src = property.images[0];
+
+    document.getElementById("prevBtn").onclick = () => {
+      currentImage = (currentImage - 1 + property.images.length) % property.images.length;
+      mainImage.src = property.images[currentImage];
+    };
+
+    document.getElementById("nextBtn").onclick = () => {
+      currentImage = (currentImage + 1) % property.images.length;
+      mainImage.src = property.images[currentImage];
+    };
+  })
+  .catch(err => console.error("Detail page error:", err));
