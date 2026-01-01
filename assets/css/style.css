@@ -954,3 +954,55 @@ body {
   font-weight: bold;
 }
 
+.property-page {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.gallery {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 14px;
+  max-height: 520px;
+  object-fit: cover;
+}
+
+.gallery button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  font-size: 28px;
+  padding: 14px;
+  cursor: pointer;
+}
+
+#prevBtn { left: 10px; }
+#nextBtn { right: 10px; }
+
+.property-content h1 {
+  font-size: 32px;
+}
+
+.property-content p {
+  line-height: 1.7;
+}
+
+#featuresList {
+  columns: 2;
+}
+
+.contact-box {
+  background: #fff;
+  padding: 30px;
+  margin-top: 40px;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
