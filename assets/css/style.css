@@ -900,3 +900,57 @@ body {
 #prev { left: 10px; }
 #next { right: 10px; }
 
+   #listings {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.listing-card {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  margin-bottom: 40px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.listing-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.listing-info {
+  padding: 30px;
+}
+
+.listing-info h3 {
+  margin-top: 0;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.price {
+  color: #D8AE5E;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.location {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.view-btn {
+  display: inline-block;
+  background: #D8AE5E;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
