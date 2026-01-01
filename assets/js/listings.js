@@ -1,5 +1,4 @@
 fetch("/assets/data/listings.json")
-
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById("listings");
@@ -9,20 +8,20 @@ fetch("/assets/data/listings.json")
       const card = document.createElement("div");
       card.className = "listing-card";
 
-card.innerHTML = `
-  <div class="listing-image">
-    <img src="${property.images[0]}" alt="${property.title}">
-  </div>
+      card.innerHTML = `
+        <div class="listing-image">
+          <img src="${listing.images[0]}" alt="${listing.title}">
+        </div>
 
-  <div class="listing-info">
-    <h3>${property.title}</h3>
-    <p class="price">${property.price}</p>
-    <p class="location">${property.location}</p>
-    <span class="view-btn">View Details</span>
-  </div>
-`;
-
-
+        <div class="listing-info">
+          <h3>${listing.title}</h3>
+          <p class="price">${listing.price}</p>
+          <p class="location">${listing.location}</p>
+          <a href="listing.html?id=${listing.id}" class="view-btn">
+            View Details
+          </a>
+        </div>
+      `;
 
       container.appendChild(card);
     });
