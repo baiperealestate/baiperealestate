@@ -9,7 +9,7 @@ fetch("/assets/data/listings.json")
       const card = document.createElement("div");
       card.className = "listing-card";
 
-     card.innerHTML = `
+card.innerHTML = `
   <div class="listing-image">
     <img src="${property.images[0]}" alt="${property.title}">
   </div>
@@ -21,6 +21,7 @@ fetch("/assets/data/listings.json")
     <span class="view-btn">View Details</span>
   </div>
 `;
+
 
 
       container.appendChild(card);
