@@ -1,49 +1,22 @@
-const params = new URLSearchParams(window.location.search);
-const listingId = params.get("id");
+const gallery = document.getElementById('imageGallery');
 
-let currentIndex = 0;
-let images = [];
+gallery.innerHTML = `
+  <div class="slider">
+    <button id="prev">‹</button>
+    <img id="sliderImg" src="${property.images[0]}">
+    <button id="next">›</button>
+  </div>
+`;
 
-fetch("assets/data/listings.json")
-  .then(res => res.json())
-  .then(data => {
-    const listing = data.find(item => item.id === listingId);
+let index = 0;
+const img = document.getElementById('sliderImg');
 
-    if (!listing) {
-      document.body.innerHTML = "<h2>Property not found</h2>";
-      return;
-    }
+document.getElementById('next').onclick = () => {
+  index = (index + 1) % property.images.length;
+  img.src = property.images[index];
+};
 
-    // BASIC INFO
-    document.getElementById("title").textContent = listing.title;
-    document.getElementById("price").textContent = listing.price;
-    document.getElementById("location").textContent = listing.location;
-    document.getElementById("description").textContent = listing.description;
-
-    // FEATURES
-    const featuresEl = document.getElementById("features");
-    listing.features.forEach(f => {
-      const li = document.createElement("li");
-      li.textContent = f;
-      featuresEl.appendChild(li);
-    });
-
-    // GALLERY
-    images = listing.images;
-    const mainImage = document.getElementById("mainImage");
-    mainImage.src = images[0];
-
-    document.querySelector(".next").onclick = () => {
-      currentIndex = (currentIndex + 1) % images.length;
-      mainImage.src = images[currentIndex];
-    };
-
-    document.querySelector(".prev").onclick = () => {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      mainImage.src = images[currentIndex];
-    };
-  })
-  .catch(err => {
-    console.error(err);
-    document.body.innerHTML = "<h2>Error loading property</h2>";
-  });
+document.getElementById('prev').onclick = () => {
+  index = (index - 1 + property.images.length) % property.images.length;
+  img.src = property.images[index];
+};
