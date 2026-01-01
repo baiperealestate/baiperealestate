@@ -1,38 +1,30 @@
-const params = new URLSearchParams(window.location.search);
-const propertyId = params.get("id");
+<main class="property-page">
 
-fetch("/assets/data/listings.json")
-  .then(res => res.json())
-  .then(data => {
-    const property = data.find(p => p.id === propertyId);
-    if (!property) return;
+  <section class="gallery">
+    <button id="prevBtn">‹</button>
+    <img id="mainImage">
+    <button id="nextBtn">›</button>
+  </section>
 
-    // TEXT CONTENT
-    document.getElementById("propertyTitle").innerText = property.title;
-    document.getElementById("propertyDescription").innerText = property.description;
+  <section class="property-content">
+    <h1 id="propertyTitle"></h1>
+    <p id="propertyDescription"></p>
 
-    // FEATURES
-    const featuresList = document.getElementById("featuresList");
-    featuresList.innerHTML = "";
-    property.features.forEach(feature => {
-      const li = document.createElement("li");
-      li.innerText = feature;
-      featuresList.appendChild(li);
-    });
+    <h2>Property Features</h2>
+    <ul id="featuresList"></ul>
+  </section>
 
-    // IMAGE SLIDER
-    let currentImage = 0;
-    const mainImage = document.getElementById("mainImage");
-    mainImage.src = property.images[0];
+  <section class="contact-box">
+    <h3>Request Information</h3>
+    <form action="https://formspree.io/f/xzdpvjnk" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone / WhatsApp" required>
+      <textarea name="message">I'm interested in this property</textarea>
+      <button type="submit">Contact Agent</button>
+    </form>
+  </section>
 
-    document.getElementById("prevBtn").onclick = () => {
-      currentImage = (currentImage - 1 + property.images.length) % property.images.length;
-      mainImage.src = property.images[currentImage];
-    };
+</main>
 
-    document.getElementById("nextBtn").onclick = () => {
-      currentImage = (currentImage + 1) % property.images.length;
-      mainImage.src = property.images[currentImage];
-    };
-  })
-  .catch(err => console.error("Detail page error:", err));
+<script src="assets/js/listing-details.js"></script>
