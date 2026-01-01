@@ -873,3 +873,30 @@ body {
   border-radius: 6px;
   text-decoration: none;
 }
+
+   .slider {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+}
+
+.slider img {
+  width: 100%;
+  border-radius: 14px;
+}
+
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  font-size: 28px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+#prev { left: 10px; }
+#next { right: 10px; }
+
