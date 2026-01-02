@@ -1101,8 +1101,8 @@ body {
   box-shadow: 0 20px 45px rgba(0,0,0,0.18);
 }
 
-/* IMAGE */
-.listing-image img {
+/* IMAGES */
+.listing-images img {
   width: 100%;
   height: 240px;
   object-fit: cover;
