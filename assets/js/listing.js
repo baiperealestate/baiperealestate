@@ -1,7 +1,8 @@
 fetch("/assets/data/listings.json")
   .then(response => response.json())
   .then(data => {
-    const listingsContainer = document.getElementById("listings");
+    const listings = document.getElementById("listings");
+    listings.innerHTML = "";
 
     data.forEach(property => {
       const card = document.createElement("a");
@@ -9,14 +10,18 @@ fetch("/assets/data/listings.json")
       card.className = "listing-card";
 
       card.innerHTML = `
-        <img src="${property.images[0]}" alt="${property.title}">
-        <h3>${property.title}</h3>
-        <p>${property.price}</p>
-        <p>${property.location}</p>
+        <div class="listing-image">
+          <img src="${property.images[0]}" alt="${property.title}">
+        </div>
+        <div class="listing-info">
+          <h3>${property.title}</h3>
+          <p class="price">${property.price}</p>
+          <p>${property.location}</p>
+          <span class="view-btn">View Details</span>
+        </div>
       `;
 
-      listingsContainer.appendChild(card);
+      listings.appendChild(card);
     });
   })
-  .catch(error => console.error("Listings error:", error));
-
+  .catch(err => console.error("Listings error:", err));
