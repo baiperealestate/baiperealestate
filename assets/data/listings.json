@@ -6,11 +6,11 @@
     "type": "For Sale",
     "location": "Grote Berg, Curaçao",
     "images": [
-      "assets/images/groteberg/1.jpg",
-      "assets/images/groteberg/2.jpg",
-      "assets/images/groteberg/3.jpg",
-      "assets/images/groteberg/4.jpg",
-      "assets/images/groteberg/5.jpg",
+      "/assets/images/groteberg/1.jpg",
+      "/assets/images/groteberg/2.jpg",
+      "/assets/images/groteberg/3.jpg",
+      "/assets/images/groteberg/4.jpg",
+      "/assets/images/groteberg/5.jpg",
     ],
     "description": "Bai Pe Real Estate proudly presents this move-in-ready modern family home located in Grote Berg, Curaçao...",
     "features": [
