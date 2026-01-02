@@ -6,13 +6,14 @@ fetch("/assets/data/listings.json")
 
     data.forEach(property => {
       const card = document.createElement("a");
-      card.href = `listing.html?id=${property.id}`;
       card.className = "listing-card";
+      card.href = `listing.html?id=${property.id}`;
 
       card.innerHTML = `
         <div class="listing-image">
           <img src="${property.images[0]}" alt="${property.title}">
         </div>
+
         <div class="listing-info">
           <h3>${property.title}</h3>
           <p class="price">${property.price}</p>
