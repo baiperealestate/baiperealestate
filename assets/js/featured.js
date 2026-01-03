@@ -1,33 +1,40 @@
-fetch("data/listings.json")
-  .then(res => res.json())
-  .then(data => {
-    const featured = data.slice(0, 3); // first 3 listings
-    const container = document.getElementById("featuredListings");
 
-    featured.forEach(property => {
-      container.innerHTML += `
-        <div class="property-card">
-          <img src="${property.images[0]}" alt="${property.title}">
-          <div class="property-content">
-            <h3>${property.title}</h3>
-            <p>${property.location}</p>
-            <div class="property-price">${property.price}</div>
-            <a href="listing.html?id=${property.id}" class="btn" style="margin-top:10px; display:inline-block;">
-              View Details
-            </a>
+fetch("assets/data/listing.json")
+  .then(response => response.json())
+  .then(listings => {
+
+    const container = document.getElementById("listings");
+
+    listings
+      .filter(listing => listing.featured === true)
+      .forEach(listing => {
+
+        const card = document.createElement("a");
+        card.href = "property.html";
+        card.className = "listing-card";
+
+        // Store data for details page
+        card.dataset.id = listing.id;
+        card.dataset.title = listing.title;
+        card.dataset.price = listing.price;
+        card.dataset.location = listing.location;
+        card.dataset.image = listing.image;
+
+        card.innerHTML = `
+          <img src="${listing.image}" alt="${listing.title}">
+          <div class="listing-info">
+            <h3>${listing.title}</h3>
+            <div class="price">${listing.price}</div>
+            <div class="location">${listing.location}</div>
+            <span class="view-btn">View Details</span>
           </div>
-        </div>
-      `;
-    });
-  });
+        `;
 
-<section class="container" style="margin-top:60px;">
-  <h2>Why Choose Bai Pe Real Estate</h2>
+        card.addEventListener("click", () => {
+          localStorage.setItem("selectedProperty", JSON.stringify(listing));
+        });
 
-  <div class="property-features">
-    <div class="feature-box">✔ Local Market Expertise</div>
-    <div class="feature-box">✔ Transparent & Honest Guidance</div>
-    <div class="feature-box">✔ Residential & Investment Properties</div>
-    <div class="feature-box">✔ Personal & Professional Service</div>
-  </div>
-</section>
+        container.appendChild(card);
+      });
+  })
+  .catch(error => console.error("Error loading listings:", error));
