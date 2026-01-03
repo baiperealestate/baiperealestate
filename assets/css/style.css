@@ -1310,11 +1310,11 @@ body {
 /* Floating Beacons Button */
 .beacons-btn {
   position: fixed;
-  bottom: 20px; /* same distance as WhatsApp */
-  right: 90px; /* shifted left so WhatsApp (20px) and Beacons sit side by side */
-  width: 60px; /* same size as WhatsApp button */
+  bottom: 20px;       /* same as WhatsApp */
+  right: 90px;        /* 20px (WhatsApp) + 10px gap + 60px button */
+  width: 60px;
   height: 60px;
-  background-color: #D8AE5E; /* gold branding color */
+  background-color: var(--secondary-color); /* gold branding */
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -1322,10 +1322,11 @@ body {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   z-index: 1000;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .beacons-btn img {
-  width: 28px; /* fits nicely inside the button */
+  width: 28px;
   height: 28px;
 }
 
@@ -1334,10 +1335,25 @@ body {
   transform: translateY(-2px);
 }
 
+/* Optional: tooltip style if using custom tooltip (instead of browser default) */
+.beacons-btn[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 70px; /* above button */
+  right: 0;
+  background: #0F514F;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
 /* Mobile Adjustment */
 @media (max-width: 480px) {
   .beacons-btn {
-    right: 80px; /* leave room for WhatsApp */
+    right: 80px;
     width: 50px;
     height: 50px;
   }
@@ -1347,4 +1363,3 @@ body {
     height: 24px;
   }
 }
-
