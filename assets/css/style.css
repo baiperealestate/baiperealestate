@@ -1307,3 +1307,44 @@ body {
   .social-cta p {
     font-size: 16px;
   }
+/* Floating Beacons Button */
+.beacons-btn {
+  position: fixed;
+  bottom: 20px; /* same distance as WhatsApp */
+  right: 90px; /* shifted left so WhatsApp (20px) and Beacons sit side by side */
+  width: 60px; /* same size as WhatsApp button */
+  height: 60px;
+  background-color: #D8AE5E; /* gold branding color */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.beacons-btn img {
+  width: 28px; /* fits nicely inside the button */
+  height: 28px;
+}
+
+.beacons-btn:hover {
+  background-color: #c49f54; /* darker gold on hover */
+  transform: translateY(-2px);
+}
+
+/* Mobile Adjustment */
+@media (max-width: 480px) {
+  .beacons-btn {
+    right: 80px; /* leave room for WhatsApp */
+    width: 50px;
+    height: 50px;
+  }
+
+  .beacons-btn img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
