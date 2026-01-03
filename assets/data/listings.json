@@ -53,19 +53,19 @@
   {
     "id": "luxuryappartment-janthiel-002",
     "title": "Single Family Home with Detached Studio – Grote Berg, Curaçao",
-    "price": "XCG 2500",
+    "price": "XCG 2,500",
     "type": "For Rent",
     "location": "Janthiel, Curaçao",
     "images": [
-  "assets/images/listings/house1-1.jpg",
+  "assets/images/listings/house2-1.jpg",
   "assets/images/listings/house2-2.jpg",
   "assets/images/listings/house2-3.jpg"
 ],
 
     "description": "Bai Pe Real Estate proudly presents this move-in-ready modern family home located in the desirable neighborhood of Grote Berg, Curaçao. Situated on 715 m² of owned land, this property offers modern comfort, privacy, and strong investment potential.",
     "features": [
-      "3 bedrooms with air-conditioning",
-      "2 modern bathrooms (1 en-suite)",
+      "1 bedrooms with air-conditioning",
+      "1 modern bathrooms ",
       "Private swimming pool",
       "Detached studio for rental income",
       "Open-plan living and dining area",
