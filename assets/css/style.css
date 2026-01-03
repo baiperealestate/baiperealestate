@@ -1231,4 +1231,81 @@ body {
     border-radius: 16px 16px 0 0;
   }
 }
-   
+  /* ===============================
+   SOCIAL CTA SECTION
+================================ */
+
+.social-cta {
+  background: linear-gradient(135deg, var(--primary-color), #0c3f3d);
+  padding: 90px 20px 70px;
+  text-align: center;
+  color: var(--white);
+}
+
+.social-cta-inner {
+  max-width: 900px;
+  margin: auto;
+}
+
+.social-cta h2 {
+  font-size: 34px;
+  margin-bottom: 14px;
+}
+
+.social-cta p {
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 36px;
+}
+
+/* CTA BUTTONS */
+.social-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* PRIMARY */
+.social-primary {
+  background: var(--secondary-color);
+  color: var(--white);
+  padding: 14px 34px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.social-primary:hover {
+  background: #c49f54;
+}
+
+/* SECONDARY */
+.social-secondary {
+  border: 2px solid var(--white);
+  color: var(--white);
+  padding: 13px 32px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.social-secondary:hover {
+  background: var(--white);
+  color: var(--primary-color);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .social-cta h2 {
+    font-size: 26px;
+  }
+
+  .social-cta p {
+    font-size: 16px;
+  }
+}
+ 
