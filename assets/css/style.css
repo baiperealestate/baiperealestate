@@ -111,10 +111,9 @@ section {
 ================================ */
 #listings {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 36px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
 }
-
 
 /* ===============================
    LISTING CARD
@@ -217,7 +216,6 @@ footer {
     gap: 16px;
   }
 }
-
 /* ===============================
    FEATURED PROPERTIES
 ================================ */
@@ -239,4 +237,3 @@ footer {
   font-size: 16px;
   opacity: 0.75;
 }
-
