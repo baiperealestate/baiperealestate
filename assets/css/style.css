@@ -42,6 +42,10 @@ header {
   height: 52px;
 }
 
+.page-title {
+  margin-bottom: 24px;
+}
+
 /* ===============================
    LISTINGS PAGE
 ================================ */
@@ -105,6 +109,10 @@ header {
   padding: 10px 20px;
   border-radius: 8px;
   font-weight: bold;
+}
+
+.listings-section {
+  padding: 40px 0;
 }
 
 /* ===============================
@@ -199,7 +207,4 @@ header {
     border-radius: 16px 16px 0 0;
     z-index: 999;
   }
-}
-.page-title {
-  margin-bottom: 24px;
-}
+
