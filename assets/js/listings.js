@@ -2,22 +2,20 @@ fetch("/assets/data/listings.json")
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById("listings");
-    container.innerHTML = "";
 
-    data.forEach(property => {
+    data.forEach(p => {
       const card = document.createElement("a");
+      card.href = `listing.html?id=${p.id}`;
       card.className = "listing-card";
-      card.href = `listing.html?id=${property.id}`;
 
       card.innerHTML = `
         <div class="listing-image">
-          <img src="${property.images[0]}" alt="${property.title}">
+          <img src="${p.images[0]}" alt="${p.title}">
         </div>
-
         <div class="listing-info">
-          <h3>${property.title}</h3>
-          <p class="price">${property.price}</p>
-          <p class="location">${property.location}</p>
+          <h3>${p.title}</h3>
+          <p class="price">${p.price}</p>
+          <p class="location">${p.location}</p>
           <span class="view-btn">View Details</span>
         </div>
       `;
