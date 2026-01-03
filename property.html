@@ -1,0 +1,15 @@
+<h1 id="property-title"></h1>
+<img id="property-image" src="" alt="">
+<p id="property-price"></p>
+<p id="property-location"></p>
+
+<script>
+  const property = JSON.parse(localStorage.getItem("selectedProperty"));
+
+  if (property) {
+    document.getElementById("property-title").textContent = property.title;
+    document.getElementById("property-price").textContent = property.price;
+    document.getElementById("property-location").textContent = property.location;
+    document.getElementById("property-image").src = property.image;
+  }
+</script>
