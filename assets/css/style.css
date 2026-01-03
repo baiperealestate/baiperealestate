@@ -1,5 +1,5 @@
 /* ==========================================================================
-   BRAND SYSTEM — SINGLE SOURCE OF TRUTH
+   BAI PE REAL ESTATE — ORIGINAL BRAND COLORS
    ========================================================================== */
 :root {
   --primary: #0F514F;
@@ -10,13 +10,11 @@
   --white: #ffffff;
 
   --max-width: 1140px;
-  --radius: 18px;
-  --section-space: 80px;
-  --card-gap: 40px;
+  --radius: 12px;
 }
 
 /* ==========================================================================
-   RESET & BASE
+   RESET
    ========================================================================== */
 * {
   margin: 0;
@@ -24,17 +22,15 @@
   box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
-
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background: var(--bg-light);
   color: var(--text-dark);
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
   display: block;
 }
 
@@ -44,126 +40,250 @@ a {
 }
 
 /* ==========================================================================
-   TYPOGRAPHY SYSTEM (LUXURY RHYTHM)
-   ========================================================================== */
-h1, h2, h3 {
-  font-weight: 700;
-  color: var(--primary);
-  line-height: 1.2;
-}
-
-h1 {
-  font-size: clamp(34px, 4vw, 46px);
-  margin-bottom: 24px;
-}
-
-h2 {
-  font-size: clamp(28px, 3vw, 36px);
-  margin-bottom: 20px;
-}
-
-h3 {
-  font-size: 19px;
-  margin-bottom: 6px;
-}
-
-p {
-  font-size: 16px;
-  color: var(--text-dark);
-}
-
-.section-title {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 60px;
-}
-
-.section-title p {
-  font-size: 17px;
-  color: var(--text-muted);
-}
-
-/* ==========================================================================
-   GLOBAL STRUCTURE
+   GLOBAL LAYOUT
    ========================================================================== */
 section {
-  padding: var(--section-space) 20px;
+  padding: 60px 20px;
 }
 
-.section-inner {
+.container {
   max-width: var(--max-width);
   margin: auto;
 }
 
 /* ==========================================================================
-   HEADER / NAVIGATION
+   HEADER / NAV
    ========================================================================== */
 header {
   background: var(--white);
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .navbar {
   max-width: var(--max-width);
   margin: auto;
-  padding: 18px 20px;
+  padding: 16px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .logo img {
-  height: 52px;
+  height: 48px;
 }
 
 nav a {
-  margin-left: 28px;
+  margin-left: 24px;
   font-weight: 600;
 }
 
-nav a:hover {
-  color: var(--secondary);
-}
-
 /* ==========================================================================
-   HERO
+   HERO (UNCHANGED STYLE, BETTER SIZE)
    ========================================================================== */
 .hero {
-  background: linear-gradient(
-    rgba(15,81,79,0.95),
-    rgba(15,81,79,0.95)
-  );
+  background: var(--primary);
   color: var(--white);
   text-align: center;
-  padding: 120px 20px;
+  padding: 90px 20px;
 }
 
 .hero h1 {
-  color: var(--white);
+  font-size: 34px;
+  margin-bottom: 16px;
 }
 
 .hero p {
-  max-width: 720px;
-  margin: 0 auto 32px;
-  font-size: 18px;
-  opacity: 0.95;
+  max-width: 680px;
+  margin: auto;
+  font-size: 16px;
 }
 
 /* ==========================================================================
-   BUTTONS (QUIET LUXURY)
+   BUTTONS (ORIGINAL FEEL)
    ========================================================================== */
-.btn,
-.view-btn {
+.btn {
   display: inline-block;
+  margin-top: 24px;
   background: var(--secondary);
   color: var(--white);
-  padding: 14px 30px;
-  border-radius: 999px;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-weight: 600;
 }
 
 /* ==========================================================================
-   LISTINGS GRID — KW / SOTHEBY’S LOGIC
-   ======
+   LISTINGS — FIXED PLACEMENT ONLY
+   ========================================================================== */
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.listing-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+}
+
+.listing-card img {
+  height: 210px;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.listing-info {
+  padding: 16px;
+}
+
+.listing-info h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.location {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   ABOUT — SAME STYLE, BETTER BALANCE
+   ========================================================================== */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text p {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.about-image img {
+  border-radius: var(--radius);
+  height: 320px;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   PROPERTY PAGE — CLEAN STRUCTURE
+   ========================================================================== */
+.property-page {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+}
+
+.gallery img {
+  height: 380px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.features {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+/* CONTACT BOX */
+.contact-box {
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid #e5e7eb;
+}
+
+.contact-box input,
+.contact-box textarea,
+.contact-box button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.contact-box button {
+  background: var(--secondary);
+  color: var(--white);
+  border: none;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   WHATSAPP — SIMPLE & CORRECT
+   ========================================================================== */
+.whatsapp-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25D366;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+  background: var(--primary);
+  color: var(--white);
+  text-align: center;
+  padding: 30px 20px;
+}
+
+/* ==========================================================================
+   MOBILE — SAME STYLE, CLEAN STACK
+   ========================================================================== */
+@media (max-width: 900px) {
+  .listings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+
+  .property-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  nav { display: none; }
+
+  .hero {
+    padding: 70px 20px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .listings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .whatsapp-btn {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 14px;
+  }
+}
