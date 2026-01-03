@@ -1,36 +1,32 @@
 const params = new URLSearchParams(window.location.search);
-const propertyId = params.get("id");
+const id = params.get("id");
 
 fetch("/assets/data/listings.json")
   .then(res => res.json())
   .then(data => {
-    const property = data.find(p => p.id == propertyId);
-    if (!property) return;
+    const property = data.find(p => p.id == id);
 
     document.getElementById("propertyTitle").textContent = property.title;
     document.getElementById("propertyDescription").textContent = property.description;
 
-    const featuresList = document.getElementById("featuresList");
-    featuresList.innerHTML = "";
-    property.features.forEach(feature => {
+    const features = document.getElementById("featuresList");
+    property.features.forEach(f => {
       const li = document.createElement("li");
-      li.textContent = feature;
-      featuresList.appendChild(li);
+      li.textContent = f;
+      features.appendChild(li);
     });
 
-    // Image slider
-    let current = 0;
-    const mainImage = document.getElementById("mainImage");
-    mainImage.src = property.images[0];
-
-    document.getElementById("nextBtn").onclick = () => {
-      current = (current + 1) % property.images.length;
-      mainImage.src = property.images[current];
-    };
+    let index = 0;
+    const img = document.getElementById("mainImage");
+    img.src = property.images[index];
 
     document.getElementById("prevBtn").onclick = () => {
-      current = (current - 1 + property.images.length) % property.images.length;
-      mainImage.src = property.images[current];
+      index = (index - 1 + property.images.length) % property.images.length;
+      img.src = property.images[index];
     };
-  })
-  .catch(err => console.error("Details error:", err));
+
+    document.getElementById("nextBtn").onclick = () => {
+      index = (index + 1) % property.images.length;
+      img.src = property.images[index];
+    };
+  });
