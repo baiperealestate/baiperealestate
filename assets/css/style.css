@@ -216,24 +216,3 @@ footer {
     gap: 16px;
   }
 }
-/* ===============================
-   FEATURED PROPERTIES
-================================ */
-.featured {
-  background: #F4F6FC;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.section-header h2 {
-  font-size: 34px;
-  margin-bottom: 10px;
-}
-
-.section-header p {
-  font-size: 16px;
-  opacity: 0.75;
-}
