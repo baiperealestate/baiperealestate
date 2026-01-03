@@ -1,21 +1,22 @@
 /* ==========================================================================
-   BRAND TOKENS — SINGLE SOURCE OF TRUTH (DO NOT OVERRIDE)
+   BRAND SYSTEM — NEVER CHANGE
    ========================================================================== */
 :root {
-  --primary: #0F514F;     /* Brand Green */
-  --secondary: #D8AE5E;   /* Brand Gold */
-  --bg-light: #F4F6FC;    /* Light Background */
-  --text-dark: #1E1E1E;   /* Main Text */
-  --text-muted: #6b7280;  /* Muted Text */
+  --primary: #0F514F;
+  --secondary: #D8AE5E;
+  --bg-light: #F4F6FC;
+  --text-dark: #1E1E1E;
+  --text-muted: #6b7280;
   --white: #ffffff;
 
+  --max-width: 1140px;
   --radius: 14px;
-  --transition: 0.3s ease;
-  --container: 1200px;
+  --section-space: 80px;
+  --card-gap: 32px;
 }
 
 /* ==========================================================================
-   RESET & BASE
+   RESET
    ========================================================================== */
 * {
   margin: 0;
@@ -27,9 +28,14 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background-color: var(--bg-light);
+  background: var(--bg-light);
   color: var(--text-dark);
   line-height: 1.6;
+}
+
+img {
+  width: 100%;
+  display: block;
 }
 
 a {
@@ -37,23 +43,20 @@ a {
   color: inherit;
 }
 
-img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
-
 /* ==========================================================================
-   LAYOUT
+   GLOBAL STRUCTURE
    ========================================================================== */
-.container {
-  max-width: var(--container);
+section {
+  padding: var(--section-space) 20px;
+}
+
+.section-inner {
+  max-width: var(--max-width);
   margin: auto;
-  padding: 0 20px;
 }
 
 /* ==========================================================================
-   HEADER / NAV
+   HEADER
    ========================================================================== */
 header {
   background: var(--white);
@@ -61,35 +64,25 @@ header {
 }
 
 .navbar {
-  max-width: var(--container);
+  max-width: var(--max-width);
   margin: auto;
-  padding: 18px 24px;
+  padding: 18px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.logo img {
+  height: 50px;
+}
+
 nav a {
-  margin-left: 24px;
+  margin-left: 26px;
   font-weight: 600;
-  transition: var(--transition);
 }
 
 nav a:hover {
   color: var(--secondary);
-}
-
-/* LOGO (CONSISTENT ON ALL DEVICES) */
-.logo img {
-  height: 48px;
-}
-
-@media (min-width: 768px) {
-  .logo img { height: 54px; }
-}
-
-@media (min-width: 1200px) {
-  .logo img { height: 58px; }
 }
 
 /* ==========================================================================
@@ -97,8 +90,8 @@ nav a:hover {
    ========================================================================== */
 .hero {
   background: linear-gradient(
-    rgba(15,81,79,0.92),
-    rgba(15,81,79,0.92)
+    rgba(15,81,79,0.95),
+    rgba(15,81,79,0.95)
   );
   color: var(--white);
   text-align: center;
@@ -106,152 +99,129 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 46px;
   margin-bottom: 16px;
 }
 
 .hero p {
   font-size: 18px;
-  opacity: 0.95;
-  margin-bottom: 32px;
+  max-width: 720px;
+  margin: 0 auto 32px;
 }
 
 /* ==========================================================================
-   BUTTON SYSTEM (BRAND LOCKED)
+   BUTTONS
    ========================================================================== */
-.btn,
-.btn-small,
-.view-btn,
-.property-btn,
-.cta-btn {
+.btn {
   display: inline-block;
   background: var(--secondary);
   color: var(--white);
-  padding: 12px 26px;
+  padding: 14px 28px;
   border-radius: var(--radius);
   font-weight: 700;
-  transition: var(--transition);
-}
-
-.btn:hover,
-.view-btn:hover,
-.cta-btn:hover {
-  background: #caa24d;
-}
-
-.btn-small {
-  padding: 10px 18px;
-  font-size: 14px;
 }
 
 /* ==========================================================================
-   LISTINGS GRID
+   LISTINGS GRID (FIXED PLACEMENT)
    ========================================================================== */
-.listings-grid,
-.listing-grid,
-#listings {
+.listings-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 32px;
-  padding: 40px 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--card-gap);
 }
 
 /* CARD */
-.property-card,
 .listing-card {
   background: var(--white);
-  border-radius: 18px;
+  border-radius: var(--radius);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  transition: var(--transition);
 }
 
-.property-card:hover,
-.listing-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 45px rgba(0,0,0,0.15);
-}
-
-.property-card img,
 .listing-card img {
-  height: 220px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 
-.property-content,
 .listing-info {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.property-content h3,
 .listing-info h3 {
   font-size: 18px;
-  margin-bottom: 6px;
+  line-height: 1.3;
 }
 
-/* BRAND-LOCKED TEXT */
 .location {
   font-size: 14px;
   color: var(--text-muted);
 }
 
-.price,
-.property-price,
-.badge {
-  color: var(--secondary);
+.price {
+  margin-top: auto;
+  font-size: 18px;
   font-weight: 800;
-  margin-top: 8px;
+  color: var(--secondary);
 }
 
 /* ==========================================================================
-   PROPERTY DETAIL PAGE
+   ABOUT SECTION (BALANCED)
    ========================================================================== */
-.property-page {
-  max-width: var(--container);
-  margin: 60px auto;
-  padding: 0 20px;
+.about-container {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
 }
 
-/* GALLERY */
-.gallery {
-  position: relative;
+.about-text h2 {
+  font-size: 34px;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.about-image img {
+  border-radius: var(--radius);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   PROPERTY PAGE
+   ========================================================================== */
+.property-page {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 60px 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
 }
 
 .gallery img {
   height: 420px;
+  object-fit: cover;
   border-radius: var(--radius);
 }
 
-.gallery button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
-  color: var(--white);
-  border: none;
-  font-size: 28px;
-  padding: 12px 16px;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-#prevBtn { left: 14px; }
-#nextBtn { right: 14px; }
-
-/* FEATURES */
-.features,
-#featuresList {
+.features {
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  margin-top: 20px;
 }
 
-/* ==========================================================================
-   CONTACT BOX (CONSISTENT MOBILE + DESKTOP)
-   ========================================================================== */
+/* CONTACT BOX */
 .contact-box {
   background: var(--white);
   padding: 24px;
@@ -263,7 +233,7 @@ nav a:hover {
 .contact-box textarea,
 .contact-box button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin-bottom: 12px;
 }
 
@@ -275,31 +245,18 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   ABOUT SECTION
+   WHATSAPP BUTTON (PROPER PLACEMENT)
    ========================================================================== */
-.about-section {
-  background: var(--bg-light);
-  padding: 80px 20px;
-}
-
-.about-container {
-  max-width: var(--container);
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  align-items: center;
-}
-
-.about-text h2 {
-  color: var(--primary);
-  font-size: 34px;
-  margin-bottom: 20px;
-}
-
-.about-text p {
-  font-size: 16px;
-  line-height: 1.8;
+.whatsapp-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  background: #25D366;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 50px;
+  font-weight: 700;
+  z-index: 1000;
 }
 
 /* ==========================================================================
@@ -309,19 +266,28 @@ footer {
   background: var(--primary);
   color: var(--white);
   text-align: center;
-  padding: 30px 20px;
-  margin-top: 80px;
+  padding: 40px 20px;
 }
 
 /* ==========================================================================
-   MOBILE — SAME BRAND, SAME LOOK
+   RESPONSIVE (CLEAN, NOT UGLY)
    ========================================================================== */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  .listings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
+@media (max-width: 768px) {
   nav { display: none; }
 
   .hero h1 {
     font-size: 32px;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
   .property-page {
@@ -330,5 +296,15 @@ footer {
 
   .features {
     grid-template-columns: 1fr;
+  }
+
+  .listings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .whatsapp-btn {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 16px;
   }
 }
