@@ -1,6 +1,21 @@
+/* ==========================================================================
+   BRAND TOKENS — SINGLE SOURCE OF TRUTH (DO NOT OVERRIDE)
+   ========================================================================== */
+:root {
+  --primary: #0F514F;     /* Brand Green */
+  --secondary: #D8AE5E;   /* Brand Gold */
+  --bg-light: #F4F6FC;    /* Light Background */
+  --text-dark: #1E1E1E;   /* Main Text */
+  --text-muted: #6b7280;  /* Muted Text */
+  --white: #ffffff;
+
+  --radius: 14px;
+  --transition: 0.3s ease;
+  --container: 1200px;
+}
 
 /* ==========================================================================
-   GLOBAL RESET
+   RESET & BASE
    ========================================================================== */
 * {
   margin: 0;
@@ -8,14 +23,12 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #F4F6FC;
-  color: #1E1E1E;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
   line-height: 1.6;
 }
 
@@ -25,23 +38,9 @@ a {
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
   display: block;
-}
-
-/* ==========================================================================
-   BRAND VARIABLES
-   ========================================================================== */
-:root {
-  --primary: #0F514F;
-  --secondary: #D8AE5E;
-  --bg-light: #F4F6FC;
-  --text-dark: #1E1E1E;
-  --text-muted: #6b7280;
-  --white: #ffffff;
-  --radius: 12px;
-  --transition: 0.3s ease;
-  --container: 1200px;
+  object-fit: cover;
 }
 
 /* ==========================================================================
@@ -54,21 +53,20 @@ img {
 }
 
 /* ==========================================================================
-   HEADER & NAVIGATION
+   HEADER / NAV
    ========================================================================== */
 header {
   background: var(--white);
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
-.header-inner,
 .navbar {
   max-width: var(--container);
   margin: auto;
   padding: 18px 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 nav a {
@@ -81,15 +79,13 @@ nav a:hover {
   color: var(--secondary);
 }
 
-/* LOGO */
+/* LOGO (CONSISTENT ON ALL DEVICES) */
 .logo img {
-  height: 44px;
-  width: auto;
-  transition: var(--transition);
+  height: 48px;
 }
 
 @media (min-width: 768px) {
-  .logo img { height: 52px; }
+  .logo img { height: 54px; }
 }
 
 @media (min-width: 1200px) {
@@ -97,88 +93,88 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   HERO SECTION
+   HERO
    ========================================================================== */
 .hero {
   background: linear-gradient(
-    rgba(15, 81, 79, 0.9),
-    rgba(15, 81, 79, 0.9)
+    rgba(15,81,79,0.92),
+    rgba(15,81,79,0.92)
   );
-  color: white;
+  color: var(--white);
   text-align: center;
   padding: 120px 20px;
 }
 
 .hero h1 {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .hero p {
   font-size: 18px;
-  opacity: 0.9;
-  margin-bottom: 30px;
+  opacity: 0.95;
+  margin-bottom: 32px;
 }
 
 /* ==========================================================================
-   BUTTONS
+   BUTTON SYSTEM (BRAND LOCKED)
    ========================================================================== */
 .btn,
+.btn-small,
 .view-btn,
-.property-btn {
+.property-btn,
+.cta-btn {
   display: inline-block;
-  padding: 12px 24px;
   background: var(--secondary);
-  color: white;
+  color: var(--white);
+  padding: 12px 26px;
   border-radius: var(--radius);
-  font-weight: bold;
+  font-weight: 700;
   transition: var(--transition);
 }
 
 .btn:hover,
-.view-btn:hover {
+.view-btn:hover,
+.cta-btn:hover {
   background: #caa24d;
 }
 
 .btn-small {
   padding: 10px 18px;
   font-size: 14px;
-  background: var(--primary);
 }
 
 /* ==========================================================================
-   PROPERTY LISTINGS GRID
+   LISTINGS GRID
    ========================================================================== */
 .listings-grid,
 .listing-grid,
 #listings {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 30px;
+  gap: 32px;
   padding: 40px 0;
 }
 
 /* CARD */
 .property-card,
 .listing-card {
-  background: white;
-  border-radius: 16px;
+  background: var(--white);
+  border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
 }
 
 .property-card:hover,
 .listing-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.15);
 }
 
 .property-card img,
 .listing-card img {
-  width: 100%;
   height: 220px;
-  object-fit: cover;
 }
 
 .property-content,
@@ -188,19 +184,21 @@ nav a:hover {
 
 .property-content h3,
 .listing-info h3 {
-  margin-bottom: 8px;
   font-size: 18px;
+  margin-bottom: 6px;
 }
 
+/* BRAND-LOCKED TEXT */
 .location {
   font-size: 14px;
   color: var(--text-muted);
 }
 
 .price,
-.property-price {
-  font-weight: bold;
+.property-price,
+.badge {
   color: var(--secondary);
+  font-weight: 800;
   margin-top: 8px;
 }
 
@@ -210,10 +208,10 @@ nav a:hover {
 .property-page {
   max-width: var(--container);
   margin: 60px auto;
+  padding: 0 20px;
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 40px;
-  padding: 0 20px;
 }
 
 /* GALLERY */
@@ -223,7 +221,6 @@ nav a:hover {
 
 .gallery img {
   height: 420px;
-  object-fit: cover;
   border-radius: var(--radius);
 }
 
@@ -232,16 +229,16 @@ nav a:hover {
   top: 50%;
   transform: translateY(-50%);
   background: rgba(0,0,0,0.6);
-  color: white;
+  color: var(--white);
   border: none;
   font-size: 28px;
-  padding: 10px 16px;
+  padding: 12px 16px;
   cursor: pointer;
   border-radius: 50%;
 }
 
-#prevBtn { left: 15px; }
-#nextBtn { right: 15px; }
+#prevBtn { left: 14px; }
+#nextBtn { right: 14px; }
 
 /* FEATURES */
 .features,
@@ -253,12 +250,10 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   CONTACT BOX (STICKY)
+   CONTACT BOX (CONSISTENT MOBILE + DESKTOP)
    ========================================================================== */
 .contact-box {
-  position: sticky;
-  top: 120px;
-  background: white;
+  background: var(--white);
   padding: 24px;
   border-radius: var(--radius);
   box-shadow: 0 12px 30px rgba(0,0,0,0.12);
@@ -268,8 +263,15 @@ nav a:hover {
 .contact-box textarea,
 .contact-box button {
   width: 100%;
-  margin-bottom: 12px;
   padding: 10px;
+  margin-bottom: 12px;
+}
+
+.contact-box button {
+  background: var(--secondary);
+  color: var(--white);
+  border: none;
+  font-weight: bold;
 }
 
 /* ==========================================================================
@@ -295,8 +297,9 @@ nav a:hover {
   margin-bottom: 20px;
 }
 
-.about-image img {
-  border-radius: var(--radius);
+.about-text p {
+  font-size: 16px;
+  line-height: 1.8;
 }
 
 /* ==========================================================================
@@ -304,31 +307,25 @@ nav a:hover {
    ========================================================================== */
 footer {
   background: var(--primary);
-  color: white;
+  color: var(--white);
   text-align: center;
   padding: 30px 20px;
   margin-top: 80px;
 }
 
 /* ==========================================================================
-   MOBILE RESPONSIVE
+   MOBILE — SAME BRAND, SAME LOOK
    ========================================================================== */
 @media (max-width: 900px) {
+
+  nav { display: none; }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
   .property-page {
     grid-template-columns: 1fr;
-  }
-
-  .contact-box {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-radius: 16px 16px 0 0;
-    z-index: 999;
-  }
-
-  nav {
-    display: none;
   }
 
   .features {
