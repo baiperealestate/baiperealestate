@@ -200,3 +200,6 @@ header {
     z-index: 999;
   }
 }
+.page-title {
+  margin-bottom: 24px;
+}
