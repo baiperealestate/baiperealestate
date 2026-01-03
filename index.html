@@ -60,7 +60,9 @@
   <div class="section-inner">
     <h2>New Listings</h2>
 
-    <div class="listings-grid">
+<div id="listings" class="listings-grid"></div>
+<script src="assets/js/featured.js"></script>
+
 
       <!-- LISTING 1 -->
       <a href="property.html"
@@ -116,22 +118,6 @@
     </div>
   </div>
 </section>
-
-<script>
-  document.querySelectorAll(".listing-card").forEach(card => {
-    card.addEventListener("click", function () {
-
-      const propertyData = {
-        title: this.dataset.title,
-        price: this.dataset.price,
-        location: this.dataset.location,
-        image: this.dataset.image
-      };
-
-      localStorage.setItem("selectedProperty", JSON.stringify(propertyData));
-    });
-  });
-</script>
 
 
 <!-- Google Analytics -->
