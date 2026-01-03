@@ -117,6 +117,16 @@
   </div>
 </section>
 
+<script>
+  const property = JSON.parse(localStorage.getItem("selectedProperty"));
+
+  if (property) {
+    document.getElementById("property-title").textContent = property.title;
+    document.getElementById("property-price").textContent = property.price;
+    document.getElementById("property-location").textContent = property.location;
+    document.getElementById("property-image").src = property.image;
+  }
+</script>
 
 
 
