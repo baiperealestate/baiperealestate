@@ -118,16 +118,20 @@
 </section>
 
 <script>
-  const property = JSON.parse(localStorage.getItem("selectedProperty"));
+  document.querySelectorAll(".listing-card").forEach(card => {
+    card.addEventListener("click", function () {
 
-  if (property) {
-    document.getElementById("property-title").textContent = property.title;
-    document.getElementById("property-price").textContent = property.price;
-    document.getElementById("property-location").textContent = property.location;
-    document.getElementById("property-image").src = property.image;
-  }
+      const propertyData = {
+        title: this.dataset.title,
+        price: this.dataset.price,
+        location: this.dataset.location,
+        image: this.dataset.image
+      };
+
+      localStorage.setItem("selectedProperty", JSON.stringify(propertyData));
+    });
+  });
 </script>
-
 
 
 <!-- Google Analytics -->
