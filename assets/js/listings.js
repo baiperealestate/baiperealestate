@@ -8,7 +8,7 @@ fetch("data/listings.json")
       card.className = "listing-card";
 
       card.innerHTML = `
-        <img src="${property.image}">
+        <img src="${property.images[0]}">
         <h3>${property.title}</h3>
         <p>${property.location}</p>
         <strong>${property.price}</strong>
