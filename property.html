@@ -1,0 +1,35 @@
+<div id="propertyDetails"></div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const propertyId = params.get("id");
+
+fetch("data/listings.json")
+  .then(res => res.json())
+  .then(data => {
+    const property = data.find(p => p.id === propertyId);
+    if (!property) return;
+
+    document.getElementById("propertyDetails").innerHTML = `
+      <h1>${property.title}</h1>
+      <img src="${property.image}">
+      <p>${property.description}</p>
+
+      <ul>
+        <li>Bedrooms: ${property.bedrooms}</li>
+        <li>Bathrooms: ${property.bathrooms}</li>
+        <li>Size: ${property.size}</li>
+      </ul>
+
+      <h3>Features</h3>
+      <ul>
+        ${property.features.map(f => `<li>${f}</li>`).join("")}
+      </ul>
+
+      <a href="https://wa.me/59996654776?text=I%20am%20interested%20in%20${property.title}"
+         class="btn">
+        Contact About This Property
+      </a>
+    `;
+  });
+</script>
