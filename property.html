@@ -44,7 +44,12 @@ fetch("data/listings.json")
     document.getElementById("propertyDetails").innerHTML = `
       <h1>${property.title}</h1>
 
-      <img src="${property.image}" class="property-main-img">
+<div class="slider">
+  <button class="slide-btn prev">‹</button>
+  <img id="sliderImage">
+  <button class="slide-btn next">›</button>
+</div>
+
 
       <p class="price">${property.price}</p>
       <p class="location">${property.location}</p>
