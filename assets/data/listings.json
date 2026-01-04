@@ -4,12 +4,15 @@
     "title": "Single Family Home with Detached Studio – Grote Berg, Curaçao",
     "price": "XCG 730,000",
     "type": "For Sale",
+    "type": "Single Family Home",
     "location": "Grote Berg, Curaçao",
-    "images": [
-  "assets/images/listings/house1-1.jpg",
-  "assets/images/listings/house1-2.jpg",
-  "assets/images/listings/house1-3.jpg"
-],
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "size": "715m²",
+    "featured": true,
+    "images": "assets/images/listings/house1-1.jpg",
+               "assets/images/listings/house1-2.jpg",
+                "assets/images/listings/house1-3.jpg",
 
     "description": "Bai Pe Real Estate proudly presents this move-in-ready modern family home located in the desirable neighborhood of Grote Berg, Curaçao. Situated on 715 m² of owned land, this property offers modern comfort, privacy, and strong investment potential.",
     "features": [
@@ -21,5 +24,6 @@
       "Separate laundry room",
       "Move-in ready condition"
     ]
-  }, "featured": true
+  }
+]
 
