@@ -1,4 +1,31 @@
-<div id="propertyDetails"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Property Details | Bai Pe Real Estate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html">
+      <img src="assets/images/logo.png" alt="Bai Pe Real Estate">
+    </a>
+  </div>
+</header>
+
+<section class="property-container">
+  <div id="propertyDetails"></div>
+</section>
+
+<a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
+
+<footer>
+  <p>© 2025 Bai Pe Real Estate | Curaçao</p>
+</footer>
 
 <script>
 const params = new URLSearchParams(window.location.search);
@@ -8,28 +35,41 @@ fetch("data/listings.json")
   .then(res => res.json())
   .then(data => {
     const property = data.find(p => p.id === propertyId);
-    if (!property) return;
+    if (!property) {
+      document.getElementById("propertyDetails").innerHTML =
+        "<p>Property not found.</p>";
+      return;
+    }
 
     document.getElementById("propertyDetails").innerHTML = `
       <h1>${property.title}</h1>
-      <img src="${property.image}">
-      <p>${property.description}</p>
 
-      <ul>
-        <li>Bedrooms: ${property.bedrooms}</li>
-        <li>Bathrooms: ${property.bathrooms}</li>
-        <li>Size: ${property.size}</li>
+      <img src="${property.image}" class="property-main-img">
+
+      <p class="price">${property.price}</p>
+      <p class="location">${property.location}</p>
+
+      <p class="description">${property.description}</p>
+
+      <ul class="specs">
+        <li><strong>Bedrooms:</strong> ${property.bedrooms}</li>
+        <li><strong>Bathrooms:</strong> ${property.bathrooms}</li>
+        <li><strong>Size:</strong> ${property.size}</li>
       </ul>
 
-      <h3>Features</h3>
-      <ul>
+      <h3>Property Features</h3>
+      <ul class="features">
         ${property.features.map(f => `<li>${f}</li>`).join("")}
       </ul>
 
-      <a href="https://wa.me/59996654776?text=I%20am%20interested%20in%20${property.title}"
+      <a href="https://wa.me/59996654776?text=I%20am%20interested%20in%20${encodeURIComponent(property.title)}"
          class="btn">
         Contact About This Property
       </a>
     `;
-  });
+  })
+  .catch(err => console.error("Property error:", err));
 </script>
+
+</body>
+</html>
