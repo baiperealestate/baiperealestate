@@ -43,6 +43,24 @@ fetch("data/listings.json")
 
     document.getElementById("propertyDetails").innerHTML = `
       <h1>${property.title}</h1>
+      <script>
+let currentIndex = 0;
+
+function renderProperty(property) {
+  const img = document.getElementById("sliderImage");
+  img.src = property.images[currentIndex];
+
+  document.querySelector(".prev").onclick = () => {
+    currentIndex = (currentIndex - 1 + property.images.length) % property.images.length;
+    img.src = property.images[currentIndex];
+  };
+
+  document.querySelector(".next").onclick = () => {
+    currentIndex = (currentIndex + 1) % property.images.length;
+    img.src = property.images[currentIndex];
+  };
+}
+</script>
 
 <div class="slider">
   <button class="slide-btn prev">‹</button>
@@ -73,26 +91,6 @@ fetch("data/listings.json")
       </a>
     `;
   })
-
-
-  <script>
-let currentIndex = 0;
-
-function renderProperty(property) {
-  const img = document.getElementById("sliderImage");
-  img.src = property.images[currentIndex];
-
-  document.querySelector(".prev").onclick = () => {
-    currentIndex = (currentIndex - 1 + property.images.length) % property.images.length;
-    img.src = property.images[currentIndex];
-  };
-
-  document.querySelector(".next").onclick = () => {
-    currentIndex = (currentIndex + 1) % property.images.length;
-    img.src = property.images[currentIndex];
-  };
-}
-</script>
 
   .catch(err => console.error("Property error:", err));
 </script>
