@@ -1477,6 +1477,10 @@ footer {
 .listing-card .btn:hover {
   background: #c49f54;
 }
+
+header .logo img {
+      height: 50px;
+    }
 .property-container {
   max-width: 1100px;
   margin: 60px auto;
@@ -1555,40 +1559,4 @@ footer {
 .prev { left: 10px; }
 .next { right: 10px; }
 
- /* PROPERTY PAGE LOGO */
-.property-page header .logo img,
-.property-page .navbar .logo img {
-  height: 50px;       /* default logo size */
-  width: auto;
-  max-width: 180px;
-  transition: all 0.3s ease;
-  display: block;
-}
-
-/* Tablets */
-@media (min-width: 768px) {
-  .property-page header .logo img,
-  .property-page .navbar .logo img {
-    height: 56px;
-    max-width: 220px;
-  }
-}
-
-/* Desktop / Large screens */
-@media (min-width: 1200px) {
-  .property-page header .logo img,
-  .property-page .navbar .logo img {
-    height: 60px;
-    max-width: 260px;
-  }
-}
-
-/* Mobile adjustment for very small screens */
-@media (max-width: 480px) {
-  .property-page header .logo img,
-  .property-page .navbar .logo img {
-    height: 40px;
-    max-width: 140px;
-  }
-}
 
