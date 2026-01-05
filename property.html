@@ -44,38 +44,51 @@
     <option value="Commercial">Commercial</option>
   </select>
 
-<main class="property-page">
+<div class="property-page">
 
-  <section class="gallery">
+  <!-- IMAGE SLIDER -->
+  <div class="gallery">
     <button id="prevBtn">‹</button>
-    <img id="mainImage">
+    <img id="galleryImage" src="" alt="">
     <button id="nextBtn">›</button>
-  </section>
-
- <section class="property-content">
-
-  <div>
-    <h1 id="propertyTitle"></h1>
-    <p id="propertyDescription"></p>
-
-    <h3>Property Features</h3>
-    <ul id="featuresList"></ul>
   </div>
 
-  <aside class="inquiry-box">
-    <h3>Request Information</h3>
+  <!-- CONTENT -->
+  <section class="property-content">
 
-    <form id="inquiryForm">
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <input type="tel" placeholder="Phone / WhatsApp">
-      <textarea placeholder="Message" rows="4"></textarea>
+    <div class="property-main">
+      <h1 id="propertyTitle"></h1>
 
-      <button type="submit">Contact Bai Pe Real Estate</button>
-    </form>
-  </aside>
+      <p class="price" id="propertyPrice"></p>
+      <p class="location" id="propertyLocation"></p>
 
-</section>
+      <p id="propertyDescription"></p>
+
+      <div class="property-meta">
+        <span>🛏 <strong id="beds"></strong></span>
+        <span>🛁 <strong id="baths"></strong></span>
+        <span>📐 <strong id="size"></strong></span>
+      </div>
+
+      <h3>Features</h3>
+      <ul id="featuresList"></ul>
+    </div>
+
+    <!-- INQUIRY FORM -->
+    <aside class="inquiry-box">
+      <h3>Request Information</h3>
+      <form id="inquiryForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Phone / WhatsApp">
+        <textarea rows="4" placeholder="Message"></textarea>
+        <button type="submit">Contact Bai Pe Real Estate</button>
+      </form>
+    </aside>
+
+  </section>
+</div>
+
 
 
 </main>
