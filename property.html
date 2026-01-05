@@ -1,12 +1,13 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Property Details | Bai Pe Real Estate</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>Bai Pe Real Estate | Real Estate in Curaçao</title>
+  <meta name="description" content="Buy, sell and rent real estate in Curaçao with Bai Pe Real Estate.">
+  <meta name="description" content="Buy, sell and rent real estate in Curaçao with Bai Pe Real Estate. Professional brokerage for residential and commercial properties.">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
 <header>
@@ -43,6 +44,7 @@
     <option value="Residential">Residential</option>
     <option value="Commercial">Commercial</option>
   </select>
+</header>
 
 <main class="property-page">
 
@@ -54,23 +56,20 @@
   </div>
 
   <!-- CONTENT -->
-  <section class="property-content">
+  <main class="property-page">
 
-    <div class="property-main">
-      <h1 id="propertyTitle"></h1>
-      <p class="price" id="propertyPrice"></p>
-      <p class="location" id="propertyLocation"></p>
+<section class="gallery">
+    <button id="prevBtn">‹</button>
+    <img id="mainImage">
+    <button id="nextBtn">›</button>
+  </section>
 
-      <p id="propertyDescription"></p>
-
-      <div class="property-meta">
-        <span>🛏 <strong id="beds"></strong></span>
-        <span>🛁 <strong id="baths"></strong></span>
-        <span>📐 <strong id="size"></strong></span>
-      </div>
-
+    <section class="property-content">
+    <h1 id="propertyTitle"></h1>
+    <p id="propertyDescription"></p>
+ 
       <h3>Features</h3>
-      <ul id="featuresList"></ul>
+    <ul id="featuresList"></ul>
     </div>
 
     <!-- CONTACT FORM -->
