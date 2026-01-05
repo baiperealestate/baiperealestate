@@ -1,3 +1,7 @@
+console.log("URL:", window.location.href);
+console.log("ID from URL:", id);
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
@@ -43,3 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.innerHTML = "<h1>Error loading property</h1>";
     });
 });
+
+<a href="property.html?id=${property.id}" class="btn">
+  View Details
+</a>
