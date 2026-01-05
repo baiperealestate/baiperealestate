@@ -1,6 +1,3 @@
-console.log("URL:", window.location.href);
-console.log("ID from URL:", id);
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
