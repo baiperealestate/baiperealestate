@@ -1535,7 +1535,7 @@ footer {
 
 .slider img {
   width: 100%;
-  height: 480px;
+  height: 1500px;
   object-fit: cover;
   border-radius: 18px;
 }
@@ -1552,7 +1552,7 @@ footer {
   cursor: pointer;
 }
 
-.prev { left: 1px; }
-.next { right: 1px; }
+.prev { left: 10px; }
+.next { right: 10px; }
 
  
