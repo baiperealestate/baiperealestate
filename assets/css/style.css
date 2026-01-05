@@ -1102,7 +1102,7 @@ body {
 /* IMAGES */
 .listing-images img {
   width: 100%;
-  height: 240px;
+  height: 1200px;
   object-fit: cover;
 }
 
@@ -1153,7 +1153,7 @@ body {
 
 .listing-image img {
   width: 100%;
-  height: 240px;
+  height: 1200px;
   object-fit: cover;
 }
 
