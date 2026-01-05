@@ -1552,7 +1552,7 @@ footer {
   cursor: pointer;
 }
 
-.prev { left: 5px; }
-.next { right: 5px; }
+.prev { left: 1px; }
+.next { right: 1px; }
 
  
