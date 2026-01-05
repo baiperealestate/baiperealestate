@@ -1737,3 +1737,38 @@ a {
     height: 320px;
   }
 }
+.property-content {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+}
+
+.property-main h1 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.property-main .price {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.property-main .location {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.property-main p {
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.property-meta {
+  display: flex;
+  gap: 25px;
+  margin: 30px 0;
+  font-size: 15px;
+}
