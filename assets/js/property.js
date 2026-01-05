@@ -25,4 +25,16 @@ fetch("assets/data/listings.json")
     document.getElementById("propertyDescription").textContent = property.description;
     document.getElementById("featuresList").innerHTML =
       property.features.map(f => `<li>${f}</li>`).join("");
-  });
+  }); 
+
+document.getElementById("inquiryForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const title = document.getElementById("propertyTitle").textContent;
+  const message = encodeURIComponent(
+    `Hello Bai Pe Real Estate, I am interested in:\n\n${title}`
+  );
+
+  window.open(`https://wa.me/59996654776?text=${message}`, "_blank");
+});
+
