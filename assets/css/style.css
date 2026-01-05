@@ -695,8 +695,6 @@ html {
   margin-top: 20px;
 }
 
-
-
  .listing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1554,7 +1552,7 @@ footer {
   cursor: pointer;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+.prev { left: 5px; }
+.next { right: 5px; }
 
  
