@@ -44,12 +44,12 @@
     <option value="Commercial">Commercial</option>
   </select>
 
-<div class="property-page">
+<main class="property-page">
 
   <!-- IMAGE SLIDER -->
   <div class="gallery">
     <button id="prevBtn">‹</button>
-    <img id="galleryImage" src="" alt="">
+    <img id="galleryImage" alt="Property image">
     <button id="nextBtn">›</button>
   </div>
 
@@ -58,7 +58,6 @@
 
     <div class="property-main">
       <h1 id="propertyTitle"></h1>
-
       <p class="price" id="propertyPrice"></p>
       <p class="location" id="propertyLocation"></p>
 
@@ -74,23 +73,19 @@
       <ul id="featuresList"></ul>
     </div>
 
-    <!-- INQUIRY FORM -->
+    <!-- CONTACT FORM -->
     <aside class="inquiry-box">
       <h3>Request Information</h3>
-      <form id="inquiryForm">
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email" required>
-        <input type="tel" placeholder="Phone / WhatsApp">
-        <textarea rows="4" placeholder="Message"></textarea>
+      <form action="https://formspree.io/f/xzdpvjnk" method="POST">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="phone" placeholder="Phone / WhatsApp">
+        <textarea name="message">I'm interested in this property</textarea>
         <button type="submit">Contact Bai Pe Real Estate</button>
       </form>
     </aside>
 
   </section>
-</div>
-
-
-
 </main>
 
 <script src="assets/js/property.js"></script>
