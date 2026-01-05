@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
-  console.log("Property ID:", id);
-
   if (!id) {
     document.body.innerHTML = "<h1>Property not found</h1>";
     return;
@@ -13,8 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.json())
     .then(data => {
       const property = data.find(p => p.id === id);
-
-      console.log("Matched property:", property);
 
       if (!property) {
         document.body.innerHTML = "<h1>Property not found</h1>";
@@ -43,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         property.features.map(f => `<li>${f}</li>`).join("");
     })
     .catch(err => {
-      console.error("Property load error:", err);
+      console.error(err);
       document.body.innerHTML = "<h1>Error loading property</h1>";
     });
 });
