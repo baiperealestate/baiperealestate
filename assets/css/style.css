@@ -1,5 +1,5 @@
 /* ==================================================
-   RESET & VARIABLES
+   RESET & BASE
 ================================================== */
 *,
 *::before,
@@ -9,6 +9,20 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #F4F6FC;
+  color: #1E1E1E;
+  line-height: 1.6;
+}
+
+/* ==================================================
+   BRAND VARIABLES
+================================================== */
 :root {
   --primary-color: #0F514F;
   --secondary-color: #D8AE5E;
@@ -20,32 +34,21 @@
   --container-width: 1200px;
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 18px;
-  --transition: 0.25s ease;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: var(--background-color);
-  color: var(--text-color);
-  line-height: 1.6;
+  --radius-lg: 16px;
+  --transition: 0.3s ease;
 }
 
 /* ==================================================
    GLOBAL ELEMENTS
 ================================================== */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 img {
   width: 100%;
   display: block;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
 }
 
 .container {
@@ -55,7 +58,7 @@ a {
 }
 
 /* ==================================================
-   HEADER & NAVIGATION (FIXED & CONSISTENT)
+   HEADER & NAVIGATION
 ================================================== */
 header {
   background: var(--white);
@@ -68,33 +71,25 @@ header {
 .header-inner {
   max-width: var(--container-width);
   margin: auto;
-  padding: 18px 20px;
+  padding: 16px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* LOGO */
-.logo {
-  display: flex;
-  align-items: center;
-}
-
 .logo img {
-  height: 52px;
+  height: 44px;
   width: auto;
-  max-width: 220px;
+  max-width: 180px;
+  transition: var(--transition);
 }
 
-/* NAV */
 nav {
   display: flex;
-  align-items: center;
-  gap: 26px;
+  gap: 28px;
 }
 
 nav a {
-  font-size: 15px;
   font-weight: 500;
   color: var(--text-color);
   transition: var(--transition);
@@ -104,46 +99,35 @@ nav a:hover {
   color: var(--secondary-color);
 }
 
-/* LANGUAGE SWITCH */
-#languageSwitcher {
-  padding: 6px 10px;
-  border-radius: 6px;
-  border: 1px solid #d1d5db;
-  background: var(--white);
-  font-size: 14px;
-  cursor: pointer;
-}
-
-/* MOBILE TOGGLE */
+/* Mobile toggle (icon handled in HTML/JS) */
 .menu-toggle {
   display: none;
   font-size: 26px;
-  cursor: pointer;
   color: var(--primary-color);
+  cursor: pointer;
 }
 
 /* ==================================================
-   HERO
+   TYPOGRAPHY
 ================================================== */
-.hero {
-  background: linear-gradient(
-    rgba(15,81,79,0.9),
-    rgba(15,81,79,0.9)
-  );
-  color: var(--white);
-  text-align: center;
-  padding: 110px 20px;
+h1 {
+  font-size: 42px;
+  line-height: 1.2;
 }
 
-.hero h1 {
-  font-size: 46px;
-  margin-bottom: 14px;
+h2 {
+  font-size: 32px;
+  line-height: 1.3;
 }
 
-.hero p {
-  max-width: 600px;
-  margin: auto;
-  opacity: 0.9;
+h3 {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+p {
+  font-size: 16px;
+  color: var(--muted-text);
 }
 
 /* ==================================================
@@ -154,8 +138,8 @@ nav a:hover {
   padding: 14px 30px;
   background: var(--secondary-color);
   color: var(--white);
-  border-radius: var(--radius-sm);
   font-weight: 600;
+  border-radius: var(--radius-sm);
   transition: var(--transition);
 }
 
@@ -164,7 +148,30 @@ nav a:hover {
 }
 
 /* ==================================================
-   LISTINGS PAGE (REFINED GRID)
+   HERO SECTION
+================================================== */
+.hero {
+  background: linear-gradient(
+    rgba(15,81,79,0.9),
+    rgba(15,81,79,0.9)
+  );
+  color: var(--white);
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h1 {
+  margin-bottom: 16px;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 32px;
+  color: #e5e7eb;
+}
+
+/* ==================================================
+   LISTINGS GRID (CRITICAL SECTION)
 ================================================== */
 .listings-container {
   max-width: var(--container-width);
@@ -174,16 +181,16 @@ nav a:hover {
 
 .listings-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 36px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 32px;
 }
 
-/* LISTING CARD */
+/* Listing Card */
 .listing-card {
   background: var(--white);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
   transition: var(--transition);
 }
 
@@ -192,18 +199,18 @@ nav a:hover {
 }
 
 .listing-card img {
-  height: 230px;
+  height: 220px;
   object-fit: cover;
 }
 
-/* INFO */
+/* Listing Content */
 .listing-info {
-  padding: 22px;
+  padding: 20px;
 }
 
 .listing-info h3 {
-  color: var(--primary-color);
   margin-bottom: 6px;
+  color: var(--primary-color);
 }
 
 .listing-info .location {
@@ -216,150 +223,80 @@ nav a:hover {
   font-size: 18px;
   font-weight: bold;
   color: var(--secondary-color);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 /* ==================================================
-   PROPERTY DETAIL PAGE (PREMIUM LAYOUT)
+   PROPERTY DETAIL PAGE
 ================================================== */
 .property-page {
   max-width: var(--container-width);
-  margin: 70px auto;
+  margin: 60px auto;
   padding: 0 20px;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 50px;
+  gap: 40px;
 }
 
-/* IMAGE GALLERY */
-.property-gallery {
-  position: relative;
-}
-
+/* Gallery */
 .property-gallery img {
-  height: 460px;
+  height: 420px;
   object-fit: cover;
   border-radius: var(--radius-lg);
 }
 
-/* GALLERY NAV */
-.property-gallery button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.55);
-  color: white;
-  border: none;
-  font-size: 28px;
-  padding: 12px 18px;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.property-gallery .prev { left: 16px; }
-.property-gallery .next { right: 16px; }
-
-/* DETAILS */
-.property-content h1 {
-  margin: 24px 0 10px;
-  color: var(--primary-color);
-}
-
-.property-content .price {
-  font-size: 22px;
-  color: var(--secondary-color);
-  margin-bottom: 20px;
-}
-
-/* FEATURES */
+/* Features */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 12px;
-  margin: 30px 0;
+  margin-top: 24px;
 }
 
-/* ==================================================
-   CONTACT FORM (NON-INTRUSIVE & POLISHED)
-================================================== */
+/* Contact Box */
 .contact-box {
   background: var(--white);
-  padding: 28px;
-  border-radius: var(--radius-lg);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.1);
-}
-
-.contact-box h3 {
-  margin-bottom: 16px;
-  color: var(--primary-color);
+  padding: 24px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 120px;
 }
 
 .contact-box input,
-.contact-box textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 14px;
-  border-radius: var(--radius-sm);
-  border: 1px solid #d1d5db;
-}
-
+.contact-box textarea,
 .contact-box button {
   width: 100%;
-  background: var(--secondary-color);
-  color: var(--white);
-  padding: 14px;
-  border-radius: var(--radius-sm);
-  border: none;
-  font-weight: bold;
+  margin-bottom: 12px;
+  padding: 10px;
 }
 
 /* ==================================================
-   FLOATING BUTTONS (SUBTLE & CONTROLLED)
-================================================== */
-.whatsapp-btn {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 56px;
-  height: 56px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-  z-index: 900;
-}
-
-/* ==================================================
-   FOOTER (REFINED)
+   FOOTER
 ================================================== */
 footer {
   background: var(--primary-color);
   color: var(--white);
   text-align: center;
-  padding: 50px 20px;
+  padding: 30px 20px;
   margin-top: 80px;
 }
 
-footer p {
-  opacity: 0.85;
-  font-size: 14px;
-}
-
 /* ==================================================
-   RESPONSIVE
+   RESPONSIVE DESIGN
 ================================================== */
+
+/* Tablets */
 @media (max-width: 900px) {
+  h1 { font-size: 34px; }
+  h2 { font-size: 28px; }
+
   .property-page {
     grid-template-columns: 1fr;
   }
-
-  .logo img {
-    height: 46px;
-  }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
   nav {
     position: absolute;
@@ -368,6 +305,7 @@ footer p {
     right: 0;
     background: var(--white);
     flex-direction: column;
+    gap: 0;
     display: none;
     border-bottom: 1px solid #e5e7eb;
   }
@@ -385,21 +323,31 @@ footer p {
     display: block;
   }
 
+  .hero {
+    padding: 80px 20px;
+  }
+
   .hero h1 {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .logo img {
-    height: 44px;
+    height: 38px;
   }
 }
 
+/* Small Mobile */
 @media (max-width: 480px) {
   .listing-card img {
     height: 200px;
   }
 
-  .property-gallery img {
-    height: 300px;
+  .contact-box {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    border-radius: 16px 16px 0 0;
   }
 }
