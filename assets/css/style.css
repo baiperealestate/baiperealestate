@@ -1822,6 +1822,78 @@ footer {
   text-decoration: none;
   color: #ffffff;
 }
+/* ===============================
+   HERO — FINAL DESKTOP FIX
+================================ */
 
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background-image: url("../images/curacao-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #ffffff;
 }
+
+/* Overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 81, 79, 0.55);
+  z-index: 0;
+}
+
+/* Text above overlay */
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Typography */
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* CTA Button */
+.hero .btn {
+  background-color: #D8AE5E;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 60vh;
+    padding: 0 20px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
