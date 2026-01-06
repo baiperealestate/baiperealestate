@@ -1,114 +1,407 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bai Pe Real Estate | Real Estate in Curaçao</title>
-  <meta name="description" content="Buy, sell and rent real estate in Curaçao with Bai Pe Real Estate.">
-  <meta name="description" content="Buy, sell and rent real estate in Curaçao with Bai Pe Real Estate. Professional brokerage for residential and commercial properties.">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-  <!-- Netlify Identity -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+/* ==================================================
+   RESET & VARIABLES
+================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
+:root {
+  --primary-color: #0F514F;
+  --secondary-color: #D8AE5E;
+  --background-color: #F4F6FC;
+  --text-color: #1E1E1E;
+  --muted-text: #6b7280;
+  --white: #ffffff;
+
+  --container-width: 1200px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --transition: 0.25s ease;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius-md);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==================================================
+   HEADER
+================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--white);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 18px 20px;
+}
+
+.logo img {
+  height: 52px;
+  width: auto;
+  max-width: 220px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+nav a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+nav a:hover {
+  color: var(--secondary-color);
+}
+
+#languageSwitcher {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: var(--white);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* MOBILE NAVIGATION */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    flex-direction: column;
+    display: none;
+    border-bottom: 1px solid #e5e7eb;
   }
-</script>
+  nav.active {
+    display: flex;
+  }
+  nav a {
+    padding: 14px 20px;
+    border-top: 1px solid #f1f5f9;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .logo img {
+    height: 44px;
+  }
+}
 
-<body>
+/* ==================================================
+   HERO
+================================================== */
+.hero {
+  background: linear-gradient(
+    rgba(15,81,79,0.9),
+    rgba(15,81,79,0.9)
+  );
+  color: var(--white);
+  text-align: center;
+  padding: 100px 20px;
+}
 
-  <!-- HEADER -->
-  <header class="navbar">
-  <div class="logo">
-  <a href="index.html">
-    <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
-  </a>
-</div>
+.hero h1 {
+  font-size: 46px;
+  margin-bottom: 14px;
+}
 
+.hero p {
+  max-width: 600px;
+  margin: auto;
+  opacity: 0.9;
+}
 
-  <nav>
-   <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="listings.html">Listings</a>
-      <a href="contact.html">Contact</a>
-      <a href="blog.html">Blog</a>
-      <a href="social.html" class="active">Social Media</a>
-      <a href="buying-selling-guide.html">Guide</a>
-  </nav>
+/* ==================================================
+   BUTTONS
+================================================== */
+.btn {
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--secondary-color);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: var(--transition);
+}
 
-  <select class="language-switcher">
-    <option>EN</option>
-    <option>NL</option>
-    <option>PAP</option>
-    <option>ES</option>
-  </select>
-</header>
-  
-  <!-- HERO -->
-  <section class="hero">
-    <h2>Premium Real Estate in Curaçao</h2>
-    <p>Buy • Sell • Rent with Confidence</p>
-    <a href="listings.html" class="btn">View Listings</a>
-  </section>
+.btn:hover {
+  background: #c49f54;
+}
 
- <section aria-label="Featured Properties">
-  <div class="section-inner">
-    <h2>Featured Properties</h2>
-    <div id="listings" class="listings-grid">
+/* ==================================================
+   LISTINGS PAGE
+================================================== */
+.listings-container {
+  max-width: var(--container-width);
+  margin: 80px auto;
+  padding: 0 20px;
+}
 
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 36px;
+}
 
+/* LISTING CARD */
+.listing-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
 
-      <!-- LISTING 1 -->
-      <a href="property.html"
-         class="listing-card"
-         data-title="Single Family Home – Grote Berg"
-         data-price="XCG 730,000"
-         data-location="Grote Berg, Curaçao"
-         data-image="assets/images/listings/house1-1.jpg">
+.listing-card:hover {
+  transform: translateY(-6px);
+}
 
-        <img src="assets/images/listings/house1-1.jpg" alt="Single Family Home – Grote Berg">
-        <div class="listing-info">
-          <h3>Single Family Home – Grote Berg</h3>
-          <div class="price">XCG 730,000</div>
-          <div class="location">Grote Berg, Curaçao</div>
-          <span class="view-btn">View Details</span>
-        </div>
-      </a>
+.listing-info {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-      
+.listing-info h3 {
+  color: var(--primary-color);
+  margin-bottom: 6px;
+}
 
-    </div>
-  </div>
-</section>
+.listing-info .location {
+  font-size: 14px;
+  color: var(--muted-text);
+  margin-bottom: 10px;
+}
 
+.listing-info .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--secondary-color);
+  margin-bottom: 16px;
+}
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JT23SBTX7H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JT23SBTX7H');
-</script>
- 
+.listing-info .view-btn {
+  align-self: start;
+  margin-top: auto;
+}
 
-<section style="margin-top:80px; background-color:#0F514F; color:#fff; padding:60px 20px; text-align:center;">
-  <h2>Looking to Buy, Sell, or Rent Property in Curaçao?</h2>
-  <p style="margin:20px 0;">Contact Bai Pe Real Estate for professional guidance.</p>
-  <a href="contact.html" class="btn">Contact Us Today</a>
-</section>
+/* ==================================================
+   PROPERTY DETAILS PAGE
+================================================== */
+.property-page {
+  max-width: var(--container-width);
+  margin: 70px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
 
-<footer>
-<p>© 2025 Bai Pe Real Estate | Curaçao</p>
-</footer>
+.property-gallery {
+  position: relative;
+}
 
-</body>
-</html>
+.property-gallery img {
+  height: 380px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+.property-gallery button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.55);
+  color: white;
+  border: none;
+  font-size: 28px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.property-gallery .prev { left: 16px; }
+.property-gallery .next { right: 16px; }
+
+.property-content h1 {
+  margin: 24px 0 12px;
+  color: var(--primary-color);
+}
+
+.property-content .price {
+  font-size: 22px;
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+
+/* ==================================================
+   CONTACT FORM
+================================================== */
+.contact-box {
+  background: var(--white);
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.1);
+  margin-top: 30px;
+}
+
+.contact-box h3 {
+  margin-bottom: 16px;
+  color: var(--primary-color);
+}
+
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.contact-box button {
+  width: 100%;
+  background: var(--secondary-color);
+  color: var(--white);
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ==================================================
+   WHATSAPP BUTTON
+================================================== */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  z-index: 900;
+  transition: var(--transition);
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
+footer {
+  background: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 50px 20px;
+  margin-top: 80px;
+}
+
+footer p {
+  opacity: 0.85;
+  font-size: 14px;
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+@media (max-width: 1024px) {
+  .property-page {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .listing-card img {
+    height: 220px;
+  }
+
+  .property-gallery img {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .listing-card img {
+    height: 200px;
+  }
+
+  .property-gallery img {
+    height: 250px;
+  }
+
+  .contact-box {
+    padding: 22px;
+  }
+}
