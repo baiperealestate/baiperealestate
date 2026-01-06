@@ -22,8 +22,10 @@
   <!-- ================= HEADER ================= -->
   <header class="navbar">
     <div class="logo">
-      <a href="index.html"><img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
-    </div>
+      <a href="index.html">
+  <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
+</a>
+</div>
     
     <!-- Navigation -->
     <nav class="nav-links">
@@ -90,12 +92,16 @@
 </section>
 
 <script>
-  const hamburger = document.querySelector(".hamburger");
-  const navLinks = document.querySelector(".nav-links");
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
 
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    hamburger.classList.toggle("active");
+    if (hamburger && navLinks) {
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        hamburger.classList.toggle("active");
+      });
+    }
   });
 </script>
 
