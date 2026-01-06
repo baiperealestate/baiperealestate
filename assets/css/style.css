@@ -1685,11 +1685,6 @@ footer {
   font-size: 1.1rem;
 }
 
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-
   .hero p {
     font-size: 1rem;
   }
@@ -1765,10 +1760,68 @@ footer {
   .hero p { font-size: 18px; }
 }
 
-@media (max-width: 768px) {
-  .hero {
-    min-height: 60vh;
   }
   .hero h1 { font-size: 32px; }
   .hero p { font-size: 16px; }
+}
+
+   /* ===============================
+   HERO — DESKTOP FORCE FIX
+================================ */
+
+.hero {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  min-height: 85vh !important;
+
+  background-image: url("../images/curacao-hero.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 81, 79, 0.55);
+  z-index: 0;
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Desktop typography */
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Button */
+.hero .btn {
+  background: #D8AE5E;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
 }
