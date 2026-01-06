@@ -44,3 +44,42 @@
     ]
   }
 ]
+
+
+[
+  {
+    "id": "investmentapartmentcomplex-juandomingobijmahuma-002",
+    "title": "Single Family Home with Detached Studio – Grote Berg, Curaçao",
+    "price": "XCG 700,000",
+    "status": "For Sale",
+    "propertyType": "Apartmentcomplex",
+    "location": "Juan domingo near Mahuma, Curaçao",
+    "bedrooms": 6,
+    "bathrooms": 1,
+    "size": "484 m²",
+    "featured": true,
+
+    "images": [
+      "assets/images/listings/house2-1.jpg",
+      "assets/images/listings/house2-2.jpg",
+      "assets/images/listings/house2-3.jpg",
+      "assets/images/listings/house2-4.jpg",
+      "assets/images/listings/house2-5.jpg",
+      "assets/images/listings/house2-6.jpg",
+      "assets/images/listings/house2-7.jpg",
+
+    ],
+
+    "description": "Bai Pe Real Estate proudly presents this apartmentcomplex great investment opportunity and income ready in central neighborhood of Juan Domingo near Mahuma, Curaçao.",
+
+    "features": [
+      "2 bedrooms each apartment",
+      "1  bathrooms (each)",
+      "Private parking",
+      "Property Fully asphalted",
+      "Fully fenced property",
+      "Ample parking space",
+      "Move-in ready and income ready"
+    ]
+  }
+]
