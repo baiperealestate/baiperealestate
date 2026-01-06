@@ -21,8 +21,10 @@
  <!-- ================= HEADER ================= -->
   <header class="navbar">
     <div class="logo">
-      <a href="index.html"><img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
-    </div>
+      <a href="index.html">
+  <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
+</a>
+</div>
     
     <!-- Navigation -->
     <nav class="nav-links">
@@ -65,7 +67,17 @@
 </section>
 
 <script src="assets/js/listings.js"></script>
-  
+
+<script>
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    hamburger.classList.toggle("active");
+  });
+</script>
+      
 <!-- ================= WHATSAPP BUTTON ================= -->
   <a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
  
