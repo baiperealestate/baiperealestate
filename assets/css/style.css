@@ -112,13 +112,12 @@ em { font-style: italic; }
 /* ========================
    HERO SECTION
 ======================== */
-.hero, .blog-hero {
-  background: #0F514F url('../images/hero-bg.jpg') no-repeat center center/cover;
+.hero {
+  background: #0F514F url('../images/curacao-hero.jpg') no-repeat center center/cover;
   color: #fff;
   text-align: center;
   padding: 100px 20px;
   border-radius: 10px;
-  position: relative;
   min-height: 500px; /* ensures hero area is visible */
   display: flex;
   flex-direction: column;
@@ -127,27 +126,25 @@ em { font-style: italic; }
 }
 
 /* Hero Heading */
-.hero h1, .blog-hero h1 {
+.hero h1 {
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
   text-transform: uppercase;
   margin-bottom: 15px;
-  color: #ffffff;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.4); /* makes text stand out */
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
 }
 
 /* Hero Paragraph */
-.hero p, .blog-hero p {
+.hero p {
   font-size: 1.25rem;
   margin-bottom: 30px;
   max-width: 700px;
-  color: #ffffff;
   text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
 }
 
 /* Hero Button */
-.hero .btn, .blog-hero .btn {
+.hero .btn {
   padding: 14px 32px;
   font-size: 1.1rem;
   border-radius: 8px;
@@ -159,9 +156,23 @@ em { font-style: italic; }
   transition: all 0.3s ease;
 }
 
-.hero .btn:hover, .blog-hero .btn:hover {
+.hero .btn:hover {
   background-color: #c49f54;
   transform: translateY(-2px);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .hero .btn {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
 }
 
 /* -----------------------
