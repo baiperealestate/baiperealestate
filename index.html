@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bai Pe Real Estate | Premium Real Estate in Curaçao </title>
-  <link rel="stylesheet" href="assets/css/style.css">
+
+  <title>Bai Pe Real Estate | Premium Real Estate in Curaçao</title>
   <meta name="description" content="Bai Pe Real Estate is a professional real estate brokerage in Curaçao.">
- 
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JT23SBTX7H"></script>
   <script>
@@ -16,69 +18,86 @@
     gtag('config', 'G-JT23SBTX7H');
   </script>
 </head>
+
 <body>
 
-  
-  <!-- ================= HEADER ================= -->
-  <header class="navbar">
-    <div class="logo">
-      <a href="index.html"><img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
-    </div>
-    
-    <!-- Navigation -->
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="listings.html">Listings</a>
-      <a href="contact.html">Contact</a>
-      <a href="blog.html">Blog</a>
-      <a href="social.html">Social Media</a>
-      <a href="buying-selling-guide.html">Guide</a>
-    </nav>
+<!-- ================= HEADER ================= -->
+<header class="navbar">
+
+  <div class="logo">
+    <a href="index.html">
+      <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
+    </a>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="listings.html">Listings</a>
+    <a href="contact.html">Contact</a>
+    <a href="blog.html">Blog</a>
+    <a href="social.html">Social Media</a>
+    <a href="buying-selling-guide.html">Guide</a>
+  </nav>
 
   <!-- Mobile Hamburger -->
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    
-    <select class="language-switcher">
-      <option>EN</option>
-      <option>NL</option>
-      <option>PAP</option>
-      <option>ES</option>
-    </select>
-  </header>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-   
-  <!-- ================= HERO IMAGE WITH BUTTON ================= -->
- <section class="hero">
+  <!-- Language Switcher -->
+  <select class="language-switcher">
+    <option>EN</option>
+    <option>NL</option>
+    <option>PAP</option>
+    <option>ES</option>
+  </select>
+
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
   <div class="hero-content">
-     <h1>Premium Real Estate in Curaçao</h1>
-    
-      <p>Your trusted local real estate brokerage</p>
-      <a href="listings.html" class="btn">View Listings</a>
-    </div>
-  </section>
+    <h1>Premium Real Estate in Curaçao</h1>
+    <p>Your trusted local real estate brokerage</p>
+    <a href="listings.html" class="btn">View Listings</a>
+  </div>
+</section>
 
-  <!-- ================= CONTACT SECTION ================= -->
-  <section style="margin-top:80px; background-color:#0F514F; color:#fff; padding:60px 20px; text-align:center;">
+<!-- ================= CTA ================= -->
+<section style="margin-top:80px; background:#0F514F; color:#fff; padding:60px 20px; text-align:center;">
   <h2>Looking to Buy, Sell, or Rent Property in Curaçao?</h2>
   <p style="margin:20px 0;">Contact Bai Pe Real Estate for professional guidance.</p>
   <a href="contact.html" class="btn">Contact Us Today</a>
 </section>
 
-  <!-- ================= WHATSAPP BUTTON ================= -->
-  <a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
- 
+<!-- ================= WHATSAPP ================= -->
+<a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
 
-  <!-- ================= FOOTER ================= -->
-  <footer>
-    <div class="container">
-      <p>© 2025 Bai Pe Real Estate | Curaçao</p>
-      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
-    </div>
-  </footer>
- </body>
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <p>© 2025 Bai Pe Real Estate | Curaçao</p>
+    <p>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms & Conditions</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ================= MOBILE MENU SCRIPT ================= -->
+<script>
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    hamburger.classList.toggle("active");
+  });
+</script>
+
+</body>
 </html>
