@@ -293,75 +293,44 @@ nav a:hover {
 }
 
 /* ==================================================
-   CONTACT FORM - contact.html
+   CONTACT FORM
 ================================================== */
 .contact-box {
-  max-width: 500px;        /* larger form width */
-  margin: 40px auto;       /* centered on page */
-  padding: 36px;           /* more breathing room */
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+  background: var(--white);
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.1);
+  margin-top: 30px;
 }
 
 .contact-box h3 {
-  font-size: 24px;
-  color: #0F514F;
-  margin-bottom: 20px;
-  text-align: center;
+  margin-bottom: 16px;
+  color: var(--primary-color);
 }
 
 .contact-box input,
 .contact-box textarea {
   width: 100%;
-  padding: 16px;
+  padding: 14px;
   margin-bottom: 16px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: 1px solid #d1d5db;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .contact-box button {
   width: 100%;
+  background: var(--secondary-color);
+  color: var(--white);
   padding: 16px;
-  background: #D8AE5E;
-  color: #ffffff;
-  font-weight: 600;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: none;
+  font-weight: bold;
   cursor: pointer;
-  transition: 0.25s ease;
-}
-
-.contact-box button:hover {
-  background: #c49f54;
 }
 
 /* ==================================================
-   PROPERTY LISTINGS FOOTER
-================================================== */
-.property-footer {
-  background: #0F514F;
-  color: #ffffff;
-  text-align: center;
-  padding: 40px 20px;
-  margin-top: 60px;
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-.property-footer a {
-  color: #D8AE5E;
-  text-decoration: none;
-  transition: 0.25s ease;
-}
-
-.property-footer a:hover {
-  color: #ffffff;
-}
-
-/* ==================================================
-   WHATSAPP BUTTON - all pages
+   WHATSAPP BUTTON
 ================================================== */
 .whatsapp-btn {
   position: fixed;
@@ -374,9 +343,9 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
   z-index: 900;
-  transition: 0.25s ease;
+  transition: var(--transition);
 }
 
 .whatsapp-btn:hover {
@@ -384,16 +353,55 @@ nav a:hover {
 }
 
 /* ==================================================
-   RESPONSIVE FIXES
+   FOOTER
 ================================================== */
+footer {
+  background: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 50px 20px;
+  margin-top: 80px;
+}
+
+footer p {
+  opacity: 0.85;
+  font-size: 14px;
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+@media (max-width: 1024px) {
+  .property-page {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
 @media (max-width: 768px) {
-  .contact-box {
-    width: 90%;
-    padding: 24px;
+  .hero h1 {
+    font-size: 32px;
   }
 
-  .property-footer {
-    padding: 28px 15px;
-    font-size: 13px;
+  .listing-card img {
+    height: 220px;
+  }
+
+  .property-gallery img {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .listing-card img {
+    height: 200px;
+  }
+
+  .property-gallery img {
+    height: 250px;
+  }
+
+  .contact-box {
+    padding: 22px;
   }
 }
