@@ -1,12 +1,12 @@
-/* =======================================
-   Bai Pe Real Estate - Global Styles
+/* ===============================
+   Bai Pe Real Estate - Unified CSS
    Author: Rochairic Valerio
-   Last Updated: 2026
-======================================= */
+   Version: 2026
+=============================== */
 
-/* -------------------------
-   RESET & BASE STYLES
-------------------------- */
+/* -----------------------
+   RESET & BASE
+----------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -47,7 +47,7 @@ a:hover {
 h1, h2, h3, h4 {
   color: #0F514F;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 h1 { font-size: 2.5rem; }
@@ -64,53 +64,55 @@ p {
 
 em { font-style: italic; }
 
-/* Highlight text */
-.about-highlight {
-  background: #D8AE5E10;
-  padding: 8px 12px;
-  border-left: 4px solid #D8AE5E;
-  display: inline-block;
-  margin-top: 10px;
-}
-
-/* -------------------------
-   HEADER / NAVBAR
-------------------------- */
-.navbar {
-  background-color: #ffffff;
+/* -----------------------
+   NAVBAR / HEADER
+----------------------- */
+.navbar, .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 5%;
+  background-color: #fff;
   box-shadow: 0 3px 12px rgba(0,0,0,0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-.navbar .logo img {
-  max-height: 60px;
+.navbar .logo img, .header-inner .logo img {
+  max-height: 55px;
 }
 
-.navbar nav a {
+.nav-links a, .header-inner nav a {
   margin: 0 12px;
   font-weight: bold;
 }
 
-.navbar nav a.active {
+.nav-links a.active, .header-inner nav a.active {
   color: #D8AE5E;
 }
 
-.navbar select.language-switcher {
+/* Hamburger for mobile */
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px;
+  background: #0F514F;
+  transition: 0.3s;
+}
+
+/* Language switcher */
+.language-switcher {
   padding: 6px 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
 }
 
-/* -------------------------
-   HERO SECTION
-------------------------- */
-.hero {
+/* -----------------------
+   HERO SECTIONS
+----------------------- */
+.hero, .blog-hero {
   background: #0F514F url('../images/hero-bg.jpg') no-repeat center center/cover;
   color: #fff;
   text-align: center;
@@ -119,63 +121,66 @@ em { font-style: italic; }
   margin-bottom: 40px;
 }
 
-.hero-content h1 {
+.hero-content h1, .blog-hero h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
-.hero-content p {
+.hero-content p, .blog-hero p {
   font-size: 1.1rem;
   opacity: 0.9;
 }
 
-/* -------------------------
-   BUTTONS & CTA
-------------------------- */
-.cta-btn, button {
+.hero .btn, .blog-hero .btn {
+  margin-top: 20px;
+}
+
+/* -----------------------
+   BUTTONS / CTA
+----------------------- */
+.cta-btn, button, .btn {
   background-color: #D8AE5E;
-  color: #ffffff;
+  color: #fff;
   padding: 12px 26px;
   border-radius: 6px;
   font-weight: bold;
   border: none;
   cursor: pointer;
-  text-decoration: none;
   display: inline-block;
   transition: 0.3s;
 }
 
-.cta-btn:hover, button:hover {
+.cta-btn:hover, button:hover, .btn:hover {
   background-color: #c49f54;
 }
 
-/* -------------------------
-   BLOG & GUIDE CARDS
-------------------------- */
-.blog-card, .guide-card, .cta-box {
-  background: #ffffff;
+/* -----------------------
+   CONTACT SECTION
+----------------------- */
+.contact, .cta-box {
+  background: #fff;
   border-radius: 12px;
-  padding: 25-35px;
-  margin-bottom: 30px;
+  padding: 40px 25px;
+  margin-bottom: 60px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
-.blog-card h2, .guide-card h2 {
-  margin-bottom: 12px;
+.contact h2, .cta-box h3 {
+  margin-bottom: 20px;
 }
 
-.blog-card p, .guide-card p {
-  margin-bottom: 15px;
+.contact p, .cta-box p {
+  margin-bottom: 25px;
 }
 
-/* CTA BOX FORM */
-.cta-box form, .guide-card form {
+.contact form, .cta-box form {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-input, textarea {
+.contact input, .contact textarea,
+.cta-box input, .cta-box textarea {
   padding: 12px;
   border-radius: 6px;
   border: 1px solid #ccc;
@@ -185,9 +190,37 @@ input, textarea {
 
 textarea { resize: vertical; }
 
-/* -------------------------
+/* -----------------------
+   BLOG / GUIDE CARDS
+----------------------- */
+.blog-card, .guide-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 35px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.blog-card h2, .guide-card h2 {
+  margin-bottom: 12px;
+}
+
+.blog-card p, .guide-card p {
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* Blog meta */
+.meta {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+/* -----------------------
    LISTINGS GRID
-------------------------- */
+----------------------- */
 .listings-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
@@ -211,9 +244,9 @@ textarea { resize: vertical; }
   transform: translateY(-5px);
 }
 
-/* -------------------------
+/* -----------------------
    PROPERTY PAGE
-------------------------- */
+----------------------- */
 .property-page {
   display: flex;
   flex-wrap: wrap;
@@ -258,17 +291,9 @@ textarea { resize: vertical; }
   margin-bottom: 20px;
 }
 
-.inquiry-box {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  margin-top: 20px;
-}
-
-/* -------------------------
+/* -----------------------
    WHATSAPP BUTTON
-------------------------- */
+----------------------- */
 .whatsapp-btn {
   position: fixed;
   bottom: 25px;
@@ -288,9 +313,9 @@ textarea { resize: vertical; }
   background-color: #1ebe5d;
 }
 
-/* -------------------------
+/* -----------------------
    FOOTER
-------------------------- */
+----------------------- */
 footer {
   background-color: #0F514F;
   color: #F4F6FC;
@@ -303,15 +328,15 @@ footer a {
   color: #D8AE5E;
 }
 
-/* -------------------------
+/* -----------------------
    RESPONSIVE
-------------------------- */
+----------------------- */
 @media screen and (max-width: 1024px) {
   .property-page { flex-direction: column; }
 }
 
 @media screen and (max-width: 768px) {
-  .navbar nav {
+  .nav-links, .header-inner nav {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -323,5 +348,6 @@ footer a {
 @media screen and (max-width: 480px) {
   h1 { font-size: 1.8rem; }
   h2 { font-size: 1.5rem; }
-  .cta-btn, button { padding: 10px 20px; font-size: 14px; }
+  .cta-btn, button, .btn { padding: 10px 20px; font-size: 14px; }
+  .navbar .logo img, .header-inner .logo img { max-height: 45px; }
 }
