@@ -14,16 +14,15 @@
   --text-color: #1E1E1E;
   --muted-text: #6b7280;
   --white: #ffffff;
-
-  --container-width: 1200px;
-  --border-radius: 12px;
+  --border-radius: 8px;
   --transition: 0.3s ease;
+  --container-width: 1200px;
 }
 
 body {
   font-family: "Arial", sans-serif;
-  background-color: var(--background-color);
   color: var(--text-color);
+  background-color: var(--background-color);
   line-height: 1.6;
 }
 
@@ -33,46 +32,46 @@ a {
 }
 
 img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  max-width: 100%;
   display: block;
 }
 
 /* ===============================
-   CONTAINERS
+   CONTAINER
 ================================ */
-.container,
-.listings-container,
-.property-container,
-.property-page,
-.social-cta-inner {
+.container {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 20px;
 }
 
 /* ===============================
-   NAVBAR
+   HEADER & NAVBAR
 ================================ */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  background-color: #fff;
+header {
+  background-color: var(--white);
+  border-bottom: 1px solid #e5e7eb;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.navbar .logo img {
+header .header-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
   max-height: 60px;
   width: auto;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
 }
 
+/* NAV LINKS */
 .nav-links {
   display: flex;
   gap: 20px;
@@ -88,7 +87,7 @@ img {
   color: var(--secondary-color);
 }
 
-/* MOBILE MENU */
+/* HAMBURGER MENU MOBILE */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -111,9 +110,9 @@ img {
   position: absolute;
   top: 70px;
   right: 20px;
-  background: #fff;
+  background: var(--white);
   padding: 15px;
-  border-radius: var(--border-radius);
+  border-radius: 6px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
@@ -121,20 +120,19 @@ img {
    HERO SECTION
 ================================ */
 .hero {
-  width: 100%;
-  min-height: 50vh;
-  max-height: 80vh;
+  width: 100vw;
+  height: 90vh;
+  min-height: 500px;
+  max-height: 900px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  background-image: url("../images/curacao-hero.jpg");
+  background-image: url("../images/curacao-hero.jpg"); /* Replace your image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  overflow: hidden;
-  padding: 60px 20px;
 }
 
 .hero::before {
@@ -149,17 +147,18 @@ img {
   position: relative;
   z-index: 2;
   max-width: 900px;
+  padding: 0 20px;
   color: #fff;
 }
 
 .hero .hero-content h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   line-height: 1.2;
   margin-bottom: 20px;
 }
 
 .hero .hero-content p {
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin-bottom: 30px;
 }
 
@@ -167,11 +166,11 @@ img {
   display: inline-block;
   padding: 14px 32px;
   background-color: var(--secondary-color);
-  color: var(--white);
+  color: #fff;
   font-weight: bold;
   border-radius: var(--border-radius);
   text-decoration: none;
-  transition: var(--transition);
+  transition: background 0.3s;
 }
 
 .hero .hero-content .btn:hover {
@@ -179,127 +178,119 @@ img {
 }
 
 /* ===============================
-   GRID SYSTEM & CARDS
+   LISTINGS GRID & CARDS
 ================================ */
 .listings-grid,
-.property-gallery,
-.gallery,
-.listing-grid {
+.property-grid {
   display: grid;
-  gap: 24px;
-}
-
-.listings-grid {
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-}
-
-.listing-grid {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  padding: 40px 0;
 }
 
-.property-gallery,
-.gallery {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-.card,
-.property-card,
-.listing-card {
+.listing-card,
+.property-card {
   background: #fff;
-  border-radius: var(--border-radius);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-decoration: none;
   color: inherit;
 }
 
-.card:hover,
-.property-card:hover,
-.listing-card:hover {
+.listing-card:hover,
+.property-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 40px rgba(0,0,0,0.18);
 }
 
-.card img,
-.property-card img,
-.listing-card img {
+.listing-card img,
+.property-card img {
   width: 100%;
-  height: auto;
+  height: 220px;
   object-fit: cover;
-  border-radius: var(--border-radius);
 }
 
-.card .card-content,
-.property-card .property-content,
-.listing-card .listing-info {
+.listing-info,
+.property-content {
   padding: 20px;
 }
 
-.card h3,
-.property-card h3,
-.listing-card h3 {
+.listing-info h3,
+.property-content h3 {
   margin-bottom: 8px;
-  color: var(--primary-color);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .price {
   font-weight: bold;
   color: var(--secondary-color);
-  margin: 10px 0;
 }
 
+.view-btn,
 .btn {
   display: inline-block;
-  padding: 12px 28px;
-  background: var(--secondary-color);
+  margin-top: 12px;
+  background: var(--primary-color);
   color: #fff;
-  border-radius: var(--border-radius);
+  padding: 10px 18px;
+  border-radius: 8px;
   text-decoration: none;
-  font-weight: 600;
-  transition: var(--transition);
+  font-weight: bold;
 }
 
+.view-btn:hover,
 .btn:hover {
-  background-color: #c49f54;
+  background: #14655f;
 }
 
 /* ===============================
-   RESPONSIVE MEDIA QUERIES
+   PROPERTY PAGE GALLERY
 ================================ */
-/* Tablets */
-@media (min-width: 768px) {
-  .hero .hero-content h1 { font-size: 2.5rem; }
-  .hero .hero-content p { font-size: 1.1rem; }
-  .listing-grid { grid-template-columns: repeat(2, 1fr); }
+.gallery,
+.slider {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
 }
 
-/* Desktop */
-@media (min-width: 1200px) {
-  .hero .hero-content h1 { font-size: 3rem; }
-  .hero .hero-content p { font-size: 1.2rem; }
-  .listing-grid { grid-template-columns: repeat(3, 1fr); }
+.gallery img,
+.slider img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 16px;
 }
 
-/* Small screens */
-@media (max-width: 480px) {
-  .hero { min-height: 40vh; padding: 40px 20px; }
-  .hero .hero-content h1 { font-size: 1.6rem; }
-  .hero .hero-content p { font-size: 0.9rem; }
-  .listing-grid { grid-template-columns: 1fr; gap: 16px; }
-  .card, .property-card, .listing-card { padding: 15px; }
+.gallery button,
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  font-size: 28px;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
-/* Sticky / Floating Elements */
+#prevBtn { left: 10px; }
+#nextBtn { right: 10px; }
+
+/* ===============================
+   STICKY CONTACT BOX
+================================ */
 .contact-box {
-  background: #fff;
-  padding: 24px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
   position: sticky;
   top: 120px;
   max-width: 360px;
+  background: #fff;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
 @media(max-width: 900px) {
@@ -311,4 +302,81 @@ img {
     max-width: 100%;
     border-radius: 16px 16px 0 0;
   }
+}
+
+/* ===============================
+   ABOUT, BLOG, CONTACT SECTIONS
+================================ */
+section {
+  padding: 60px 20px;
+}
+
+.about-container,
+.blog-container,
+.guide-section {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-text h2,
+.blog-card h2,
+.guide-card h2 {
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+.about-text p,
+.blog-card p,
+.guide-card p {
+  color: var(--text-color);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+footer {
+  background-color: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* ===============================
+   RESPONSIVE BREAKPOINTS
+================================ */
+@media(max-width: 1200px) {
+  .hero { height: 80vh; }
+  .hero .hero-content h1 { font-size: 2.8rem; }
+  .hero .hero-content p { font-size: 1.2rem; }
+}
+
+@media(max-width: 1024px) {
+  .hero { height: 70vh; }
+  .hero .hero-content h1 { font-size: 2.5rem; }
+  .hero .hero-content p { font-size: 1.1rem; }
+}
+
+@media(max-width: 768px) {
+  .hero { height: 60vh; }
+  .hero .hero-content h1 { font-size: 2rem; }
+  .hero .hero-content p { font-size: 1rem; }
+  .hamburger { display: flex; }
+  .nav-links { display: none; }
+  .about-container { grid-template-columns: 1fr; }
+}
+
+@media(max-width: 480px) {
+  .hero { height: 50vh; }
+  .hero .hero-content h1 { font-size: 1.6rem; }
+  .hero .hero-content p { font-size: 0.9rem; }
+  .logo img { max-height: 40px; }
 }
