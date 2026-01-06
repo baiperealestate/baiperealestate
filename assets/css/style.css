@@ -1656,3 +1656,45 @@ footer {
     padding: 0.8rem 1.6rem;
   }
 }
+.hero {
+  background: url('../images/curacao-hero.jpg') center center/cover no-repeat;
+  width: 100%;
+  min-height: 80vh; /* ensures it occupies enough vertical space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.hero .btn {
+  padding: 14px 28px;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero {
+    min-height: 60vh;
+  }
+}
