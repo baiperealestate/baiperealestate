@@ -1594,11 +1594,6 @@ footer {
 }
 
 
-.hero p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-}
-
 /* CTA Button */
 .hero .btn {
   background-color: #D8AE5E;
@@ -1616,6 +1611,10 @@ footer {
     padding: 0 20px;
   }
 
+/* ===============================
+   HERO — LOCKED FOR ALL SCREENS
+================================ */
+
 .hero {
   width: 100%;
   height: 70vh;
@@ -1625,7 +1624,38 @@ footer {
   align-items: center;
   justify-content: center;
 
-  background: url("../images/curacao-hero.jpg") center center / cover no-repeat;
+  background-image: url("../images/curacao-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   position: relative;
+}
+
+/* Overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 81, 79, 0.55);
+}
+
+/* Content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero-content h1 {
+  font-size: 2.6rem;
+  margin-bottom: 14px;
+}
+
+.hero-content p {
+  font-size: 1.15rem;
+  margin-bottom: 28px;
 }
