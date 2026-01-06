@@ -417,3 +417,44 @@ footer p {
   .cta-btn, button, .btn { padding: 10px 20px; font-size: 14px; }
   .navbar .logo img, .header-inner .logo img { max-height: 45px; }
 }
+
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #000;
+    transition: 0.3s;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    text-align: center;
+    display: none;
+    padding: 20px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  .nav-links a {
+    padding: 15px 0;
+    display: block;
+    font-size: 16px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
