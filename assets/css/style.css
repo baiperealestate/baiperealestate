@@ -1616,90 +1616,16 @@ footer {
     padding: 0 20px;
   }
 
-/* ===============================
-   HERO SECTION — DESKTOP REFINED
-================================ */
-
 .hero {
-  position: relative;
   width: 100%;
-  min-height: 68vh; /* FIXED: better desktop proportion */
+  height: 70vh;
+  min-height: 420px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background-image: url("../images/curacao-hero.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url("../images/curacao-hero.jpg") center center / cover no-repeat;
 
-  color: #ffffff;
-}
-
-/* Overlay */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 81, 79, 0.55);
-}
-
-/* Content */
-.hero-content {
   position: relative;
-  z-index: 1;
-  max-width: 860px;
-  padding: 0 24px;
-  text-align: center;
-}
-
-/* Typography — DESKTOP */
-.hero-content h1 {
-  font-size: 2.6rem;   /* reduced */
-  margin-bottom: 0.8rem;
-  font-weight: 700;
-}
-
-.hero-content p {
-  font-size: 1.15rem;  /* reduced */
-  margin-bottom: 2rem;
-  color: #f4f6fc;
-}
-
-/* CTA */
-.btn-primary {
-  background-color: #D8AE5E;
-  color: #ffffff;
-  padding: 14px 32px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-}
-
-/* Tablets */
-@media (max-width: 992px) {
-  .hero {
-    min-height: 60vh;
-  }
-
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .hero {
-    min-height: 55vh;
-  }
-
-  .hero-content h1 {
-    font-size: 1.9rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
 }
