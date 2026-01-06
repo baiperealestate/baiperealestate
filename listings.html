@@ -16,33 +16,40 @@
     gtag('config', 'G-JT23SBTX7H');
   </script>
 </head>
-
 <body>
-  <!-- HEADER -->
+
+ <!-- ================= HEADER ================= -->
   <header class="navbar">
-  <div class="logo">
-  <a href="index.html">
-    <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
-  </a>
-</div>  
-  <nav>
-   <a href="index.html">Home</a>
+    <div class="logo">
+      <a href="index.html"><img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="listings.html">Listings</a>
       <a href="contact.html">Contact</a>
       <a href="blog.html">Blog</a>
-      <a href="social.html" class="active">Social Media</a>
+      <a href="social.html">Social Media</a>
       <a href="buying-selling-guide.html">Guide</a>
-  </nav>  
-  <select class="language-switcher">
-    <option>EN</option>
-    <option>NL</option>
-    <option>PAP</option>
-    <option>ES</option>
-  </select> 
- </header>
-  
-   <section class="container">
+    </nav>
+
+  <!-- Mobile Hamburger -->
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <select class="language-switcher">
+      <option>EN</option>
+      <option>NL</option>
+      <option>PAP</option>
+      <option>ES</option>
+    </select>
+
+     <section class="container">
   <select id="categoryFilter">
     <option value="all">All Categories</option>
        <option value="For Sale">For Sale</option>
@@ -50,6 +57,8 @@
     <option value="Residential">Residential</option>
     <option value="Commercial">Commercial</option>
   </select>
+  </header>
+      
 <section class="container">
   <h1>Available Properties</h1>
   <div id="listings" class="listings-grid"></div>
@@ -57,14 +66,17 @@
 
 <script src="assets/js/listings.js"></script>
   
-</section>
-<a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
+<!-- ================= WHATSAPP BUTTON ================= -->
+  <a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
+ 
 
+  <!-- ================= FOOTER ================= -->
   <footer>
     <div class="container">
       <p>© 2025 Bai Pe Real Estate | Curaçao</p>
       <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
     </div>
   </footer>
-</body>
+
+ </body>
 </html>
