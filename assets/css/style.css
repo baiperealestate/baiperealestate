@@ -1698,3 +1698,77 @@ footer {
     min-height: 60vh;
   }
 }
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: 100%;
+  min-height: 80vh; /* ensures hero has enough height */
+  background: url('../images/curacao-hero.jpg') center center / cover no-repeat !important;
+  color: #ffffff;
+  padding: 0 20px;
+}
+
+/* Optional: overlay for text readability */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 81, 79, 0.5); /* dark overlay */
+  z-index: 0;
+}
+
+.hero h1,
+.hero p,
+.hero .btn {
+  position: relative; /* above overlay */
+  z-index: 1;
+}
+
+/* HERO TEXT SIZE RESPONSIVE */
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* Button styling */
+.hero .btn {
+  background-color: #D8AE5E;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.hero .btn:hover {
+  background-color: #c49f54;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1200px) {
+  .hero h1 { font-size: 40px; }
+  .hero p { font-size: 18px; }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 60vh;
+  }
+  .hero h1 { font-size: 32px; }
+  .hero p { font-size: 16px; }
+}
