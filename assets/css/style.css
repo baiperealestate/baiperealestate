@@ -109,30 +109,59 @@ em { font-style: italic; }
   border: 1px solid #ccc;
 }
 
-/* -----------------------
-   HERO SECTIONS
------------------------ */
+/* ========================
+   HERO SECTION
+======================== */
 .hero, .blog-hero {
   background: #0F514F url('../images/hero-bg.jpg') no-repeat center center/cover;
   color: #fff;
   text-align: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
   border-radius: 10px;
-  margin-bottom: 40px;
+  position: relative;
+  min-height: 500px; /* ensures hero area is visible */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.hero-content h1, .blog-hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+/* Hero Heading */
+.hero h1, .blog-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4); /* makes text stand out */
 }
 
-.hero-content p, .blog-hero p {
-  font-size: 1.1rem;
-  opacity: 0.9;
+/* Hero Paragraph */
+.hero p, .blog-hero p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  max-width: 700px;
+  color: #ffffff;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
 }
 
+/* Hero Button */
 .hero .btn, .blog-hero .btn {
-  margin-top: 20px;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  background-color: #D8AE5E;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.hero .btn:hover, .blog-hero .btn:hover {
+  background-color: #c49f54;
+  transform: translateY(-2px);
 }
 
 /* -----------------------
@@ -313,19 +342,45 @@ textarea { resize: vertical; }
   background-color: #1ebe5d;
 }
 
-/* -----------------------
+/* ========================
    FOOTER
------------------------ */
+======================== */
 footer {
   background-color: #0F514F;
   color: #F4F6FC;
   text-align: center;
-  padding: 30px 0;
-  margin-top: 60px;
+  padding: 40px 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 footer a {
   color: #D8AE5E;
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer p {
+  margin: 6px 0;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive adjustments for hero text */
+@media screen and (max-width: 768px) {
+  .hero h1, .blog-hero h1 {
+    font-size: 2rem;
+  }
+  .hero p, .blog-hero p {
+    font-size: 1rem;
+  }
+  .hero .btn, .blog-hero .btn {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
 }
 
 /* -----------------------
