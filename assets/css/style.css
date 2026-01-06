@@ -585,6 +585,44 @@ footer a:hover {
   }
 }
 
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .property-page {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inquiry-box {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+.hamburger {
+  display: none;
+}
+
+
 .hamburger {
   display: none;
 }
