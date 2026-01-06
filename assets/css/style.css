@@ -1673,30 +1673,35 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* ===== HERO ===== */
+/* ===== HERO SECTION FIXED ===== */
 .hero {
-  width: 100%;
-  height: 100vh;
-  min-height: 400px;
+  width: 100vw; /* Full width of the viewport */
+  height: 90vh; /* Almost full screen height */
+  min-height: 500px;
+  max-height: 900px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: url("../images/curacao-hero.jpg");
+  background-image: url("../images/curacao-hero.jpg"); /* Replace with your image path */
   background-size: cover;
-  background-position: center;
+  background-position: center center;
+  background-repeat: no-repeat;
   position: relative;
+  overflow: hidden;
 }
 
+/* Overlay to make text readable */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.35);
   z-index: 1;
 }
 
-.hero-content {
+/* Hero content */
+.hero .hero-content {
   position: relative;
   z-index: 2;
   max-width: 900px;
@@ -1704,53 +1709,55 @@ body {
   color: #fff;
 }
 
-.hero-content h1 { font-size: 2.5rem; margin-bottom: 16px; }
-.hero-content p { font-size: 1.2rem; margin-bottom: 28px; }
-.hero-content .btn {
+.hero .hero-content h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero .hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+.hero .hero-content .btn {
   display: inline-block;
-  padding: 12px 28px;
+  padding: 14px 32px;
   background-color: #0F514F;
   color: #fff;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
   border-radius: 6px;
+  transition: background 0.3s;
 }
 
-/* ===== WHATSAPP BUTTON ===== */
-.whatsapp-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  color: #fff;
-  padding: 12px 18px;
-  border-radius: 50px;
-  font-weight: bold;
-  text-decoration: none;
-  z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+.hero .hero-content .btn:hover {
+  background-color: #14655f;
 }
 
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #0F514F;
-  color: #fff;
-  margin-top: 40px;
+/* ===== RESPONSIVE HERO ===== */
+@media (max-width: 1440px) {
+  .hero { height: 80vh; }
+  .hero .hero-content h1 { font-size: 2.8rem; }
+  .hero .hero-content p { font-size: 1.2rem; }
 }
 
-/* ===== MEDIA QUERIES ===== */
-@media(max-width: 1024px) { .hero-content h1 { font-size: 2rem; } .hero-content p { font-size: 1rem; } }
-@media(max-width: 768px) {
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .hero-content h1 { font-size: 1.8rem; }
-  .hero-content p { font-size: 0.95rem; }
+@media (max-width: 1024px) {
+  .hero { height: 70vh; }
+  .hero .hero-content h1 { font-size: 2.5rem; }
+  .hero .hero-content p { font-size: 1.1rem; }
 }
-@media(max-width: 480px) {
-  .hero { min-height: 300px; }
-  .hero-content h1 { font-size: 1.5rem; }
-  .hero-content p { font-size: 0.9rem; }
+
+@media (max-width: 768px) {
+  .hero { height: 60vh; }
+  .hero .hero-content h1 { font-size: 2rem; }
+  .hero .hero-content p { font-size: 1rem; }
 }
+
+@media (max-width: 480px) {
+  .hero { height: 50vh; }
+  .hero .hero-content h1 { font-size: 1.6rem; }
+  .hero .hero-content p { font-size: 0.9rem; }
+}
+
 
