@@ -6,7 +6,7 @@
   <title>Bai Pe Real Estate | Premium Real Estate in Curaçao </title>
   <link rel="stylesheet" href="assets/css/style.css">
   <meta name="description" content="Bai Pe Real Estate is a professional real estate brokerage in Curaçao.">
-
+ 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JT23SBTX7H"></script>
   <script>
@@ -16,18 +16,16 @@
     gtag('config', 'G-JT23SBTX7H');
   </script>
 </head>
-
 <body>
 
   
   <!-- ================= HEADER ================= -->
   <header class="navbar">
     <div class="logo">
-      <a href="index.html">
-        <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
-      </a>
+      <a href="index.html"><img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
     </div>
-
+    
+    <!-- Navigation -->
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -38,21 +36,22 @@
       <a href="buying-selling-guide.html">Guide</a>
     </nav>
 
+  <!-- Mobile Hamburger -->
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
     <select class="language-switcher">
       <option>EN</option>
       <option>NL</option>
       <option>PAP</option>
       <option>ES</option>
     </select>
-
-    <!-- Hamburger for mobile -->
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
   </header>
 
+   
   <!-- ================= HERO IMAGE WITH BUTTON ================= -->
  <section class="hero">
   <div class="hero-content">
@@ -81,15 +80,5 @@
     </div>
   </footer>
 
-  <!-- ================= MOBILE NAV SCRIPT ================= -->
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-  </script>
-
-</body>
+ </body>
 </html>
