@@ -9,7 +9,7 @@
     "bedrooms": 3,
     "bathrooms": 2,
     "size": "715 m²",
-    "featured": true,
+    "featured": false,
 
     "images": [
       "assets/images/listings/house1-1.jpg",
