@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Buying & Selling Guides | Bai Pe Real Estate</title>
-  <link rel="stylesheet" href="assets/css/style.css">
  <meta name="description" content="Bai Pe Real Estate is a professional real estate brokerage in Curaçao.">
-
+ <link rel="stylesheet" href="assets/css/style.css">
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JT23SBTX7H"></script>
   <script>
@@ -142,6 +141,18 @@
       <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
     </div>
   </footer>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
 
+    if (hamburger && navLinks) {
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        hamburger.classList.toggle("active");
+      });
+    }
+  });
+</script>
  </body>
 </html>
