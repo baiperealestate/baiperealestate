@@ -40,7 +40,7 @@
     <a href="buying-selling-guide.html">Guide</a>
   </nav>
 
-  <div class="hamburger">
+   <div class="hamburger" aria-label="Open Menu">
     <span></span>
     <span></span>
     <span></span>
@@ -95,15 +95,7 @@
   </div>
 </footer>
 
-<!-- ================= MOBILE MENU SCRIPT ================= -->
-<script>
-  const hamburger = document.querySelector(".hamburger");
-  const navLinks = document.querySelector(".nav-links");
+<script src="assets/js/main.js" defer></script>
 
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    hamburger.classList.toggle("active");
-  });
-</script>
 </body>
 </html>
