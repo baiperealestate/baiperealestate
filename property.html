@@ -85,29 +85,30 @@
       <textarea name="message">I'm interested in this property</textarea>
       <button type="submit">Contact Bai Pe Real Estate</button>
     </form>
-  </aside>
+  
+    <!-- ================= WHATSAPP ================= -->
+<a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
 
-</main>
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <p>© 2025 Bai Pe Real Estate | Curaçao</p>
+    <p>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms & Conditions</a>
+    </p>
+  </div>
+</footer>
 
-
+<!-- ================= MOBILE MENU SCRIPT ================= -->
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const hamburger = document.querySelector(".hamburger");
-    const navLinks = document.querySelector(".nav-links");
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
 
-    if (hamburger && navLinks) {
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-        hamburger.classList.toggle("active");
-      });
-    }
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    hamburger.classList.toggle("active");
   });
 </script>
-
-  
- <!-- ================= WHATSAPP BUTTON ================= -->
-  <a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
- 
-
- </body>
+</body>
 </html>
