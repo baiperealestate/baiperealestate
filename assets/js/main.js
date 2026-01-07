@@ -72,4 +72,36 @@ fetch("assets/data/listings.json")
     });
   });
 
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("assets/data/listings.json")
+    .then(res => res.json())
+    .then(listings => {
+      const grid = document.getElementById("listingsGrid");
+      if (!grid) return;
+
+      listings.forEach(property => {
+        const card = document.createElement("article");
+        card.className = "listing-card";
+
+        card.innerHTML = `
+          <div class="listing-image">
+            <img src="${property.images[0]}" alt="${property.title}">
+            <span class="badge">${property.status}</span>
+          </div>
+
+          <div class="listing-content">
+            <h3>${property.title}</h3>
+            <p class="price">${property.price}</p>
+            <p class="location">${property.location}</p>
+
+            <div class="cta">
+              <a href="property.html?id=${property.id}" class="btn-outline">View Details</a>
+            </div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    });
+});
 
