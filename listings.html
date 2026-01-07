@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Listings in Curaçao | Bai Pe Real Estate</title>
-   <link rel="stylesheet" href="assets/css/style.css">
-   <meta name="description" content="Bai Pe Real Estate is a professional real estate brokerage in Curaçao.">
+  <meta name="description" content="Bai Pe Real Estate is a professional real estate brokerage in Curaçao.">
+  <link rel="stylesheet" href="assets/css/style.css">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JT23SBTX7H"></script>
@@ -16,63 +16,76 @@
     gtag('config', 'G-JT23SBTX7H');
   </script>
 </head>
+
 <body>
 
- <!-- ================= HEADER ================= -->
-  <header class="navbar">
-    <div class="logo">
-      <a href="index.html">
-  <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
-</a>
-</div>
-    
-    <!-- Navigation -->
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="listings.html">Listings</a>
-      <a href="contact.html">Contact</a>
-      <a href="blog.html">Blog</a>
-      <a href="social.html">Social Media</a>
-      <a href="buying-selling-guide.html">Guide</a>
-    </nav>
+<!-- ================= HEADER ================= -->
+<header class="navbar">
+  <div class="logo">
+    <a href="index.html">
+      <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
+    </a>
+  </div>
+
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="listings.html">Listings</a>
+    <a href="contact.html">Contact</a>
+    <a href="blog.html">Blog</a>
+    <a href="social.html">Social Media</a>
+    <a href="buying-selling-guide.html">Guide</a>
+  </nav>
 
   <div class="hamburger" aria-label="Open Menu">
     <span></span>
     <span></span>
     <span></span>
   </div>
-    
-    <select class="language-switcher">
-      <option>EN</option>
-      <option>NL</option>
-      <option>PAP</option>
-      <option>ES</option>
-    </select>
-    
-        <section class="container">
-  <select id="categoryFilter">
-    <option value="all">All Categories</option>
-       <option value="For Sale">For Sale</option>
-    <option value="For Rent">For Rent</option>
-    <option value="Residential">Residential</option>
-    <option value="Commercial">Commercial</option>
+
+  <select class="language-switcher">
+    <option>EN</option>
+    <option>NL</option>
+    <option>PAP</option>
+    <option>ES</option>
   </select>
-  </header>
-    
-<!-- ================= WHATSAPP BUTTON ================= -->
-  <a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
- 
+</header>
 
-  <!-- ================= FOOTER ================= -->
-  <footer>
-    <div class="container">
-      <p>© 2025 Bai Pe Real Estate | Curaçao</p>
-      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
-    </div>
-  </footer>
+<!-- ================= MAIN ================= -->
+<main class="listings-page">
 
- <script src="assets/js/main.js" defer></script>
-     
- </body>
+  <!-- FILTER -->
+  <section class="container">
+    <select id="categoryFilter">
+      <option value="all">All Categories</option>
+      <option value="For Sale">For Sale</option>
+      <option value="For Rent">For Rent</option>
+      <option value="Residential">Residential</option>
+      <option value="Commercial">Commercial</option>
+    </select>
+  </section>
+
+  <!-- LISTINGS GRID -->
+  <section id="listings" class="listings-grid">
+    <!-- Cards injected by JS -->
+  </section>
+
+</main>
+
+<!-- ================= WHATSAPP ================= -->
+<a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2025 Bai Pe Real Estate | Curaçao</p>
+    <p>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms & Conditions</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
 </html>
