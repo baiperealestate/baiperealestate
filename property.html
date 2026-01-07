@@ -1,81 +1,77 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bai Pe Real Estate | Real Estate in Curaçao</title>
-  <meta name="description" content="Buy, sell and rent real estate in Curaçao with Bai Pe Real Estate.">
+  <title>Property Details | Bai Pe Real Estate</title>
+  <meta name="description" content="Property details in Curaçao by Bai Pe Real Estate">
   <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JT23SBTX7H"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-JT23SBTX7H');
-  </script>
 </head>
+
 <body>
 
-
-  <!-- ================= HEADER ================= -->
-  <header class="navbar">
-    <div class="logo">
-      <a href="index.html">
-  <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
-</a>
-</div>
-    
-    <!-- Navigation -->
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="listings.html">Listings</a>
-      <a href="contact.html">Contact</a>
-      <a href="blog.html">Blog</a>
-      <a href="social.html">Social Media</a>
-      <a href="buying-selling-guide.html">Guide</a>
-    </nav>
-    
- <div class="hamburger" aria-label="Open Menu">
-    <span></span>
-    <span></span>
-    <span></span>
+<!-- ================= HEADER ================= -->
+<header class="navbar">
+  <div class="logo">
+    <a href="index.html">
+      <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
+    </a>
   </div>
-    
-    <select class="language-switcher">
-      <option>EN</option>
-      <option>NL</option>
-      <option>PAP</option>
-      <option>ES</option>
-    </select>
 
-    <section class="container">
-  <select id="categoryFilter">
-    <option value="all">All Categories</option>
-       <option value="For Sale">For Sale</option>
-    <option value="For Rent">For Rent</option>
-    <option value="Residential">Residential</option>
-    <option value="Commercial">Commercial</option>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="listings.html">Listings</a>
+    <a href="contact.html">Contact</a>
+    <a href="blog.html">Blog</a>
+    <a href="social.html">Social Media</a>
+    <a href="buying-selling-guide.html">Guide</a>
+  </nav>
+
+  <div class="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+
+  <select class="language-switcher">
+    <option>EN</option>
+    <option>NL</option>
+    <option>PAP</option>
+    <option>ES</option>
   </select>
-</section>
-  </header>
+</header>
 
-  
+<!-- ================= MAIN ================= -->
 <main class="property-page">
 
-  <section class="gallery">
-    <button id="prevBtn">‹</button>
+  <!-- IMAGE GALLERY -->
+  <section class="property-gallery">
+    <button class="gallery-btn prev">‹</button>
     <img id="mainImage" alt="Property image">
-    <button id="nextBtn">›</button>
+    <button class="gallery-btn next">›</button>
+
+    <div class="thumbnails" id="thumbnails"></div>
   </section>
 
-  <section class="property-content">
-    <h1 id="propertyTitle"></h1>
-    <p id="propertyDescription"></p>
+  <!-- PROPERTY DETAILS -->
+  <section class="property-details">
+
+    <div class="property-header">
+      <h1 id="propertyTitle"></h1>
+      <p class="price" id="propertyPrice"></p>
+      <p class="location" id="propertyLocation"></p>
+    </div>
+
+    <div class="property-description" id="propertyDescription"></div>
+
+    <!-- FEATURES -->
+    <div class="property-features">
+      <h3>Property Features</h3>
+      <ul id="featuresList"></ul>
+    </div>
+
   </section>
 
-  <!-- CONTACT FORM -->
+  <!-- CONTACT -->
   <aside class="inquiry-box">
     <h3>Request Information</h3>
     <form action="https://formspree.io/f/xzdpvjnk" method="POST">
@@ -85,22 +81,21 @@
       <textarea name="message">I'm interested in this property</textarea>
       <button type="submit">Contact Bai Pe Real Estate</button>
     </form>
-  
-    <!-- ================= WHATSAPP ================= -->
+  </aside>
+
+</main>
+
+<!-- ================= WHATSAPP ================= -->
 <a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
 
 <!-- ================= FOOTER ================= -->
-<footer>
+<footer class="site-footer">
   <div class="container">
     <p>© 2025 Bai Pe Real Estate | Curaçao</p>
-    <p>
-      <a href="privacy.html">Privacy Policy</a> |
-      <a href="terms.html">Terms & Conditions</a>
-    </p>
+    <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
   </div>
 </footer>
 
 <script src="assets/js/main.js" defer></script>
-
 </body>
 </html>
