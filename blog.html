@@ -16,6 +16,7 @@
 </head>
 <body>
 
+  <style>
   <!-- Page-Specific Styling -->
   <style>
     body {
@@ -144,15 +145,14 @@
       margin-top: 80px;
     }
   </style>
-</head>
-<body>
 
 
   <!-- ================= HEADER ================= -->
   <header class="navbar">
     <div class="logo">
-      <a href="index.html"><img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
-    </a>
+    <a href="index.html">
+  <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
+</a>
 </div>
     
     <!-- Navigation -->
@@ -262,7 +262,19 @@
       <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
     </div>
   </footer>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
 
+    if (hamburger && navLinks) {
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        hamburger.classList.toggle("active");
+      });
+    }
+  });
+</script>
  </body>
 </html>
 
