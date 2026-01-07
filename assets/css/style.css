@@ -452,3 +452,22 @@ footer p {
 .hamburger {
   display: none;
 }
+
+footer {
+  background-color: #0F514F;
+  color: #ffffff;
+}
+
+footer p {
+  color: #ffffff;
+}
+
+footer a {
+  color: #D8AE5E;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
