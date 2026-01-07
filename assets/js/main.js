@@ -17,3 +17,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+let currentIndex = 0;
+const images = property.images; // array from your data
+
+function showImage(index) {
+  document.getElementById("mainImage").src = images[index];
+}
+
+document.querySelector(".next").onclick = () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage(currentIndex);
+};
+
+document.querySelector(".prev").onclick = () => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage(currentIndex);
+};
