@@ -85,28 +85,38 @@
     ]
   },
   {
-    "id": "family-home-santa-rosa-003",
-    "title": "Spacious Family Home with Garden – Santa Rosa, Curaçao",
-    "price": "XCG 525,000",
+    "id": "apartmencomplex-investment-juandomingo-003",
+    "title": "Turn-Key Investment Opportunity – Juan Domingo near Mahuma, Curaçao",
+    "price": "XCG 700,000",
     "status": "For Sale",
-    "propertyType": "Single Family Home",
-    "location": "Santa Rosa, Curaçao",
-    "bedrooms": 4,
-    "bathrooms": 2,
-    "size": "600 m²",
+    "propertyType": "ApartmentComplex",
+    "location": "Juan Domingo near Mahuma, Curaçao",
+    "bedrooms": 6,
+    "bathrooms": 1,
+    "size": "484 m²",
     "featured": false,
     "images": [
-      "assets/images/listings/house2-1.jpg",
-      "assets/images/listings/house2-2.jpg"
+      "assets/images/listings/aparmentcomplex1-1.jpg",
+      "assets/images/listings/aparmentcomplex1-2.jpg",
+      "assets/images/listings/aparmentcomplex1-3.jpg",
+      "assets/images/listings/aparmentcomplex1-4.jpg",
+      "assets/images/listings/aparmentcomplex1-5.jpg",
+      "assets/images/listings/aparmentcomplex1-6.jpg",
+      "assets/images/listings/aparmentcomplex1-7.jpg",
+      "assets/images/listings/aparmentcomplex1-8.jpg"
     ],
-    "description": "Comfortable family home situated on owned land, offering generous indoor and outdoor living spaces in a quiet and centrally located residential neighborhood.",
+    "description": "Located on a 484 m² freehold lot (eigendomsgrond), this well-maintained apartment complex built in 2020 offers three spacious 2-bedroom units — all currently rented, delivering immediate income to the new owner.",
     "features": [
-      "Four bedrooms",
-      "Two bathrooms",
-      "Large covered terrace",
-      "Spacious garden",
+      " 3 apartment in total",
+      "Two bathrooms each apartment",
+      "1 bathroom each apartment",
+      "Living room each apartment",
+      "Open kitchen each apartment",
       "Owned land",
-      "Quiet residential setting"
+      "Fully asphalted yard — low maintenance",
+      "Private parking for each apartment",
+      "Move-in ready and well maintained",
+      "Quiet residential neighborhood, close to the main road, beaches, and just minutes from the airport"
     ]
   }
 ]
