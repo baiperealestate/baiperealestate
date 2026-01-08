@@ -57,3 +57,61 @@ if (listingsContainer) {
       listingsContainer.innerHTML = "<p>Listings coming soon.</p>";
     });
 }
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const imageEl = document.getElementById("propertyImage");
+  const featuresEl = document.getElementById("features");
+
+  if (!imageEl || !featuresEl) return; // not on property page
+
+  const params = new URLSearchParams(window.location.search);
+  const propertyId = params.get("id");
+
+  if (!propertyId) return;
+
+  try {
+    const res = await fetch("assets/data/listings.json");
+    const listings = await res.json();
+    const property = listings.find(p => p.id === propertyId);
+
+    if (!property) return;
+
+    /* BASIC INFO */
+    document.getElementById("title").textContent = property.title;
+    document.getElementById("price").textContent = property.price;
+    document.getElementById("location").textContent = property.location;
+    document.getElementById("bedrooms").textContent = property.bedrooms;
+    document.getElementById("bathrooms").textContent = property.bathrooms;
+    document.getElementById("size").textContent = property.size;
+    document.getElementById("description").textContent = property.description;
+
+    /* FEATURES */
+    featuresEl.innerHTML = "";
+    property.features.forEach(feature => {
+      const li = document.createElement("li");
+      li.textContent = feature;
+      featuresEl.appendChild(li);
+    });
+
+    /* IMAGE SLIDER */
+    let currentIndex = 0;
+    imageEl.src = property.images[0];
+
+    document.querySelector(".slider-btn.next")
+      .addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % property.images.length;
+        imageEl.src = property.images[currentIndex];
+      });
+
+    document.querySelector(".slider-btn.prev")
+      .addEventListener("click", () => {
+        currentIndex =
+          (currentIndex - 1 + property.images.length) %
+          property.images.length;
+        imageEl.src = property.images[currentIndex];
+      });
+
+  } catch (err) {
+    console.error("Property page error:", err);
+  }
+});
