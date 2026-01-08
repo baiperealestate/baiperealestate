@@ -39,60 +39,47 @@
     <option>ES</option>
   </select>
 </header>
-<main class="property-page">
-
-  <section class="property-container">
-
-    <!-- LEFT: IMAGE SLIDER -->
+  
+<section class="property-container">
+  <!-- LEFT -->
+  <div class="property-main">
     <div class="property-gallery">
       <button class="slider-btn prev">‹</button>
       <img id="propertyImage" src="" alt="Property image">
       <button class="slider-btn next">›</button>
     </div>
 
-    <!-- RIGHT: DETAILS -->
-    <div class="property-details">
+    <div class="property-summary">
       <h1 id="title"></h1>
       <p class="price" id="price"></p>
       <p class="location" id="location"></p>
 
       <ul class="property-meta">
-        <li><strong>Bedrooms:</strong> <span id="bedrooms"></span></li>
-        <li><strong>Bathrooms:</strong> <span id="bathrooms"></span></li>
-        <li><strong>Lot Size:</strong> <span id="size"></span></li>
+        <li><strong>Bedrooms</strong><span id="bedrooms"></span></li>
+        <li><strong>Bathrooms</strong><span id="bathrooms"></span></li>
+        <li><strong>Lot Size</strong><span id="size"></span></li>
       </ul>
-
-      <h3>Property Features</h3>
-      <ul id="features" class="features-list"></ul>
-
-      <a href="#contact" class="cta-btn">Request Information</a>
     </div>
+  </div>
 
-  </section>
+  <!-- RIGHT -->
+  <aside class="property-sidebar">
+    <div class="contact-card">
+      <h3>Request Information</h3>
 
-  <!-- DESCRIPTION -->
-  <section class="property-description">
-    <h2>Property Description</h2>
-    <p id="description"></p>
-  </section>
+      <form class="contact-form">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Phone / WhatsApp">
+        <textarea>I'm interested in this property</textarea>
 
-  <!-- CONTACT -->
-  <section id="contact" class="property-contact">
-    <h2>Request Information</h2>
-
-    <form class="contact-form">
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email" required>
-      <input type="text" placeholder="Phone / WhatsApp">
-      <textarea>I'm interested in this property</textarea>
-
-      <button type="submit">Contact Bai Pe Real Estate</button>
-    </form>
-  </section>
+        <button type="submit">Contact Bai Pe Real Estate</button>
+      </form>
+    </div>
+  </aside>
+</section>
 
 </main>
-
-
 <!-- ================= WHATSAPP ================= -->
 <a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
 
