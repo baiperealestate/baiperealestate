@@ -28,29 +28,34 @@ if (listingsContainer) {
     .then(data => {
       listingsContainer.innerHTML = "";
 
-      data.forEach(item => {
-        const card = document.createElement("article");
-        card.className = "listing-card";
+data.forEach(item => {
+  const card = document.createElement("article");
+  card.className = "listing-card";
 
-        card.innerHTML = `
-          <div class="listing-image">
-            <img src="${item.images[0]}" alt="${item.title}">
-            ${item.featured ? `<span class="badge">Featured</span>` : ``}
-          </div>
+  const imageSrc = item.images && item.images.length
+    ? item.images[0]
+    : "assets/images/placeholder.jpg";
 
-          <div class="listing-content">
-            <h3>${item.title}</h3>
-            <p class="price">${item.price}</p>
-            <p class="location">${item.location}</p>
+  card.innerHTML = `
+    <div class="listing-image">
+      <img src="${imageSrc}" alt="${item.title}" loading="lazy">
+      ${item.featured ? `<span class="badge">Featured</span>` : ``}
+    </div>
 
-            <a href="property.html?id=${item.id}" class="btn">
-              View Details
-            </a>
-          </div>
-        `;
+    <div class="listing-content">
+      <h3>${item.title}</h3>
+      <p class="price">${item.price}</p>
+      <p class="location">${item.location}</p>
 
-        listingsContainer.appendChild(card);
-      });
+      <a href="property.html?id=${item.id}" class="btn">
+        View Details
+      </a>
+    </div>
+  `;
+
+  listingsContainer.appendChild(card);
+});
+
     })
     .catch(err => {
       console.error("Listings error:", err);
