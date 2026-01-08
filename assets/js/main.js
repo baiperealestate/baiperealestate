@@ -105,3 +105,52 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+  const listingsContainer = document.getElementById("listings");
+  const filter = document.getElementById("categoryFilter");
+
+  if (!listingsContainer) return;
+
+  fetch("assets/data/listings.json")
+    .then(response => {
+      if (!response.ok) throw new Error("Listings JSON not found");
+      return response.json();
+    })
+    .then(data => {
+      renderListings(data);
+
+      if (filter) {
+        filter.addEventListener("change", () => {
+          const value = filter.value;
+          const filtered =
+            value === "all"
+              ? data
+              : data.filter(item =>
+                  item.status === value || item.propertyType === value
+                );
+          renderListings(filtered);
+        });
+      }
+    })
+    .catch(error => console.error("Listings error:", error));
+
+  function renderListings(items) {
+    listingsContainer.innerHTML = "";
+
+    items.forEach(item => {
+      const card = document.createElement("article");
+      card.className = "listing-card";
+
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.title}">
+        <div class="listing-info">
+          <h3>${item.title}</h3>
+          <p class="location">${item.location}</p>
+          <p class="price">${item.price}</p>
+          <a href="property.html?id=${item.id}" class="btn">View Details</a>
+        </div>
+      `;
+
+      listingsContainer.appendChild(card);
+    });
+  }
+});
