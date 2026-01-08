@@ -39,51 +39,59 @@
     <option>ES</option>
   </select>
 </header>
-
-<!-- ================= MAIN ================= -->
 <main class="property-page">
 
-  <!-- IMAGE GALLERY -->
-  <section class="property-gallery">
-    <button class="gallery-btn prev">‹</button>
-    <img id="mainImage" alt="Property image">
-    <button class="gallery-btn next">›</button>
+  <section class="property-container">
 
-    <div class="thumbnails" id="thumbnails"></div>
+    <!-- LEFT: IMAGE SLIDER -->
+    <div class="property-gallery">
+      <button class="slider-btn prev">‹</button>
+      <img id="propertyImage" src="" alt="Property image">
+      <button class="slider-btn next">›</button>
+    </div>
+
+    <!-- RIGHT: DETAILS -->
+    <div class="property-details">
+      <h1 id="title"></h1>
+      <p class="price" id="price"></p>
+      <p class="location" id="location"></p>
+
+      <ul class="property-meta">
+        <li><strong>Bedrooms:</strong> <span id="bedrooms"></span></li>
+        <li><strong>Bathrooms:</strong> <span id="bathrooms"></span></li>
+        <li><strong>Lot Size:</strong> <span id="size"></span></li>
+      </ul>
+
+      <h3>Property Features</h3>
+      <ul id="features" class="features-list"></ul>
+
+      <a href="#contact" class="cta-btn">Request Information</a>
+    </div>
+
   </section>
 
-  <!-- PROPERTY DETAILS -->
-  <section class="property-details">
-
-    <div class="property-header">
-      <h1 id="propertyTitle"></h1>
-      <p class="price" id="propertyPrice"></p>
-      <p class="location" id="propertyLocation"></p>
-    </div>
-
-    <div class="property-description" id="propertyDescription"></div>
-
-    <!-- FEATURES -->
-    <div class="property-features">
-      <h3>Property Features</h3>
-      <ul id="featuresList"></ul>
-    </div>
-
+  <!-- DESCRIPTION -->
+  <section class="property-description">
+    <h2>Property Description</h2>
+    <p id="description"></p>
   </section>
 
   <!-- CONTACT -->
-  <aside class="inquiry-box">
-    <h3>Request Information</h3>
-    <form action="https://formspree.io/f/xzdpvjnk" method="POST">
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="tel" name="phone" placeholder="Phone / WhatsApp">
-      <textarea name="message">I'm interested in this property</textarea>
+  <section id="contact" class="property-contact">
+    <h2>Request Information</h2>
+
+    <form class="contact-form">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="text" placeholder="Phone / WhatsApp">
+      <textarea>I'm interested in this property</textarea>
+
       <button type="submit">Contact Bai Pe Real Estate</button>
     </form>
-  </aside>
+  </section>
 
 </main>
+
 
 <!-- ================= WHATSAPP ================= -->
 <a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
