@@ -29,15 +29,20 @@
       "assets/images/listings/house1-16.jpg",
       "assets/images/listings/house1-17.jpg"
     ],
-    "description": "Located in the desirable residential area of Grote Berg, this move-in-ready single-family residence offers the perfect balance of luxury living and investment potential. Set on 715 m² of owned land, the property features a thoughtfully designed interior with spacious living and dining areas, complemented by air-conditioning throughout. The modern gourmet kitchen is equipped with high-end finishes and premium appliances, ideal for both everyday living and entertaining. Outdoors, a large covered back porch overlooks the private swimming pool, creating an inviting space for relaxation and sunset enjoyment. A detached studio provides excellent rental income opportunities or serves as a private guest house. This turnkey property represents a rare opportunity to own a high-quality home in one of Curaçao’s most sought-after neighborhoods."
-
+    "description": "Located in the desirable residential area of Grote Berg, this move-in-ready single-family residence offers a refined balance of comfort and investment potential. Set on 715 m² of owned land, the home features bright living and dining areas with air-conditioning, a contemporary kitchen with quality finishes, and seamless indoor-outdoor living. A covered back porch overlooks the private swimming pool, while a detached studio offers flexible use as guest accommodation or rental income. This turnkey property presents an excellent opportunity in one of Curaçao’s most sought-after neighborhoods.",
     "features": [
-      "3 air-conditioned bedrooms",
-      "2 modern bathrooms (1 en-suite)",
+      "715 m² of owned land",
+      "Three bedrooms with air-conditioning",
+      "Two modern bathrooms including an en-suite",
+      "Contemporary kitchen with quality finishes",
+      "Bright living and dining areas with air-conditioning",
+      "Large covered back porch",
       "Private swimming pool",
-      "Detached rental studio",
+      "Detached studio suitable for rental or guests",
       "Fully fenced property",
-      "Ample parking"
+      "Outdoor storage and laundry area",
+      "Ample on-site parking",
+      "Move-in ready turnkey residence"
     ]
   },
   {
@@ -55,13 +60,13 @@
       "assets/images/listings/apartment1-1.jpg",
       "assets/images/listings/apartment1-2.jpg"
     ],
-    "description": "Well-maintained modern apartment within close proximity to beaches, restaurants, and shopping, ideal for both residential use and rental investment.",
+    "description": "Well-maintained modern apartment located close to beaches, restaurants, and shopping areas, making it suitable for both comfortable living and rental investment.",
     "features": [
-      "2 bedrooms with air-conditioning",
+      "Two bedrooms with air-conditioning",
       "Modern open kitchen",
       "Shared swimming pool",
       "Secure gated complex",
-      "Excellent rental potential"
+      "Strong rental potential"
     ]
   },
   {
@@ -79,14 +84,14 @@
       "assets/images/listings/house2-1.jpg",
       "assets/images/listings/house2-2.jpg"
     ],
-    "description": "Comfortable family home on owned land featuring generous indoor and outdoor living spaces, located in a quiet and central neighborhood.",
+    "description": "Comfortable family home situated on owned land, offering generous indoor and outdoor living spaces in a quiet and centrally located residential neighborhood.",
     "features": [
-      "4 bedrooms",
-      "2 bathrooms",
+      "Four bedrooms",
+      "Two bathrooms",
       "Large covered terrace",
       "Spacious garden",
       "Owned land",
-      "Quiet residential area"
+      "Quiet residential setting"
     ]
   }
 ]
