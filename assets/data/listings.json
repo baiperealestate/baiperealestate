@@ -31,17 +31,27 @@
       "assets/images/listings/house1-17.jpg"
     ],
 
-    "description": "Move-in-ready modern single-family home with private pool and detached studio, located in the desirable residential area of Grote Berg.",
-
-    "features": [
-      "3 air-conditioned bedrooms",
-      "2 modern bathrooms (1 en-suite)",
-      "Private swimming pool",
-      "Detached rental studio",
-      "Fully fenced property",
-      "Ample parking"
-    ]
-  },
+"description": "Work where you vacation and live where others escape. This beautifully designed modern family residence in Grote Berg, Curaçao offers a rare combination of comfort, style, and investment potential. Set on a generous 715 m² of owned land, the property is fully move-in ready and thoughtfully crafted for relaxed island living. The main residence features three spacious, air-conditioned bedrooms and two contemporary bathrooms, including a luxurious en-suite. At the heart of the home is a chef-style gourmet kitchen, equipped with a central cooking island, built-in wine cooler, integrated grill, extractor hood, soft-close cabinetry, spice storage, and a discreet built-in trash system — ideal for both everyday living and entertaining. A bright open-plan living and dining area flows seamlessly to a large covered back porch, where cooling island breezes and sunset views create the perfect setting for outdoor relaxation. The private swimming pool enhances the resort-style atmosphere, making this home equally suited for personal enjoyment or hosting guests. A fully detached studio adds exceptional flexibility, offering strong rental income potential or comfortable accommodation for visitors. Additional features include an outdoor storage area, a dedicated laundry room, and optional furniture purchase. A recent valuation report is available, providing added confidence for buyers. This is more than a home — it is a turnkey lifestyle investment in one of Curaçao’s most desirable residential areas.",
+  "features": [
+    "715 m² owned land",
+    "Move-in ready",
+    "3 air-conditioned bedrooms",
+    "2 modern bathrooms (including en-suite)",
+    "Chef-style gourmet kitchen",
+    "Cooking island with pop-up charging station",
+    "Built-in wine cooler",
+    "Integrated grill and extractor hood",
+    "Soft-close cabinetry with spice storage",
+    "Built-in waste system",
+    "Spacious living and dining area with air-conditioning",
+    "Large covered back porch",
+    "Private swimming pool",
+    "Detached studio with rental potential",
+    "Outdoor storage area",
+    "Separate laundry room",
+    "Furniture available for purchase",
+    "Recent valuation report available"
+  ],
 
   {
     "id": "modern-apartment-janthiel-002",
