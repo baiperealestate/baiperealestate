@@ -9,41 +9,80 @@
     "bedrooms": 3,
     "bathrooms": 2,
     "size": "715 m²",
-    "featured": false,
+    "featured": true,
 
     "images": [
       "assets/images/listings/house1-1.jpg",
       "assets/images/listings/house1-2.jpg",
-      "assets/images/listings/house1-3.jpg",
-      "assets/images/listings/house1-4.jpg",
-      "assets/images/listings/house1-5.jpg",
-      "assets/images/listings/house1-6.jpg",
-      "assets/images/listings/house1-7.jpg",
-      "assets/images/listings/house1-8.jpg",
-      "assets/images/listings/house1-9.jpg",
-      "assets/images/listings/house1-10.jpg",
-      "assets/images/listings/house1-11.jpg",
-      "assets/images/listings/house1-12.jpg",
-      "assets/images/listings/house1-13.jpg",
-      "assets/images/listings/house1-14.jpg",
-      "assets/images/listings/house1-15.jpg",
-      "assets/images/listings/house1-16.jpg",
-      "assets/images/listings/house1-17.jpg"
+      "assets/images/listings/house1-3.jpg"
     ],
 
-    "description": "Bai Pe Real Estate proudly presents this move-in-ready modern single-family home with a detached studio in the desirable neighborhood of Grote Berg, Curaçao.",
+    "description": "Move-in-ready modern single-family home with private pool and detached studio, located in the desirable residential area of Grote Berg.",
 
     "features": [
-      "3 bedrooms with air-conditioning",
+      "3 air-conditioned bedrooms",
       "2 modern bathrooms (1 en-suite)",
       "Private swimming pool",
-      "Detached studio for rental income",
+      "Detached rental studio",
       "Fully fenced property",
-      "Ample parking space",
-      "Move-in ready"
+      "Ample parking"
+    ]
+  },
+
+  {
+    "id": "modern-apartment-janthiel-002",
+    "title": "Modern Apartment Near Beaches – Jan Thiel, Curaçao",
+    "price": "XCG 395,000",
+    "status": "For Sale",
+    "propertyType": "Apartment",
+    "location": "Jan Thiel, Curaçao",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "size": "85 m²",
+    "featured": false,
+
+    "images": [
+      "assets/images/listings/apartment1-1.jpg",
+      "assets/images/listings/apartment1-2.jpg"
+    ],
+
+    "description": "Well-maintained modern apartment within close proximity to beaches, restaurants, and shopping, ideal for both residential use and rental investment.",
+
+    "features": [
+      "2 bedrooms with air-conditioning",
+      "Modern open kitchen",
+      "Shared swimming pool",
+      "Secure gated complex",
+      "Excellent rental potential"
+    ]
+  },
+
+  {
+    "id": "family-home-santa-rosa-003",
+    "title": "Spacious Family Home with Garden – Santa Rosa, Curaçao",
+    "price": "XCG 525,000",
+    "status": "For Sale",
+    "propertyType": "Single Family Home",
+    "location": "Santa Rosa, Curaçao",
+    "bedrooms": 4,
+    "bathrooms": 2,
+    "size": "600 m²",
+    "featured": false,
+
+    "images": [
+      "assets/images/listings/house2-1.jpg",
+      "assets/images/listings/house2-2.jpg"
+    ],
+
+    "description": "Comfortable family home on owned land featuring generous indoor and outdoor living spaces, located in a quiet and central neighborhood.",
+
+    "features": [
+      "4 bedrooms",
+      "2 bathrooms",
+      "Large covered terrace",
+      "Spacious garden",
+      "Owned land",
+      "Quiet residential area"
     ]
   }
 ]
-
-
-
