@@ -781,6 +781,10 @@ main {
   color: #0a1f44;
 }
 
+/* ===============================
+   PROPERTY PAGE LAYOUT
+   =============================== */
+
 .property-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -790,7 +794,10 @@ main {
   padding: 0 20px;
 }
 
-/* LEFT */
+/* ===============================
+   IMAGE GALLERY / SLIDER
+   =============================== */
+
 .property-gallery {
   position: relative;
   border-radius: 16px;
@@ -801,23 +808,30 @@ main {
   width: 100%;
   height: 480px;
   object-fit: cover;
+  display: block;
 }
 
+/* SLIDER BUTTONS */
 .slider-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background: rgba(0,0,0,0.6);
-  color: #fff;
+  color: #ffffff;
   border: none;
   width: 42px;
   height: 42px;
   border-radius: 50%;
   cursor: pointer;
+  z-index: 2;
 }
 
 .slider-btn.prev { left: 16px; }
 .slider-btn.next { right: 16px; }
+
+/* ===============================
+   PROPERTY SUMMARY
+   =============================== */
 
 .property-summary {
   margin-top: 24px;
@@ -826,6 +840,7 @@ main {
 .property-summary h1 {
   font-size: 30px;
   margin-bottom: 10px;
+  color: #1E1E1E;
 }
 
 .price {
@@ -839,16 +854,18 @@ main {
   margin-bottom: 20px;
 }
 
+/* META CARDS */
 .property-meta {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .property-meta li {
-  background: #fff;
+  background: #ffffff;
   padding: 14px;
   border-radius: 10px;
   text-align: center;
@@ -861,7 +878,10 @@ main {
   color: #6b7280;
 }
 
-/* RIGHT SIDEBAR */
+/* ===============================
+   RIGHT SIDEBAR / CONTACT
+   =============================== */
+
 .property-sidebar {
   position: sticky;
   top: 120px;
@@ -880,6 +900,7 @@ main {
   font-size: 22px;
 }
 
+/* CONTACT FORM */
 .contact-form {
   display: grid;
   gap: 12px;
@@ -900,7 +921,7 @@ main {
 .contact-form button {
   margin-top: 10px;
   background: #D8AE5E;
-  color: #fff;
+  color: #ffffff;
   border: none;
   padding: 14px;
   border-radius: 8px;
@@ -908,19 +929,63 @@ main {
   cursor: pointer;
 }
 
-/* DESCRIPTION */
-.property-description {
+/* ===============================
+   DESCRIPTION & FEATURES
+   =============================== */
+
+.property-description,
+.property-features {
   max-width: 900px;
   margin: 80px auto;
   padding: 0 20px;
 }
 
-.property-description h2 {
+.property-description h2,
+.property-features h2 {
   font-size: 26px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
+  color: #0F514F;
 }
 
-/* MOBILE */
+.property-description p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #1E1E1E;
+  max-width: 760px;
+}
+
+/* FEATURES GRID */
+.features-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.features-list li {
+  background: #ffffff;
+  padding: 16px 18px;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+  font-size: 15px;
+  color: #1E1E1E;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.features-list li::before {
+  content: "✓";
+  color: #D8AE5E;
+  font-weight: 700;
+}
+
+/* ===============================
+   MOBILE OPTIMIZATION
+   =============================== */
+
 @media (max-width: 900px) {
   .property-container {
     grid-template-columns: 1fr;
