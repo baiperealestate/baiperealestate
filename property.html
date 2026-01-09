@@ -73,21 +73,28 @@
 </div>
 
   <!-- RIGHT -->
-  <aside class="property-sidebar">
-    <div class="contact-card">
-      <h3>Request Information</h3>
+ <aside class="property-sidebar">
+  <div class="contact-card">
+    <h3>Request Information</h3>
 
-      <form class="contact-form">
-        <form action="https://formspree.io/f/xzdpvjnk" method="POST">
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email" required>
-        <input type="text" placeholder="Phone / WhatsApp">
-        <textarea>I'm interested in this property</textarea>
+    <form action="https://formspree.io/f/xzdpvjnk" method="POST" class="contact-form">
 
-        <button type="submit">Contact Bai Pe Real Estate</button>
-      </form>
-    </div>
-  </aside>
+      <!-- Optional but professional -->
+      <input type="hidden" name="_subject" value="Property Inquiry – Bai Pe Real Estate">
+      <input type="hidden" name="property" value="Property Details Page">
+
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone / WhatsApp">
+
+      <textarea name="message" placeholder="I'm interested in this property. Please contact me." required></textarea>
+
+      <button type="submit" class="btn">Contact Bai Pe Real Estate</button>
+    </form>
+
+  </div>
+</aside>
+
 </section>
 
 </main>
