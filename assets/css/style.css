@@ -1005,119 +1005,80 @@ main {
   }
 }
 
-/* ===============================
-   Brand Colors Overrides
-   =============================== */
-
-/* Headings in calculator cards */
-.calc-card h2 {
-  color: #0F514F;
-}
-
-/* Labels */
+/* Label styling */
 .calc-card label {
-  color: #0F514F;
+  display: block;
+  margin-top: 15px;
+  font-weight: 500;
+  color: #333;
+  font-size: 0.95rem;
 }
 
-/* Inputs & Selects Focus */
-.calc-card input:focus,
-.calc-card select:focus {
-  border-color: #0F514F;
-  box-shadow: 0 0 0 2px rgba(15,81,79,0.08);
-}
-
-/* Button */
-.calc-card .btn {
-  background: #0F514F;
-  color: #F4F6FC;
-}
-
-.calc-card .btn:hover {
-  background: #0A3B3A;
-}
-
-/* Results card totals */
-.total strong,
-.grand-total strong,
-.cost-list strong {
-  color: #0F514F;
-}
-
-/* Dashed lines accent */
-.cost-list li {
-  border-bottom: 1px dashed #D8AE5E66;
-}
-
-/* Disclaimer background subtle accent */
-.section.disclaimer {
-  background: #F4F6FC;
-  color: #0F514F;
-}
-
-/* ===============================
-   Down Payment Slider
-   =============================== */
+/* Slider styling */
 #downPaymentSlider {
   width: 100%;
   margin-top: 5px;
   -webkit-appearance: none;
   height: 8px;
   border-radius: 5px;
-  background: #D8AE5E33;
+  background: #d1d5db; /* light gray track */
   outline: none;
   transition: background 0.3s;
 }
 
+/* Slider thumb - Chrome, Safari */
 #downPaymentSlider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #0F514F;
+  background: #0077cc; /* premium brand color */
   cursor: pointer;
-  border: 2px solid #F4F6FC;
+  border: 2px solid #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   transition: background 0.3s, transform 0.2s;
 }
 
 #downPaymentSlider::-webkit-slider-thumb:hover {
-  background: #0A3B3A;
+  background: #005fa3;
   transform: scale(1.1);
 }
 
+/* Slider thumb - Firefox */
 #downPaymentSlider::-moz-range-thumb {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #0F514F;
+  background: #0077cc;
   cursor: pointer;
-  border: 2px solid #F4F6FC;
+  border: 2px solid #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   transition: background 0.3s, transform 0.2s;
 }
 
 #downPaymentSlider::-moz-range-thumb:hover {
-  background: #0A3B3A;
+  background: #005fa3;
   transform: scale(1.1);
 }
 
-/* Percentage label next to slider */
+/* Percentage label styling */
 #downPaymentPercent {
   display: inline-block;
   margin-left: 10px;
   font-weight: 600;
-  color: #0F514F;
+  color: #0077cc;
+  font-size: 0.95rem;
 }
 
-/* Mobile adjustments */
+/* Mobile responsiveness */
 @media (max-width: 768px) {
   #downPaymentSlider::-webkit-slider-thumb,
   #downPaymentSlider::-moz-range-thumb {
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
   }
-  
+
   #downPaymentPercent {
     font-size: 1rem;
   }
