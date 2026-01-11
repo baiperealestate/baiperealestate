@@ -1,39 +1,40 @@
-function calculatePurchaseCosts() {
+function calculate() {
   const price = Number(document.getElementById("price").value);
-  if (!price || price <= 0) return;
+  const residency = document.getElementById("residency").value;
+  const age = Number(document.getElementById("age").value);
+  const interest = Number(document.getElementById("interest").value) / 100;
+  let years = Number(document.getElementById("years").value);
 
-  // Fixed Curaçao assumptions
+  if (!price || !age || !years) return;
+
+  const maxEndAge = 70;
+  const maxYearsByAge = maxEndAge - age;
+
+  const bankMaxYears = residency === "resident" ? 30 : 20;
+  years = Math.min(years, bankMaxYears, maxYearsByAge);
+
+  const ltv = residency === "resident" ? 0.9 : 0.7;
+  const mortgage = price * ltv;
+
   const transferTax = price * 0.04;
+  const notary = price * 0.0175;
+  const cadastre = price * 0.0075;
 
-  const notaryMin = price * 0.015;
-  const notaryMax = price * 0.02;
+  const purchaseCosts = transferTax + notary + cadastre;
+  const ownFunds = price - mortgage + purchaseCosts;
 
-  const cadastreMin = price * 0.005;
-  const cadastreMax = price * 0.01;
+  const monthlyRate = interest / 12;
+  const months = years * 12;
+  const monthly =
+    mortgage *
+    (monthlyRate * Math.pow(1 + monthlyRate, months)) /
+    (Math.pow(1 + monthlyRate, months) - 1);
 
-  const appraisal = 2000; // typical Curaçao estimate
-
-  const totalMin =
-    transferTax + notaryMin + cadastreMin + appraisal;
-
-  const totalMax =
-    transferTax + notaryMax + cadastreMax + appraisal;
-
-  document.getElementById("transferTax").innerText =
-    `XCG ${transferTax.toLocaleString()}`;
-
-  document.getElementById("notaryFees").innerText =
-    `XCG ${notaryMin.toLocaleString()} – ${notaryMax.toLocaleString()}`;
-
-  document.getElementById("cadastreFees").innerText =
-    `XCG ${cadastreMin.toLocaleString()} – ${cadastreMax.toLocaleString()}`;
-
-  document.getElementById("appraisalFee").innerText =
-    `XCG ${appraisal.toLocaleString()}`;
-
-  document.getElementById("totalCosts").innerText =
-    `XCG ${totalMin.toLocaleString()} – ${totalMax.toLocaleString()}`;
-
-  document.getElementById("results").style.display = "block";
+  document.getElementById("transferTax").innerText = `ANG ${transferTax.toLocaleString()}`;
+  document.getElementById("notary").innerText = `ANG ${notary.toLocaleString()}`;
+  document.getElementById("cadastre").innerText = `ANG ${cadastre.toLocaleString()}`;
+  document.getElementById("purchaseCosts").innerText = `ANG ${purchaseCosts.toLocaleString()}`;
+  document.getElementById("mortgage").innerText = `ANG ${mortgage.toLocaleString()}`;
+  document.getElementById("ownFunds").innerText = `ANG ${ownFunds.toLocaleString()}`;
+  document.getElementById("monthly").innerText = `ANG ${monthly.toFixed(0).toLocaleString()}`;
 }
-
