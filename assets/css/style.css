@@ -1196,6 +1196,16 @@ main {
 .team-card:hover .team-photo img {
   transform: scale(1.05);
 }
+/* Ensure entire image is clickable */
+.team-photo a {
+  display: block;
+  position: relative;
+}
+
+/* Prevent overlay text from blocking clicks */
+.team-photo span {
+  pointer-events: none;
+}
 
 /* Hover overlay */
 .team-photo::after {
