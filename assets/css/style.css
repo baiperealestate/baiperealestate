@@ -1072,7 +1072,7 @@ main {
 
 /* Results Card */
 .calc-card.result {
-  background: linear-gradient(180deg, #0F514F, #093c3a);
+  background: linear-gradient(180deg, #0F514F,  #ffffff);
   color: #ffffff;
 }
 
