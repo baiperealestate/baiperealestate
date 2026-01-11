@@ -1,40 +1,72 @@
+// Wait for the DOM to load to avoid conflicts
+document.addEventListener('DOMContentLoaded', () => {
+
+  const priceInput = document.getElementById('price');
+  const downPaymentInput = document.getElementById('downPayment');
+  const slider = document.getElementById('downPaymentSlider');
+  const percentLabel = document.getElementById('downPaymentPercent');
+
+  // Update numeric down payment when slider moves
+  slider.addEventListener('input', () => {
+    const price = parseFloat(priceInput.value) || 0;
+    const sliderValue = parseFloat(slider.value);
+    downPaymentInput.value = ((sliderValue / 100) * price).toFixed(0);
+    percentLabel.textContent = slider.value + "%";
+    calculate();
+  });
+
+  // Update slider when numeric input changes
+  downPaymentInput.addEventListener('input', () => {
+    const price = parseFloat(priceInput.value) || 0;
+    let value = parseFloat(downPaymentInput.value) || 0;
+    if (value > price) value = price;
+    slider.value = ((value / price) * 100).toFixed(0);
+    percentLabel.textContent = ((value / price) * 100).toFixed(0) + "%";
+    calculate();
+  });
+
+  // Also recalc if price changes (slider percentage still applied)
+  priceInput.addEventListener('input', () => {
+    const price = parseFloat(priceInput.value) || 0;
+    let sliderValue = parseFloat(slider.value);
+    downPaymentInput.value = ((sliderValue / 100) * price).toFixed(0);
+    calculate();
+  });
+
+});
+
+// Main calculation function
 function calculate() {
-  const price = Number(document.getElementById("price").value);
-  const residency = document.getElementById("residency").value;
-  const age = Number(document.getElementById("age").value);
-  const interest = Number(document.getElementById("interest").value) / 100;
-  let years = Number(document.getElementById("years").value);
+  const price = parseFloat(document.getElementById('price').value) || 0;
+  const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+  const interestRate = parseFloat(document.getElementById('interest').value) / 100;
+  const years = parseInt(document.getElementById('years').value) || 0;
 
-  if (!price || !age || !years) return;
+  if (downPayment > price) {
+    alert("Down payment cannot exceed property price!");
+    return;
+  }
 
-  const maxEndAge = 70;
-  const maxYearsByAge = maxEndAge - age;
-
-  const bankMaxYears = residency === "resident" ? 30 : 20;
-  years = Math.min(years, bankMaxYears, maxYearsByAge);
-
-  const ltv = residency === "resident" ? 0.9 : 0.7;
-  const mortgage = price * ltv;
-
+  // Purchase costs
   const transferTax = price * 0.04;
   const notary = price * 0.0175;
   const cadastre = price * 0.0075;
+  const totalPurchaseCosts = transferTax + notary + cadastre;
 
-  const purchaseCosts = transferTax + notary + cadastre;
-  const ownFunds = price - mortgage + purchaseCosts;
+  // Mortgage
+  const mortgage = price - downPayment;
+  const monthlyRate = interestRate / 12;
+  const numberOfPayments = years * 12;
+  const monthlyPayment = monthlyRate > 0 
+    ? mortgage * monthlyRate / (1 - Math.pow(1 + monthlyRate, -numberOfPayments)) 
+    : mortgage / numberOfPayments;
 
-  const monthlyRate = interest / 12;
-  const months = years * 12;
-  const monthly =
-    mortgage *
-    (monthlyRate * Math.pow(1 + monthlyRate, months)) /
-    (Math.pow(1 + monthlyRate, months) - 1);
-
-  document.getElementById("transferTax").innerText = `ANG ${transferTax.toLocaleString()}`;
-  document.getElementById("notary").innerText = `ANG ${notary.toLocaleString()}`;
-  document.getElementById("cadastre").innerText = `ANG ${cadastre.toLocaleString()}`;
-  document.getElementById("purchaseCosts").innerText = `ANG ${purchaseCosts.toLocaleString()}`;
-  document.getElementById("mortgage").innerText = `ANG ${mortgage.toLocaleString()}`;
-  document.getElementById("ownFunds").innerText = `ANG ${ownFunds.toLocaleString()}`;
-  document.getElementById("monthly").innerText = `ANG ${monthly.toFixed(0).toLocaleString()}`;
+  // Update results
+  document.getElementById('transferTax').textContent = 'XCG ' + transferTax.toLocaleString();
+  document.getElementById('notary').textContent = 'XCG ' + notary.toLocaleString();
+  document.getElementById('cadastre').textContent = 'XCG ' + cadastre.toLocaleString();
+  document.getElementById('purchaseCosts').textContent = 'XCG ' + totalPurchaseCosts.toLocaleString();
+  document.getElementById('mortgage').textContent = 'XCG ' + mortgage.toLocaleString();
+  document.getElementById('ownFunds').textContent = 'XCG ' + downPayment.toLocaleString();
+  document.getElementById('monthly').textContent = 'XCG ' + monthlyPayment.toFixed(2).toLocaleString();
 }
