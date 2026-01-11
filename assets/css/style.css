@@ -1005,85 +1005,137 @@ main {
   }
 }
 
-/* ================================
-   PREMIUM CALCULATOR – BAI PE
-================================ */
-
-/* Calculator layout */
-.calculator-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-@media (max-width: 900px) {
-  .calculator-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Calculator cards */
+/* ===============================
+   Calculator Cards
+   =============================== */
 .calc-card {
-  background: #ffffff;
-  border-radius: 14px;
+  background: #F4F6FC; /* light brand background */
+  border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 20px 40px rgba(0,0,0,0.06);
 }
 
 .calc-card h2 {
   margin-bottom: 1.5rem;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: #1c2331;
+  color: #0F514F; /* primary brand color */
 }
 
-/* Inputs */
+/* ===============================
+   Labels and Inputs
+   =============================== */
 .calc-card label {
   display: block;
   margin-top: 1rem;
   font-weight: 500;
-  color: #555;
+  color: #0F514F; /* primary brand color */
+  font-size: 0.95rem;
 }
 
 .calc-card input,
 .calc-card select {
   width: 100%;
-  padding: 0.7rem 0.9rem;
+  padding: 0.8rem 1rem;
   margin-top: 0.4rem;
-  border-radius: 8px;
-  border: 1px solid #dcdfe6;
+  border-radius: 10px;
+  border: 1px solid #D8AE5E66; /* light accent border */
   font-size: 0.95rem;
+  background: #fff;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .calc-card input:focus,
 .calc-card select:focus {
   outline: none;
-  border-color: #2a3f8f;
-  box-shadow: 0 0 0 2px rgba(42,63,143,0.08);
+  border-color: #0F514F;
+  box-shadow: 0 0 0 2px rgba(15,81,79,0.1);
 }
 
-/* Button */
+/* ===============================
+   Slider - Down Payment
+   =============================== */
+#downPaymentSlider {
+  width: 100%;
+  margin-top: 5px;
+  -webkit-appearance: none;
+  height: 10px;
+  border-radius: 5px;
+  background: #D8AE5E33; /* subtle accent background */
+  outline: none;
+  transition: background 0.3s;
+}
+
+#downPaymentSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0F514F;
+  cursor: pointer;
+  border: 2px solid #F4F6FC;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: background 0.3s, transform 0.2s;
+}
+
+#downPaymentSlider::-webkit-slider-thumb:hover {
+  background: #0A3B3A;
+  transform: scale(1.1);
+}
+
+#downPaymentSlider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0F514F;
+  cursor: pointer;
+  border: 2px solid #F4F6FC;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: background 0.3s, transform 0.2s;
+}
+
+#downPaymentSlider::-moz-range-thumb:hover {
+  background: #0A3B3A;
+  transform: scale(1.1);
+}
+
+/* Percentage display */
+#downPaymentPercent {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: 600;
+  color: #0F514F;
+  font-size: 0.95rem;
+}
+
+/* ===============================
+   Button
+   =============================== */
 .calc-card .btn {
   width: 100%;
   margin-top: 1.8rem;
-  padding: 0.9rem;
-  background: #2a3f8f;
-  color: #fff;
+  padding: 1rem;
+  background: #0F514F; /* primary color */
+  color: #F4F6FC;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s;
 }
 
 .calc-card .btn:hover {
-  background: #1f2f6d;
+  background: #0A3B3A;
+  transform: translateY(-1px);
 }
 
-/* Results styling */
+/* ===============================
+   Results Card
+   =============================== */
 .calc-card.result {
-  background: #f9fafc;
+  background: #ffffff;
 }
 
 .cost-list {
@@ -1096,47 +1148,81 @@ main {
   display: flex;
   justify-content: space-between;
   padding: 0.6rem 0;
-  border-bottom: 1px dashed #ddd;
+  border-bottom: 1px dashed #D8AE5E66; /* accent dashed */
   font-size: 0.95rem;
+  color: #0F514F;
 }
 
 .cost-list strong {
-  color: #1c2331;
+  color: #0F514F;
+  font-weight: 600;
 }
 
 /* Totals */
 .total {
   margin-top: 1.2rem;
   font-size: 1rem;
+  color: #0F514F;
 }
 
 .total strong {
-  font-size: 1.2rem;
-  color: #2a3f8f;
+  font-size: 1.3rem;
+  color: #0F514F;
 }
 
 .grand-total {
   margin-top: 1.5rem;
   font-size: 1.05rem;
+  color: #0F514F;
 }
 
 .grand-total strong {
   display: block;
   margin-top: 0.4rem;
   font-size: 1.5rem;
-  color: #1c2331;
+  color: #0F514F;
 }
 
-/* Disclaimer */
+/* ===============================
+   Disclaimer
+   =============================== */
 .section.disclaimer {
-  background: #f1f3f8;
+  background: #D8AE5E1A; /* subtle accent background */
 }
 
 .section.disclaimer p {
   font-size: 0.9rem;
-  color: #555;
+  color: #0F514F;
   line-height: 1.6;
   text-align: center;
   max-width: 900px;
   margin: auto;
+}
+
+/* ===============================
+   Mobile Responsiveness
+   =============================== */
+@media (max-width: 768px) {
+  #downPaymentSlider::-webkit-slider-thumb,
+  #downPaymentSlider::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+  }
+
+  #downPaymentPercent {
+    font-size: 1rem;
+  }
+
+  .calc-card {
+    padding: 1.5rem;
+  }
+
+  .calc-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .calc-card .btn {
+    padding: 1rem;
+    font-size: 1.05rem;
+  }
 }
