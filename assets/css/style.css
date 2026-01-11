@@ -1005,62 +1005,144 @@ main {
   }
 }
 
-/* Slider container styling */
+/* ===============================
+   MORTGAGE CALCULATOR – PREMIUM UI
+=============================== */
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* Calculator Cards */
+.calc-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+}
+
+/* Titles */
+.calc-card h2 {
+  font-size: 1.6rem;
+  margin-bottom: 24px;
+  color: #0F514F;
+  border-bottom: 2px solid #D8AE5E;
+  padding-bottom: 10px;
+}
+
+/* Labels */
 .calc-card label {
   display: block;
-  margin-top: 15px;
-  font-weight: 500;
-  color: #333;
-}
-
-/* Slider itself */
-#downPaymentSlider {
-  width: 100%;
-  margin-top: 5px;
-  -webkit-appearance: none;
-  height: 8px;
-  border-radius: 5px;
-  background: #d1d5db; /* light gray track */
-  outline: none;
-}
-
-/* Slider thumb */
-#downPaymentSlider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: #0077cc; /* brand color */
-  cursor: pointer;
-  border: 2px solid #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  transition: background 0.3s;
-}
-
-#downPaymentSlider::-moz-range-thumb {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: #0077cc;
-  cursor: pointer;
-  border: 2px solid #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  transition: background 0.3s;
-}
-
-#downPaymentSlider:hover::-webkit-slider-thumb {
-  background: #005fa3;
-}
-
-#downPaymentSlider:hover::-moz-range-thumb {
-  background: #005fa3;
-}
-
-/* Percentage display */
-#downPaymentPercent {
-  display: inline-block;
-  margin-left: 10px;
   font-weight: 600;
-  color: #0077cc;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  color: #1E1E1E;
+}
+
+/* Inputs */
+.calc-card input[type="number"],
+.calc-card input[type="range"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  background: #F9FAFB;
+}
+
+.calc-card input:focus {
+  outline: none;
+  border-color: #D8AE5E;
+  background: #ffffff;
+}
+
+/* Button */
+.calc-card .btn {
+  width: 100%;
+  margin-top: 28px;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #D8AE5E, #c49f54);
+  box-shadow: 0 8px 20px rgba(216,174,94,0.4);
+}
+
+/* Results Card */
+.calc-card.result {
+  background: linear-gradient(180deg, #0F514F, #093c3a);
+  color: #ffffff;
+}
+
+.calc-card.result h2 {
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.3);
+}
+
+/* Cost List */
+.cost-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cost-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.25);
+  font-size: 15px;
+}
+
+/* Totals */
+.calc-card.result p {
+  margin-top: 18px;
+  font-size: 15px;
+}
+
+/* Highlight Monthly Payment */
+.grand-total {
+  margin-top: 28px;
+  padding: 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.grand-total strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 2rem;
+  color: #D8AE5E;
+}
+
+/* Purchase cost total */
+.total strong {
+  font-size: 1.3rem;
+  color: #D8AE5E;
+}
+
+/* Slider percentage */
+#downPaymentPercent {
+  font-weight: 700;
+  color: #D8AE5E;
+}
+
+/* ===============================
+   RESPONSIVE – MOBILE
+=============================== */
+@media (max-width: 900px) {
+  .calculator-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-card {
+    padding: 26px;
+  }
+
+  .grand-total strong {
+    font-size: 1.7rem;
+  }
 }
