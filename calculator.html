@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Curaçao Property Calculator | Bai Pe Real Estate</title>
+  <meta name="description" content="Estimate purchase costs, mortgage payments, and investment returns for property in Curaçao. Indicative calculator by Bai Pe Real Estate.">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<!-- HEADER (same as index) -->
+<header class="navbar">
+  <div class="logo">
+    <a href="index.html">
+      <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
+    </a>
+  </div>
+
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="listings.html">Listings</a>
+    <a href="calculator.html" class="active">Calculator</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- PAGE INTRO -->
+<section class="section">
+  <div class="container">
+    <h1>Curaçao Property Cost & Mortgage Calculator</h1>
+    <p class="subtitle">
+      This calculator provides an indicative overview of purchase costs, financing,
+      and potential returns based on common market practices in Curaçao.
+    </p>
+  </div>
+</section>
+
+<!-- STEP 1 -->
+<section class="section light">
+  <div class="container">
+    <h2>1. Property & Buyer Profile</h2>
+
+    <label>Property Price (XCG)</label>
+    <input type="number" id="price" placeholder="e.g. 850000">
+
+    <label>Buyer Status</label>
+    <select id="buyerType">
+      <option value="resident">Resident of Curaçao</option>
+      <option value="nonresident">Non-resident</option>
+    </select>
+
+    <label>Purchase Method</label>
+    <select id="purchaseType">
+      <option value="finance">Financing</option>
+      <option value="cash">Cash</option>
+    </select>
+
+    <label>
+      <input type="checkbox" id="investment">
+      This is an investment property
+    </label>
+
+    <button class="btn" onclick="calculate()">Calculate</button>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section class="section">
+  <div class="container">
+    <h2>2. Financing Overview</h2>
+    <div class="result-box">
+      <p>Down payment: <strong id="downPayment"></strong></p>
+      <p>Loan amount: <strong id="loanAmount"></strong></p>
+      <p>Estimated monthly mortgage: <strong id="monthlyMortgage"></strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 3 -->
+<section class="section light">
+  <div class="container">
+    <h2>3. Total Purchase Costs</h2>
+    <div class="result-box">
+      <p>Transfer tax (4%): <strong id="transferTax"></strong></p>
+      <p>Notary & registration: <strong id="notary"></strong></p>
+      <p>Administrative & appraisal costs: <strong id="admin"></strong></p>
+      <hr>
+      <p>Total acquisition cost: <strong id="totalCost"></strong></p>
+      <p>Cash required upfront: <strong id="cashRequired"></strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 4 -->
+<section class="section" id="investmentSection" style="display:none;">
+  <div class="container">
+    <h2>4. Investment Overview</h2>
+
+    <label>Expected Monthly Rent (XCG)</label>
+    <input type="number" id="rent" placeholder="e.g. 3500">
+
+    <div class="result-box">
+      <p>Net annual income: <strong id="netIncome"></strong></p>
+      <p>Estimated net yield: <strong id="yield"></strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="section disclaimer">
+  <div class="container">
+    <p>
+      <strong>Important Notice:</strong><br>
+      This calculator provides indicative estimates only and does not constitute
+      financial advice or a mortgage offer. Actual figures may vary based on
+      lender, notary, personal situation, and regulations.
+      Always consult your local bank, financial advisor, and notary.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Bai Pe Real Estate | Curaçao</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/calculator.js" defer></script>
+
+</body>
+</html>
