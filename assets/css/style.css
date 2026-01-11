@@ -1179,18 +1179,20 @@ main {
 .team-photo {
   position: relative;
   width: 100%;
-  background: #f4f6fc;
+  aspect-ratio: 1 / 1; /* FORCE SQUARE */
   overflow: hidden;
+  background: #f4f6fc;
 }
 
 .team-photo img {
   width: 100%;
-  height: 340px;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
   transition: transform 0.4s ease;
 }
+
 
 
 .team-card:hover .team-photo img {
@@ -1298,12 +1300,13 @@ main {
 
 .member-hero img {
   width: 100%;
-  height: 520px;
+  aspect-ratio: 1 / 1; /* SQUARE */
   object-fit: cover;
   object-position: center;
   border-radius: 18px;
   box-shadow: 0 20px 45px rgba(0,0,0,0.12);
 }
+
 
 
 /* ---- RESPONSIVE SAFETY ---- */
