@@ -10,17 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
         card.className = "team-card";
 
         card.innerHTML = `
-          <div class="team-photo">
-            <a href="team-member.html?id=${member.id}">
+          <a href="team-member.html?id=${member.id}" class="team-link">
+            <div class="team-photo">
               <img src="${member.image}" alt="${member.name}">
               <span>View Profile</span>
-            </a>
-          </div>
+            </div>
 
-          <div class="team-info">
-            <h3>${member.name}</h3>
-            <p class="team-role">${member.role}</p>
-          </div>
+            <div class="team-info">
+              <h3>${member.name}</h3>
+              <p class="team-role">${member.role}</p>
+              <p class="team-phone">${member.phone}</p>
+              <p class="team-email">${member.email}</p>
+            </div>
+          </a>
         `;
 
         grid.appendChild(card);
