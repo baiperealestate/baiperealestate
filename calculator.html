@@ -44,6 +44,13 @@
       <label>Property Price (XCG)</label>
       <input type="number" id="price" placeholder="e.g. 850000">
 
+      <label>Down Payment (XCG)</label>
+      <input type="number" id="downPayment" placeholder="e.g. 170000">
+
+      <label>Or choose Down Payment %</label>
+      <input type="range" id="downPaymentSlider" min="0" max="50" value="20">
+      <span id="downPaymentPercent">20%</span>
+
       <label>Residency Status</label>
       <select id="residency">
         <option value="resident">Resident</option>
@@ -108,6 +115,7 @@
   </div>
 </footer>
 
+<!-- JS -->
 <script src="assets/js/main.js"></script>
 <script src="assets/js/calculator.js"></script>
 
