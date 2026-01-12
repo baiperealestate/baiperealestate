@@ -49,8 +49,8 @@ function calculate() {
 
   // Purchase costs
   const transferTax = price * 0.04;
-  const notary = price * 0.0175;
-  const cadastre = price * 0.0075;
+  const notary = price * 0.02;
+  const cadastre = price * 0.01;
   const totalPurchaseCosts = transferTax + notary + cadastre;
 
   // Mortgage
