@@ -120,3 +120,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Property page error:", err);
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("openNewsletter");
+  const form = document.getElementById("newsletterForm");
+
+  if (!btn || !form) return;
+
+  btn.addEventListener("click", () => {
+    form.classList.toggle("active");
+    form.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+});
+
