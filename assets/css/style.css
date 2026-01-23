@@ -1397,3 +1397,82 @@ main {
   font-size: 0.9rem;
   color: #666;
 }
+
+/* ===============================
+   NEWSLETTER – PREMIUM REVEAL
+=============================== */
+
+.newsletter-teaser {
+  background: #ffffff;
+  padding: 70px 20px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.newsletter-teaser h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.newsletter-teaser p {
+  max-width: 640px;
+  margin: 0 auto 25px;
+  color: #444;
+}
+
+/* Hidden form by default */
+.newsletter {
+  display: none;
+  background: #f9fafc;
+  padding: 60px 20px;
+}
+
+.newsletter.active {
+  display: block;
+  animation: fadeSlide 0.5s ease;
+}
+
+.newsletter-form {
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.newsletter-form input {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.gdpr-box {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.gdpr-box label {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.mc-legal {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #777;
+  margin-top: 15px;
+}
+
+/* Smooth reveal */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
