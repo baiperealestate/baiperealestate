@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
       listingsContainer.innerHTML = "<p>Listings will be available soon.</p>";
     });
 
-  // Render function
+  // Render function (keeps premium card design)
   function renderListings(listings) {
     listingsContainer.innerHTML = "";
 
@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     listings.forEach(item => {
       const card = document.createElement("article");
-      card.className = "listing-card";
+      card.className = "listing-card hide";
 
       const imgSrc = item.images && item.images.length ? item.images[0] : "assets/images/placeholder.jpg";
 
@@ -182,10 +182,13 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
       listingsContainer.appendChild(card);
+
+      // Smooth fade-in for premium feel
+      setTimeout(() => card.classList.remove("hide"), 20);
     });
   }
 
-  // Filter event
+  // Category filter event
   if (categoryFilter) {
     categoryFilter.addEventListener("change", e => {
       const selected = e.target.value.toLowerCase();
@@ -201,3 +204,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
