@@ -133,3 +133,71 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const listingsContainer = document.getElementById("listings");
+  const categoryFilter = document.getElementById("categoryFilter");
+  let allListings = [];
+
+  if (!listingsContainer) return;
+
+  // Load listings
+  fetch("assets/data/listings.json")
+    .then(res => res.json())
+    .then(data => {
+      allListings = data;
+      renderListings(allListings);
+    })
+    .catch(err => {
+      console.error("Error loading listings:", err);
+      listingsContainer.innerHTML = "<p>Listings will be available soon.</p>";
+    });
+
+  // Render function
+  function renderListings(listings) {
+    listingsContainer.innerHTML = "";
+
+    if (!listings || listings.length === 0) {
+      listingsContainer.innerHTML = "<p>No listings match your selection.</p>";
+      return;
+    }
+
+    listings.forEach(item => {
+      const card = document.createElement("article");
+      card.className = "listing-card";
+
+      const imgSrc = item.images && item.images.length ? item.images[0] : "assets/images/placeholder.jpg";
+
+      card.innerHTML = `
+        <div class="listing-image">
+          <img src="${imgSrc}" alt="${item.title}" loading="lazy">
+          ${item.featured ? `<span class="badge">Featured</span>` : ""}
+        </div>
+        <div class="listing-content">
+          <h3>${item.title}</h3>
+          <p class="price">${item.price}</p>
+          <p class="location">${item.location}</p>
+          <div class="cta">
+            <a href="property.html?id=${item.id}" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      `;
+      listingsContainer.appendChild(card);
+    });
+  }
+
+  // Filter event
+  if (categoryFilter) {
+    categoryFilter.addEventListener("change", e => {
+      const selected = e.target.value.toLowerCase();
+
+      const filtered = selected === "all"
+        ? allListings
+        : allListings.filter(item => 
+            (item.status && item.status.toLowerCase() === selected) ||
+            (item.propertyType && item.propertyType.toLowerCase() === selected)
+          );
+
+      renderListings(filtered);
+    });
+  }
+});
