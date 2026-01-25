@@ -116,6 +116,27 @@ document.addEventListener("DOMContentLoaded", async () => {
         imageEl.src = property.images[currentIndex];
       });
 
+      /* ===================== CURRENCY CONVERSION ===================== */
+    // Only run if price element exists and FX & formatAmount are defined
+    if (property.price &&
+        document.getElementById("price-xcg") &&
+        document.getElementById("price-usd") &&
+        document.getElementById("price-eur") &&
+        typeof FX !== "undefined" &&
+        typeof formatAmount === "function") {
+
+      const rawXCG = parseInt(property.price.replace(/[^\d]/g, ""), 10);
+
+      document.getElementById("price-xcg").textContent =
+        formatAmount(rawXCG, "XCG");
+
+      document.getElementById("price-usd").textContent =
+        "≈ " + formatAmount(FX.toUSD(rawXCG), "USD");
+
+      document.getElementById("price-eur").textContent =
+        "≈ " + formatAmount(FX.toEUR(rawXCG), "EUR");
+    }
+
   } catch (err) {
     console.error("Property page error:", err);
   }
