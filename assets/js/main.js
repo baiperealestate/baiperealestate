@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="price">${item.price}</p>
           <p class="location">${item.location}</p>
           <div class="cta">
-            <a href="property.html?id=${item.id}" class="btn btn-details"> View Details</a>
+            <a href="property.html?id=${item.id}" class="btn-details"> View Details</a>
           </div>
         </div>
       `;
