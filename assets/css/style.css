@@ -592,19 +592,24 @@ main {
   margin-bottom: 12px;
 }
 
+/* LISTING – VIEW DETAILS (BRAND GOLD) */
 .btn-details {
   display: inline-block;
   padding: 10px 16px;
-  background:#D8AE5E;
+  background-color: #D8AE5E; /* GOLD */
   color: #ffffff;
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
   font-size: 14px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .btn-details:hover {
-  background: #093c3a;
+  background-color: #0f514f;
+  transform: translateY(-1px);
 }
+
 
 .property-page {
   display: grid;
