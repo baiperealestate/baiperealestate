@@ -44,14 +44,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// property.price example: "XCG 1245000"
-const rawXCG = parseInt(property.price.replace(/[^\d]/g, ""), 10);
 
-document.getElementById("price-xcg").textContent =
-  formatAmount(rawXCG, "XCG");
-
-document.getElementById("price-usd").textContent =
-  "≈ " + formatAmount(FX.toUSD(rawXCG), "USD");
-
-document.getElementById("price-eur").textContent =
-  "≈ " + formatAmount(FX.toEUR(rawXCG), "EUR");
