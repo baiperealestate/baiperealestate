@@ -219,3 +219,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector(".contact-form");
+
+  if (!form) return;
+
+  form.addEventListener("submit", () => {
+    const propertyField = document.getElementById("propertyField");
+    const propertyUrl = document.getElementById("propertyUrl");
+
+    const title = document.getElementById("title")?.innerText || "";
+    const price = document.getElementById("price")?.innerText || "";
+    const location = document.getElementById("location")?.innerText || "";
+
+    if (propertyField && !propertyField.value) {
+      propertyField.value = `${title} | ${price} | ${location}`;
+    }
+
+    if (propertyUrl && !propertyUrl.value) {
+      propertyUrl.value = window.location.href;
+    }
+  });
+});
