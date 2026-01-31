@@ -90,6 +90,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("size").textContent = property.size;
     document.getElementById("description").textContent = property.description;
 
+    /* FORM – PROPERTY TRACKING */
+const propertyField = document.getElementById("propertyField");
+const propertyUrl = document.getElementById("propertyUrl");
+
+if (propertyField) {
+  propertyField.value = `${property.title} | ${property.price} | ${property.location}`;
+}
+
+if (propertyUrl) {
+  propertyUrl.value = window.location.href;
+}
+
+
     /* FEATURES */
     featuresEl.innerHTML = "";
     property.features.forEach(feature => {
