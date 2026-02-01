@@ -202,21 +202,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Category filter event
-  if (categoryFilter) {
-    categoryFilter.addEventListener("change", e => {
-      const selected = e.target.value.toLowerCase();
+  // Category filter event with Lots / Land support
+if (categoryFilter) {
+  categoryFilter.addEventListener("change", e => {
+    const selected = e.target.value.toLowerCase();
 
-      const filtered = selected === "all"
-        ? allListings
-        : allListings.filter(item => 
-            (item.status && item.status.toLowerCase() === selected) ||
-            (item.propertyType && item.propertyType.toLowerCase() === selected)
-          );
+    const filtered = selected === "all"
+      ? allListings
+      : allListings.filter(item => {
+          const type = item.propertyType?.toLowerCase();
+          const status = item.status?.toLowerCase();
 
-      renderListings(filtered);
-    });
-  }
+          if (selected === "lots") {
+            // Include both "lots" and "land"
+            return type === "lots" || type === "land";
+          }
+
+          return status === selected || type === selected;
+        });
+
+    renderListings(filtered);
+  });
+}
 });
 
 document.addEventListener("DOMContentLoaded", () => {
