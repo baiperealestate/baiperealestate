@@ -59,74 +59,21 @@
 <!-- ================= MAIN ================= -->
 <main class="listings-page">
 
-  <!-- FILTER -->
-  <section class="container premium-filter">
-  <div class="filter-bar">
+ <!-- FILTER -->
+  <section class="container">
+    <select id="categoryFilter" class="filter-select">
+      <option value="all">All Categories</option>
+      <option value="for sale">For Sale</option>
+      <option value="for rent">For Rent</option>
+      <option value="residential">Residential</option>
+      <option value="commercial">Commercial</option>
+    </select>
+  </section>
 
-    <!-- Category -->
-    <div class="filter-group">
-      <label>Category</label>
-      <select id="categoryFilter">
-        <option value="all">All</option>
-        <option value="for sale">For Sale</option>
-        <option value="for rent">For Rent</option>
-        <option value="residential">Residential</option>
-        <option value="commercial">Commercial</option>
-      </select>
-    </div>
-
-    <!-- Area -->
-    <div class="filter-group">
-      <label>Area / Neighborhood</label>
-      <input
-        type="text"
-        id="areaFilter"
-        placeholder="e.g. Jan Thiel, Blue Bay"
-      />
-    </div>
-
-   <!-- Price Range -->
-  <div class="filter-group price-range">
-  <label>Price Range</label>
-  <div class="price-inputs">
-    <input type="number" id="priceMin" placeholder="Min $" />
-    <input type="number" id="priceMax" placeholder="Max $" />
-  </div>
-  </div>
-
-
-    <!-- Bedrooms -->
-    <div class="filter-group small">
-      <label>Bedrooms</label>
-      <select id="bedroomFilter">
-        <option value="">Any</option>
-        <option value="1">1+</option>
-        <option value="2">2+</option>
-        <option value="3">3+</option>
-        <option value="4">4+</option>
-      </select>
-    </div>
-
-    <!-- Bathrooms -->
-    <div class="filter-group small">
-      <label>Bathrooms</label>
-      <select id="bathroomFilter">
-        <option value="">Any</option>
-        <option value="1">1+</option>
-        <option value="2">2+</option>
-        <option value="3">3+</option>
-      </select>
-    </div>
-
-    <!-- Search Button -->
-    <div class="filter-group button">
-      <button id="applyFilters" class="btn-search">
-        Search Listings
-      </button>
-    </div>
-
-  </div>
-</section>
+  <!-- LISTINGS GRID -->
+  <section id="listings" class="listings-grid">
+    <!-- Cards injected by JS -->
+  </section>
 
 
   <!-- LISTINGS GRID -->
