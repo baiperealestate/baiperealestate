@@ -241,3 +241,61 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const categoryFilter = document.getElementById("categoryFilter");
+  const areaFilter = document.getElementById("areaFilter");
+  const bedroomFilter = document.getElementById("bedroomFilter");
+  const bathroomFilter = document.getElementById("bathroomFilter");
+  const applyBtn = document.getElementById("applyFilters");
+
+  if (!applyBtn) return;
+
+  applyBtn.addEventListener("click", () => {
+  const category = categoryFilter.value.toLowerCase();
+  const area = areaFilter.value.toLowerCase();
+  const minBeds = bedroomFilter.value;
+  const minBaths = bathroomFilter.value;
+  const minPrice = document.getElementById("priceMin").value;
+  const maxPrice = document.getElementById("priceMax").value;
+
+  const filtered = allListings.filter(item => {
+
+    const itemPrice = Number(
+      item.price.replace(/[^0-9]/g, "")
+    );
+
+    const matchCategory =
+      category === "all" ||
+      item.status?.toLowerCase() === category ||
+      item.propertyType?.toLowerCase() === category;
+
+    const matchArea =
+      !area ||
+      item.location?.toLowerCase().includes(area);
+
+    const matchBeds =
+      !minBeds || Number(item.bedrooms) >= Number(minBeds);
+
+    const matchBaths =
+      !minBaths || Number(item.bathrooms) >= Number(minBaths);
+
+    const matchMinPrice =
+      !minPrice || itemPrice >= Number(minPrice);
+
+    const matchMaxPrice =
+      !maxPrice || itemPrice <= Number(maxPrice);
+
+    return (
+      matchCategory &&
+      matchArea &&
+      matchBeds &&
+      matchBaths &&
+      matchMinPrice &&
+      matchMaxPrice
+    );
+  });
+
+  renderListings(filtered);
+});
+
