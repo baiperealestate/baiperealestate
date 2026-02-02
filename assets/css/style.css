@@ -110,25 +110,23 @@ em { font-style: italic; }
 }
 
 /* ========================
-   HERO SECTION (REFINED)
+   HERO SECTION (FIXED)
 ======================== */
 .hero {
   position: relative;
-  background: url('../images/curacao-hero.jpg') no-repeat center center/cover;
+  background: url('../images/curacao-hero.jpg') no-repeat center center / cover;
   color: #ffffff;
   text-align: center;
-  padding: 120px 20px;
-  border-radius: 10px;
   min-height: 520px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
   overflow: hidden;
 }
 
 /* Overlay for contrast */
-.hero::before {
-  content: "";
+.hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -139,34 +137,33 @@ em { font-style: italic; }
   z-index: 1;
 }
 
-/* Keep content above overlay */
-.hero > * {
+/* Content above overlay */
+.hero-content {
   position: relative;
   z-index: 2;
+  max-width: 900px;
+  padding: 0 20px;
 }
 
-/* Hero Heading */
+/* Heading */
 .hero h1 {
   font-size: clamp(2.5rem, 4vw, 3.4rem);
   font-weight: 700;
-  line-height: 1.2;
   text-transform: uppercase;
-  margin-bottom: 18px;
   letter-spacing: 1px;
-  text-shadow: none; /* overlay handles contrast */
+  margin-bottom: 18px;
 }
 
-/* Hero Subtitle */
-.hero p {
+/* Subtitle */
+.hero-subtitle {
   font-size: 1.15rem;
   line-height: 1.7;
-  margin: 0 auto 34px;
   max-width: 720px;
+  margin: 0 auto 34px;
   color: rgba(255, 255, 255, 0.92);
-  text-shadow: none;
 }
 
-/* Hero Button */
+/* Button */
 .hero .btn {
   padding: 14px 36px;
   font-size: 0.95rem;
@@ -185,17 +182,13 @@ em { font-style: italic; }
   transform: translateY(-2px);
 }
 
-/* Responsive */
+/* Mobile */
 @media screen and (max-width: 768px) {
-  .hero {
-    padding: 90px 16px;
-  }
-
   .hero h1 {
     font-size: 2rem;
   }
 
-  .hero p {
+  .hero-subtitle {
     font-size: 1rem;
   }
 }
