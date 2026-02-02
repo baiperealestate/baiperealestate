@@ -110,70 +110,49 @@ em { font-style: italic; }
 }
 
 /* ========================
-   HERO SECTION (FIXED)
+   HERO SECTION
 ======================== */
 .hero {
-  position: relative;
-  background: url('../images/curacao-hero.jpg') no-repeat center center / cover;
-  color: #ffffff;
+  background: #F4F6FC url('../images/curacao-hero.jpg') no-repeat center center/cover;
+  color: #fff;
   text-align: center;
-  min-height: 520px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 100px 20px;
   border-radius: 10px;
-  overflow: hidden;
+  min-height: 500px; /* ensures hero area is visible */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Overlay for contrast */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.35),
-    rgba(0, 0, 0, 0.6)
-  );
-  z-index: 1;
-}
-
-/* Content above overlay */
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-  padding: 0 20px;
-}
-
-/* Heading */
+/* Hero Heading */
 .hero h1 {
-  font-size: clamp(2.5rem, 4vw, 3.4rem);
+  font-size: 3rem;
   font-weight: 700;
+  line-height: 1.2;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 18px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
 }
 
-/* Subtitle */
-.hero-subtitle {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  max-width: 720px;
-  margin: 0 auto 34px;
-  color: rgba(255, 255, 255, 0.92);
+/* Hero Paragraph */
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  max-width: 700px;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
 }
 
-/* Button */
+/* Hero Button */
 .hero .btn {
-  padding: 14px 36px;
-  font-size: 0.95rem;
-  border-radius: 6px;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  border-radius: 8px;
   background-color: #D8AE5E;
-  color: #ffffff;
+  color: #fff;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
 }
 
@@ -182,13 +161,16 @@ em { font-style: italic; }
   transform: translateY(-2px);
 }
 
-/* Mobile */
+/* Responsive */
 @media screen and (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
   }
-
-  .hero-subtitle {
+  .hero p {
+    font-size: 1rem;
+  }
+  .hero .btn {
+    padding: 12px 28px;
     font-size: 1rem;
   }
 }
