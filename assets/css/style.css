@@ -1694,7 +1694,7 @@ main {
   font-weight: 700;
   line-height: 1.2;
   color:#F4F6FC /* YOUR requested color */
-  text-shadow: 0 6px 30px rgba(0,0,0,0.6);
+  text-shadow: 0 4px 14px rgba(0,0,0,0.45);
   margin-bottom: 18px;
 }
 
@@ -1704,7 +1704,7 @@ main {
   font-weight: 500;
   line-height: 1.6;
   color: #F4F6FC; /* YOUR requested color */
-  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+text-shadow: 0 3px 10px rgba(0,0,0,0.4);
   max-width: 720px;
   margin: 0 auto;
 }
