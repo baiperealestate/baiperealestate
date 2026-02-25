@@ -1709,6 +1709,10 @@ main {
   margin: 0 auto;
 }
 
+/* Space between blog hero and first blog card */
+.blog-section {
+  margin-top: 80px;
+}
 /* Responsive */
 @media (max-width: 768px) {
   .blog-hero {
