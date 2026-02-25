@@ -151,15 +151,7 @@ em { font-style: italic; }
   text-align: center;
 }
 
-/* Optional: soft overlay for harder-to-read images */
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.25); /* subtle dark layer */
-  border-radius: 10px;
-  z-index: 1;
-}
+
 
 .hero > * {
   position: relative; /* ensures text stays above overlay */
