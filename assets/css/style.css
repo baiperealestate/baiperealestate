@@ -1652,3 +1652,75 @@ main {
   }
 }
 
+/* ===============================
+   BLOG HERO – PREMIUM STRUCTURE
+=============================== */
+
+.blog-hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 14px;
+  overflow: hidden;
+
+  /* Premium background */
+  background: url('../images/blog-hero.jpg') no-repeat center center / cover;
+  padding: 80px 20px;
+}
+
+/* Dark overlay for readability */
+.blog-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* Stronger for better contrast */
+  z-index: 0;
+}
+
+/* Content above overlay */
+.blog-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+/* Premium typography */
+.blog-hero h1 {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #F4F6FC; /* YOUR requested color */
+  text-shadow: 0 6px 30px rgba(0,0,0,0.6);
+  margin-bottom: 18px;
+}
+
+.blog-hero p {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #F4F6FC; /* YOUR requested color */
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .blog-hero {
+    min-height: 420px;
+    padding: 60px 20px;
+  }
+
+  .blog-hero h1 {
+    font-size: 2rem;
+  }
+
+  .blog-hero p {
+    font-size: 1rem;
+  }
+}
