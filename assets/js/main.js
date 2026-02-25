@@ -249,5 +249,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const newsletterForm = document.getElementById("newsletterForm");
+  const openNewsletter = document.getElementById("openNewsletter");
+  const openNewsletterBlog = document.getElementById("openNewsletterBlog");
 
+  function openForm() {
+    if (newsletterForm) {
+      newsletterForm.style.display = "block";
+      newsletterForm.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  if (openNewsletter) {
+    openNewsletter.addEventListener("click", openForm);
+  }
+
+  if (openNewsletterBlog) {
+    openNewsletterBlog.addEventListener("click", openForm);
+  }
+});
 
