@@ -1689,24 +1689,21 @@ main {
 
 /* Premium typography */
 .blog-hero h1 {
-  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
-  color:#F4F6FC /* YOUR requested color */
+  color: #F4F6FC;
   text-shadow: 0 4px 14px rgba(0,0,0,0.45);
   margin-bottom: 18px;
 }
 
+
 .blog-hero p {
-  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 1.6;
-  color: #F4F6FC; /* YOUR requested color */
-text-shadow: 0 3px 10px rgba(0,0,0,0.4);
-  max-width: 720px;
-  margin: 0 auto;
+  color: #F4F6FC;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.4);
 }
 
 /* Space between blog hero and first blog card */
