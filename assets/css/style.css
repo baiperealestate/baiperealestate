@@ -125,23 +125,47 @@ em { font-style: italic; }
   align-items: center;
 }
 
-/* Hero Heading */
+/* Headline */
 .hero h1 {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* unified premium font */
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+  text-transform: none; /* more premium, remove all caps */
+  margin-bottom: 18px;
+  color: #F4F6FC; /* unified color */
+  text-shadow: 0 4px 20px rgba(0,0,0,0.45); /* improves readability */
+  text-align: center;
 }
 
-/* Hero Paragraph */
+/* Subtitle / paragraph */
 .hero p {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* same as headline */
   font-size: 1.25rem;
-  margin-bottom: 30px;
-  max-width: 700px;
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto 30px;
+  color: #F4F6FC; /* unified color */
+  text-shadow: 0 3px 15px rgba(0,0,0,0.35); /* improves readability */
+  text-align: center;
 }
+
+/* Optional: soft overlay for harder-to-read images */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25); /* subtle dark layer */
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.hero > * {
+  position: relative; /* ensures text stays above overlay */
+  z-index: 2;
+}
+
 
 /* Hero Button */
 .hero .btn {
