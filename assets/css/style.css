@@ -293,64 +293,32 @@ textarea { resize: vertical; }
    BLOG HERO – PREMIUM STRUCTURE
 =============================== */
 
-.blog-hero {
+.hero {
   position: relative;
-  min-height: 520px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #F4F6FC url('../images/blog-hero.jpg') no-repeat center center/cover;
+  color: #fff;
   text-align: center;
-
-  /* CHANGE IMAGE HERE ANYTIME */
-  background: url('../images/blog-hero.jpg') center center / cover no-repeat;
-
-  border-radius: 14px;
-  overflow: hidden;
+  padding: 100px 20px;
+  border-radius: 10px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Overlay (Change color anytime) */
-.blog-hero-overlay {
+.hero::before {
+  content: '';
   position: absolute;
   inset: 0;
-
-  /* CHANGE OVERLAY COLOR HERE */
-  background: rgba(244, 246, 252, 0.75); /* #F4F6FC with opacity */
-
-  z-index: 1;
+  background: rgba(0,0,0,0.25);
+  border-radius: 10px;
+  z-index: 0;
 }
 
-/* Content above overlay */
-.blog-hero-content {
+.hero > * {
   position: relative;
-  z-index: 2;
-  max-width: 800px;
-}
-
-.blog-hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 18px;
-  color: #0F514F;
-}
-
-.blog-hero p {
-  font-size: 1.2rem;
-  color: #0F514F;
-  opacity: 0.9;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .blog-hero {
-    min-height: 420px;
-  }
-
-  .blog-hero h1 {
-    font-size: 2rem;
-  }
-
-  .blog-hero p {
-    font-size: 1rem;
-  }
+  z-index: 1;
 }
 
 /* -----------------------
