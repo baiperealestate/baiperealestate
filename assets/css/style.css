@@ -164,9 +164,10 @@ em { font-style: italic; }
   z-index: 0; /* keep below hero text */
 }
 
+/* Make hero text above overlay */
 .hero > * {
-  position: relative; /* ensures text stays above overlay */
-  z-index: 2;
+  position: relative;
+  z-index: 1;
 }
 
 
