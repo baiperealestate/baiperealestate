@@ -293,32 +293,64 @@ textarea { resize: vertical; }
    BLOG HERO – PREMIUM STRUCTURE
 =============================== */
 
-.hero {
+/* Main Container */
+.blog-hero {
   position: relative;
-  background: #F4F6FC url('../images/blog-hero.jpg') no-repeat center center/cover;
-  color: #fff;
-  text-align: center;
-  padding: 100px 20px;
-  border-radius: 10px;
-  min-height: 500px;
+  min-height: 520px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 14px;
+  overflow: hidden;
+
+  /* Background image (change anytime) */
+  background: url('../images/blog-hero.jpg') center center / cover no-repeat;
 }
 
-.hero::before {
-  content: '';
+/* Overlay */
+.blog-hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.25);
-  border-radius: 10px;
-  z-index: 0;
+  background: rgba(244, 246, 252, 0.75); /* #F4F6FC with opacity, change color anytime */
+  z-index: 1;
 }
 
-.hero > * {
+/* Content above overlay */
+.blog-hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  max-width: 800px;
+}
+
+/* Typography */
+.blog-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 18px;
+  color: #0F514F;
+}
+
+.blog-hero p {
+  font-size: 1.2rem;
+  color: #0F514F;
+  opacity: 0.9;
+}
+
+/* ==========================
+   Responsive Styles
+========================== */
+@media (max-width: 768px) {
+  .blog-hero {
+    min-height: 420px;
+  }
+
+  .blog-hero h1 {
+    font-size: 2rem;
+  }
+
+  .blog-hero p {
+    font-size: 1rem;
+  }
 }
 
 /* -----------------------
