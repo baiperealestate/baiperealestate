@@ -55,12 +55,17 @@
 <section class="property-container">
   <!-- LEFT -->
   <div class="property-main">
-    <div class="property-gallery">
-      <button class="slider-btn prev">‹</button>
-      <img id="propertyImage" src="" alt="Property image">
-      <button class="slider-btn next">›</button>
-    </div>
+   div class="property-gallery">
 
+  <button class="slider-btn prev">‹</button>
+
+  <img id="propertyImage" src="" alt="Property image">
+
+  <button class="slider-btn next">›</button>
+
+  <button id="openLightbox" class="btn-lightbox">🔍 View / Zoom</button>
+
+</div>
 
   <div class="property-summary">
       <h1 id="title"></h1>
@@ -111,17 +116,27 @@
 </aside>
 
 </section>
-<!-- ================= PROPERTY LIGHTBOX ================= -->
-<div class="property-gallery">
-  <button class="slider-btn prev">‹</button>
-  <img id="propertyImage" src="" alt="Property image">
-  <button class="slider-btn next">›</button>
+  
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
 
-  <!-- NEW BUTTON: open lightbox -->
-  <button id="openLightbox" class="btn-lightbox">🔍 View / Zoom</button>
+  <button class="lightbox-close">&times;</button>
+
+  <button class="lightbox-arrow prev">‹</button>
+
+  <div class="lightbox-image-wrapper">
+    <img id="lightboxImage" src="">
+  </div>
+
+  <button class="lightbox-arrow next">›</button>
+
+  <div class="zoom-controls">
+    <button id="zoomIn">+</button>
+    <button id="zoomOut">−</button>
+  </div>
+
 </div>
-
-
+  
 <!-- ================= WHATSAPP ================= -->
 <a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
 
