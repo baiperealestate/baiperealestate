@@ -1877,3 +1877,8 @@ main {
   }
 
 }
+
+.lightbox img {
+  transition: transform .2s ease;
+  cursor: zoom-in;
+}
