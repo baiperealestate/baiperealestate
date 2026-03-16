@@ -111,7 +111,7 @@ if (propertyUrl) {
       featuresEl.appendChild(li);
     });
 
-  })
+
   } catch (err) {
     console.error("Property page error:", err);
   }
