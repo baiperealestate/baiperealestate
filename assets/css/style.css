@@ -1727,104 +1727,34 @@ main {
   }
 }
 
-/* ================= LIGHTBOX BASE ================= */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9997;
-  overflow: hidden;
-}
-
-.lightbox.active {
-  display: flex;
-}
-
-/* Overlay behind image */
-.lightbox-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  z-index: 9998; /* below arrows */
-}
-
-/* Image wrapper to center */
-.lightbox-image-wrapper {
-  position: relative;
-  max-width: 100%;
-  max-height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none; /* allow arrows clicks */
-}
-
-.lightbox-image-wrapper img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  pointer-events: auto; /* image still zoomable/tappable */
-  transition: transform 0.3s ease;
-}
-
-/* ================= LIGHTBOX ARROWS ================= */
+/* Ensure arrows are above everything */
 .lightbox-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 9999; /* above everything */
-  background: rgba(0,0,0,0.4);
+  z-index: 9999;
+  background: rgba(0,0,0,0.4); /* semi-transparent so visible */
   color: #fff;
   font-size: 2rem;
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  border-radius: 50%;
-  user-select: none;
 }
 
+/* Position left/right */
 .lightbox-arrow.prev {
-  left: 10px;
+  left: 10px;  /* adjust if needed */
 }
 
 .lightbox-arrow.next {
-  right: 10px;
+  right: 10px;  /* adjust if needed */
 }
 
-/* Increase tap area on mobile */
-@media (max-width: 768px) {
-  .lightbox-arrow {
-    font-size: 2.5rem;
-    padding: 0.8rem 1.2rem;
-  }
+/* Make sure the wrapper doesn’t block pointer events */
+.lightbox-image-wrapper {
+  pointer-events: none; /* allows clicking arrows through wrapper */
 }
 
-/* ================= LIGHTBOX CLOSE BUTTON ================= */
-.lightbox-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 9999;
-  font-size: 2rem;
-  background: rgba(0,0,0,0.4);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  padding: 0.5rem 0.8rem;
-}
-
-/* ================= TOUCH SWIPE HELP ================= */
-/* Ensure full viewport is touchable */
-.lightbox.active {
-  touch-action: pan-y pinch-zoom; /* allow pinch zoom & vertical scroll prevention */
+.lightbox-image-wrapper img {
+  pointer-events: auto; /* still allow zoom/tap on image */
 }
