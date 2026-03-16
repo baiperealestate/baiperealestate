@@ -1743,7 +1743,7 @@ main {
 
   transition: opacity .25s ease;
 
-  z-index: 9999;
+  z-index: 9998;
 }
 
 .lightbox.active {
@@ -1883,7 +1883,4 @@ main {
   cursor: zoom-in;
 }
 
-.lightbox img {
-  transition: transform .2s ease;
-  cursor: zoom-in;
-}
+
