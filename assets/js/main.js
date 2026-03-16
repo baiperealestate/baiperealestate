@@ -357,6 +357,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
       });
 
+    let scale = 1;
+
+// Scroll wheel zoom (desktop)
+lightboxImg.addEventListener("wheel", (e) => {
+  e.preventDefault();
+
+  if (e.deltaY < 0) {
+    scale += 0.15;
+  } else {
+    scale -= 0.15;
+  }
+
+  scale = Math.min(Math.max(1, scale), 4);
+
+  lightboxImg.style.transform = `scale(${scale})`;
+});
+
+   lightboxImg.addEventListener("click", () => {
+  scale = 1;
+  lightboxImg.style.transform = "scale(1)";
+});
+
+ let startDistance = 0;
+
+lightboxImg.addEventListener("touchstart", (e) => {
+  if (e.touches.length === 2) {
+    startDistance = Math.hypot(
+      e.touches[0].pageX - e.touches[1].pageX,
+      e.touches[0].pageY - e.touches[1].pageY
+    );
+  }
+});
+
+lightboxImg.addEventListener("touchmove", (e) => {
+  if (e.touches.length === 2) {
+    const newDistance = Math.hypot(
+      e.touches[0].pageX - e.touches[1].pageX,
+      e.touches[0].pageY - e.touches[1].pageY
+    );
+
+    const zoom = newDistance / startDistance;
+
+    scale = Math.min(Math.max(1, zoom), 4);
+
+    lightboxImg.style.transform = `scale(${scale})`;
+  }
+});      
+
     }
 
   }
