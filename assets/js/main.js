@@ -114,23 +114,25 @@ if (propertyUrl) {
 /* ==========================
    LIGHTBOX GALLERY
 ========================== */
+let currentIndex = 0;
+let zoomLevel = 1;
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImage");
 const closeBtn = document.querySelector(".lightbox-close");
+const zoomInBtn = document.getElementById("zoomIn");
+const zoomOutBtn = document.getElementById("zoomOut");
 
 let startX = 0;
 let endX = 0;
 
-/* ZOOM SYSTEM */
+// Set initial property image
+if (property.images && property.images.length) {
+  currentIndex = 0;
+  imageEl.src = property.images[currentIndex];
+}
 
-let zoomLevel = 1;
-
-const zoomInBtn = document.getElementById("zoomIn");
-const zoomOutBtn = document.getElementById("zoomOut");
-
-/* OPEN LIGHTBOX */
-
+// Open lightbox
 imageEl.addEventListener("click", () => {
   lightbox.classList.add("active");
   lightboxImg.src = property.images[currentIndex];
@@ -139,63 +141,52 @@ imageEl.addEventListener("click", () => {
   lightboxImg.style.transform = "scale(1)";
 });
 
-/* CLOSE */
+// Close lightbox
+if (closeBtn) {
+  closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+  });
+}
 
-closeBtn.addEventListener("click", () => {
-  lightbox.classList.remove("active");
-});
+// Zoom controls
+if (zoomInBtn) {
+  zoomInBtn.addEventListener("click", () => {
+    zoomLevel += 0.25;
+    lightboxImg.style.transform = `scale(${zoomLevel})`;
+  });
+}
 
-/* ZOOM CONTROLS */
+if (zoomOutBtn) {
+  zoomOutBtn.addEventListener("click", () => {
+    zoomLevel = Math.max(1, zoomLevel - 0.25);
+    lightboxImg.style.transform = `scale(${zoomLevel})`;
+  });
+}
 
-zoomInBtn.addEventListener("click", () => {
-  zoomLevel += 0.25;
-  lightboxImg.style.transform = `scale(${zoomLevel})`;
-});
-
-zoomOutBtn.addEventListener("click", () => {
-  zoomLevel = Math.max(1, zoomLevel - 0.25);
-  lightboxImg.style.transform = `scale(${zoomLevel})`;
-});
-
-/* NEXT IMAGE */
-
-function showNext(){
+// Next / Prev images
+function showNext() {
   currentIndex = (currentIndex + 1) % property.images.length;
   lightboxImg.src = property.images[currentIndex];
-
   zoomLevel = 1;
   lightboxImg.style.transform = "scale(1)";
 }
 
-/* PREVIOUS IMAGE */
-
-function showPrev(){
+function showPrev() {
   currentIndex = (currentIndex - 1 + property.images.length) % property.images.length;
   lightboxImg.src = property.images[currentIndex];
-
   zoomLevel = 1;
   lightboxImg.style.transform = "scale(1)";
 }
 
-document.querySelector(".lightbox-arrow.next").addEventListener("click", showNext);
-document.querySelector(".lightbox-arrow.prev").addEventListener("click", showPrev);
+document.querySelector(".lightbox-arrow.next")?.addEventListener("click", showNext);
+document.querySelector(".lightbox-arrow.prev")?.addEventListener("click", showPrev);
 
-/* MOBILE SWIPE */
-
-lightbox.addEventListener("touchstart", e => {
-  startX = e.changedTouches[0].screenX;
-});
-
+// Mobile swipe
+lightbox.addEventListener("touchstart", e => startX = e.changedTouches[0].screenX);
 lightbox.addEventListener("touchend", e => {
   endX = e.changedTouches[0].screenX;
-
-  if(startX - endX > 50){
-    showNext();
-  }
-
-  if(endX - startX > 50){
-    showPrev();
-  }
+  if (startX - endX > 50) showNext();
+  if (endX - startX > 50) showPrev();
 });
 
   } catch (err) {
