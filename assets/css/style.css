@@ -1834,3 +1834,7 @@ main {
   border-radius:6px;
   cursor:pointer;
 }
+
+#lightboxImage {
+  cursor: zoom-in;
+}
