@@ -1727,158 +1727,104 @@ main {
   }
 }
 
+/* ================= LIGHTBOX BASE ================= */
 .lightbox {
   position: fixed;
-  inset: 0;
-
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(4px);
-
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: opacity .25s ease;
-
-  z-index: 9999;
+  z-index: 9997;
+  overflow: hidden;
 }
 
 .lightbox.active {
-  opacity: 1;
-  visibility: visible;
+  display: flex;
 }
 
-.lightbox img {
-
+/* Overlay behind image */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-
-  object-fit: contain;
-
-  max-width: 95vw;
-  max-height: 92vh;
-
-  transition: transform .25s ease;
-
-  cursor: grab;
+  background: rgba(0,0,0,0.6);
+  z-index: 9998; /* below arrows */
 }
 
-.lightbox-arrow {
+/* Image wrapper to center */
+.lightbox-image-wrapper {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* allow arrows clicks */
+}
 
+.lightbox-image-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  pointer-events: auto; /* image still zoomable/tappable */
+  transition: transform 0.3s ease;
+}
+
+/* ================= LIGHTBOX ARROWS ================= */
+.lightbox-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-
-  width: 50px;
-  height: 50px;
-
-  border-radius: 50%;
+  z-index: 9999; /* above everything */
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  font-size: 2rem;
   border: none;
-
-  background: rgba(255,255,255,0.2);
-
-  color: white;
-  font-size: 22px;
-
+  padding: 0.5rem 1rem;
   cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: all .25s ease;
-}
-
-.lightbox-arrow:hover {
-  background: rgba(255,255,255,0.35);
+  border-radius: 50%;
+  user-select: none;
 }
 
 .lightbox-arrow.prev {
-  left: 25px;
+  left: 10px;
 }
 
 .lightbox-arrow.next {
-  right: 25px;
+  right: 10px;
 }
 
-.lightbox-close {
-
-  position: absolute;
-  top: 20px;
-  right: 25px;
-
-  font-size: 32px;
-  color: white;
-
-  cursor: pointer;
-
-  transition: opacity .2s ease;
-}
-
-.lightbox-close:hover {
-  opacity: .7;
-}
-
-.lightbox-controls {
-
-  position: absolute;
-  bottom: 25px;
-  right: 25px;
-
-  display: flex;
-  gap: 10px;
-}
-
-.lightbox-controls button {
-
-  width: 44px;
-  height: 44px;
-
-  border-radius: 8px;
-  border: none;
-
-  background: rgba(255,255,255,0.25);
-
-  color: white;
-  font-size: 20px;
-
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: background .25s ease;
-}
-
-.lightbox-controls button:hover {
-  background: rgba(255,255,255,0.4);
-}
-
+/* Increase tap area on mobile */
 @media (max-width: 768px) {
-
   .lightbox-arrow {
-    width: 42px;
-    height: 42px;
-    font-size: 18px;
+    font-size: 2.5rem;
+    padding: 0.8rem 1.2rem;
   }
-
-  .lightbox-controls {
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .lightbox-close {
-    top: 15px;
-    right: 15px;
-  }
-
 }
 
-.lightbox img {
-  transition: transform .2s ease;
-  cursor: zoom-in;
+/* ================= LIGHTBOX CLOSE BUTTON ================= */
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  font-size: 2rem;
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0.5rem 0.8rem;
+}
+
+/* ================= TOUCH SWIPE HELP ================= */
+/* Ensure full viewport is touchable */
+.lightbox.active {
+  touch-action: pan-y pinch-zoom; /* allow pinch zoom & vertical scroll prevention */
 }
