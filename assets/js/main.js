@@ -114,6 +114,7 @@ if (propertyUrl) {
 /* ==========================
    LIGHTBOX GALLERY
 ========================== */
+
 let currentIndex = 0;
 let zoomLevel = 1;
 
@@ -128,87 +129,62 @@ const zoomInBtn = document.getElementById("zoomIn");
 const zoomOutBtn = document.getElementById("zoomOut");
 const openLightboxBtn = document.getElementById("openLightbox");
 
-// Initialize gallery
-if (property.images && property.images.length) {
-  currentIndex = 0;
+if (
+  imageEl &&
+  prevBtn &&
+  nextBtn &&
+  lightbox &&
+  lightboxImg &&
+  closeBtn &&
+  zoomInBtn &&
+  zoomOutBtn &&
+  openLightboxBtn &&
+  property.images
+) {
+
   imageEl.src = property.images[currentIndex];
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + property.images.length) % property.images.length;
+    imageEl.src = property.images[currentIndex];
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % property.images.length;
+    imageEl.src = property.images[currentIndex];
+  });
+
+  openLightboxBtn.addEventListener("click", () => {
+    lightbox.classList.add("active");
+    lightboxImg.src = property.images[currentIndex];
+    zoomLevel = 1;
+    lightboxImg.style.transform = "scale(1)";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+  });
+
+  document.querySelector(".lightbox-arrow.next").addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % property.images.length;
+    lightboxImg.src = property.images[currentIndex];
+  });
+
+  document.querySelector(".lightbox-arrow.prev").addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + property.images.length) % property.images.length;
+    lightboxImg.src = property.images[currentIndex];
+  });
+
+  zoomInBtn.addEventListener("click", () => {
+    zoomLevel += 0.25;
+    lightboxImg.style.transform = `scale(${zoomLevel})`;
+  });
+
+  zoomOutBtn.addEventListener("click", () => {
+    zoomLevel = Math.max(1, zoomLevel - 0.25);
+    lightboxImg.style.transform = `scale(${zoomLevel})`;
+  });
 }
-
-// ---------- Slider arrows (main gallery) ----------
-prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + property.images.length) % property.images.length;
-  imageEl.src = property.images[currentIndex];
-});
-
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % property.images.length;
-  imageEl.src = property.images[currentIndex];
-});
-
-// ---------- Open Lightbox ----------
-openLightboxBtn.addEventListener("click", () => {
-  lightbox.classList.add("active");
-  lightboxImg.src = property.images[currentIndex];
-  zoomLevel = 1;
-  lightboxImg.style.transform = "scale(1)";
-});
-
-// ---------- Close Lightbox ----------
-closeBtn.addEventListener("click", () => {
-  lightbox.classList.remove("active");
-});
-
-// ---------- Lightbox arrows ----------
-document.querySelector(".lightbox-arrow.next").addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % property.images.length;
-  lightboxImg.src = property.images[currentIndex];
-  zoomLevel = 1;
-  lightboxImg.style.transform = "scale(1)";
-});
-
-document.querySelector(".lightbox-arrow.prev").addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + property.images.length) % property.images.length;
-  lightboxImg.src = property.images[currentIndex];
-  zoomLevel = 1;
-  lightboxImg.style.transform = "scale(1)";
-});
-
-// ---------- Lightbox zoom ----------
-zoomInBtn.addEventListener("click", () => {
-  zoomLevel += 0.25;
-  lightboxImg.style.transform = `scale(${zoomLevel})`;
-});
-
-zoomOutBtn.addEventListener("click", () => {
-  zoomLevel = Math.max(1, zoomLevel - 0.25);
-  lightboxImg.style.transform = `scale(${zoomLevel})`;
-});
-
-// ---------- Swipe support on lightbox ----------
-let startX = 0;
-let endX = 0;
-
-lightbox.addEventListener("touchstart", e => startX = e.changedTouches[0].screenX);
-lightbox.addEventListener("touchend", e => {
-  endX = e.changedTouches[0].screenX;
-  if (startX - endX > 50) showNext();
-  if (endX - startX > 50) showPrev();
-});
-
-function showNext() {
-  currentIndex = (currentIndex + 1) % property.images.length;
-  lightboxImg.src = property.images[currentIndex];
-  zoomLevel = 1;
-  lightboxImg.style.transform = "scale(1)";
-}
-
-function showPrev() {
-  currentIndex = (currentIndex - 1 + property.images.length) % property.images.length;
-  lightboxImg.src = property.images[currentIndex];
-  zoomLevel = 1;
-  lightboxImg.style.transform = "scale(1)";
-}
-
   } catch (err) {
     console.error("Property page error:", err);
   }
