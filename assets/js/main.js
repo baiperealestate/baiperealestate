@@ -111,58 +111,81 @@ if (propertyUrl) {
       featuresEl.appendChild(li);
     });
 
-/* LIGHTBOX GALLERY */
+   // --- IMAGE GALLERY ---
+    let currentIndex = 0;
 
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightboxImage");
-const closeBtn = document.querySelector(".lightbox-close");
+    function showImage(index) {
+      currentIndex = index;
+      imageEl.src = property.images[currentIndex] || "assets/images/placeholder.jpg";
+      if (lightbox) lightboxImg.src = property.images[currentIndex] || "assets/images/placeholder.jpg";
+    }
 
-let startX = 0;
-let endX = 0;
+    showImage(0);
 
-imageEl.addEventListener("click", () => {
-  lightbox.classList.add("active");
-  lightboxImg.src = property.images[currentIndex];
-});
+    // Next / Prev Buttons
+    const nextBtn = document.querySelector(".slider-btn.next");
+    const prevBtn = document.querySelector(".slider-btn.prev");
 
-closeBtn.addEventListener("click", () => {
-  lightbox.classList.remove("active");
-});
+    if (nextBtn) nextBtn.addEventListener("click", () => {
+      showImage((currentIndex + 1) % property.images.length);
+    });
+    if (prevBtn) prevBtn.addEventListener("click", () => {
+      showImage((currentIndex - 1 + property.images.length) % property.images.length);
+    });
 
-function showNext(){
-  currentIndex = (currentIndex + 1) % property.images.length;
-  lightboxImg.src = property.images[currentIndex];
-}
+    // ================= LIGHTBOX =================
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImage");
+    const closeBtn = document.querySelector(".lightbox-close");
+    const lightNext = document.querySelector(".lightbox-arrow.next");
+    const lightPrev = document.querySelector(".lightbox-arrow.prev");
+    let scale = 1;
 
-function showPrev(){
-  currentIndex = (currentIndex - 1 + property.images.length) % property.images.length;
-  lightboxImg.src = property.images[currentIndex];
-}
+    if (imageEl && lightbox && lightboxImg) {
+      imageEl.addEventListener("click", () => {
+        lightbox.classList.add("active");
+        lightboxImg.src = property.images[currentIndex];
+        scale = 1;
+        lightboxImg.style.transform = `scale(${scale})`;
+      });
+    }
 
-document.querySelector(".lightbox-arrow.next").addEventListener("click", showNext);
-document.querySelector(".lightbox-arrow.prev").addEventListener("click", showPrev);
+    if (closeBtn) closeBtn.addEventListener("click", () => lightbox.classList.remove("active"));
 
-lightbox.addEventListener("touchstart", e => {
-  startX = e.changedTouches[0].screenX;
-});
+    if (lightNext) lightNext.addEventListener("click", () => {
+      showImage((currentIndex + 1) % property.images.length);
+    });
+    if (lightPrev) lightPrev.addEventListener("click", () => {
+      showImage((currentIndex - 1 + property.images.length) % property.images.length);
+    });
 
-lightbox.addEventListener("touchend", e => {
-  endX = e.changedTouches[0].screenX;
+    // Touch swipe
+    let startX = 0;
+    lightbox.addEventListener("touchstart", e => startX = e.changedTouches[0].screenX);
+    lightbox.addEventListener("touchend", e => {
+      const endX = e.changedTouches[0].screenX;
+      if (startX - endX > 50) showImage((currentIndex + 1) % property.images.length);
+      if (endX - startX > 50) showImage((currentIndex - 1 + property.images.length) % property.images.length);
+    });
 
-  if(startX - endX > 50){
-    showNext();
-  }
+    // Zoom
+    const zoomIn = document.getElementById("zoomIn");
+    const zoomOut = document.getElementById("zoomOut");
 
-  if(endX - startX > 50){
-    showPrev();
-  }
-});
-    
+    if (zoomIn) zoomIn.addEventListener("click", () => {
+      scale += 0.2;
+      lightboxImg.style.transform = `scale(${scale})`;
+    });
+    if (zoomOut) zoomOut.addEventListener("click", () => {
+      scale = Math.max(1, scale - 0.2);
+      lightboxImg.style.transform = `scale(${scale})`;
+    });
+
   } catch (err) {
     console.error("Property page error:", err);
   }
 });
-
+    
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("openNewsletter");
   const form = document.getElementById("newsletterForm");
