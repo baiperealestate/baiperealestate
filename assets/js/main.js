@@ -212,8 +212,8 @@ function showPrev() {
   } catch (err) {
     console.error("Property page error:", err);
   }
-})
-    
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("openNewsletter");
   const form = document.getElementById("newsletterForm");
