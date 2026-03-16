@@ -111,80 +111,7 @@ if (propertyUrl) {
       featuresEl.appendChild(li);
     });
 
-/* ==========================
-   LIGHTBOX GALLERY
-========================== */
-
-let currentIndex = 0;
-let zoomLevel = 1;
-
-const imageEl = document.getElementById("propertyImage");
-const prevBtn = document.querySelector(".slider-btn.prev");
-const nextBtn = document.querySelector(".slider-btn.next");
-
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightboxImage");
-const closeBtn = document.querySelector(".lightbox-close");
-const zoomInBtn = document.getElementById("zoomIn");
-const zoomOutBtn = document.getElementById("zoomOut");
-const openLightboxBtn = document.getElementById("openLightbox");
-
-if (
-  imageEl &&
-  prevBtn &&
-  nextBtn &&
-  lightbox &&
-  lightboxImg &&
-  closeBtn &&
-  zoomInBtn &&
-  zoomOutBtn &&
-  openLightboxBtn &&
-  property.images
-) {
-
-  imageEl.src = property.images[currentIndex];
-
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + property.images.length) % property.images.length;
-    imageEl.src = property.images[currentIndex];
-  });
-
-  nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % property.images.length;
-    imageEl.src = property.images[currentIndex];
-  });
-
-  openLightboxBtn.addEventListener("click", () => {
-    lightbox.classList.add("active");
-    lightboxImg.src = property.images[currentIndex];
-    zoomLevel = 1;
-    lightboxImg.style.transform = "scale(1)";
-  });
-
-  closeBtn.addEventListener("click", () => {
-    lightbox.classList.remove("active");
-  });
-
-  document.querySelector(".lightbox-arrow.next").addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % property.images.length;
-    lightboxImg.src = property.images[currentIndex];
-  });
-
-  document.querySelector(".lightbox-arrow.prev").addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + property.images.length) % property.images.length;
-    lightboxImg.src = property.images[currentIndex];
-  });
-
-  zoomInBtn.addEventListener("click", () => {
-    zoomLevel += 0.25;
-    lightboxImg.style.transform = `scale(${zoomLevel})`;
-  });
-
-  zoomOutBtn.addEventListener("click", () => {
-    zoomLevel = Math.max(1, zoomLevel - 0.25);
-    lightboxImg.style.transform = `scale(${zoomLevel})`;
-  });
-}
+  })
   } catch (err) {
     console.error("Property page error:", err);
   }
@@ -325,4 +252,68 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+/* LIGHTBOX */
 
+let currentIndex = 0;
+let zoomLevel = 1;
+
+const propertyImage = document.getElementById("propertyImage");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+
+const openLightboxBtn = document.getElementById("openLightbox");
+const closeLightboxBtn = document.querySelector(".lightbox-close");
+
+const nextArrow = document.querySelector(".lightbox-arrow.next");
+const prevArrow = document.querySelector(".lightbox-arrow.prev");
+
+const zoomIn = document.getElementById("zoomIn");
+const zoomOut = document.getElementById("zoomOut");
+
+if(propertyImage && lightbox){
+
+openLightboxBtn.addEventListener("click", () => {
+
+  lightbox.classList.add("active");
+
+  lightboxImage.src = propertyImage.src;
+
+  zoomLevel = 1;
+
+  lightboxImage.style.transform = "scale(1)";
+
+});
+
+closeLightboxBtn.addEventListener("click", () => {
+
+  lightbox.classList.remove("active");
+
+});
+
+zoomIn.addEventListener("click", () => {
+
+  zoomLevel += 0.25;
+
+  lightboxImage.style.transform = `scale(${zoomLevel})`;
+
+});
+
+zoomOut.addEventListener("click", () => {
+
+  zoomLevel = Math.max(1, zoomLevel - 0.25);
+
+  lightboxImage.style.transform = `scale(${zoomLevel})`;
+
+});
+
+document.addEventListener("keydown", (e) => {
+
+  if(e.key === "Escape"){
+
+    lightbox.classList.remove("active");
+
+  }
+
+});
+
+}
