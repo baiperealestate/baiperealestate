@@ -1743,7 +1743,7 @@ main {
 
   transition: opacity .25s ease;
 
-  z-index: 9998;
+  z-index: 9999;
 }
 
 .lightbox.active {
@@ -1790,6 +1790,9 @@ main {
   justify-content: center;
 
   transition: all .25s ease;
+
+   z-index: 10000; /* ADD THIS */
+   
 }
 
 .lightbox-arrow:hover {
@@ -1883,4 +1886,15 @@ main {
   cursor: zoom-in;
 }
 
+.lightbox img {
+  position: relative;
+  z-index: 1;
+}
 
+.lightbox-arrow.prev {
+  left: 10px;
+}
+
+.lightbox-arrow.next {
+  right: 10px;
+}
