@@ -111,24 +111,6 @@ if (propertyUrl) {
       featuresEl.appendChild(li);
     });
 
-   /* IMAGE SLIDER */
-let currentIndex = 0;
-imageEl.src = property.images[0];
-
-document.querySelector(".slider-btn.next")
-  .addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % property.images.length;
-    imageEl.src = property.images[currentIndex];
-  });
-
-document.querySelector(".slider-btn.prev")
-  .addEventListener("click", () => {
-    currentIndex =
-      (currentIndex - 1 + property.images.length) %
-      property.images.length;
-    imageEl.src = property.images[currentIndex];
-  });
-
 /* ==========================
    LIGHTBOX GALLERY
 ========================== */
@@ -140,27 +122,59 @@ const closeBtn = document.querySelector(".lightbox-close");
 let startX = 0;
 let endX = 0;
 
+/* ZOOM SYSTEM */
+
+let zoomLevel = 1;
+
+const zoomInBtn = document.getElementById("zoomIn");
+const zoomOutBtn = document.getElementById("zoomOut");
+
 /* OPEN LIGHTBOX */
+
 imageEl.addEventListener("click", () => {
   lightbox.classList.add("active");
   lightboxImg.src = property.images[currentIndex];
+
+  zoomLevel = 1;
+  lightboxImg.style.transform = "scale(1)";
 });
 
 /* CLOSE */
+
 closeBtn.addEventListener("click", () => {
   lightbox.classList.remove("active");
 });
 
+/* ZOOM CONTROLS */
+
+zoomInBtn.addEventListener("click", () => {
+  zoomLevel += 0.25;
+  lightboxImg.style.transform = `scale(${zoomLevel})`;
+});
+
+zoomOutBtn.addEventListener("click", () => {
+  zoomLevel = Math.max(1, zoomLevel - 0.25);
+  lightboxImg.style.transform = `scale(${zoomLevel})`;
+});
+
 /* NEXT IMAGE */
+
 function showNext(){
   currentIndex = (currentIndex + 1) % property.images.length;
   lightboxImg.src = property.images[currentIndex];
+
+  zoomLevel = 1;
+  lightboxImg.style.transform = "scale(1)";
 }
 
 /* PREVIOUS IMAGE */
+
 function showPrev(){
   currentIndex = (currentIndex - 1 + property.images.length) % property.images.length;
   lightboxImg.src = property.images[currentIndex];
+
+  zoomLevel = 1;
+  lightboxImg.style.transform = "scale(1)";
 }
 
 document.querySelector(".lightbox-arrow.next").addEventListener("click", showNext);
@@ -188,8 +202,6 @@ lightbox.addEventListener("touchend", e => {
     console.error("Property page error:", err);
   }
 })
-
-
     
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("openNewsletter");
