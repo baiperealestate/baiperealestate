@@ -1729,11 +1729,13 @@ main {
 
 /* LIGHTBOX */
 
-.lightbox{
+.lightbox {
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(6px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent to see website behind */
   display: none;
   align-items: center;
   justify-content: center;
@@ -1745,15 +1747,15 @@ main {
 }
 
 .lightbox-image-wrapper {
-  width: 100%;
-  text-align: center;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
 }
 
-.lightbox img {
-  max-width: 92%;
-  max-height: 85vh;
-  border-radius: 8px;
-  object-fit: contain;
+#lightboxImage {
+  max-width: 100%;
+  max-height: 100%;
+  transition: transform 0.3s ease;
 }
 
 /* CLOSE BUTTON */
