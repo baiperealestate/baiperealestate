@@ -2369,3 +2369,25 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+.hero-overlay{
+  pointer-events:none;
+}
+
+#newsletterForm{
+  pointer-events:none;
+}
+
+#newsletterForm .newsletter-form{
+  pointer-events:auto;
+}
+
+.journey-card{
+  position:relative;
+  z-index:5;
+}
+
+.journey-card .btn{
+  position:relative;
+  z-index:10;
+}
