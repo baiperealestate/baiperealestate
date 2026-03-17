@@ -2224,4 +2224,92 @@ p {
   margin-top: 0;
 }
 
+/* ===============================
+   PREMIUM SPLIT SECTION
+=============================== */
 
+.split-section.premium {
+  padding: 100px 0;
+}
+
+.split-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* TEXT SIDE */
+.split-text h2 {
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+}
+
+.split-text p {
+  font-size: 1.05rem;
+  color: #444;
+  max-width: 520px;
+}
+
+/* IMAGE SIDE */
+.split-image {
+  position: relative;
+}
+
+.split-image img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease;
+}
+
+/* subtle luxury hover */
+.split-image:hover img {
+  transform: scale(1.03);
+}
+
+/* REVERSE OPTION (for alternating layout later) */
+.split-section.reverse .split-grid {
+  grid-template-columns: 1fr 1.1fr;
+}
+
+.split-section.reverse .split-text {
+  order: 2;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .split-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .split-text {
+    text-align: center;
+  }
+
+  .split-text p {
+    margin: 0 auto;
+  }
+}
+
+.service-list.premium {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0;
+}
+
+.service-list.premium li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.service-list.premium li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #D8AE5E;
+  font-weight: bold;
+}
