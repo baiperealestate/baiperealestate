@@ -2313,3 +2313,59 @@ p {
   color: #D8AE5E;
   font-weight: bold;
 }
+
+/* ===============================
+   JOURNEY – PREMIUM GRID
+=============================== */
+
+.journey-grid.premium {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.journey-card.premium {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* luxury hover effect */
+.journey-card.premium::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(216,174,94,0.2), transparent);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.journey-card.premium:hover::before {
+  opacity: 1;
+}
+
+.journey-card.premium:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.journey-card.premium h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.journey-card.premium p {
+  margin-bottom: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .journey-grid.premium {
+    grid-template-columns: 1fr;
+  }
+}
