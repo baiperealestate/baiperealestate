@@ -2115,3 +2115,91 @@ section[style] p {
 section[style] .btn {
   margin: 8px;
 }
+
+.team-grid {
+  max-width: 1100px;
+}
+
+/* MEMBER PAGE UPGRADE */
+.member-hero {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.member-info {
+  max-width: 700px;
+  margin: 40px auto 0;
+  text-align: center;
+}
+
+.member-info h1 {
+  font-size: 2.2rem;
+  margin-bottom: 6px;
+}
+
+.member-info p {
+  color: #444;
+  line-height: 1.7;
+}
+
+.premium-filter {
+  margin-top: 120px;
+  position: relative;
+  z-index: 2;
+}
+
+.filter-bar {
+  display: grid;
+  gap: 14px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.listings-intro {
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 10px;
+}
+
+.listings-intro h1 {
+  font-size: 2.6rem;
+}
+
+.listings-intro p {
+  color: #555;
+}
+
+.listings-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.listing-card {
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.listing-content {
+  padding: 1.8rem;
+}
+
+.listing-content h3 {
+  font-size: 1.2rem;
+}
+
+/* SECTION RHYTHM FIX */
+section {
+  padding: 90px 0;
+}
+
+/* BETTER TEXT READABILITY */
+p {
+  line-height: 1.7;
+}
+
+/* REMOVE "TOO WIDE WEBSITE" FEEL */
+.container {
+  max-width: 1100px;
+}
