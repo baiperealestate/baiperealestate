@@ -2210,3 +2210,16 @@ p {
   border-radius: 10px;
   font-weight: 600;
 }
+
+/* FIX CTA SPACING SO FOOTER SITS CORRECTLY */
+.cta-section {
+  background: #0F514F;
+  margin: 80px auto 0;   /* IMPORTANT: remove bottom gap */
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* THIS IS THE KEY LINE */
+.cta-section + footer {
+  margin-top: 0;
+}
