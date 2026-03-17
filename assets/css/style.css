@@ -2051,16 +2051,7 @@ section {
   transform: translateY(-12px) scale(1.02);
 }
 
-/* ===============================
-   CTA SECTION – FIX COLOR BUG
-=============================== */
 
-section[style] {
-  background: #0F514F !important; /* FIX YOUR TYPO */
-  border-radius: 16px;
-  margin: 60px auto;
-  max-width: 1180px;
-}
 
 /* ===============================
    BUTTONS – PREMIUM FEEL
@@ -2092,25 +2083,7 @@ section[style] {
   transform: translateY(0);
 }
 
-/* CTA INTERNAL STRUCTURE FIX */
-section[style] .container {
-  text-align: center;
-  padding: 60px 20px;
-}
 
-section[style] h2,
-section[style] h3 {
-  color: #ffffff;
-  font-size: 2.2rem;
-  margin-bottom: 16px;
-}
-
-section[style] p {
-  color: rgba(255,255,255,0.85);
-  max-width: 620px;
-  margin: 0 auto 30px;
-  font-size: 1.1rem;
-}
 
 section[style] .btn {
   margin: 8px;
