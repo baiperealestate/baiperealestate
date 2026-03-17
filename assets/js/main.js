@@ -467,3 +467,111 @@ lightboxImg.addEventListener("touchmove", (e) => {
   }
 
 });
+
+function openJourney(type) {
+
+let content = "";
+
+if(type === "buy"){
+
+content = `
+<h2>Buying Property in Curaçao</h2>
+
+<p>
+Buying property is an important decision. At Bai Pe Real Estate
+we guide buyers through the process with professional advice,
+market insights, and a structured approach.
+</p>
+
+<h3>How We Guide You</h3>
+
+<ul>
+<li>Understanding your needs and investment goals</li>
+<li>Identifying suitable properties</li>
+<li>Property viewings and evaluation</li>
+<li>Market advice and negotiation strategy</li>
+<li>Guidance through the purchase process</li>
+</ul>
+
+<a href="contact.html" class="btn">Contact Us</a>
+<br><br>
+<button class="btn close-btn" onclick="closeJourney()">Close</button>
+`;
+
+}
+
+else if(type === "sell"){
+
+content = `
+<h2>Selling Your Property</h2>
+
+<p>
+Selling a property requires more than just listing it online.
+We use a structured marketing strategy to position your property
+correctly in the market.
+</p>
+
+<h3>Our Selling Strategy</h3>
+
+<ul>
+<li>Professional property evaluation</li>
+<li>Strategic pricing based on market data</li>
+<li>Professional property presentation</li>
+<li>Targeted marketing</li>
+<li>Negotiation and transaction guidance</li>
+</ul>
+
+<a href="contact.html" class="btn">Contact Us</a>
+<br><br>
+<button class="btn close-btn" onclick="closeJourney()">Close</button>
+`;
+
+}
+
+else if(type === "rent"){
+
+content = `
+<h2>Rental Services</h2>
+
+<p>
+Whether you are looking for a rental property or want to rent
+out your investment, we provide professional assistance to
+make the process simple and secure.
+</p>
+
+<h3>How We Assist</h3>
+
+<ul>
+<li>Marketing rental properties</li>
+<li>Tenant screening</li>
+<li>Viewing coordination</li>
+<li>Rental agreements</li>
+<li>Guidance throughout the rental process</li>
+</ul>
+
+<a href="contact.html" class="btn">Contact Us</a>
+<br><br>
+<button class="btn close-btn" onclick="closeJourney()">Close</button>
+`;
+
+}
+
+const details = document.getElementById("journeyDetails");
+const contentBox = document.getElementById("journeyContent");
+
+contentBox.innerHTML = content;
+details.style.display = "block";
+
+details.scrollIntoView({
+behavior: "smooth"
+});
+
+}
+
+function closeJourney(){
+
+const details = document.getElementById("journeyDetails");
+
+details.style.display = "none";
+
+}
