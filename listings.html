@@ -86,20 +86,139 @@
 </header>
 
 <!-- ================= MAIN ================= -->
-<main class="listings-page">
 
- <!-- FILTER -->
-  <section class="container">
-    <select id="categoryFilter" class="filter-select">
-      <option value="all">All Categories</option>
-      <option value="for sale">For Sale</option>
-      <option value="for rent">For Rent</option>
-      <option value="residential">Residential</option>
-      <option value="commercial">Commercial</option>
-      <option value="lots">Lots / Land</option>
+  <main class="listings-page">
 
-    </select>
+  <!-- INTRO -->
+  <section class="listings-intro container">
+    <h1>Explore Properties in Curaçao</h1>
+    <p>Carefully selected homes, investments, and opportunities.</p>
   </section>
+
+  <!-- PREMIUM FILTER -->
+  <section class="premium-filter container">
+    <div class="filter-bar">
+
+      <!-- CATEGORY -->
+      <div class="filter-group">
+        <label>Category</label>
+        <select id="categoryFilter">
+          <option value="all">All</option>
+          <option value="for sale">For Sale</option>
+          <option value="for rent">For Rent</option>
+          <option value="residential">Residential</option>
+          <option value="commercial">Commercial</option>
+          <option value="lots">Lots / Land</option>
+        </select>
+      </div>
+
+      <!-- PRICE -->
+      <div class="filter-group small">
+        <label>Price From (XCG)</label>
+        <input type="number" id="priceMin" placeholder="0">
+      </div>
+
+      <div class="filter-group small">
+        <label>Price To (XCG)</label>
+        <input type="number" id="priceMax" placeholder="1,000,000">
+      </div>
+
+      <!-- NEIGHBORHOOD -->
+      <div class="filter-group">
+        <label>Neighborhood</label>
+        <select id="neighborhoodFilter">
+          <option value="">All Areas</option>
+
+          <optgroup label="Willemstad / Central">
+            <option value="pietermaai">Pietermaai</option>
+            <option value="punda">Punda</option>
+            <option value="otrobanda">Otrobanda</option>
+            <option value="scharloo">Scharloo</option>
+            <option value="salina">Saliña</option>
+            <option value="mahaai">Mahaai</option>
+            <option value="jongbloed">Jongbloed</option>
+            <option value="emmastad">Emmastad</option>
+            <option value="julianadorp">Julianadorp</option>
+            <option value="parera">Parera</option>
+            <option value="kwartje">Kwartje</option>
+            <option value="marie pompoen">Marie Pompoen</option>
+            <option value="vredenberg">Vredenberg</option>
+            <option value="berg altena">Berg Altena</option>
+            <option value="dominguito">Dominguito</option>
+            <option value="groot kwartier">Groot Kwartier</option>
+            <option value="brievengat">Brievengat</option>
+            <option value="santa maria">Santa Maria</option>
+            <option value="buena vista">Buena Vista</option>
+            <option value="cas cora">Cas Cora</option>
+            <option value="zeelandia">Zeelandia</option>
+            <option value="piscadera">Piscadera</option>
+            <option value="groot piscadera">Groot Piscadera</option>
+          </optgroup>
+
+          <optgroup label="Banda Ariba (East)">
+            <option value="jan thiel">Jan Thiel</option>
+            <option value="jan sofat">Jan Sofat</option>
+            <option value="brakkeput ariba">Brakkeput Ariba</option>
+            <option value="brakkeput abou">Brakkeput Abou</option>
+            <option value="cas grandi">Cas Grandi</option>
+            <option value="santa catharina">Santa Catharina</option>
+            <option value="sint joris">Sint Joris</option>
+            <option value="montana">Montaña</option>
+            <option value="seru fortuna">Seru Fortuna</option>
+            <option value="zuurzak">Zuurzak</option>
+            <option value="santa barbara">Santa Barbara</option>
+            <option value="vista royal">Vista Royal</option>
+            <option value="bottelier">Bottelier</option>
+          </optgroup>
+
+          <optgroup label="Banda Abou (West)">
+            <option value="sint michiel">Sint Michiel</option>
+            <option value="grote berg">Grote Berg</option>
+            <option value="tera kora">Tera Korá</option>
+            <option value="barber">Barber</option>
+            <option value="soto">Soto</option>
+            <option value="daniel">Daniel</option>
+            <option value="westpunt">Westpunt</option>
+            <option value="fontein">Fontein</option>
+            <option value="coral estate">Coral Estate</option>
+            <option value="bullenbaai">Bullenbaai</option>
+          </optgroup>
+
+          <optgroup label="Additional Areas">
+            <option value="mahuma">Mahuma</option>
+            <option value="hato">Hato</option>
+            <option value="seru lora">Seru Lora</option>
+            <option value="suffisant">Suffisant</option>
+            <option value="koraal partier">Koraal Partier</option>
+            <option value="sun valley">Sun Valley</option>
+            <option value="sunset heights">Sunset Heights</option>
+            <option value="toni kunchi">Toni Kunchi</option>
+            <option value="rooi catootje">Rooi Catootje</option>
+            <option value="gato">Gato</option>
+          </optgroup>
+
+        </select>
+      </div>
+
+      <!-- KEYWORD -->
+      <div class="filter-group">
+        <label>Keyword</label>
+        <input type="text" id="keywordFilter" placeholder="Villa, ocean view...">
+      </div>
+
+      <!-- BUTTON -->
+      <div class="filter-group">
+        <label>&nbsp;</label>
+        <button id="searchBtn" class="btn-search">Search</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LISTINGS -->
+  <section id="listings" class="listings-grid"></section>
+
+</main>
 
   <!-- LISTINGS GRID -->
   <section id="listings" class="listings-grid">
