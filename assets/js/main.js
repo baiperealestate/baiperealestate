@@ -1,586 +1,296 @@
 /* =====================================================
-   BAI PE REAL ESTATE – MAIN JS
-   Clean Professional Structure
+   BAI PE REAL ESTATE – MAIN JS (PRO VERSION)
+   Clean • Structured • Production Ready
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =====================================================
-     MOBILE NAVIGATION
-  ===================================================== */
+  initMobileNav();
+  initListings();
+  initPropertyPage();
+  initContactForm();
+  initNewsletter();
+  initScrollAnimations();
+
+});
+
+/* =====================================================
+   MOBILE NAVIGATION
+===================================================== */
+function initMobileNav() {
 
   const hamburger = document.querySelector(".hamburger");
   const nav = document.querySelector(".nav-links");
 
-  if (hamburger && nav) {
+  if (!hamburger || !nav) return;
 
-    hamburger.addEventListener("click", () => {
-      nav.classList.toggle("active");
-      hamburger.classList.toggle("active");
+  hamburger.addEventListener("click", () => {
+    nav.classList.toggle("active");
+    hamburger.classList.toggle("active");
+  });
+
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("active");
+      hamburger.classList.remove("active");
+    });
+  });
+}
+
+/* =====================================================
+   LISTINGS PAGE
+===================================================== */
+function initListings() {
+
+  const container = document.getElementById("listings");
+  const filter = document.getElementById("categoryFilter");
+
+  if (!container) return;
+
+  let allListings = [];
+
+  fetch("assets/data/listings.json")
+    .then(res => res.json())
+    .then(data => {
+      allListings = data;
+      renderListings(data);
+    })
+    .catch(() => {
+      container.innerHTML = "<p>Listings coming soon.</p>";
     });
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        nav.classList.remove("active");
-        hamburger.classList.remove("active");
-      });
+  function renderListings(listings) {
+
+    container.innerHTML = "";
+
+    if (!listings.length) {
+      container.innerHTML = "<p>No listings found.</p>";
+      return;
+    }
+
+    listings.forEach(item => {
+
+      const card = document.createElement("article");
+      card.className = "listing-card";
+
+      const img = item.images?.[0] || "assets/images/placeholder.jpg";
+
+      card.innerHTML = `
+        <div class="listing-image">
+          <img src="${img}" alt="${item.title}">
+          ${item.featured ? `<span class="badge">Featured</span>` : ""}
+        </div>
+
+        <div class="listing-content">
+          <h3>${item.title}</h3>
+          <p class="price">${item.price}</p>
+          <p class="location">${item.location}</p>
+
+          <a href="property.html?id=${item.id}" class="btn-details">
+            View Details
+          </a>
+        </div>
+      `;
+
+      container.appendChild(card);
+
     });
 
   }
 
-  /* =====================================================
-     LISTINGS PAGE
-  ===================================================== */
+  if (filter) {
+    filter.addEventListener("change", e => {
 
-  const listingsContainer = document.getElementById("listings");
-  const categoryFilter = document.getElementById("categoryFilter");
+      const value = e.target.value.toLowerCase();
 
-  if (listingsContainer) {
+      const filtered = value === "all"
+        ? allListings
+        : allListings.filter(item =>
+            item.propertyType?.toLowerCase() === value ||
+            item.status?.toLowerCase() === value
+          );
 
-    let allListings = [];
-
-    fetch("assets/data/listings.json")
-      .then(res => res.json())
-      .then(data => {
-
-        allListings = data;
-
-        renderListings(allListings);
-
-      })
-      .catch(err => {
-
-        console.error("Listings error:", err);
-        listingsContainer.innerHTML = "<p>Listings coming soon.</p>";
-
-      });
-
-    function renderListings(listings) {
-
-      listingsContainer.innerHTML = "";
-
-      if (!listings || listings.length === 0) {
-
-        listingsContainer.innerHTML = "<p>No listings match your selection.</p>";
-        return;
-
-      }
-
-      listings.forEach(item => {
-
-        const card = document.createElement("article");
-        card.className = "listing-card hide";
-
-        const imgSrc = item.images && item.images.length
-          ? item.images[0]
-          : "assets/images/placeholder.jpg";
-
-        card.innerHTML = `
-          <div class="listing-image">
-            <img src="${imgSrc}" alt="${item.title}" loading="lazy">
-            ${item.featured ? `<span class="badge">Featured</span>` : ""}
-          </div>
-
-          <div class="listing-content">
-            <h3>${item.title}</h3>
-            <p class="price">${item.price}</p>
-            <p class="location">${item.location}</p>
-
-            <div class="cta">
-              <a href="property.html?id=${item.id}" class="btn-details">View Details</a>
-            </div>
-          </div>
-        `;
-
-        listingsContainer.appendChild(card);
-
-        setTimeout(() => card.classList.remove("hide"), 20);
-
-      });
-
-    }
-
-    if (categoryFilter) {
-
-      categoryFilter.addEventListener("change", e => {
-
-        const selected = e.target.value.toLowerCase();
-
-        const filtered = selected === "all"
-          ? allListings
-          : allListings.filter(item => {
-
-              const type = item.propertyType?.toLowerCase();
-              const status = item.status?.toLowerCase();
-
-              if (selected === "lots") {
-                return type === "lots" || type === "land";
-              }
-
-              return status === selected || type === selected;
-
-            });
-
-        renderListings(filtered);
-
-      });
-
-    }
-
+      renderListings(filtered);
+    });
   }
+}
 
-  /* =====================================================
-     PROPERTY PAGE
-  ===================================================== */
+/* =====================================================
+   PROPERTY PAGE
+===================================================== */
+function initPropertyPage() {
 
-  const imageEl = document.getElementById("propertyImage");
-  const featuresEl = document.getElementById("features");
+  if (!document.getElementById("propertyImage")) return;
 
-  if (imageEl && featuresEl) {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
 
-    loadProperty();
+  if (!id) return;
 
-  }
+  fetch("assets/data/listings.json")
+    .then(res => res.json())
+    .then(listings => {
 
-  async function loadProperty() {
-
-    const params = new URLSearchParams(window.location.search);
-    const propertyId = params.get("id");
-
-    if (!propertyId) return;
-
-    try {
-
-      const res = await fetch("assets/data/listings.json");
-      const listings = await res.json();
-
-      const property = listings.find(p => p.id === propertyId);
-
+      const property = listings.find(p => p.id === id);
       if (!property) return;
 
-      /* BASIC INFO */
+      setText("title", property.title);
+      setText("price", property.price);
+      setText("location", property.location);
+      setText("bedrooms", property.bedrooms);
+      setText("bathrooms", property.bathrooms);
+      setText("size", property.size);
+      setText("description", property.description);
 
-      document.getElementById("title").textContent = property.title;
-      document.getElementById("price").textContent = property.price;
-      document.getElementById("location").textContent = property.location;
-      document.getElementById("bedrooms").textContent = property.bedrooms;
-      document.getElementById("bathrooms").textContent = property.bathrooms;
-      document.getElementById("size").textContent = property.size;
-      document.getElementById("description").textContent = property.description;
-
-      /* FORM TRACKING */
-
-      const propertyField = document.getElementById("propertyField");
-      const propertyUrl = document.getElementById("propertyUrl");
-
-      if (propertyField) {
-        propertyField.value = `${property.title} | ${property.price} | ${property.location}`;
-      }
-
-      if (propertyUrl) {
-        propertyUrl.value = window.location.href;
-      }
-
-      /* FEATURES */
-
-      featuresEl.innerHTML = "";
-
-      property.features.forEach(feature => {
-
-        const li = document.createElement("li");
-        li.textContent = feature;
-
-        featuresEl.appendChild(li);
-
-      });
-
+      fillFeatures(property.features);
       initGallery(property.images);
-
-    } catch (err) {
-
-      console.error("Property page error:", err);
-
-    }
-
-  }
-
-  /* =====================================================
-     PROPERTY GALLERY + LIGHTBOX
-  ===================================================== */
-
-  function initGallery(images) {
-
-    if (!images || images.length === 0) return;
-
-    const imageEl = document.getElementById("propertyImage");
-
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightboxImage");
-
-    const nextBtn = document.querySelector(".slider-btn.next");
-    const prevBtn = document.querySelector(".slider-btn.prev");
-
-    const lightNext = document.querySelector(".lightbox-arrow.next");
-    const lightPrev = document.querySelector(".lightbox-arrow.prev");
-
-    const closeBtn = document.querySelector(".lightbox-close");
-
-    const zoomIn = document.getElementById("zoomIn");
-    const zoomOut = document.getElementById("zoomOut");
-
-    let currentIndex = 0;
-    let scale = 1;
-
-    function showImage(index) {
-
-      currentIndex = index;
-
-      const src = images[currentIndex] || "assets/images/placeholder.jpg";
-
-      imageEl.src = src;
-
-      if (lightboxImg) {
-        lightboxImg.src = src;
-      }
-
-    }
-
-    showImage(0);
-
-    /* SLIDER */
-
-    if (nextBtn) {
-      nextBtn.addEventListener("click", () => {
-        showImage((currentIndex + 1) % images.length);
-      });
-    }
-
-    if (prevBtn) {
-      prevBtn.addEventListener("click", () => {
-        showImage((currentIndex - 1 + images.length) % images.length);
-      });
-    }
-
-    /* OPEN LIGHTBOX */
-
-    if (imageEl && lightbox) {
-
-      imageEl.addEventListener("click", () => {
-
-        lightbox.classList.add("active");
-
-        lightboxImg.src = images[currentIndex];
-
-        scale = 1;
-
-        lightboxImg.style.transform = "scale(1)";
-
-      });
-
-    }
-
-    /* CLOSE LIGHTBOX */
-
-    if (closeBtn && lightbox) {
-
-      closeBtn.addEventListener("click", () => {
-        lightbox.classList.remove("active");
-      });
-
-    }
-
-    /* LIGHTBOX NAVIGATION */
-
-    if (lightNext) {
-
-      lightNext.addEventListener("click", () => {
-        showImage((currentIndex + 1) % images.length);
-      });
-
-    }
-
-    if (lightPrev) {
-
-      lightPrev.addEventListener("click", () => {
-        showImage((currentIndex - 1 + images.length) % images.length);
-      });
-
-    }
-
-    /* ZOOM */
-
-    if (zoomIn) {
-
-      zoomIn.addEventListener("click", () => {
-
-        scale += 0.2;
-
-        lightboxImg.style.transform = `scale(${scale})`;
-
-      });
-
-    }
-
-    if (zoomOut) {
-
-      zoomOut.addEventListener("click", () => {
-
-        scale = Math.max(1, scale - 0.2);
-
-        lightboxImg.style.transform = `scale(${scale})`;
-
-      });
-
-    }
-
-    /* SWIPE MOBILE */
-
-    if (lightbox) {
-
-      let startX = 0;
-
-      lightbox.addEventListener("touchstart", e => {
-        startX = e.changedTouches[0].screenX;
-      });
-
-      lightbox.addEventListener("touchend", e => {
-
-        const endX = e.changedTouches[0].screenX;
-
-        if (startX - endX > 50) {
-          showImage((currentIndex + 1) % images.length);
-        }
-
-        if (endX - startX > 50) {
-          showImage((currentIndex - 1 + images.length) % images.length);
-        }
-
-      });
-
-    let scale = 1;
-
-// Scroll wheel zoom (desktop)
-lightboxImg.addEventListener("wheel", (e) => {
-  e.preventDefault();
-
-  if (e.deltaY < 0) {
-    scale += 0.15;
-  } else {
-    scale -= 0.15;
-  }
-
-  scale = Math.min(Math.max(1, scale), 4);
-
-  lightboxImg.style.transform = `scale(${scale})`;
-});
-
-   lightboxImg.addEventListener("click", () => {
-  scale = 1;
-  lightboxImg.style.transform = "scale(1)";
-});
-
- let startDistance = 0;
-
-lightboxImg.addEventListener("touchstart", (e) => {
-  if (e.touches.length === 2) {
-    startDistance = Math.hypot(
-      e.touches[0].pageX - e.touches[1].pageX,
-      e.touches[0].pageY - e.touches[1].pageY
-    );
-  }
-});
-
-lightboxImg.addEventListener("touchmove", (e) => {
-  if (e.touches.length === 2) {
-    const newDistance = Math.hypot(
-      e.touches[0].pageX - e.touches[1].pageX,
-      e.touches[0].pageY - e.touches[1].pageY
-    );
-
-    const zoom = newDistance / startDistance;
-
-    scale = Math.min(Math.max(1, zoom), 4);
-
-    lightboxImg.style.transform = `scale(${scale})`;
-  }
-});      
-
-    }
-
-  }
-
-  /* =====================================================
-     CONTACT FORM TRACKING
-  ===================================================== */
-
-  const contactForm = document.querySelector(".contact-form");
-
-  if (contactForm) {
-
-    contactForm.addEventListener("submit", () => {
-
-      const propertyField = document.getElementById("propertyField");
-      const propertyUrl = document.getElementById("propertyUrl");
-
-      const title = document.getElementById("title")?.innerText || "";
-      const price = document.getElementById("price")?.innerText || "";
-      const location = document.getElementById("location")?.innerText || "";
-
-      if (propertyField && !propertyField.value) {
-        propertyField.value = `${title} | ${price} | ${location}`;
-      }
-
-      if (propertyUrl && !propertyUrl.value) {
-        propertyUrl.value = window.location.href;
-      }
+      fillFormData(property);
 
     });
 
+}
+
+function setText(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = value || "-";
+}
+
+function fillFeatures(features = []) {
+  const container = document.getElementById("features");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  features.forEach(f => {
+    const li = document.createElement("li");
+    li.textContent = f;
+    container.appendChild(li);
+  });
+}
+
+function fillFormData(property) {
+
+  const field = document.getElementById("propertyField");
+  const url = document.getElementById("propertyUrl");
+
+  if (field) {
+    field.value = `${property.title} | ${property.price} | ${property.location}`;
   }
 
-  /* =====================================================
-     NEWSLETTER
-  ===================================================== */
+  if (url) {
+    url.value = window.location.href;
+  }
+}
 
-  const newsletterForm = document.getElementById("newsletterForm");
-  const openNewsletter = document.getElementById("openNewsletter");
-  const openNewsletterBlog = document.getElementById("openNewsletterBlog");
+/* =====================================================
+   GALLERY (CLEAN VERSION)
+===================================================== */
+function initGallery(images = []) {
 
-  function openNewsletterForm() {
+  if (!images.length) return;
 
-    if (!newsletterForm) return;
+  const img = document.getElementById("propertyImage");
+  const lightbox = document.getElementById("lightbox");
+  const lightImg = document.getElementById("lightboxImage");
 
-    newsletterForm.style.display = "block";
+  let index = 0;
+  let scale = 1;
 
-    newsletterForm.scrollIntoView({
-      behavior: "smooth"
+  function show(i) {
+    index = i;
+    const src = images[index];
+    img.src = src;
+    if (lightImg) lightImg.src = src;
+  }
+
+  show(0);
+
+  /* CLICK OPEN */
+  img?.addEventListener("click", () => {
+    lightbox?.classList.add("active");
+    scale = 1;
+    updateZoom();
+  });
+
+  /* CLOSE */
+  document.querySelector(".lightbox-close")?.addEventListener("click", () => {
+    lightbox?.classList.remove("active");
+  });
+
+  /* NAV */
+  document.querySelector(".next")?.addEventListener("click", () => {
+    show((index + 1) % images.length);
+  });
+
+  document.querySelector(".prev")?.addEventListener("click", () => {
+    show((index - 1 + images.length) % images.length);
+  });
+
+  /* ZOOM */
+  function updateZoom() {
+    if (lightImg) {
+      lightImg.style.transform = `scale(${scale})`;
+    }
+  }
+
+  document.getElementById("zoomIn")?.addEventListener("click", () => {
+    scale = Math.min(scale + 0.2, 4);
+    updateZoom();
+  });
+
+  document.getElementById("zoomOut")?.addEventListener("click", () => {
+    scale = Math.max(scale - 0.2, 1);
+    updateZoom();
+  });
+}
+
+/* =====================================================
+   CONTACT FORM
+===================================================== */
+function initContactForm() {
+
+  const form = document.querySelector(".contact-form");
+  if (!form) return;
+
+  form.addEventListener("submit", () => {
+
+    const field = document.getElementById("propertyField");
+    const url = document.getElementById("propertyUrl");
+
+    if (field && !field.value) {
+      field.value = document.getElementById("title")?.innerText || "";
+    }
+
+    if (url && !url.value) {
+      url.value = window.location.href;
+    }
+
+  });
+}
+
+/* =====================================================
+   NEWSLETTER
+===================================================== */
+function initNewsletter() {
+
+  const btns = [
+    document.getElementById("openNewsletter"),
+    document.getElementById("openNewsletterBlog")
+  ];
+
+  const form = document.getElementById("newsletterForm");
+
+  btns.forEach(btn => {
+    btn?.addEventListener("click", () => {
+      form?.scrollIntoView({ behavior: "smooth" });
     });
-
-  }
-
-  if (openNewsletter) {
-    openNewsletter.addEventListener("click", openNewsletterForm);
-  }
-
-  if (openNewsletterBlog) {
-    openNewsletterBlog.addEventListener("click", openNewsletterForm);
-  }
-
-});
-
-function openJourney(type) {
-
-let content = "";
-
-if(type === "buy"){
-
-content = `
-<h2>Buying Property in Curaçao</h2>
-
-<p>
-Buying property is an important decision. At Bai Pe Real Estate
-we guide buyers through the process with professional advice,
-market insights, and a structured approach.
-</p>
-
-<h3>How We Guide You</h3>
-
-<ul>
-<li>Understanding your needs and investment goals</li>
-<li>Identifying suitable properties</li>
-<li>Property viewings and evaluation</li>
-<li>Market advice and negotiation strategy</li>
-<li>Guidance through the purchase process</li>
-</ul>
-
-<a href="contact.html" class="btn">Contact Us</a>
-<br><br>
-<button class="btn close-btn" onclick="closeJourney()">Close</button>
-`;
-
+  });
 }
 
-else if(type === "sell"){
-
-content = `
-<h2>Selling Your Property</h2>
-
-<p>
-Selling a property requires more than just listing it online.
-We use a structured marketing strategy to position your property
-correctly in the market.
-</p>
-
-<h3>Our Selling Strategy</h3>
-
-<ul>
-<li>Professional property evaluation</li>
-<li>Strategic pricing based on market data</li>
-<li>Professional property presentation</li>
-<li>Targeted marketing</li>
-<li>Negotiation and transaction guidance</li>
-</ul>
-
-<a href="contact.html" class="btn">Contact Us</a>
-<br><br>
-<button class="btn close-btn" onclick="closeJourney()">Close</button>
-`;
-
-}
-
-else if(type === "rent"){
-
-content = `
-<h2>Rental Services</h2>
-
-<p>
-Whether you are looking for a rental property or want to rent
-out your investment, we provide professional assistance to
-make the process simple and secure.
-</p>
-
-<h3>How We Assist</h3>
-
-<ul>
-<li>Marketing rental properties</li>
-<li>Tenant screening</li>
-<li>Viewing coordination</li>
-<li>Rental agreements</li>
-<li>Guidance throughout the rental process</li>
-</ul>
-
-<a href="contact.html" class="btn">Contact Us</a>
-<br><br>
-<button class="btn close-btn" onclick="closeJourney()">Close</button>
-`;
-
-}
-
-const details = document.getElementById("journeyDetails");
-const contentBox = document.getElementById("journeyContent");
-
-contentBox.innerHTML = content;
-details.style.display = "block";
-
-details.scrollIntoView({
-behavior: "smooth"
-});
-
-}
-
-function closeJourney(){
-
-const details = document.getElementById("journeyDetails");
-
-details.style.display = "none";
-
-}
-
-/* ===============================
+/* =====================================================
    SCROLL ANIMATION
-=============================== */
-
-document.addEventListener("DOMContentLoaded", () => {
+===================================================== */
+function initScrollAnimations() {
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -594,6 +304,28 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(el);
   });
 
-});
+}
 
+/* =====================================================
+   JOURNEY MODAL
+===================================================== */
+function openJourney(type) {
 
+  const contentMap = {
+    buy: "Buying Property in Curaçao...",
+    sell: "Selling Your Property...",
+    rent: "Rental Services..."
+  };
+
+  const box = document.getElementById("journeyContent");
+  const wrapper = document.getElementById("journeyDetails");
+
+  if (!box || !wrapper) return;
+
+  box.innerHTML = `<h2>${contentMap[type]}</h2>`;
+  wrapper.style.display = "block";
+}
+
+function closeJourney() {
+  document.getElementById("journeyDetails").style.display = "none";
+}
