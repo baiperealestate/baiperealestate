@@ -596,55 +596,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-/* ===============================
-   LANGUAGE TOGGLE
-=============================== */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const langOptions = document.querySelectorAll(".lang-option");
-
-  if (langOptions.length) {
-
-    langOptions.forEach(option => {
-
-      option.addEventListener("click", () => {
-
-        // Remove active
-        langOptions.forEach(el => el.classList.remove("active"));
-
-        // Add active
-        option.classList.add("active");
-
-        const lang = option.dataset.lang;
-
-        // Trigger Google Translate
-        const select = document.querySelector(".goog-te-combo");
-
-        if (select) {
-          select.value = lang;
-          select.dispatchEvent(new Event("change"));
-        }
-
-        // Save language
-        localStorage.setItem("siteLang", lang);
-
-      });
-
-    });
-
-    // Load saved language
-    const savedLang = localStorage.getItem("siteLang");
-
-    if (savedLang) {
-      const savedEl = document.querySelector(`[data-lang="${savedLang}"]`);
-      if (savedEl) savedEl.click();
-    }
-
-  }
-
-});
-
 const translations = {
   en: {
     hero_title: "Professional Real Estate Services in Curaçao",
@@ -661,20 +612,44 @@ const translations = {
 function applyTranslations(lang) {
   document.querySelectorAll("[data-translate]").forEach(el => {
     const key = el.getAttribute("data-translate");
-    if (translations[lang][key]) {
+    if (translations[lang] && translations[lang][key]) {
       el.textContent = translations[lang][key];
     }
   });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("lang") || "en";
 
-  applyTranslations(savedLang);
+  const langOptions = document.querySelectorAll(".lang-option");
 
-  document.querySelectorAll(".lang-option").forEach(el => {
-    el.classList.toggle("active", el.dataset.lang === savedLang);
+  let currentLang = localStorage.getItem("siteLang") || "en";
+
+  applyTranslations(currentLang);
+
+  langOptions.forEach(option => {
+
+    option.classList.toggle("active", option.dataset.lang === currentLang);
+
+    option.addEventListener("click", () => {
+
+      const lang = option.dataset.lang;
+
+      localStorage.setItem("siteLang", lang);
+
+      applyTranslations(lang);
+
+      langOptions.forEach(el => el.classList.remove("active"));
+      option.classList.add("active");
+
+    });
+
   });
 
-  document.documentElement.style.visibility = "visible";
 });
+
+en: {
+  nav_listings: "Listings"
+},
+nl: {
+  nav_listings: "Aanbod"
+}
