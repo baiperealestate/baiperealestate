@@ -2436,36 +2436,3 @@ p {
   }
 }
 
-/* ===============================
-   LANGUAGE TOGGLE – LUXURY
-=============================== */
-
-.lang-toggle {
-  display: flex;
-  align-items: center;
-  margin-left: 15px;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.lang-option {
-  cursor: pointer;
-  opacity: 0.5;
-  transition: all 0.3s ease;
-  padding: 4px 6px;
-}
-
-.lang-option.active {
-  opacity: 1;
-  color: #D8AE5E;
-  border-bottom: 2px solid #D8AE5E;
-}
-
-.lang-option:hover {
-  opacity: 1;
-}
-
-.divider {
-  opacity: 0.4;
-}
