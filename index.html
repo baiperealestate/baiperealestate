@@ -50,6 +50,14 @@
     gtag('config', 'G-JT23SBTX7H');
   </script>
 
+<script>
+  (function() {
+    const savedLang = localStorage.getItem("lang") || "en";
+    document.documentElement.style.visibility = "hidden";
+    document.documentElement.setAttribute("data-lang", savedLang);
+  })();
+</script>
+  
 </head>
 <body>
 
