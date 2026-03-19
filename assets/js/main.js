@@ -102,32 +102,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (categoryFilter) {
 
-      categoryFilter.addEventListener("change", e => {
+const priceMin = document.getElementById("priceMin");
+const priceMax = document.getElementById("priceMax");
+const neighborhoodFilter = document.getElementById("neighborhoodFilter");
+const keywordFilter = document.getElementById("keywordFilter");
+const searchBtn = document.getElementById("searchBtn");
 
-        const selected = e.target.value.toLowerCase();
+function normalize(text) {
+  return text?.toLowerCase().trim();
+}
 
-        const filtered = selected === "all"
-          ? allListings
-          : allListings.filter(item => {
+function extractPrice(priceStr) {
+  return parseInt(priceStr.replace(/[^0-9]/g, "")) || 0;
+}
 
-              const type = item.propertyType?.toLowerCase();
-              const status = item.status?.toLowerCase();
+function applyFilters() {
 
-              if (selected === "lots") {
-                return type === "lots" || type === "land";
-              }
+  const category = normalize(categoryFilter?.value);
+  const min = parseInt(priceMin?.value) || 0;
+  const max = parseInt(priceMax?.value) || Infinity;
+  const neighborhood = normalize(neighborhoodFilter?.value);
+  const keyword = normalize(keywordFilter?.value);
 
-              return status === selected || type === selected;
+  const filtered = allListings.filter(item => {
 
-            });
+    const itemPrice = extractPrice(item.price);
+    const itemLocation = normalize(item.location);
+    const itemTitle = normalize(item.title);
+    const itemType = normalize(item.propertyType);
+    const itemStatus = normalize(item.status);
 
-        renderListings(filtered);
+    /* CATEGORY */
+    if (category && category !== "all") {
 
-      });
+      if (category === "lots") {
+        if (itemType !== "land" && itemType !== "lots") return false;
+      } else if (itemStatus !== category && itemType !== category) {
+        return false;
+      }
 
     }
 
-  }
+    /* PRICE */
+    if (itemPrice < min || itemPrice > max) return false;
+
+    /* NEIGHBORHOOD */
+    if (neighborhood && !itemLocation.includes(neighborhood)) return false;
+
+    /* KEYWORD */
+    if (keyword && !itemTitle.includes(keyword) && !itemLocation.includes(keyword)) return false;
+
+    return true;
+
+  });
+
+  renderListings(filtered);
+
+}
+
+/* EVENTS */
+
+if (searchBtn) {
+  searchBtn.addEventListener("click", applyFilters);
+}
 
   /* =====================================================
      PROPERTY PAGE
