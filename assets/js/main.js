@@ -100,66 +100,81 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    if (categoryFilter) {
+if (categoryFilter) {
 
-const priceMin = document.getElementById("priceMin");
-const priceMax = document.getElementById("priceMax");
-const neighborhoodFilter = document.getElementById("neighborhoodFilter");
-const keywordFilter = document.getElementById("keywordFilter");
-const searchBtn = document.getElementById("searchBtn");
+  const priceRange = document.getElementById("priceRange");
+  const neighborhoodFilter = document.getElementById("neighborhoodFilter");
+  const keywordFilter = document.getElementById("keywordFilter");
+  const searchBtn = document.getElementById("searchBtn");
 
-function normalize(text) {
-  return text?.toLowerCase().trim();
-}
+  function normalize(text) {
+    return text?.toLowerCase().trim();
+  }
 
-function extractPrice(priceStr) {
-  return parseInt(priceStr.replace(/[^0-9]/g, "")) || 0;
-}
+  function extractPrice(priceStr) {
+    return parseInt(priceStr.replace(/[^0-9]/g, "")) || 0;
+  }
 
-function applyFilters() {
+  function applyFilters() {
 
-  const category = normalize(categoryFilter?.value);
-  const min = parseInt(priceMin?.value) || 0;
-  const max = parseInt(priceMax?.value) || Infinity;
-  const neighborhood = normalize(neighborhoodFilter?.value);
-  const keyword = normalize(keywordFilter?.value);
+    const category = normalize(categoryFilter?.value);
+    const neighborhood = normalize(neighborhoodFilter?.value);
+    const keyword = normalize(keywordFilter?.value);
 
-  const filtered = allListings.filter(item => {
+    /* ✅ PRICE DROPDOWN LOGIC */
+    let min = 0;
+    let max = Infinity;
 
-    const itemPrice = extractPrice(item.price);
-    const itemLocation = normalize(item.location);
-    const itemTitle = normalize(item.title);
-    const itemType = normalize(item.propertyType);
-    const itemStatus = normalize(item.status);
-
-    /* CATEGORY */
-    if (category && category !== "all") {
-
-      if (category === "lots") {
-        if (itemType !== "land" && itemType !== "lots") return false;
-      } else if (itemStatus !== category && itemType !== category) {
-        return false;
-      }
-
+    if (priceRange && priceRange.value) {
+      const parts = priceRange.value.split("-");
+      min = parseInt(parts[0]) || 0;
+      max = parseInt(parts[1]) || Infinity;
     }
 
-    /* PRICE */
-    if (itemPrice < min || itemPrice > max) return false;
+    const filtered = allListings.filter(item => {
 
-    /* NEIGHBORHOOD */
-    if (neighborhood && !itemLocation.includes(neighborhood)) return false;
+      const itemPrice = extractPrice(item.price);
+      const itemLocation = normalize(item.location);
+      const itemTitle = normalize(item.title);
+      const itemType = normalize(item.propertyType);
+      const itemStatus = normalize(item.status);
 
-    /* KEYWORD */
-    if (keyword && !itemTitle.includes(keyword) && !itemLocation.includes(keyword)) return false;
+      /* CATEGORY */
+      if (category && category !== "all") {
 
-    return true;
+        if (category === "lots") {
+          if (itemType !== "land" && itemType !== "lots") return false;
+        } else if (itemStatus !== category && itemType !== category) {
+          return false;
+        }
 
-  });
+      }
 
-  renderListings(filtered);
+      /* PRICE */
+      if (itemPrice < min || itemPrice > max) return false;
+
+      /* NEIGHBORHOOD */
+      if (neighborhood && !itemLocation.includes(neighborhood)) return false;
+
+      /* KEYWORD */
+      if (keyword && !itemTitle.includes(keyword) && !itemLocation.includes(keyword)) return false;
+
+      return true;
+
+    });
+
+    renderListings(filtered);
+
+  }
+
+  /* EVENTS */
+  if (searchBtn) {
+    searchBtn.addEventListener("click", applyFilters);
+  }
 
 }
 
+     
 /* EVENTS */
 
 if (searchBtn) {
