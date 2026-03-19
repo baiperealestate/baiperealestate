@@ -102,84 +102,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 if (categoryFilter) {
 
-  const priceRange = document.getElementById("priceRange");
-  const neighborhoodFilter = document.getElementById("neighborhoodFilter");
-  const keywordFilter = document.getElementById("keywordFilter");
-  const searchBtn = document.getElementById("searchBtn");
+      categoryFilter.addEventListener("change", e => {
 
-  function normalize(text) {
-    return text?.toLowerCase().trim();
-  }
+        const selected = e.target.value.toLowerCase();
 
-  function extractPrice(priceStr) {
-    return parseInt(priceStr.replace(/[^0-9]/g, "")) || 0;
-  }
+        const filtered = selected === "all"
+          ? allListings
+          : allListings.filter(item => {
 
-  function applyFilters() {
+              const type = item.propertyType?.toLowerCase();
+              const status = item.status?.toLowerCase();
 
-    const category = normalize(categoryFilter?.value);
-    const neighborhood = normalize(neighborhoodFilter?.value);
-    const keyword = normalize(keywordFilter?.value);
+              if (selected === "lots") {
+                return type === "lots" || type === "land";
+              }
 
-    /* ✅ PRICE DROPDOWN LOGIC */
-    let min = 0;
-    let max = Infinity;
+              return status === selected || type === selected;
 
-    if (priceRange && priceRange.value) {
-      const parts = priceRange.value.split("-");
-      min = parseInt(parts[0]) || 0;
-      max = parseInt(parts[1]) || Infinity;
+            });
+
+        renderListings(filtered);
+
+      });
+
     }
 
-    const filtered = allListings.filter(item => {
-
-      const itemPrice = extractPrice(item.price);
-      const itemLocation = normalize(item.location);
-      const itemTitle = normalize(item.title);
-      const itemType = normalize(item.propertyType);
-      const itemStatus = normalize(item.status);
-
-      /* CATEGORY */
-      if (category && category !== "all") {
-
-        if (category === "lots") {
-          if (itemType !== "land" && itemType !== "lots") return false;
-        } else if (itemStatus !== category && itemType !== category) {
-          return false;
-        }
-
-      }
-
-      /* PRICE */
-      if (itemPrice < min || itemPrice > max) return false;
-
-      /* NEIGHBORHOOD */
-      if (neighborhood && !itemLocation.includes(neighborhood)) return false;
-
-      /* KEYWORD */
-      if (keyword && !itemTitle.includes(keyword) && !itemLocation.includes(keyword)) return false;
-
-      return true;
-
-    });
-
-    renderListings(filtered);
-
   }
-
-  /* EVENTS */
-  if (searchBtn) {
-    searchBtn.addEventListener("click", applyFilters);
-  }
-
-}
-
-     
-/* EVENTS */
-
-if (searchBtn) {
-  searchBtn.addEventListener("click", applyFilters);
-}
 
   /* =====================================================
      PROPERTY PAGE
