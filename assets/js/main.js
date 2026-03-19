@@ -644,3 +644,37 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+const translations = {
+  en: {
+    hero_title: "Professional Real Estate Services in Curaçao",
+    hero_sub: "Buying, selling, and renting property with structured and professional guidance.",
+    view_listings: "View Listings"
+  },
+  nl: {
+    hero_title: "Professionele Vastgoeddiensten op Curaçao",
+    hero_sub: "Begeleiding bij kopen, verkopen en huren van vastgoed met een gestructureerde en professionele aanpak.",
+    view_listings: "Bekijk Aanbod"
+  }
+};
+
+function applyTranslations(lang) {
+  document.querySelectorAll("[data-translate]").forEach(el => {
+    const key = el.getAttribute("data-translate");
+    if (translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("lang") || "en";
+
+  applyTranslations(savedLang);
+
+  document.querySelectorAll(".lang-option").forEach(el => {
+    el.classList.toggle("active", el.dataset.lang === savedLang);
+  });
+
+  document.documentElement.style.visibility = "visible";
+});
