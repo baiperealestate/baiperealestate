@@ -74,4 +74,48 @@
   }
 ]
 
+{
+  "id": "apartment-rental-juandomingo-mahuma-004",
+  "title": "For Rent - Spacious 2-Bedroom Apartments – Juan Domingo / Mahuma, Curaçao",
+  "price": "XCG 1,500",
+  "status": "For Rent",
+  "propertyType": "residential",
+  "location": "Juan Domingo near Mahuma, Curaçao",
+  "bedrooms": 2,
+  "bathrooms": 1,
+  "size": "Spacious Layout",
+  "featured": false,
+  "images": [
+    "assets/images/listings/juandomingo-rent1-1.jpg",
+    "assets/images/listings/juandomingo-rent1-2.jpg",
+    "assets/images/listings/juandomingo-rent1-3.jpg",
+    "assets/images/listings/juandomingo-rent1-4.jpg",
+    "assets/images/listings/juandomingo-rent1-5.jpg",
+    "assets/images/listings/juandomingo-rent1-6.jpg"
+  ],
+  "description": "Located in the desirable Juan Domingo / Mahuma area, these spacious apartments offer comfortable living in a convenient central location. Situated near Curaçao International Airport, supermarkets, gas stations, university facilities, and within walking distance to a minimarket. Each apartment consists of two spacious bedrooms, one bathroom, an open living room, open kitchen, and a private balcony with fresh natural airflow. The property also includes private parking within a shared parking lot, private water meter, prepaid electricity meter, and a private outdoor clothes drying area. Upper apartment available from 1 July. Ground floor apartment available from 8 July. Monthly rent is XCG 1,500 with one month deposit required. For more information or to schedule a viewing, contact Bai Pe Real Estate via email at info@baiperealestate.com or WhatsApp at +599 96654776.",
+  "features": [
+    "2 spacious bedrooms",
+    "1 bathroom",
+    "Open living room",
+    "Open kitchen",
+    "Private balcony",
+    "Fresh natural airflow",
+    "Private parking space",
+    "Shared parking lot",
+    "Private water meter",
+    "Prepaid electricity meter",
+    "Private clothes drying area",
+    "Near airport",
+    "Near supermarkets",
+    "Near gas stations",
+    "Near university",
+    "Walking distance to minimarket",
+    "Upper apartment available 1 July",
+    "Ground floor apartment available 8 July",
+    "1 month deposit required",
+    "ID required",
+    "Stable income required"
+  ]
+},
 
