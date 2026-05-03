@@ -116,6 +116,7 @@
       "No pets permitted",
       "Deposit required",
       "ID required",
+      "Minimum rental period: 1 year ",
       "Stable income required"
     ]
   },
@@ -164,6 +165,7 @@
       "No pets permitted",
       "Deposit required",
       "ID required",
+      "Minimum rental period: 1 year ",
       "Stable income required"
     ]
   }
