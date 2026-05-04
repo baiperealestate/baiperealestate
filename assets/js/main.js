@@ -1,6 +1,10 @@
 function getLang() {
-  return window.location.pathname.includes("/nl/") ? "nl" : "en";
+  return window.location.pathname.startsWith("/nl/") ? "nl" : "en";
 }
+const dataPath = getLang() === "nl"
+  ? "/nl/assets/data/nl"
+  : "/assets/data";
+
 /* =====================================================
    BAI PE REAL ESTATE – MAIN JS
    Clean Professional Structure
@@ -42,8 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let allListings = [];
 
-     fetch(getLang() === "nl"
-  ? "assets/data/nl/listings.json"
+ fetch(`${dataPath}/listings.json`)
   : "assets/data/listings.json"
 )
       .then(res => res.json())
@@ -157,9 +160,7 @@ if (categoryFilter) {
 
     try {
 
-const res = await fetch(getLang() === "nl"
-  ? "assets/data/nl/listings.json"
-  : "assets/data/listings.json"
+const res = await fetch(`${dataPath}/listings.json`);
 );
       const listings = await res.json();
 
