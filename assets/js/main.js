@@ -635,24 +635,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-/* =====================================================
-   LANGUAGE DATA HANDLER (GLOBAL)
-===================================================== */
-
-function getDataFile(type) {
-  const isDutch = window.location.pathname.includes("/nl/");
-
-  if (type === "listings") {
-    return isDutch
-      ? "/assets/data/listings-nl.json"
-      : "/assets/data/listings.json";
-  }
-
-  if (type === "team") {
-    return isDutch
-      ? "/assets/data/team-nl.json"
-      : "/assets/data/team.json";
-  }
-
-  return null;
-}
