@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const id = params.get("id");
   if (!id) return;
 
-  fetch("assets/data/team.json")
+  fetch("/assets/data/team.json")
     .then(res => res.json())
     .then(team => {
       const member = team.find(m => m.id === id);
