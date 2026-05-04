@@ -1,3 +1,6 @@
+function getLang() {
+  return window.location.pathname.includes("/nl/") ? "nl" : "en";
+}
 /* =====================================================
    BAI PE REAL ESTATE – MAIN JS
    Clean Professional Structure
@@ -39,7 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let allListings = [];
 
-    fetch("assets/data/listings.json")
+     fetch(getLang() === "nl"
+  ? "assets/data/nl/listings.json"
+  : "assets/data/listings.json"
+)
       .then(res => res.json())
       .then(data => {
 
@@ -151,7 +157,10 @@ if (categoryFilter) {
 
     try {
 
-      const res = await fetch("assets/data/listings.json");
+const res = await fetch(getLang() === "nl"
+  ? "assets/data/nl/listings.json"
+  : "assets/data/listings.json"
+);
       const listings = await res.json();
 
       const property = listings.find(p => p.id === propertyId);
@@ -599,7 +608,6 @@ document.addEventListener("DOMContentLoaded", () => {
 /* =====================================================
    LANGUAGE SWITCHER - SMART PER PAGE
 ===================================================== */
-
 document.addEventListener("DOMContentLoaded", () => {
 
   const langSwitcher = document.getElementById("languageSwitcher");
