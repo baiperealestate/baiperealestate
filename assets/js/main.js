@@ -1,9 +1,3 @@
-function getLang() {
-  return window.location.pathname.startsWith("/nl/") ? "nl" : "en";
-}
-const dataPath = getLang() === "nl"
-  ? "/nl/assets/data/nl"
-  : "/assets/data";
 
 /* =====================================================
    BAI PE REAL ESTATE – MAIN JS
@@ -46,9 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let allListings = [];
 
- fetch(`${dataPath}/listings.json`)
-  : "assets/data/listings.json"
-)
+    fetch("assets/data/listings.json")
+      .then(res => res.json())
+      .then(data => {  
+        
       .then(res => res.json())
       .then(data => {
 
@@ -160,8 +155,7 @@ if (categoryFilter) {
 
     try {
 
-const res = await fetch(`${dataPath}/listings.json`);
-);
+      const res = await fetch("assets/data/listings.json");
       const listings = await res.json();
 
       const property = listings.find(p => p.id === propertyId);
