@@ -595,3 +595,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+/* LANGUAGE SWITCHER */
+document.addEventListener("DOMContentLoaded", () => {
+
+  const langSwitcher = document.getElementById("languageSwitcher");
+
+  if (langSwitcher) {
+
+    langSwitcher.addEventListener("change", function () {
+
+      if (this.value === "nl") {
+        window.location.href = "/nl/index.html";
+      } else {
+        window.location.href = "/index.html";
+      }
+
+    });
+
+  }
+
+});
