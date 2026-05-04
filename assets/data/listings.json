@@ -2,7 +2,7 @@
   {
     "id": "modernapartment-janthiel-002",
     "title": " For Rent - Modern Apartment Near Beaches – Jan Thiel, Curaçao",
-    "price": "XCG 2.300,-",
+    "price": "XCG 2.300",
     "status": "For Rent",
     "propertyType": "residential",
     "location": "Jan Thiel, Curaçao",
@@ -40,7 +40,7 @@
   {
     "id": "apartmencomplex-investment-juandomingo-003",
     "title": "For Sale - Turn-Key Investment Opportunity – Juan Domingo near Mahuma, Curaçao",
-    "price": "XCG 700,000",
+    "price": "XCG 700.000",
     "status": "For Sale",
     "propertyType": "residential",
     "location": "Juan Domingo near Mahuma, Curaçao",
@@ -76,7 +76,7 @@
   {
     "id": "upper-apartment-rent-juandomingo-mahuma-004",
     "title": "For Rent - Upper Floor 2-Bedroom Apartment – Juan Domingo / Mahuma, Curaçao",
-    "price": "XCG 1,500",
+    "price": "XCG 1.500",
     "status": "For Rent",
     "propertyType": "residential",
     "location": "Juan Domingo near Mahuma, Curaçao",
@@ -123,7 +123,7 @@
   {
     "id": "groundfloor-apartment-rent-juandomingo-mahuma-005",
     "title": "For Rent - Ground Floor 2-Bedroom Apartment – Juan Domingo / Mahuma, Curaçao",
-    "price": "XCG 1,500",
+    "price": "XCG 1.500",
     "status": "For Rent",
     "propertyType": "residential",
     "location": "Juan Domingo near Mahuma, Curaçao",
