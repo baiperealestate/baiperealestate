@@ -10,18 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
         card.className = "team-card";
         card.innerHTML = `
         
-        const isNL = window.location.pathname.startsWith("/nl/");
-        const memberUrl = isNL
-  ? `/nl/team-member.html?id=${member.id}`
-  : `/team-member.html?id=${member.id}`;
-<a href="${memberUrl}" class="team-link">
-  
+        <a href="team-member.html?id=${member.id}" class="team-link">
             <div class="team-photo">
               <img src="${member.image}" alt="${member.name}">
-             const isNL = window.location.pathname.startsWith("/nl/");
-
-const viewText = isNL ? "Bekijk Profiel" : "View Profile";
-<span>${viewText}</span>
+<span>View Profile</span>
             </div>
 
             <div class="team-info">
