@@ -596,42 +596,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-
 /* =====================================================
-   LANGUAGE SWITCHER - SMART PER PAGE
+   LANGUAGE SYSTEM - COMPLETE (SWITCH + LINKS)
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
   const langSwitcher = document.getElementById("languageSwitcher");
+  const path = window.location.pathname;
+  const isNL = path.startsWith("/nl/");
 
-  if (!langSwitcher) return;
+  /* ================================
+     SET DROPDOWN STATE
+  ================================ */
+  if (langSwitcher) {
+    langSwitcher.value = isNL ? "nl" : "en";
 
-  langSwitcher.addEventListener("change", function () {
+    const savedLang = localStorage.getItem("lang");
 
-    const lang = this.value;
+    if (savedLang && savedLang !== langSwitcher.value) {
+      switchLanguage(savedLang);
+    }
 
-    // Current page path
+    langSwitcher.addEventListener("change", function () {
+      const selectedLang = this.value;
+
+      localStorage.setItem("lang", selectedLang);
+      switchLanguage(selectedLang);
+    });
+  }
+
+  /* ================================
+     SWITCH LANGUAGE
+  ================================ */
+  function switchLanguage(lang) {
+
     let currentPath = window.location.pathname;
 
-    // Remove starting slash
     currentPath = currentPath.replace(/^\/+/, "");
-
-    // Remove nl/ if already inside Dutch folder
     currentPath = currentPath.replace(/^nl\//, "");
 
-    // If homepage empty
     if (currentPath === "") {
       currentPath = "index.html";
     }
 
-    // Translate page
-    if (lang === "nl") {
-      window.location.href = "/nl/" + currentPath;
-    } else {
-      window.location.href = "/" + currentPath;
-    }
+    let newUrl = (lang === "nl")
+      ? "/nl/" + currentPath
+      : "/" + currentPath;
 
+    window.location.href = newUrl;
+  }
+
+  /* ================================
+     LOCALIZE ALL LINKS
+  ================================ */
+  const links = document.querySelectorAll("a[href$='.html']");
+
+  links.forEach(link => {
+    let href = link.getAttribute("href");
+
+    // Skip external links
+    if (!href || href.startsWith("http")) return;
+
+    href = href.replace(/^\/?nl\//, "");
+
+    link.href = isNL ? "/nl/" + href : "/" + href;
   });
 
 });
