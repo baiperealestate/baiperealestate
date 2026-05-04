@@ -3,6 +3,7 @@
    Clean Professional Structure
 ===================================================== */
 
+let currentLang = localStorage.getItem("lang") || "en";
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =====================================================
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let allListings = [];
 
-    fetch("assets/data/listings.json")
+    fetch(`assets/data/${currentLang}/listings.json`)
       .then(res => res.json())
       .then(data => {
 
@@ -598,36 +599,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
 /* =====================================================
-   LANGUAGE SWITCHER - SMART PER PAGE
+   LANGUAGE SWITCHER - SMART + PERSISTENT
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
   const langSwitcher = document.getElementById("languageSwitcher");
-
   if (!langSwitcher) return;
+
+  // Get saved language or default to EN
+  let savedLang = localStorage.getItem("lang") || "en";
+
+  // Set dropdown correctly on load
+  langSwitcher.value = savedLang;
 
   langSwitcher.addEventListener("change", function () {
 
     const lang = this.value;
 
-    // Current page path
-    let currentPath = window.location.pathname;
+    // Save language choice
+    localStorage.setItem("lang", lang);
 
-    // Remove starting slash
-    currentPath = currentPath.replace(/^\/+/, "");
+    // Get current page
+    let currentPath = window.location.pathname
+      .replace(/^\/+/, "")
+      .replace(/^nl\//, "");
 
-    // Remove nl/ if already inside Dutch folder
-    currentPath = currentPath.replace(/^nl\//, "");
-
-    // If homepage empty
+    // Default homepage fix
     if (currentPath === "") {
       currentPath = "index.html";
     }
 
-    // Translate page
+    // Redirect logic
     if (lang === "nl") {
       window.location.href = "/nl/" + currentPath;
     } else {
