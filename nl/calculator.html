@@ -4,72 +4,102 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Hypotheek & Kosten Calculator | Bai Pe Real Estate Curaçao</title>
-
-  <meta name="description" content="Bereken een indicatie van hypotheeklasten en aankoopkosten op Curaçao met de calculator van Bai Pe Real Estate. Professioneel inzicht voor kopers en investeerders.">
-
+  <title>Hypotheek & Aankoop Calculator | Bai Pe Real Estate Curaçao</title>
+  <meta name="description" content="Bereken hypotheeklasten en aankoopkosten op Curaçao met Bai Pe Real Estate. Professionele begeleiding voor kopers en investeerders.">
   <meta name="robots" content="index, follow">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Hypotheek & Kosten Calculator | Bai Pe Real Estate Curaçao">
-  <meta property="og:description" content="Bereken hypotheek- en aankoopkosten voor vastgoed op Curaçao.">
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Hypotheek & Aankoop Calculator | Bai Pe Real Estate Curaçao">
+  <meta property="og:description" content="Bereken hypotheeklasten en aankoopkosten voor vastgoed op Curaçao met Bai Pe Real Estate.">
   <meta property="og:image" content="https://baiperealestate.com/assets/images/logo.png">
-  <meta property="og:url" content="https://baiperealestate.com/nl/calculator.html">
+  <meta property="og:url" content="https://baiperealestate.com/calculator.html">
   <meta property="og:type" content="website">
 
+  <!-- Favicon -->
   <link rel="icon" href="https://baiperealestate.com/assets/images/logo.png" type="image/png">
-  <link rel="stylesheet" href="/assets/css/style.css">
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JT23SBTX7H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JT23SBTX7H');
+  </script>
+
+  <!-- Structured Data: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Hypotheek & Aankoop Calculator",
+    "url": "https://baiperealestate.com/calculator.html",
+    "description": "Bereken hypotheeklasten en aankoopkosten voor vastgoed op Curaçao met de calculator van Bai Pe Real Estate.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bai Pe Real Estate",
+      "logo": "https://baiperealestate.com/assets/images/logo.png",
+      "url": "https://baiperealestate.com"
+    }
+  }
+  </script>
+
+  <link rel="canonical" href="https://baiperealestate.com/calculator.html">
 </head>
 
 <body>
 
-<!-- HEADER -->
+ <!-- ================= HEADER ================= -->
 <header class="navbar">
-
   <div class="logo">
     <a href="index.html">
-      <img src="/assets/images/logo.png" alt="Bai Pe Real Estate Logo">
+      <img src="assets/images/logo.png" alt="Bai Pe Real Estate Logo">
     </a>
   </div>
 
-  <nav class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">Over Ons</a>
-    <a href="team.html">Team</a>
-    <a href="listings.html">Aanbod</a>
-    <a href="contact.html">Contact</a>
-    <a href="blog.html">Blog</a>
-    <a href="social.html">Social Media</a>
-    <a href="buying-selling-guide.html">Gids</a>
-    <a href="calculator.html" class="active">Calculator</a>
-  </nav>
+<nav class="nav-links">
+  <a href="index.html">Home</a>
+  <a href="about.html">Over Ons</a>
+  <a href="team.html">Team</a>
+  <a href="listings.html">Aanbod</a>
+  <a href="contact.html">Contact</a>
+  <a href="blog.html">Blog</a>
+  <a href="social.html">Social Media</a>
+  <a href="buying-selling-guide.html">Gids</a>
+  <a href="calculator.html" class="active">Calculator</a>
+</nav>
 
-  <div class="hamburger" aria-label="Menu openen">
-    <span></span><span></span><span></span>
+ <div class="hamburger" aria-label="Menu openen">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 
-  <select class="language-switcher" id="languageSwitcher">
-    <option value="nl" selected>NL</option>
-    <option value="en">EN</option>
-  </select>
-
+   <!-- Language Switcher -->
+<select class="language-switcher" id="languageSwitcher">
+  <option value="en">EN</option>
+  <option value="nl">NL</option>
+</select>
+ 
 </header>
 
-<!-- TITLE -->
+
 <section class="section">
   <div class="container">
     <h1>Hypotheek & Aankoopkosten Calculator</h1>
     <p class="subtitle">
-      Indicatieve berekening van aankoopkosten en maandelijkse hypotheeklasten op basis van gangbare bank- en notarispraktijken op Curaçao.
+    Indicatief overzicht van aankoopkosten en maandelijkse hypotheeklasten, gebaseerd op gangbare bank- en notarispraktijken op Curaçao.
     </p>
   </div>
 </section>
 
-<!-- CALCULATOR -->
 <section class="section light">
   <div class="container calculator-grid">
 
+    <!-- INPUT -->
     <div class="calc-card">
       <h2>Calculator</h2>
 
@@ -83,25 +113,26 @@
       <input type="range" id="downPaymentSlider" min="0" max="50" value="20">
       <span id="downPaymentPercent">20%</span>
 
-      <label>Leeftijd</label>
+      <label>Leeftijd koper</label>
       <input type="number" id="age" placeholder="bijv. 38">
 
       <label>Rente (%)</label>
       <input type="number" step="0.1" id="interest" value="6.0">
 
-      <label>Looptijd hypotheek (jaren)</label>
+      <label>Gewenste looptijd hypotheek (jaren)</label>
       <input type="number" id="years" placeholder="bijv. 25">
 
       <button class="btn" onclick="calculate()">Bereken</button>
     </div>
 
+    <!-- RESULTS -->
     <div class="calc-card result">
-      <h2>Resultaten (indicatief)</h2>
+      <h2>Geschatte resultaten</h2>
 
       <ul class="cost-list">
         <li><span>Overdrachtsbelasting (4%)</span><strong id="transferTax">–</strong></li>
-        <li><span>Notaris (1,5–2%)</span><strong id="notary">–</strong></li>
-        <li><span>Kadaster (0,5–1%)</span><strong id="cadastre">–</strong></li>
+        <li><span>Notaris (1.5–2%)</span><strong id="notary">–</strong></li>
+        <li><span>Kadaster (0.5–1%)</span><strong id="cadastre">–</strong></li>
       </ul>
 
       <p class="total">Totale aankoopkosten<br><strong id="purchaseCosts">–</strong></p>
@@ -120,62 +151,54 @@
   </div>
 </section>
 
-<!-- DISCLAIMER -->
 <section class="section disclaimer">
   <div class="container">
     <p>
-      Deze calculator geeft uitsluitend een indicatieve berekening en vormt geen financieel advies,
-      hypotheekaanbod of bindende offerte. De berekening houdt geen rekening met bankkosten,
-      verzekeringen, onderhoudskosten, VvE-bijdragen of andere bijkomende lasten.
+      Deze calculator geeft uitsluitend een indicatieve berekening en vormt geen financieel advies, hypotheekaanbod of financieringstoezegging.
+      De berekening houdt geen rekening met aanvullende kosten zoals bankkosten, verzekeringen, onderhoudskosten, VvE-bijdragen en andere gerelateerde lasten.
       <br><br>
-      Werkelijke voorwaarden, rentetarieven en financieringsmogelijkheden zijn afhankelijk van
-      de bank, inkomenssituatie, kredietwaardigheid, leeftijd en regelgeving. Raadpleeg altijd
-      een bank, notaris of financieel adviseur op Curaçao.
+      Werkelijke aankoopkosten, hypotheekvoorwaarden, rentetarieven en financieringsmogelijkheden kunnen variëren afhankelijk van de geldverstrekker, verblijfsstatus, leeftijd, inkomen, kredietprofiel en toepasselijke regelgeving.
+      Raadpleeg altijd uw bank, financieel adviseur en notaris op Curaçao voordat u financiële of vastgoedgerelateerde beslissingen neemt.
     </p>
   </div>
 </section>
 
-<!-- INFO -->
 <section class="section calculator-info">
   <div class="container">
-
-    <h3>Aanvullende informatie – inwoners vs. niet-inwoners</h3>
+    <h3>Aanvullende informatie – inwoners vs. niet-inwoners (indicatief)</h3>
 
     <p>
-      Onderstaande richtlijnen geven een algemeen beeld van financieringsmogelijkheden op Curaçao.
+      De resultaten van deze calculator dienen te worden geïnterpreteerd op basis van de volgende algemene richtlijnen die gangbaar zijn op Curaçao.
     </p>
 
-    <h4>Hypotheekfinanciering (indicatief)</h4>
+    <h4>Hypotheekfinanciering – gebruikelijke bandbreedtes</h4>
 
     <h5>Inwoners van Curaçao</h5>
     <ul>
-      <li><strong>Loan-to-Value (LTV):</strong> tot 80% – 90%</li>
-      <li><strong>Eigen inbreng:</strong> 10% – 20%</li>
-      <li><strong>Looptijd:</strong> tot 35 jaar (afhankelijk van leeftijd en inkomen)</li>
-      <li><strong>Rente:</strong> ca. 4% – 6%</li>
+      <li><strong>Loan-to-Value (LTV):</strong> tot 80% – 90% van de woningwaarde (100% financiering is niet gebruikelijk)</li>
+      <li><strong>Eigen inbreng:</strong> doorgaans 10% – 20%</li>
+      <li><strong>Looptijd:</strong> tot 35 jaar, afhankelijk van leeftijd en inkomen</li>
+      <li><strong>Indicatieve rente:</strong> circa 4% – 6%</li>
     </ul>
-
-    <br><br>
 
     <h5>Niet-inwoners</h5>
     <ul>
-      <li><strong>Loan-to-Value (LTV):</strong> 60% – 70%</li>
-      <li><strong>Eigen inbreng:</strong> 30% – 40%</li>
-      <li><strong>Looptijd:</strong> meestal korter</li>
-      <li><strong>Rente:</strong> doorgaans hoger afhankelijk van risico</li>
+      <li><strong>Loan-to-Value (LTV):</strong> doorgaans 60% – 70%</li>
+      <li><strong>Eigen inbreng:</strong> doorgaans 30% – 40%</li>
+      <li><strong>Looptijd:</strong> vaak korter dan bij inwoners</li>
+      <li><strong>Indicatieve rente:</strong> doorgaans hoger afhankelijk van risico-inschatting</li>
     </ul>
 
     <p class="note">
-      Financiering en voorwaarden worden uitsluitend bepaald door de bank.
+      Financiering, voorwaarden en rentetarieven worden uitsluitend bepaald door de bank en zijn afhankelijk van inkomen, kredietprofiel, leeftijd en verblijfsstatus.
     </p>
-
   </div>
 </section>
 
-<!-- WHATSAPP -->
+<!-- ================= WHATSAPP ================= -->
 <a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 <footer>
   <div class="container">
     <p>© 2026 Bai Pe Real Estate | Curaçao</p>
@@ -186,8 +209,9 @@
   </div>
 </footer>
 
-<script src="/assets/js/main.js"></script>
-<script src="/assets/js/calculator.js"></script>
+<!-- JS -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/calculator.js"></script>
 
 </body>
 </html>
