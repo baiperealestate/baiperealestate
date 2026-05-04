@@ -596,23 +596,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-/* LANGUAGE SWITCHER */
+/* =====================================================
+   LANGUAGE SWITCHER - SMART PER PAGE
+===================================================== */
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const langSwitcher = document.getElementById("languageSwitcher");
 
-  if (langSwitcher) {
+  if (!langSwitcher) return;
 
-    langSwitcher.addEventListener("change", function () {
+  langSwitcher.addEventListener("change", function () {
 
-      if (this.value === "nl") {
-        window.location.href = "/nl/index.html";
-      } else {
-        window.location.href = "/index.html";
-      }
+    const lang = this.value;
 
-    });
+    // Current page path
+    let currentPath = window.location.pathname;
 
-  }
+    // Remove starting slash
+    currentPath = currentPath.replace(/^\/+/, "");
+
+    // Remove nl/ if already inside Dutch folder
+    currentPath = currentPath.replace(/^nl\//, "");
+
+    // If homepage empty
+    if (currentPath === "") {
+      currentPath = "index.html";
+    }
+
+    // Translate page
+    if (lang === "nl") {
+      window.location.href = "/nl/" + currentPath;
+    } else {
+      window.location.href = "/" + currentPath;
+    }
+
+  });
 
 });
