@@ -79,9 +79,9 @@ fetch(dataPath)
         const card = document.createElement("article");
         card.className = "listing-card hide";
 
-        const imgSrc = item.images && item.images.length
-          ? item.images[0]
-          : "assets/images/placeholder.jpg";
+       const imgSrc = item.images && item.images.length
+  ? "/" + item.images[0].replace(/^\/+/, "")
+  : "/assets/images/placeholder.jpg";
 
         card.innerHTML = `
           <div class="listing-image">
@@ -252,7 +252,9 @@ const res = await fetch(dataPath);
 
       currentIndex = index;
 
-      const src = images[currentIndex] || "/assets/images/placeholder.jpg";
+      const src = images[currentIndex]
+  ? "/" + images[currentIndex].replace(/^\/+/, "")
+  : "/assets/images/placeholder.jpg";
 
       imageEl.src = src;
 
