@@ -83,22 +83,24 @@ fetch(dataPath)
   ? "/" + item.images[0].replace(/^\/+/, "")
   : "/assets/images/placeholder.jpg";
 
-        card.innerHTML = `
-          <div class="listing-image">
-            <img src="${imgSrc}" alt="${item.title}" loading="lazy">
-            ${item.featured ? `<span class="badge">Featured</span>` : ""}
-          </div>
+      const basePath = window.location.pathname.includes("/nl/") ? "/nl/" : "/";
 
-          <div class="listing-content">
-            <h3>${item.title}</h3>
-            <p class="price">${item.price}</p>
-            <p class="location">${item.location}</p>
+card.innerHTML = `
+  <div class="listing-image">
+    <img src="${imgSrc}" alt="${item.title}" loading="lazy">
+    ${item.featured ? `<span class="badge">Featured</span>` : ""}
+  </div>
 
-            <div class="cta">
-              <a href="property.html?id=${item.id}" class="btn-details">View Details</a>
-            </div>
-          </div>
-        `;
+  <div class="listing-content">
+    <h3>${item.title}</h3>
+    <p class="price">${item.price}</p>
+    <p class="location">${item.location}</p>
+
+    <div class="cta">
+      <a href="${basePath}property.html?id=${item.id}" class="btn-details">View Details</a>
+    </div>
+  </div>
+`;
 
         listingsContainer.appendChild(card);
 
@@ -650,37 +652,20 @@ document.addEventListener("DOMContentLoaded", () => {
   ================================ */
   function switchLanguage(lang) {
 
-    let currentPath = window.location.pathname;
+  const url = new URL(window.location.href);
 
-    currentPath = currentPath.replace(/^\/+/, "");
-    currentPath = currentPath.replace(/^nl\//, "");
+  let path = url.pathname;
 
-    if (currentPath === "") {
-      currentPath = "index.html";
-    }
+  // Remove /nl if present
+  path = path.replace(/^\/nl/, "");
 
-    let newUrl = (lang === "nl")
-      ? "/nl/" + currentPath
-      : "/" + currentPath;
+  if (path === "") path = "/index.html";
 
-    window.location.href = newUrl;
+  if (lang === "nl") {
+    path = "/nl" + path;
   }
 
-  /* ================================
-     LOCALIZE ALL LINKS
-  ================================ */
-  const links = document.querySelectorAll("a[href$='.html']");
+  url.pathname = path;
 
-  links.forEach(link => {
-    let href = link.getAttribute("href");
-
-    // Skip external links
-    if (!href || href.startsWith("http")) return;
-
-    href = href.replace(/^\/?nl\//, "");
-
-    link.href = isNL ? "/nl/" + href : "/" + href;
-  });
-
-});
-
+  window.location.href = url.toString();
+}
