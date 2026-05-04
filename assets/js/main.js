@@ -598,38 +598,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* =====================================================
-   LANGUAGE SWITCHER - SMART + PERSISTENT
+   LANGUAGE SWITCHER - SMART PER PAGE
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
   const langSwitcher = document.getElementById("languageSwitcher");
+
   if (!langSwitcher) return;
-
-  // Get saved language or default to EN
-  let savedLang = localStorage.getItem("lang") || "en";
-
-  // Set dropdown correctly on load
-  langSwitcher.value = savedLang;
 
   langSwitcher.addEventListener("change", function () {
 
     const lang = this.value;
 
-    // Save language choice
-    localStorage.setItem("lang", lang);
+    // Current page path
+    let currentPath = window.location.pathname;
 
-    // Get current page
-    let currentPath = window.location.pathname
-      .replace(/^\/+/, "")
-      .replace(/^nl\//, "");
+    // Remove starting slash
+    currentPath = currentPath.replace(/^\/+/, "");
 
-    // Default homepage fix
+    // Remove nl/ if already inside Dutch folder
+    currentPath = currentPath.replace(/^nl\//, "");
+
+    // If homepage empty
     if (currentPath === "") {
       currentPath = "index.html";
     }
 
-    // Redirect logic
+    // Translate page
     if (lang === "nl") {
       window.location.href = "/nl/" + currentPath;
     } else {
