@@ -39,7 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let allListings = [];
 
-    fetch("assets/data/listings.json")
+  const lang = getCurrentLang();
+
+const dataFile = (lang === "nl")
+  ? "/assets/data/listings-nl.json"
+  : "/assets/data/listings.json";
+fetch(dataFile)
+   
       .then(res => res.json())
       .then(data => {
 
@@ -151,7 +157,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
 
-      const res = await fetch("assets/data/listings.json");
+const lang = getCurrentLang();
+
+const dataFile = (lang === "nl")
+  ? "/assets/data/listings-nl.json"
+  : "/assets/data/listings.json";
+
+const res = await fetch(dataFile);
+       
       const listings = await res.json();
 
       const property = listings.find(p => p.id === propertyId);
@@ -605,7 +618,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const langSwitcher = document.getElementById("languageSwitcher");
   const path = window.location.pathname;
   const isNL = path.startsWith("/nl/");
-
+   const lang = getCurrentLang();
+const t = translations[lang];
+   
   /* ================================
      SET DROPDOWN STATE
   ================================ */
@@ -664,3 +679,47 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+const translations = {
+  en: {
+    bedrooms: "Bedrooms",
+    bathrooms: "Bathrooms",
+    lotSize: "Lot Size",
+    description: "Property Description",
+    features: "Property Features",
+    requestInfo: "Request Information",
+    contactBtn: "Contact Bai Pe Real Estate"
+  },
+  nl: {
+    bedrooms: "Slaapkamers",
+    bathrooms: "Badkamers",
+    lotSize: "Perceelgrootte",
+    description: "Beschrijving",
+    features: "Kenmerken",
+    requestInfo: "Informatie aanvragen",
+    contactBtn: "Neem contact op met Bai Pe Real Estate"
+  }
+};
+
+document.querySelector("li strong:nth-child(1)").textContent = t.bedrooms;
+document.querySelector("li strong:nth-child(2)").textContent = t.bathrooms;
+document.getElementById("labelBedrooms").textContent = t.bedrooms;
+document.getElementById("labelBathrooms").textContent = t.bathrooms;
+document.getElementById("labelSize").textContent = t.lotSize;
+
+document.getElementById("descTitle").textContent = t.description;
+document.getElementById("featuresTitle").textContent = t.features;
+
+document.getElementById("contactTitle").textContent = t.requestInfo;
+document.getElementById("contactBtn").textContent = t.contactBtn;
+
+if (lang === "nl") {
+  categoryFilter.innerHTML = `
+    <option value="all">Alle categorieën</option>
+    <option value="for sale">Te Koop</option>
+    <option value="for rent">Te Huur</option>
+    <option value="residential">Wonen</option>
+    <option value="commercial">Commercieel</option>
+    <option value="lots">Bouwgrond</option>
+  `;
+}
