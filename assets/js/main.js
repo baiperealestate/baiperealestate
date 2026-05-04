@@ -97,7 +97,7 @@ card.innerHTML = `
     <p class="location">${item.location}</p>
 
     <div class="cta">
-      <a href="${basePath}property.html?id=${item.id}" class="btn-details">View Details</a>
+      <a href="property.html?id=${item.id}" class="btn-details">View Details</a>
     </div>
   </div>
 `;
@@ -652,20 +652,36 @@ document.addEventListener("DOMContentLoaded", () => {
   ================================ */
   function switchLanguage(lang) {
 
-  const url = new URL(window.location.href);
+    let currentPath = window.location.pathname;
 
-  let path = url.pathname;
+    currentPath = currentPath.replace(/^\/+/, "");
+    currentPath = currentPath.replace(/^nl\//, "");
 
-  // Remove /nl if present
-  path = path.replace(/^\/nl/, "");
+    if (currentPath === "") {
+      currentPath = "index.html";
+    }
 
-  if (path === "") path = "/index.html";
+    let newUrl = (lang === "nl")
+      ? "/nl/" + currentPath
+      : "/" + currentPath;
 
-  if (lang === "nl") {
-    path = "/nl" + path;
+    window.location.href = newUrl;
   }
 
-  url.pathname = path;
+  /* ================================
+     LOCALIZE ALL LINKS
+  ================================ */
+  const links = document.querySelectorAll("a[href$='.html']");
 
-  window.location.href = url.toString();
-}
+  links.forEach(link => {
+    let href = link.getAttribute("href");
+
+    // Skip external links
+    if (!href || href.startsWith("http")) return;
+
+    href = href.replace(/^\/?nl\//, "");
+
+    link.href = isNL ? "/nl/" + href : "/" + href;
+  });
+
+});
