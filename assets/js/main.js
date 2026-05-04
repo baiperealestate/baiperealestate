@@ -39,15 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let allListings = [];
 
-const isNL = window.location.pathname.startsWith("/nl/");
-
-const dataPath = isNL
-  ? "/assets/data/nl/listings.json"
-  : "/assets/data/listings.json";
-
-fetch(dataPath)
-
-     
+    fetch("assets/data/listings.json")
       .then(res => res.json())
       .then(data => {
 
@@ -79,28 +71,26 @@ fetch(dataPath)
         const card = document.createElement("article");
         card.className = "listing-card hide";
 
-       const imgSrc = item.images && item.images.length
-  ? "/" + item.images[0].replace(/^\/+/, "")
-  : "/assets/images/placeholder.jpg";
+        const imgSrc = item.images && item.images.length
+          ? item.images[0]
+          : "assets/images/placeholder.jpg";
 
-      const basePath = window.location.pathname.includes("/nl/") ? "/nl/" : "/";
+        card.innerHTML = `
+          <div class="listing-image">
+            <img src="${imgSrc}" alt="${item.title}" loading="lazy">
+            ${item.featured ? `<span class="badge">Featured</span>` : ""}
+          </div>
 
-card.innerHTML = `
-  <div class="listing-image">
-    <img src="${imgSrc}" alt="${item.title}" loading="lazy">
-    ${item.featured ? `<span class="badge">Featured</span>` : ""}
-  </div>
+          <div class="listing-content">
+            <h3>${item.title}</h3>
+            <p class="price">${item.price}</p>
+            <p class="location">${item.location}</p>
 
-  <div class="listing-content">
-    <h3>${item.title}</h3>
-    <p class="price">${item.price}</p>
-    <p class="location">${item.location}</p>
-
-    <div class="cta">
-      <a href="property.html?id=${item.id}" class="btn-details">View Details</a>
-    </div>
-  </div>
-`;
+            <div class="cta">
+              <a href="property.html?id=${item.id}" class="btn-details">View Details</a>
+            </div>
+          </div>
+        `;
 
         listingsContainer.appendChild(card);
 
@@ -161,16 +151,7 @@ card.innerHTML = `
 
     try {
 
-    const isNL = window.location.pathname.startsWith("/nl/");
-
-const dataPath = isNL
-  ? "/assets/data/nl/listings.json"
-  : "/assets/data/listings.json";
-
-const res = await fetch(dataPath);
-
-
-       
+      const res = await fetch("assets/data/listings.json");
       const listings = await res.json();
 
       const property = listings.find(p => p.id === propertyId);
@@ -254,9 +235,7 @@ const res = await fetch(dataPath);
 
       currentIndex = index;
 
-      const src = images[currentIndex]
-  ? "/" + images[currentIndex].replace(/^\/+/, "")
-  : "/assets/images/placeholder.jpg";
+      const src = images[currentIndex] || "assets/images/placeholder.jpg";
 
       imageEl.src = src;
 
