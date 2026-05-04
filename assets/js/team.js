@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("assets/data/team.json")
+  fetch("/assets/data/team.json")
     .then(res => res.json())
     .then(team => {
       const grid = document.getElementById("teamGrid");
