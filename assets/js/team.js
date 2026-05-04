@@ -18,7 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
   
             <div class="team-photo">
               <img src="${member.image}" alt="${member.name}">
-              <span>View Profile</span>
+             const isNL = window.location.pathname.startsWith("/nl/");
+
+const viewText = isNL ? "Bekijk Profiel" : "View Profile";
+<span>${viewText}</span>
             </div>
 
             <div class="team-info">
