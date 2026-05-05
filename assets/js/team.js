@@ -1,7 +1,17 @@
 const lang = window.location.pathname.startsWith("/nl/") ? "nl" : "en";
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("/assets/data/team.json")
+function getCurrentLang() {
+  return window.location.pathname.startsWith("/nl/") ? "nl" : "en";
+}
+
+const lang = getCurrentLang();
+
+const dataFile = lang === "nl"
+  ? "/assets/data/team-nl.json"
+  : "/assets/data/team.json";
+
+fetch(dataFile)
     .then(res => res.json())
     .then(team => {
       const grid = document.getElementById("teamGrid");
@@ -12,7 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
         card.className = "team-card";
         card.innerHTML = `
         
-       <a href="/${window.location.pathname.startsWith("/nl/") ? "nl/" : ""}team-member.html?id=${member.id}" class="team-link">
+       const isNL = window.location.pathname.startsWith("/nl/");
+
+const url = isNL
+  ? `/nl/team-member.html?id=${member.id}`
+  : `/team-member.html?id=${member.id}`;
+  
             <div class="team-photo">
               <img src="${member.image}" alt="${member.name}">
 <span>View Profile</span>
