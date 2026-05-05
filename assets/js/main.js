@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
 const lang = getCurrentLang();
 
 const dataFile = lang === "nl"
-  ? "assets/data/listings-nl.json"
-  : "assets/data/listings.json";
+  ? "/assets/data/listings-nl.json"
+  : "/assets/data/listings.json";
 fetch(dataFile)
    
       .then(res => res.json())
