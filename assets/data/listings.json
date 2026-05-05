@@ -1,7 +1,48 @@
 [
   {
     "id": "modernapartment-janthiel-002",
-    "title": " For Rent - Modern Apartment Near Beaches – Jan Thiel, Curaçao",
+
+    "title": {
+      "en": "For Rent - Modern Apartment Near Beaches – Jan Thiel, Curaçao",
+      "nl": "Te Huur - Modern Appartement nabij stranden – Jan Thiel, Curaçao"
+    },
+
+    "description": {
+      "en": "This well-maintained, fully furnished apartment is located in the highly desirable Jan Thiel area of Curaçao, within walking distance of Jan Thiel Beach, hotels, restaurants, shopping areas, and Van den Tweel Supermarket. The apartment features an air-conditioned bedroom, modern open kitchen, private entrance, and cozy back porch. WiFi included. Limited pool access available upon consultation.",
+      "nl": "Dit goed onderhouden, volledig gemeubileerde appartement is gelegen in het populaire Jan Thiel gebied op Curaçao, op loopafstand van Jan Thiel Beach, hotels, restaurants, winkels en de Van den Tweel supermarkt. Het appartement beschikt over een slaapkamer met airconditioning, moderne open keuken, eigen ingang en een gezellig achterterras. WiFi inbegrepen. Beperkte toegang tot het zwembad mogelijk in overleg."
+    },
+
+    "features": {
+      "en": [
+        "Fully furnished",
+        "1 bedroom with air-conditioning",
+        "Modern open kitchen",
+        "Private entrance",
+        "Bathroom with water heater",
+        "Cozy back porch",
+        "Laundry room available",
+        "No pets allowed",
+        "WiFi included",
+        "Excluding utilities",
+        "Minimum rental: 6 months",
+        "Deposit: XCG 4,600"
+      ],
+      "nl": [
+        "Volledig gemeubileerd",
+        "1 slaapkamer met airconditioning",
+        "Moderne open keuken",
+        "Eigen ingang",
+        "Badkamer met boiler",
+        "Gezellig achterterras",
+        "Wasruimte beschikbaar",
+        "Geen huisdieren toegestaan",
+        "WiFi inbegrepen",
+        "Exclusief nutsvoorzieningen",
+        "Minimale huurperiode: 6 maanden",
+        "Borg: XCG 4.600"
+      ]
+    },
+
     "price": "XCG 2.300",
     "status": "For Rent",
     "propertyType": "residential",
@@ -19,27 +60,47 @@
       "assets/images/listings/apartment1-6.jpg",
       "assets/images/listings/apartment1-7.jpg",
       "assets/images/listings/apartment1-8.jpg"
-    ],
-    "description": "This well-maintained, fully furnished apartment is located in the highly desirable Jan Thiel area of Curaçao, within walking distance of Jan Thiel Beach, popular hotels, restaurants, shopping areas, and Van den Tweel Supermarket. The location offers a convenient and pleasant living environment in one of the island’s most popular residential areas. The apartment features a comfortable air-conditioned bedroom, a modern open-concept kitchen, and a private entrance, providing privacy and ease of living. The bathroom is equipped with a water heater, and the cozy back porch offers a pleasant outdoor space to relax. Additional amenities include WiFi, access to a laundry room with space for a personal washing machine, and limited use of the swimming pool upon consultation. For more information or to schedule a viewing, please contact Bai Pe Real Estate via email at info@baiperealestate.com or via WhatsApp at +599 96654776.",
-    "features": [
-      "Fully furnished",
-      "one bedrooms with air-conditioning",
-      "Modern open kitchen",
-      "Limited access to the pool (in consultation)",
-      "Private own entrance",
-      "Bathroom with water heater",
-      "Cozy back porch",
-      "Laundry room (space for your own washing machine)",
-      "No pets allowed",
-      "WiFi included",
-      "Excluding water, electricity & gas",
-      "Minimum rental period: 6 months",
-      "Security Deposit: XCG 4,600 (installments possible)"
     ]
   },
+
   {
     "id": "apartmencomplex-investment-juandomingo-003",
-    "title": "For Sale - Turn-Key Investment Opportunity – Juan Domingo near Mahuma, Curaçao",
+
+    "title": {
+      "en": "For Sale - Turn-Key Investment Opportunity – Juan Domingo near Mahuma, Curaçao",
+      "nl": "Te Koop - Turn-key investeringsobject – Juan Domingo nabij Mahuma, Curaçao"
+    },
+
+    "description": {
+      "en": "Well-maintained apartment complex built in 2020, located in Juan Domingo near Mahuma. The property consists of three apartments, each with two bedrooms, one bathroom, open living area and kitchen. Fully asphalted yard with private parking. Close to main roads, beaches, and the airport.",
+      "nl": "Goed onderhouden appartementencomplex uit 2020, gelegen in Juan Domingo nabij Mahuma. Het object bestaat uit drie appartementen, elk met twee slaapkamers, één badkamer, open woonkamer en keuken. Volledig geasfalteerd terrein met privé parkeerplaatsen. Dichtbij hoofdwegen, stranden en de luchthaven."
+    },
+
+    "features": {
+      "en": [
+        "3 apartments total",
+        "2 bedrooms per unit",
+        "1 bathroom per unit",
+        "Open living area",
+        "Open kitchen",
+        "Owned land",
+        "Low maintenance yard",
+        "Private parking",
+        "Move-in ready"
+      ],
+      "nl": [
+        "3 appartementen totaal",
+        "2 slaapkamers per unit",
+        "1 badkamer per unit",
+        "Open woonkamer",
+        "Open keuken",
+        "Eigen grond",
+        "Onderhoudsarm terrein",
+        "Privé parkeerplaatsen",
+        "Instapklaar"
+      ]
+    },
+
     "price": "XCG 700.000",
     "status": "For Sale",
     "propertyType": "residential",
@@ -57,25 +118,43 @@
       "assets/images/listings/apartmentcomplex1-6.jpg",
       "assets/images/listings/apartmentcomplex1-7.jpg",
       "assets/images/listings/apartmentcomplex1-8.jpg"
-    ],
-    "description": "Located in the quiet residential neighborhood of Juan Domingo, near Mahuma, this well-maintained apartment complex was built in 2020 and is situated on 484 m² of freehold land (eigendomsgrond). The property consists of three apartments, each offering two bedrooms, one bathroom, a living area, and an open kitchen. The outdoor space features a fully asphalted yard, creating a clean and low-maintenance environment, with private on-site parking available within the fenced property for each apartment. Conveniently located close to main roads, nearby beaches, and Curaçao International Airport. For more information or to schedule a viewing, contact Bai Pe Real Estate via email at info@baiperealestate.com or via WhatsApp at +599 96654776.",
-    "features": [
-      "3 apartment in total",
-      "2 bedrooms each apartment",
-      "1 bathroom each apartment",
-      "Open living room each apartment",
-      "Open kitchen each apartment",
-      "Owned land",
-      "Fully asphalted yard — low maintenance",
-      "Private parking for each apartment",
-      "Move-in ready and well maintained",
-      "Quiet residential neighborhood, close to the main road, beaches, and just minutes from the airport"
     ]
   },
 
   {
     "id": "upper-apartment-rent-juandomingo-mahuma-004",
-    "title": "For Rent - Upper Floor 2-Bedroom Apartment – Juan Domingo / Mahuma, Curaçao",
+
+    "title": {
+      "en": "For Rent - Upper Floor 2-Bedroom Apartment – Juan Domingo / Mahuma, Curaçao",
+      "nl": "Te Huur - Bovenwoning met 2 slaapkamers – Juan Domingo / Mahuma, Curaçao"
+    },
+
+    "description": {
+      "en": "Spacious upper floor apartment located near airport, supermarkets, and university. Features 2 bedrooms, open living area, balcony, private parking, and prepaid utilities.",
+      "nl": "Ruim bovenappartement gelegen nabij luchthaven, supermarkten en universiteit. Beschikt over 2 slaapkamers, open woonkamer, balkon, privé parkeerplaats en prepaid nutsvoorzieningen."
+    },
+
+    "features": {
+      "en": [
+        "Upper floor",
+        "2 bedrooms",
+        "Private balcony",
+        "Private parking",
+        "Prepaid electricity",
+        "Near airport",
+        "Minimum 1 year rental"
+      ],
+      "nl": [
+        "Bovenverdieping",
+        "2 slaapkamers",
+        "Privé balkon",
+        "Privé parkeerplaats",
+        "Prepaid elektriciteit",
+        "Dichtbij luchthaven",
+        "Minimaal 1 jaar huur"
+      ]
+    },
+
     "price": "XCG 1.500",
     "status": "For Rent",
     "propertyType": "residential",
@@ -91,38 +170,43 @@
       "assets/images/listings/upper-juandomingo-4.jpg",
       "assets/images/listings/upper-juandomingo-5.jpg",
       "assets/images/listings/upper-juandomingo-6.jpg"
-    ],
-    "description": "Spacious upper floor apartment for rent in Juan Domingo / Mahuma, Curaçao. Conveniently located near the airport, supermarkets, gas stations, university, and within walking distance to a minimarket. This apartment offers two bedrooms, one bathroom, open living room, open kitchen, balcony with fresh natural airflow, private water meter, prepaid electricity meter, private parking, and private outdoor clothes drying area. Available from 1 July. Contact Bai Pe Real Estate for more information or to schedule a viewing.",
-    "features": [
-      "Upper floor unit",
-      "2 spacious bedrooms",
-      "1 bathroom",
-      "Open living room",
-      "Open kitchen",
-      "Private balcony",
-      "Fresh natural airflow",
-      "Private parking",
-      "Private water meter",
-      "Prepaid electricity meter",
-      "Private drying area",
-      "Near airport",
-      "Near supermarkets",
-      "Near gas stations",
-      "Near university",
-      "Walking distance to minimarket",
-      "Available 1 July",
-      "Suitable for adults only (18+)",
-      "Not children permitted",
-      "No pets permitted",
-      "Deposit required",
-      "ID required",
-      "Minimum rental period: 1 year ",
-      "Stable income required"
     ]
   },
+
   {
     "id": "groundfloor-apartment-rent-juandomingo-mahuma-005",
-    "title": "For Rent - Ground Floor 2-Bedroom Apartment – Juan Domingo / Mahuma, Curaçao",
+
+    "title": {
+      "en": "For Rent - Ground Floor 2-Bedroom Apartment – Juan Domingo / Mahuma, Curaçao",
+      "nl": "Te Huur - Benedenwoning met 2 slaapkamers – Juan Domingo / Mahuma, Curaçao"
+    },
+
+    "description": {
+      "en": "Ground floor apartment in central location near airport and amenities. Includes 2 bedrooms, open kitchen, private outdoor area, and parking.",
+      "nl": "Benedenappartement op centrale locatie nabij luchthaven en voorzieningen. Inclusief 2 slaapkamers, open keuken, privé buitenruimte en parkeerplaats."
+    },
+
+    "features": {
+      "en": [
+        "Ground floor",
+        "2 bedrooms",
+        "Private outdoor space",
+        "Private parking",
+        "Prepaid electricity",
+        "Near supermarkets",
+        "Minimum 1 year rental"
+      ],
+      "nl": [
+        "Begane grond",
+        "2 slaapkamers",
+        "Privé buitenruimte",
+        "Privé parkeerplaats",
+        "Prepaid elektriciteit",
+        "Dichtbij supermarkten",
+        "Minimaal 1 jaar huur"
+      ]
+    },
+
     "price": "XCG 1.500",
     "status": "For Rent",
     "propertyType": "residential",
@@ -135,38 +219,11 @@
       "assets/images/listings/ground-juandomingo-1.jpg",
       "assets/images/listings/ground-juandomingo-2.jpg",
       "assets/images/listings/ground-juandomingo-3.jpg",
-       "assets/images/listings/ground-juandomingo-4.jpg",
-       "assets/images/listings/ground-juandomingo-5.jpg",
-       "assets/images/listings/ground-juandomingo-6.jpg",
-       "assets/images/listings/ground-juandomingo-7.jpg",
+      "assets/images/listings/ground-juandomingo-4.jpg",
+      "assets/images/listings/ground-juandomingo-5.jpg",
+      "assets/images/listings/ground-juandomingo-6.jpg",
+      "assets/images/listings/ground-juandomingo-7.jpg",
       "assets/images/listings/ground-juandomingo-8.jpg"
-    ],
-    "description": "Spacious ground floor apartment for rent in Juan Domingo / Mahuma, Curaçao. Centrally located near the airport, supermarkets, gas stations, university, and within walking distance to a minimarket. The apartment features two bedrooms, one bathroom, open living room, open kitchen, private outdoor area with natural airflow, private water meter, prepaid electricity meter, private parking, and private clothes drying area. Available from 8 July. Contact Bai Pe Real Estate for more information or to arrange a viewing.",
-    "features": [
-      "Ground floor unit",
-      "2 spacious bedrooms",
-      "1 bathroom",
-      "Open living room",
-      "Open kitchen",
-      "Private outdoor area",
-      "Fresh natural airflow",
-      "Private parking",
-      "Private water meter",
-      "Prepaid electricity meter",
-      "Private drying area",
-      "Near airport",
-      "Near supermarkets",
-      "Near gas stations",
-      "Near university",
-      "Walking distance to minimarket",
-      "Available 8 July",
-      "Suitable for adults only (18+)",
-      "Not children permitted",
-      "No pets permitted",
-      "Deposit required",
-      "ID required",
-      "Minimum rental period: 1 year ",
-      "Stable income required"
     ]
   }
 ]
