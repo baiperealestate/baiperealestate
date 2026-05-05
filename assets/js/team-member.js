@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("memberPhone").textContent = member.phone;
       document.getElementById("memberEmail").textContent = member.email;
       document.getElementById("memberStory").textContent = member.story;
+      document.getElementById("aboutTitle").textContent = lang === "nl" ? "Over" : "About";
 
       const socialBtn = document.getElementById("memberSocial");
 
