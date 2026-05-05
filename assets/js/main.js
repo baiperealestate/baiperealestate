@@ -1,3 +1,6 @@
+function getCurrentLang() {
+  return window.location.pathname.startsWith("/nl/") ? "nl" : "en";
+}
 /* =====================================================
    BAI PE REAL ESTATE – MAIN JS
    Clean Professional Structure
@@ -650,9 +653,6 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ================================
      SWITCH LANGUAGE
   ================================ */
- function getCurrentLang() {
-  return window.location.pathname.startsWith("/nl/") ? "nl" : "en";
-}
    function switchLanguage(lang) {
 
     let currentPath = window.location.pathname;
@@ -671,27 +671,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = newUrl;
   }
 
-const filtered = selected === "all"
-  ? allListings
-  : allListings.filter(item => {
-
-      const type = item.propertyType?.toLowerCase() || "";
-      const status = item.status?.toLowerCase() || "";
-
-      if (selected === "lots") {
-        return type.includes("lot") || type.includes("land");
-      }
-
-      if (selected === "for rent") {
-        return status.includes("rent") || status.includes("huur");
-      }
-
-      if (selected === "for sale") {
-        return status.includes("sale") || status.includes("koop");
-      }
-
-      return type.includes(selected);
-    });  
 
    
   /* ================================
