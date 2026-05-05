@@ -685,8 +685,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!href || href.startsWith("http")) return;
 
     href = href.replace(/^\/?nl\//, "");
-
-    link.href = isNL ? "/nl/" + href : "/" + href;
+    
+<a href="/${lang === 'nl' ? 'nl/' : ''}property.html?id=${item.id}">
   });
 
 });
