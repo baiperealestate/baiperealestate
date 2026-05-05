@@ -90,24 +90,28 @@ listingsContainer.innerHTML = lang === "nl"
 
         const imgSrc = item.images && item.images.length
           ? item.images[0]
-          : "assets/images/placeholder.jpg";
+          : "/assets/images/placeholder.jpg";
+        
+const langPrefix = getCurrentLang() === "nl" ? "/nl/" : "/";
 
-        card.innerHTML = `
-          <div class="listing-image">
-            <img src="${imgSrc}" alt="${item.title}" loading="lazy">
-            ${item.featured ? `<span class="badge">Featured</span>` : ""}
-          </div>
+card.innerHTML = `
+  <div class="listing-image">
+    <img src="${imgSrc}" alt="${item.title}" loading="lazy">
+    ${item.featured ? `<span class="badge">Featured</span>` : ""}
+  </div>
 
-          <div class="listing-content">
-            <h3>${item.title}</h3>
-            <p class="price">${item.price}</p>
-            <p class="location">${item.location}</p>
+  <div class="listing-content">
+    <h3>${item.title}</h3>
+    <p class="price">${item.price}</p>
+    <p class="location">${item.location}</p>
 
-            <div class="cta">
-              <a href="property.html?id=${item.id}" class="btn-details">View Details</a>
-            </div>
-          </div>
-        `;
+    <div class="cta">
+      <a href="${langPrefix}property.html?id=${item.id}" class="btn-details">
+        View Details
+      </a>
+    </div>
+  </div>
+`;
 
         listingsContainer.appendChild(card);
 
