@@ -104,7 +104,7 @@ card.innerHTML = `
             <p class="location">${item.location}</p>
 
             <div class="cta">
-              <a href="property.html?id=${item.id}" class="btn-details">View Details</a>
+             <a href="/${getCurrentLang() === "nl" ? "nl/" : ""}property.html?id=${item.id}" class="btn-details">View Details</a>
             </div>
           </div>
         `;
