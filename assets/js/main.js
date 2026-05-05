@@ -64,7 +64,7 @@ fetch(dataFile)
          
          const lang = getCurrentLang();
         listingsContainer.innerHTML = lang === "nl"
-  ? "<p>Woningen binnenkort beschikbaar.</p>"
+  ? "<p>Advertenties volgen binnenkort.</p>"
   : "<p>Listings coming soon.</p>";
 
       });
@@ -77,7 +77,7 @@ fetch(dataFile)
 
         const lang = getCurrentLang();
 listingsContainer.innerHTML = lang === "nl"
-  ? "<p>Geen woningen gevonden.</p>"
+  ? "<p>Er zijn geen resultaten gevonden die overeenkomen met uw selectie..</p>"
   : "<p>No listings match your selection.</p>";
         return;
 
