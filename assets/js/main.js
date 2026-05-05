@@ -92,26 +92,22 @@ listingsContainer.innerHTML = lang === "nl"
           ? item.images[0]
           : "/assets/images/placeholder.jpg";
         
-const langPrefix = getCurrentLang() === "nl" ? "/nl/" : "/";
-
 card.innerHTML = `
-  <div class="listing-image">
-    <img src="${imgSrc}" alt="${item.title}" loading="lazy">
-    ${item.featured ? `<span class="badge">Featured</span>` : ""}
-  </div>
+          <div class="listing-image">
+            <img src="${imgSrc}" alt="${item.title}" loading="lazy">
+            ${item.featured ? `<span class="badge">Featured</span>` : ""}
+          </div>
 
-  <div class="listing-content">
-    <h3>${item.title}</h3>
-    <p class="price">${item.price}</p>
-    <p class="location">${item.location}</p>
+          <div class="listing-content">
+            <h3>${item.title}</h3>
+            <p class="price">${item.price}</p>
+            <p class="location">${item.location}</p>
 
-    <div class="cta">
-      <a href="${langPrefix}property.html?id=${item.id}" class="btn-details">
-        View Details
-      </a>
-    </div>
-  </div>
-`;
+            <div class="cta">
+              <a href="property.html?id=${item.id}" class="btn-details">View Details</a>
+            </div>
+          </div>
+        `;
 
         listingsContainer.appendChild(card);
 
@@ -654,39 +650,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ================================
+/* ================================
      SWITCH LANGUAGE
   ================================ */
-  function switchLanguage(lang) {
-  const url = new URL(window.location.href);
-  let path = url.pathname;
+   function switchLanguage(lang) {
 
-  // Remove /nl/ if exists
-  path = path.replace(/^\/nl\//, "/");
+    let currentPath = window.location.pathname;
 
-  if (lang === "nl") {
-    path = "/nl" + (path === "/" ? "/index.html" : path);
+    currentPath = currentPath.replace(/^\/+/, "");
+    currentPath = currentPath.replace(/^nl\//, "");
+
+    if (currentPath === "") {
+      currentPath = "index.html";
+    }
+
+    let newUrl = (lang === "nl")
+      ? "/nl/" + currentPath
+      : "/" + currentPath;
+
+    window.location.href = newUrl;
   }
-
-  window.location.href = path + url.search;
-}
 
    
   /* ================================
      LOCALIZE ALL LINKS
   ================================ */
-const links = document.querySelectorAll("a[href$='.html']:not([data-no-lang])");
+ const links = document.querySelectorAll("a[href$='.html']");
 
- links.forEach(link => {
-  let href = link.getAttribute("href");
+  links.forEach(link => {
+    let href = link.getAttribute("href");
 
-  if (!href || href.startsWith("http")) return;
+    // Skip external links
+    if (!href || href.startsWith("http")) return;
 
-  // Skip if already correct
-  if (isNL && href.startsWith("/nl/")) return;
-  if (!isNL && !href.startsWith("/nl/") && href.startsWith("/")) return;
+    href = href.replace(/^\/?nl\//, "");
+    
+link.href = isNL ? "/nl/" + href : "/" + href;
+  });
 
-  href = href.replace(/^\/?nl\//, "");
-
-  link.href = isNL ? "/nl/" + href : "/" + href;
 });
