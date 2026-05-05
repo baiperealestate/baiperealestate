@@ -104,7 +104,7 @@ card.innerHTML = `
             <p class="location">${item.location}</p>
 
             <div class="cta">
-             <a href="/${getCurrentLang() === "nl" ? "nl/" : ""}property.html?id=${item.id}" class="btn-details">View Details</a>
+            <a href="/${getCurrentLang() === "nl" ? "nl/" : ""}property.html?id=${item.id}" class="btn-details">
             </div>
           </div>
         `;
@@ -653,10 +653,10 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ================================
      SWITCH LANGUAGE
   ================================ */
-  function switchLanguage(lang) {
+function switchLanguage(lang) {
 
   let currentPath = window.location.pathname;
-  let query = window.location.search; // KEEP ?id=...
+  let query = window.location.search; // ✅ THIS IS THE FIX
 
   currentPath = currentPath.replace(/^\/+/, "");
   currentPath = currentPath.replace(/^nl\//, "");
