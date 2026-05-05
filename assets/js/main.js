@@ -686,7 +686,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     href = href.replace(/^\/?nl\//, "");
     
-<a href="/${lang === 'nl' ? 'nl/' : ''}property.html?id=${item.id}">
+link.href = isNL ? "/nl/" + href : "/" + href;
   });
 
 });
