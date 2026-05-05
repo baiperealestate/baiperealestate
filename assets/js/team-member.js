@@ -1,3 +1,5 @@
+const lang = window.location.pathname.startsWith("/nl/") ? "nl" : "en";
+
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
@@ -13,10 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.getElementById("memberImage").src = member.image;
       document.getElementById("memberName").textContent = member.name;
-      document.getElementById("memberRole").textContent = member.role;
+    document.getElementById("memberRole").textContent = member.role[lang];
       document.getElementById("memberPhone").textContent = member.phone;
       document.getElementById("memberEmail").textContent = member.email;
-      document.getElementById("memberStory").textContent = member.story;
+     document.getElementById("memberStory").textContent = member.story[lang];
       document.getElementById("memberSocial").href = member.beacons;
     })
     .catch(() => console.error("Team member load error"));
