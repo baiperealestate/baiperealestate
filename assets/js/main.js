@@ -171,8 +171,8 @@ listingsContainer.innerHTML = lang === "nl"
 const lang = getCurrentLang();
 
 const dataFile = lang === "nl"
-  ? "assets/data/listings-nl.json"
-  : "assets/data/listings.json";
+  ? "/assets/data/listings-nl.json"
+  : "/assets/data/listings.json";
 
 const res = await fetch(dataFile);
        
