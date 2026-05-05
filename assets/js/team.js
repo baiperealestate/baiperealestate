@@ -1,3 +1,5 @@
+const lang = window.location.pathname.startsWith("/nl/") ? "nl" : "en";
+
 document.addEventListener("DOMContentLoaded", () => {
   fetch("/assets/data/team.json")
     .then(res => res.json())
@@ -18,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div class="team-info">
               <h3>${member.name}</h3>
-              <p class="team-role">${member.role}</p>
+             <p class="team-role">${member.role[lang]}</p>
               <p class="team-phone">${member.phone}</p>
               <p class="team-email">${member.email}</p>
             </div>
