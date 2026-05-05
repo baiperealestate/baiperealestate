@@ -259,7 +259,7 @@ const res = await fetch(dataFile);
 
       currentIndex = index;
 
-      const src = images[currentIndex] || "assets/images/placeholder.jpg";
+      const src = images[currentIndex] || "/assets/images/placeholder.jpg";
 
       imageEl.src = src;
 
