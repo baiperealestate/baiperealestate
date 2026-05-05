@@ -653,24 +653,24 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ================================
      SWITCH LANGUAGE
   ================================ */
-   function switchLanguage(lang) {
+  function switchLanguage(lang) {
 
-    let currentPath = window.location.pathname;
+  let currentPath = window.location.pathname;
+  let query = window.location.search; // KEEP ?id=...
 
-    currentPath = currentPath.replace(/^\/+/, "");
-    currentPath = currentPath.replace(/^nl\//, "");
+  currentPath = currentPath.replace(/^\/+/, "");
+  currentPath = currentPath.replace(/^nl\//, "");
 
-    if (currentPath === "") {
-      currentPath = "index.html";
-    }
-
-    let newUrl = (lang === "nl")
-      ? "/nl/" + currentPath
-      : "/" + currentPath;
-
-    window.location.href = newUrl;
+  if (currentPath === "") {
+    currentPath = "index.html";
   }
 
+  let newUrl = (lang === "nl")
+    ? "/nl/" + currentPath + query
+    : "/" + currentPath + query;
+
+  window.location.href = newUrl;
+}
    
   /* ================================
      LOCALIZE ALL LINKS
