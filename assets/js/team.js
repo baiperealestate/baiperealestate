@@ -1,41 +1,43 @@
-const lang = window.location.pathname.startsWith("/nl/") ? "nl" : "en";
-
-document.addEventListener("DOMContentLoaded", () => {
 function getCurrentLang() {
   return window.location.pathname.startsWith("/nl/") ? "nl" : "en";
 }
 
-const lang = getCurrentLang();
+document.addEventListener("DOMContentLoaded", () => {
 
-const dataFile = lang === "nl"
-  ? "/assets/data/team-nl.json"
-  : "/assets/data/team.json";
+  const lang = getCurrentLang();
 
-fetch(dataFile)
+  const dataFile = lang === "nl"
+    ? "/assets/data/team-nl.json"
+    : "/assets/data/team.json";
+
+  fetch(dataFile)
     .then(res => res.json())
     .then(team => {
+
       const grid = document.getElementById("teamGrid");
       grid.innerHTML = "";
 
       team.forEach(member => {
+
+        const isNL = window.location.pathname.startsWith("/nl/");
+
+        const url = isNL
+          ? `/nl/team-member.html?id=${member.id}`
+          : `/team-member.html?id=${member.id}`;
+
         const card = document.createElement("div");
         card.className = "team-card";
-        card.innerHTML = `
-        
-       const isNL = window.location.pathname.startsWith("/nl/");
 
-const url = isNL
-  ? `/nl/team-member.html?id=${member.id}`
-  : `/team-member.html?id=${member.id}`;
-  
+        card.innerHTML = `
+          <a href="${url}">
             <div class="team-photo">
               <img src="${member.image}" alt="${member.name}">
-<span>View Profile</span>
+              <span>${lang === "nl" ? "Bekijk profiel" : "View Profile"}</span>
             </div>
 
             <div class="team-info">
               <h3>${member.name}</h3>
-             <p class="team-role">${member.role[lang]}</p>
+              <p class="team-role">${member.role[lang]}</p>
               <p class="team-phone">${member.phone}</p>
               <p class="team-email">${member.email}</p>
             </div>
@@ -44,6 +46,7 @@ const url = isNL
 
         grid.appendChild(card);
       });
+
     })
     .catch(err => console.error("Team load error:", err));
 });
