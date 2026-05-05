@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("memberPhone").textContent = member.phone;
       document.getElementById("memberEmail").textContent = member.email;
      document.getElementById("memberStory").textContent = member.story[lang];
-      document.getElementById("memberSocial").href = member.beacons;
+      document.getElementById("memberSocial").textContent =
+  lang === "nl" ? "Bekijk Social Media" : "Visit Social Media";
     })
     .catch(() => console.error("Team member load error"));
 });
