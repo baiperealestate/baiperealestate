@@ -57,7 +57,12 @@ fetch(dataFile)
       .catch(err => {
 
         console.error("Listings error:", err);
-        listingsContainer.innerHTML = "<p>Listings coming soon.</p>";
+        
+         
+         const lang = getCurrentLang();
+        listingsContainer.innerHTML = lang === "nl"
+  ? "<p>Woningen binnenkort beschikbaar.</p>"
+  : "<p>Listings coming soon.</p>";
 
       });
 
@@ -67,7 +72,10 @@ fetch(dataFile)
 
       if (!listings || listings.length === 0) {
 
-        listingsContainer.innerHTML = "<p>No listings match your selection.</p>";
+        const lang = getCurrentLang();
+listingsContainer.innerHTML = lang === "nl"
+  ? "<p>Geen woningen gevonden.</p>"
+  : "<p>No listings match your selection.</p>";
         return;
 
       }
@@ -642,7 +650,10 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ================================
      SWITCH LANGUAGE
   ================================ */
-  function switchLanguage(lang) {
+ function getCurrentLang() {
+  return window.location.pathname.startsWith("/nl/") ? "nl" : "en";
+}
+   function switchLanguage(lang) {
 
     let currentPath = window.location.pathname;
 
@@ -660,19 +671,28 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = newUrl;
   }
 
-function getCurrentLang() {
-  return window.location.pathname.startsWith("/nl/") ? "nl" : "en";
-}
+const filtered = selected === "all"
+  ? allListings
+  : allListings.filter(item => {
 
-  const normalizedStatus = item.status.toLowerCase();
+      const type = item.propertyType?.toLowerCase() || "";
+      const status = item.status?.toLowerCase() || "";
 
-if (selected === "for rent") {
-  return normalizedStatus.includes("rent") || normalizedStatus.includes("huur");
-}
+      if (selected === "lots") {
+        return type.includes("lot") || type.includes("land");
+      }
 
-if (selected === "for sale") {
-  return normalizedStatus.includes("sale") || normalizedStatus.includes("koop");
-} 
+      if (selected === "for rent") {
+        return status.includes("rent") || status.includes("huur");
+      }
+
+      if (selected === "for sale") {
+        return status.includes("sale") || status.includes("koop");
+      }
+
+      return type.includes(selected);
+    });  
+
    
   /* ================================
      LOCALIZE ALL LINKS
