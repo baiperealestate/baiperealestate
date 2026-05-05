@@ -39,7 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let allListings = [];
 
-    fetch("assets/data/listings.json")
+const lang = getCurrentLang();
+
+const dataFile = lang === "nl"
+  ? "assets/data/listings-nl.json"
+  : "assets/data/listings.json";
+fetch(dataFile)
+   
       .then(res => res.json())
       .then(data => {
 
@@ -151,7 +157,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
 
-      const res = await fetch("assets/data/listings.json");
+const lang = getCurrentLang();
+
+const dataFile = lang === "nl"
+  ? "assets/data/listings-nl.json"
+  : "assets/data/listings.json";
+
+const res = await fetch(dataFile);
+       
       const listings = await res.json();
 
       const property = listings.find(p => p.id === propertyId);
@@ -647,6 +660,20 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = newUrl;
   }
 
+function getCurrentLang() {
+  return window.location.pathname.startsWith("/nl/") ? "nl" : "en";
+}
+
+  const normalizedStatus = item.status.toLowerCase();
+
+if (selected === "for rent") {
+  return normalizedStatus.includes("rent") || normalizedStatus.includes("huur");
+}
+
+if (selected === "for sale") {
+  return normalizedStatus.includes("sale") || normalizedStatus.includes("koop");
+} 
+   
   /* ================================
      LOCALIZE ALL LINKS
   ================================ */
