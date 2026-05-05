@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
 
           <div class="listing-content">
-            <h3>${item.title}</h3>
+           <h3>${item.title[currentLang]}</h3>
             <p class="price">${item.price}</p>
             <p class="location">${item.location}</p>
 
@@ -162,13 +162,13 @@ const res = await fetch("assets/data/listings.json");
 
       /* BASIC INFO */
 
-      document.getElementById("title").textContent = property.title;
+      document.getElementById("title").textContent = property.title[currentLang];
       document.getElementById("price").textContent = property.price;
       document.getElementById("location").textContent = property.location;
       document.getElementById("bedrooms").textContent = property.bedrooms;
       document.getElementById("bathrooms").textContent = property.bathrooms;
       document.getElementById("size").textContent = property.size;
-      document.getElementById("description").textContent = property.description;
+    document.getElementById("description").textContent = property.description[currentLang];
 
       /* FORM TRACKING */
 
@@ -187,7 +187,7 @@ const res = await fetch("assets/data/listings.json");
 
       featuresEl.innerHTML = "";
 
-      property.features.forEach(feature => {
+    property.features[currentLang].forEach(feature => {
 
         const li = document.createElement("li");
         li.textContent = feature;
@@ -206,6 +206,31 @@ const res = await fetch("assets/data/listings.json");
 
   }
 
+const translations = {
+  en: {
+    bedrooms: "Bedrooms",
+    bathrooms: "Bathrooms",
+    description: "Property Description",
+    features: "Property Features",
+    contact: "Request Information"
+  },
+  nl: {
+    bedrooms: "Slaapkamers",
+    bathrooms: "Badkamers",
+    description: "Beschrijving",
+    features: "Kenmerken",
+    contact: "Informatie aanvragen"
+  }
+};
+
+document.querySelector(".property-description h2").textContent =
+  translations[currentLang].description;   
+
+   document.querySelectorAll("#categoryFilter option").forEach(opt => {
+  opt.textContent = opt.dataset[currentLang];
+});
+
+   
   /* =====================================================
      PROPERTY GALLERY + LIGHTBOX
   ===================================================== */
@@ -607,6 +632,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const langSwitcher = document.getElementById("languageSwitcher");
   const path = window.location.pathname;
   const isNL = path.startsWith("/nl/");
+const currentLang = window.location.pathname.startsWith("/nl/") ? "nl" : "en";
 
   /* ================================
      SET DROPDOWN STATE
