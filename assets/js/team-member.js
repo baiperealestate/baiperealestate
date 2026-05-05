@@ -26,17 +26,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.getElementById("memberImage").src = member.image;
       document.getElementById("memberName").textContent = member.name;
-      document.getElementById("memberRole").textContent = member.role[lang];
+      document.getElementById("memberRole").textContent = member.role;
       document.getElementById("memberPhone").textContent = member.phone;
       document.getElementById("memberEmail").textContent = member.email;
+      document.getElementById("memberStory").textContent = member.story;
 
-      document.getElementById("memberStory").textContent =
-        member.story[lang] || "";
+      const socialBtn = document.getElementById("memberSocial");
 
-      document.getElementById("memberSocial").textContent =
-        lang === "nl" ? "Bekijk Social Media" : "Visit Social Media";
+      socialBtn.textContent = lang === "nl"
+        ? "Bekijk Social Media"
+        : "Visit Social Media";
 
-      document.getElementById("memberSocial").href = member.beacons || "#";
+      socialBtn.href = member.beacons || "#";
 
     })
     .catch(() => console.error("Team member load error"));
