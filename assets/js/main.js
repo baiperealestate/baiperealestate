@@ -657,40 +657,36 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ================================
      SWITCH LANGUAGE
   ================================ */
-   function switchLanguage(lang) {
+  function switchLanguage(lang) {
+  const url = new URL(window.location.href);
+  let path = url.pathname;
 
-    let currentPath = window.location.pathname;
+  // Remove /nl/ if exists
+  path = path.replace(/^\/nl\//, "/");
 
-    currentPath = currentPath.replace(/^\/+/, "");
-    currentPath = currentPath.replace(/^nl\//, "");
-
-    if (currentPath === "") {
-      currentPath = "index.html";
-    }
-
-    let newUrl = (lang === "nl")
-      ? "/nl/" + currentPath
-      : "/" + currentPath;
-
-    window.location.href = newUrl;
+  if (lang === "nl") {
+    path = "/nl" + (path === "/" ? "/index.html" : path);
   }
 
+  window.location.href = path + url.search;
+}
 
    
   /* ================================
      LOCALIZE ALL LINKS
   ================================ */
-  const links = document.querySelectorAll("a[href$='.html']");
+const links = document.querySelectorAll("a[href$='.html']:not([data-no-lang])");
 
-  links.forEach(link => {
-    let href = link.getAttribute("href");
+ links.forEach(link => {
+  let href = link.getAttribute("href");
 
-    // Skip external links
-    if (!href || href.startsWith("http")) return;
+  if (!href || href.startsWith("http")) return;
 
-    href = href.replace(/^\/?nl\//, "");
-    
-link.href = isNL ? "/nl/" + href : "/" + href;
-  });
+  // Skip if already correct
+  if (isNL && href.startsWith("/nl/")) return;
+  if (!isNL && !href.startsWith("/nl/") && href.startsWith("/")) return;
 
+  href = href.replace(/^\/?nl\//, "");
+
+  link.href = isNL ? "/nl/" + href : "/" + href;
 });
