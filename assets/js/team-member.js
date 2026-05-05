@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("memberRole").textContent = member.role[lang];
       document.getElementById("memberPhone").textContent = member.phone;
       document.getElementById("memberEmail").textContent = member.email;
-     document.getElementById("memberStory").textContent = member.story[lang];
+  document.getElementById("memberStory").textContent = member.story || member.about || member.description || "";;
       document.getElementById("memberSocial").textContent =
   lang === "nl" ? "Bekijk Social Media" : "Visit Social Media";
     })
