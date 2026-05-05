@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         card.className = "team-card";
         card.innerHTML = `
         
-        <a href="team-member.html?id=${member.id}" class="team-link">
+       <a href="/${window.location.pathname.startsWith("/nl/") ? "nl/" : ""}team-member.html?id=${member.id}" class="team-link">
             <div class="team-photo">
               <img src="${member.image}" alt="${member.name}">
 <span>View Profile</span>
