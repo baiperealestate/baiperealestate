@@ -180,7 +180,7 @@
   "bedrooms": 6,
   "bathrooms": 4,
   "size": "Spacious Layout",
-  "featured": true,
+  "featured": false,
 "images": [
   "assets/images/listings/bluebayvilla-1.jpg",
   "assets/images/listings/bluebayvilla-2.jpg",
