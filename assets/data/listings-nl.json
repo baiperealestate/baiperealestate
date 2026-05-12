@@ -72,53 +72,7 @@
       "Rustige woonwijk, nabij hoofdweg, stranden en luchthaven"
     ]
   },
-  {
-    "id": "upper-apartment-rent-juandomingo-mahuma-004",
-    "title": "Te huur – Bovenwoning met 2 slaapkamers – Juan Domingo / Mahuma, Curaçao",
-    "price": "XCG 1.500",
-    "status": "For Rent",
-    "propertyType": "residential",
-    "location": "Juan Domingo nabij Mahuma, Curaçao",
-    "bedrooms": 2,
-    "bathrooms": 1,
-    "size": "Ruime indeling",
-    "featured": false,
-    "images": [
-      "/assets/images/listings/upper-juandomingo-1.jpg",
-      "/assets/images/listings/upper-juandomingo-2.jpg",
-      "/assets/images/listings/upper-juandomingo-3.jpg",
-      "/assets/images/listings/upper-juandomingo-4.jpg",
-      "/assets/images/listings/upper-juandomingo-5.jpg",
-      "/assets/images/listings/upper-juandomingo-6.jpg"
-    ],
-    "description": "Ruim appartement op de bovenverdieping te huur in Juan Domingo / Mahuma, Curaçao. Centraal gelegen nabij de luchthaven, supermarkten, tankstations, universiteit en op loopafstand van een minimarket. Het appartement beschikt over twee slaapkamers, één badkamer, een open woonkamer, open keuken en een balkon met aangename natuurlijke ventilatie. Verder zijn er een eigen watermeter, prepaid elektriciteitsmeter, privé parkeergelegenheid en een eigen droogruimte aanwezig. Beschikbaar per 1 juli. Neem contact op met Bai Pe Real Estate voor meer informatie of het plannen van een bezichtiging.",
-    "features": [
-      "Gelegen op de bovenverdieping",
-      "2 ruime slaapkamers",
-      "1 badkamer",
-      "Open woonkamer",
-      "Open keuken",
-      "Privé balkon",
-      "Natuurlijke ventilatie",
-      "Privé parkeergelegenheid",
-      "Eigen watermeter",
-      "Prepaid elektriciteitsmeter",
-      "Eigen droogruimte",
-      "Nabij luchthaven",
-      "Nabij supermarkten",
-      "Nabij tankstations",
-      "Nabij universiteit",
-      "Loopafstand tot minimarket",
-      "Beschikbaar per 1 juli",
-      "Alleen geschikt voor volwassenen (18+)",
-      "Geen kinderen toegestaan",
-      "Huisdieren niet toegestaan",
-      "Borg vereist",
-      "Identificatie verplicht",
-      "Minimale huurperiode: 1 jaar",
-      "Vast inkomen vereist"
-    ]
-  },
+
   {
     "id": "groundfloor-apartment-rent-juandomingo-mahuma-005",
     "title": "Te huur – Appartement op de begane grond met 2 slaapkamers – Juan Domingo / Mahuma, Curaçao",
