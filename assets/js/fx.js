@@ -9,7 +9,7 @@ const exchangeRates = {
 };
 
 let currentCurrency =
-  localStorage.getItem("baipe_currency") || "USD";
+  localStorage.getItem("currency") || "USD";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -39,17 +39,16 @@ document.addEventListener("DOMContentLoaded", () => {
     currencySwitcher
   );
 
-  currencySwitcher.addEventListener("change", () => {
+currencySwitcher.addEventListener("change", () => {
 
-    currentCurrency = currencySwitcher.value;
+  currentCurrency = currencySwitcher.value;
 
-    localStorage.setItem(
-      "baipe_currency",
-      currentCurrency
-    );
+localStorage.setItem(
+  "currency",
+  currentCurrency
+);
 
-    location.reload();
-  });
+  updatePrices();
 
 });
 
@@ -86,4 +85,28 @@ function formatPrice(priceXCG) {
   return `XCG ${converted.toLocaleString("en-US", {
     maximumFractionDigits: 0
   })}`;
+}
+
+
+// ========================================
+// UPDATE ALL PRICES
+// ========================================
+
+function updatePrices() {
+
+  document.querySelectorAll("[data-price]")
+    .forEach(el => {
+
+      const originalPrice =
+        Number(el.dataset.price);
+
+      if (!isNaN(originalPrice)) {
+
+        el.textContent =
+          formatPrice(originalPrice);
+
+      }
+
+    });
+
 }
