@@ -202,13 +202,14 @@ maxPrice = Math.min(8000000, maxPrice);
     /* LOCATION */
 
     const locationMatch =
-      location.includes(locationValue);
+  !locationValue || location.includes(locationValue);
 
     /* KEYWORD */
 
-    const keywordMatch =
-      title.includes(keywordValue) ||
-      reference.includes(keywordValue);
+  const keywordMatch =
+  !keywordValue ||
+  title.includes(keywordValue) ||
+  reference.includes(keywordValue);
 
     return (
       categoryMatch &&
@@ -235,16 +236,7 @@ if (searchBtn) {
   searchBtn.addEventListener("click", filterListings);
 }
 
-/* LIVE FILTERING */
 
-[priceMinInput, priceMaxInput, locationSearch, keywordSearch]
-.forEach(input => {
-
-  if (!input) return;
-
-  input.addEventListener("input", filterListings);
-
-});
 
   }
 
