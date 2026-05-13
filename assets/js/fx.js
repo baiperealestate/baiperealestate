@@ -53,13 +53,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-function formatPrice(priceUSD) {
+function formatPrice(priceXCG) {
 
-  if (!priceUSD || isNaN(priceUSD)) return "";
+  if (!priceXCG || isNaN(priceXCG)) return "";
 
   const converted =
-    priceUSD * exchangeRates[currentCurrency];
+    priceXCG * exchangeRates[currentCurrency];
 
+  // USD
   if (currentCurrency === "USD") {
 
     return new Intl.NumberFormat("en-US", {
@@ -70,6 +71,7 @@ function formatPrice(priceUSD) {
 
   }
 
+  // EUR
   if (currentCurrency === "EUR") {
 
     return new Intl.NumberFormat("nl-NL", {
@@ -80,6 +82,7 @@ function formatPrice(priceUSD) {
 
   }
 
+  // XCG
   return `XCG ${converted.toLocaleString("en-US", {
     maximumFractionDigits: 0
   })}`;
