@@ -8,9 +8,9 @@ const exchangeRates = {
   EUR: 0.52
 };
 
-// Saved currency
+// Default currency = XCG
 let currentCurrency =
-  localStorage.getItem("currency") || "USD";
+  localStorage.getItem("currency") || "XCG";
 
 // ========================================
 // FORMAT PRICE
@@ -24,6 +24,17 @@ function formatPrice(priceXCG) {
 
   const converted =
     priceXCG * exchangeRates[currentCurrency];
+
+  // USD
+  if (currentCurrency === "USD") {
+
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 0
+    }).format(converted);
+
+  }
 
   // EUR
   if (currentCurrency === "EUR") {
@@ -79,20 +90,18 @@ function updatePricePlaceholders() {
 
   if (!minInput || !maxInput) return;
 
-  minInput.placeholder =
+  const currencyLabel =
     currentCurrency === "USD"
-      ? "Min USD"
+      ? "USD"
       : currentCurrency === "EUR"
-      ? "Min EUR"
-      : "Min XCG";
+      ? "EUR"
+      : "XCG";
+
+  minInput.placeholder =
+    `Min ${currencyLabel}`;
 
   maxInput.placeholder =
-    currentCurrency === "USD"
-      ? "Max USD"
-      : currentCurrency === "EUR"
-      ? "Max EUR"
-      : "Max XCG";
-
+    `Max ${currencyLabel}`;
 }
 
 // ========================================
@@ -128,9 +137,9 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePrices();
     updatePricePlaceholders();
 
-    // Refresh filters immediately
-    if (typeof filterListings === "function") {
-      filterListings();
+    // Refresh listing filters
+    if (window.filterListings) {
+      window.filterListings();
     }
 
   });
