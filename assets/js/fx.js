@@ -110,3 +110,30 @@ document.addEventListener("DOMContentLoaded", () => {
   updatePrices();
 
 });
+
+
+function updatePricePlaceholders() {
+
+  const minInput =
+    document.getElementById("priceMin");
+
+  const maxInput =
+    document.getElementById("priceMax");
+
+  if (!minInput || !maxInput) return;
+
+  minInput.placeholder =
+    currentCurrency === "USD"
+      ? "Min USD"
+      : currentCurrency === "EUR"
+      ? "Min EUR"
+      : "Min XCG";
+
+  maxInput.placeholder =
+    currentCurrency === "USD"
+      ? "Max USD"
+      : currentCurrency === "EUR"
+      ? "Max EUR"
+      : "Max XCG";
+
+}
