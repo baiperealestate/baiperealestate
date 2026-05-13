@@ -207,10 +207,10 @@ maxPrice = Math.min(8000000, maxPrice);
 
     /* KEYWORD */
 
-  const keywordMatch =
+const keywordMatch =
   !keywordValue ||
-  title.includes(keywordValue) ||
-  reference.includes(keywordValue);
+  normalizeText(title).includes(normalizeText(keywordValue)) ||
+  normalizeText(reference).includes(normalizeText(keywordValue));
 
     return (
       categoryMatch &&
@@ -245,6 +245,13 @@ function normalizeText(str) {
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, ""); // remove accents
 }
+
+    document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    filterListings();
+  }
+});
+    
   }
 
   /* =====================================================
