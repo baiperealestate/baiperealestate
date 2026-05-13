@@ -131,8 +131,15 @@ function filterListings() {
 
   const selectedCategory = categoryFilter?.value.toLowerCase() || "all";
 
-  const minPrice = Number(priceMinInput?.value) || 0;
-  const maxPrice = Number(priceMaxInput?.value) || Infinity;
+const minPrice = Math.max(
+  0,
+  Number(priceMinInput?.value) || 0
+);
+
+const maxPrice = Math.min(
+  8000000,
+  Number(priceMaxInput?.value) || 8000000
+);
 
   const locationValue = locationSearch?.value.toLowerCase().trim() || "";
   const keywordValue = keywordSearch?.value.toLowerCase().trim() || "";
