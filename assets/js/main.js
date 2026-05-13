@@ -201,8 +201,9 @@ maxPrice = Math.min(8000000, maxPrice);
 
     /* LOCATION */
 
-    const locationMatch =
-  !locationValue || location.includes(locationValue);
+   const locationMatch =
+  !locationValue ||
+  normalizeText(location).includes(normalizeText(locationValue));
 
     /* KEYWORD */
 
@@ -235,9 +236,15 @@ if (categoryFilter) {
 if (searchBtn) {
   searchBtn.addEventListener("click", filterListings);
 }
-
-
-
+    
+function normalizeText(str) {
+  return (str || "")
+    .toLowerCase()
+    .replace(/\s+/g, "")   // remove spaces
+    .replace(/,/g, "")     // remove commas
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, ""); // remove accents
+}
   }
 
   /* =====================================================
