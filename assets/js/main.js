@@ -174,9 +174,15 @@ document.addEventListener("DOMContentLoaded", () => {
         minPrice = 0;
       }
 
-      if (isNaN(maxPrice)) {
-        maxPrice = 8000000;
-      }
+     if (isNaN(maxPrice)) {
+
+  maxPrice =
+    currentCurrency === "USD"
+      ? 8000000 * exchangeRates.USD
+      : currentCurrency === "EUR"
+      ? 8000000 * exchangeRates.EUR
+      : 8000000;
+}
 
       minPrice = Math.max(0, minPrice);
       maxPrice = Math.min(8000000, maxPrice);
@@ -195,8 +201,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const status =
           item.status?.toLowerCase() || "";
 
-        const price =
-          Number(item.price) || 0;
+        const priceXCG =
+  Number(item.price) || 0;
+
+        const convertedPrice =
+  priceXCG * exchangeRates[currentCurrency];
 
         const title =
           item.title?.toLowerCase() || "";
@@ -228,10 +237,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         /* PRICE */
-
-        const priceMatch =
-          price >= minPrice &&
-          price <= maxPrice;
+        
+const priceMatch =
+  convertedPrice >= minPrice &&
+  convertedPrice <= maxPrice;
 
         /* LOCATION */
 
@@ -348,6 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       priceEl.textContent =
         formatPrice(Number(property.price));
+      updatePrices();
 
       document.getElementById("location").textContent =
         property.location;
