@@ -158,166 +158,135 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    /* =====================================================
-       FILTER LISTINGS
-    ===================================================== */
+   // ========================================
+// FILTER LISTINGS
+// ========================================
 
-    function filterListings() {
+window.filterListings = function () {
 
-      const selectedCategory =
-        categoryFilter?.value.toLowerCase() || "all";
+  const selectedCategory =
+    categoryFilter?.value.toLowerCase() || "all";
 
-      let minPrice = Number(priceMinInput?.value);
-      let maxPrice = Number(priceMaxInput?.value);
+  let minPrice =
+    Number(priceMinInput?.value);
 
-      if (isNaN(minPrice)) {
-        minPrice = 0;
+  let maxPrice =
+    Number(priceMaxInput?.value);
+
+  if (isNaN(minPrice)) {
+    minPrice = 0;
+  }
+
+  if (isNaN(maxPrice)) {
+    maxPrice = 8000000;
+  }
+
+  // Limit values
+  minPrice = Math.max(0, minPrice);
+  maxPrice = Math.min(8000000, maxPrice);
+
+  const locationValue =
+    locationSearch?.value.toLowerCase().trim() || "";
+
+  const keywordValue =
+    keywordSearch?.value.toLowerCase().trim() || "";
+
+  const filtered = allListings.filter(item => {
+
+    const type =
+      item.propertyType?.toLowerCase() || "";
+
+    const status =
+      item.status?.toLowerCase() || "";
+
+    const priceXCG =
+      Number(item.price) || 0;
+
+    // Convert price to selected currency
+    const convertedPrice =
+      priceXCG * exchangeRates[currentCurrency];
+
+    const title =
+      item.title?.toLowerCase() || "";
+
+    const location =
+      item.location?.toLowerCase() || "";
+
+    const description =
+      item.description?.toLowerCase() || "";
+
+    const reference =
+      item.reference?.toLowerCase() || "";
+
+    // =====================================
+    // CATEGORY FILTER
+    // =====================================
+
+    let categoryMatch = true;
+
+    if (selectedCategory !== "all") {
+
+      if (selectedCategory === "lots") {
+
+        categoryMatch =
+          type === "lots" ||
+          type === "land";
+
+      } else {
+
+        categoryMatch =
+          status === selectedCategory ||
+          type === selectedCategory;
+
       }
 
-     if (isNaN(maxPrice)) {
-
-if (isNaN(maxPrice)) {
-  maxPrice = Infinity;
-}
-
-      minPrice = Math.max(0, minPrice);
-      maxPrice = Math.min(8000000, maxPrice);
-
-      const locationValue =
-        locationSearch?.value.toLowerCase().trim() || "";
-
-      const keywordValue =
-        keywordSearch?.value.toLowerCase().trim() || "";
-
-      const filtered = allListings.filter(item => {
-
-        const type =
-          item.propertyType?.toLowerCase() || "";
-
-        const status =
-          item.status?.toLowerCase() || "";
-
-        const priceXCG =
-  Number(item.price) || 0;
-
-        const convertedPrice =
-  priceXCG * exchangeRates[currentCurrency];
-
-        const title =
-          item.title?.toLowerCase() || "";
-
-        const location =
-          item.location?.toLowerCase() || "";
-
-        const reference =
-          item.reference?.toLowerCase() || "";
-
-        /* CATEGORY */
-
-        let categoryMatch = true;
-
-        if (selectedCategory !== "all") {
-
-          if (selectedCategory === "lots") {
-
-            categoryMatch =
-              type === "lots" ||
-              type === "land";
-
-          } else {
-
-            categoryMatch =
-              status === selectedCategory ||
-              type === selectedCategory;
-          }
-        }
-
-        /* PRICE */
-        
-const priceMatch =
-  convertedPrice >= minPrice &&
-  convertedPrice <= maxPrice;
-
-        /* LOCATION */
-
-       const cleanLocation =
-  location.replace(/[\s,-]+/g, "");
-
-const cleanSearch =
-  locationValue.replace(/[\s,-]+/g, "");
-
-const locationMatch =
-  !locationValue ||
-  cleanLocation.includes(cleanSearch);
-
-        /* KEYWORD */
-
-   const description =
-  item.description?.toLowerCase() || "";
-
-const keywordMatch =
-  !keywordValue ||
-  title.includes(keywordValue) ||
-  reference.includes(keywordValue) ||
-  location.includes(keywordValue) ||
-  description.includes(keywordValue);
-
-        return (
-          categoryMatch &&
-          priceMatch &&
-          locationMatch &&
-          keywordMatch
-        );
-      });
-
-      renderListings(filtered);
     }
 
-    /* CATEGORY FILTER */
+    // =====================================
+    // PRICE FILTER
+    // =====================================
 
-    if (categoryFilter) {
+    const priceMatch =
+      convertedPrice >= minPrice &&
+      convertedPrice <= maxPrice;
 
-      categoryFilter.addEventListener(
-        "change",
-        filterListings
-      );
-    }
+    // =====================================
+    // LOCATION FILTER
+    // =====================================
 
-    /* SEARCH BUTTON */
+    const cleanLocation =
+      location.replace(/[\s,-]+/g, "");
 
-    if (searchBtn) {
+    const cleanSearch =
+      locationValue.replace(/[\s,-]+/g, "");
 
-      searchBtn.addEventListener(
-        "click",
-        filterListings
-      );
-    }
+    const locationMatch =
+      !locationValue ||
+      cleanLocation.includes(cleanSearch);
 
-    /* LIVE FILTERING */
+    // =====================================
+    // KEYWORD FILTER
+    // =====================================
 
-    [
-      priceMinInput,
-      priceMaxInput,
-      locationSearch,
-      keywordSearch
-    ].forEach(input => {
+    const keywordMatch =
+      !keywordValue ||
+      title.includes(keywordValue) ||
+      description.includes(keywordValue) ||
+      location.includes(keywordValue) ||
+      reference.includes(keywordValue);
 
-      if (!input) return;
+    return (
+      categoryMatch &&
+      priceMatch &&
+      locationMatch &&
+      keywordMatch
+    );
 
-      input.addEventListener("input", filterListings);
+  });
 
-    });
-    
-document.addEventListener("keydown", e => {
+  renderListings(filtered);
 
-  if (e.key === "Enter") {
-    filterListings();
-  }
-
-});
-
-    }
-  }
+};
   /* =====================================================
      PROPERTY PAGE
   ===================================================== */
