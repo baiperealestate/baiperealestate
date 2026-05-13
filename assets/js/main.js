@@ -287,6 +287,56 @@ window.filterListings = function () {
   renderListings(filtered);
 
 };
+
+  /* CATEGORY FILTER */
+
+if (categoryFilter) {
+
+  categoryFilter.addEventListener(
+    "change",
+    window.filterListings
+  );
+}
+
+/* SEARCH BUTTON */
+
+if (searchBtn) {
+
+  searchBtn.addEventListener(
+    "click",
+    window.filterListings
+  );
+}
+
+/* LIVE FILTERING */
+
+[
+  priceMinInput,
+  priceMaxInput,
+  locationSearch,
+  keywordSearch
+].forEach(input => {
+
+  if (!input) return;
+
+  input.addEventListener(
+    "input",
+    window.filterListings
+  );
+
+});
+
+/* ENTER KEY */
+
+document.addEventListener("keydown", e => {
+
+  if (e.key === "Enter") {
+    window.filterListings();
+  }
+
+});
+
+} // ← VERY IMPORTANT  
   /* =====================================================
      PROPERTY PAGE
   ===================================================== */
@@ -1009,15 +1059,3 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/* =====================================================
-   PRICE FORMATTER
-===================================================== */
-
-function formatPrice(price) {
-
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0
-  }).format(price);
-}
