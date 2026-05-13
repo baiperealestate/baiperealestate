@@ -1,5 +1,7 @@
 function getCurrentLang() {
-  return window.location.pathname.startsWith("/nl/") ? "nl" : "en";
+  return window.location.pathname.startsWith("/nl/")
+    ? "nl"
+    : "en";
 }
 
 /* =====================================================
@@ -168,8 +170,13 @@ document.addEventListener("DOMContentLoaded", () => {
       let minPrice = Number(priceMinInput?.value);
       let maxPrice = Number(priceMaxInput?.value);
 
-      if (isNaN(minPrice)) minPrice = 0;
-      if (isNaN(maxPrice)) maxPrice = 8000000;
+      if (isNaN(minPrice)) {
+        minPrice = 0;
+      }
+
+      if (isNaN(maxPrice)) {
+        maxPrice = 8000000;
+      }
 
       minPrice = Math.max(0, minPrice);
       maxPrice = Math.min(8000000, maxPrice);
@@ -253,6 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* CATEGORY FILTER */
 
     if (categoryFilter) {
+
       categoryFilter.addEventListener(
         "change",
         filterListings
@@ -262,6 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* SEARCH BUTTON */
 
     if (searchBtn) {
+
       searchBtn.addEventListener(
         "click",
         filterListings
@@ -454,7 +463,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     showImage(0);
 
-    /* SLIDER */
+    /* NEXT IMAGE */
 
     if (nextBtn) {
 
@@ -466,6 +475,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       });
     }
+
+    /* PREVIOUS IMAGE */
 
     if (prevBtn) {
 
@@ -506,7 +517,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    /* LIGHTBOX NAVIGATION */
+    /* LIGHTBOX NEXT */
 
     if (lightNext) {
 
@@ -518,6 +529,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       });
     }
+
+    /* LIGHTBOX PREVIOUS */
 
     if (lightPrev) {
 
@@ -531,7 +544,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    /* ZOOM */
+    /* ZOOM IN */
 
     if (zoomIn) {
 
@@ -544,6 +557,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       });
     }
+
+    /* ZOOM OUT */
 
     if (zoomOut) {
 
@@ -591,7 +606,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      /* DESKTOP WHEEL ZOOM */
+      /* SCROLL WHEEL ZOOM */
 
       lightboxImg.addEventListener("wheel", e => {
 
@@ -619,7 +634,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         scale = 1;
 
-        lightboxImg.style.transform = "scale(1)";
+        lightboxImg.style.transform =
+          "scale(1)";
 
       });
 
@@ -911,15 +927,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const langSwitcher =
     document.getElementById("languageSwitcher");
 
-  const path = window.location.pathname;
+  const path =
+    window.location.pathname;
 
-  const isNL = path.startsWith("/nl/");
+  const isNL =
+    path.startsWith("/nl/");
 
   /* SET DROPDOWN STATE */
 
   if (langSwitcher) {
 
-    langSwitcher.value = isNL ? "nl" : "en";
+    langSwitcher.value =
+      isNL ? "nl" : "en";
 
     const savedLang =
       localStorage.getItem("lang");
@@ -973,7 +992,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = newUrl;
   }
 
-  /* LOCALIZE ALL LINKS */
+  /* LOCALIZE INTERNAL LINKS */
 
   const links =
     document.querySelectorAll("a[href$='.html']");
@@ -985,7 +1004,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!href || href.startsWith("http")) return;
 
-    href = href.replace(/^\/?nl\//, "");
+    href =
+      href.replace(/^\/?nl\//, "");
 
     link.href = isNL
       ? "/nl/" + href
