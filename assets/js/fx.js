@@ -25,17 +25,6 @@ function formatPrice(priceXCG) {
   const converted =
     priceXCG * exchangeRates[currentCurrency];
 
-  // USD
-  if (currentCurrency === "USD") {
-
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      maximumFractionDigits: 0
-    }).format(converted);
-
-  }
-
   // EUR
   if (currentCurrency === "EUR") {
 
