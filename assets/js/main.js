@@ -8,23 +8,6 @@ function getCurrentLang() {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-
-  const currencySwitcher = document.getElementById("currencySwitcher");
-
-if (currencySwitcher) {
-
-  currencySwitcher.value = getSavedCurrency();
-
-  currencySwitcher.addEventListener("change", function () {
-
-    localStorage.setItem("currency", this.value);
-
-    location.reload();
-
-  });
-
-}
-
   /* =====================================================
      MOBILE NAVIGATION
   ===================================================== */
@@ -117,8 +100,8 @@ card.innerHTML = `
 
           <div class="listing-content">
             <h3>${item.title}</h3>
-            <p class="price">
-  ${formatPrice(item.price, getSavedCurrency())}
+  <p class="price">
+  ${formatPrice(Number(item.price))}
 </p>
             <p class="location">${item.location}</p>
 
@@ -206,7 +189,7 @@ const res = await fetch(dataFile);
       /* BASIC INFO */
 
       document.getElementById("title").textContent = property.title;
-      document.getElementById("price").textContent = formatPrice(property.price, getSavedCurrency());
+     document.getElementById("price").textContent = formatPrice(Number(property.price));
       document.getElementById("location").textContent = property.location;
       document.getElementById("bedrooms").textContent = property.bedrooms;
       document.getElementById("bathrooms").textContent = property.bathrooms;
@@ -711,41 +694,3 @@ link.href = isNL ? "/nl/" + href : "/" + href;
 
 });
 
-/* =====================================================
-   CURRENCY SYSTEM
-===================================================== */
-
-const exchangeRates = {
-  XCG: 1,
-  ANG: 1,
-  USD: 0.56,
-  EUR: 0.52
-};
-
-function formatPrice(priceString, currency = "XCG") {
-
-  if (!priceString) return "";
-
-  // Extract numbers only
-  const numeric = parseFloat(
-    priceString.replace(/[^\d]/g, "")
-  );
-
-  if (isNaN(numeric)) return priceString;
-
-  const converted = numeric * exchangeRates[currency];
-
-  return new Intl.NumberFormat(
-    currency === "EUR" ? "nl-NL" : "en-US",
-    {
-      style: "currency",
-      currency: currency,
-      maximumFractionDigits: 0
-    }
-  ).format(converted);
-
-}
-
-function getSavedCurrency() {
-  return localStorage.getItem("currency") || "XCG";
-}
