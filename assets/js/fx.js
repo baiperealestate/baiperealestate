@@ -4,7 +4,6 @@ function getCurrentLang() {
 
 /* =====================================================
    BAI PE REAL ESTATE – MAIN JS
-   Clean Professional Structure
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,16 +16,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".nav-links");
 
   if (hamburger && nav) {
+
     hamburger.addEventListener("click", () => {
       nav.classList.toggle("active");
       hamburger.classList.toggle("active");
     });
 
     document.querySelectorAll(".nav-links a").forEach(link => {
+
       link.addEventListener("click", () => {
         nav.classList.remove("active");
         hamburger.classList.remove("active");
       });
+
     });
   }
 
@@ -56,10 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(dataFile)
       .then(res => res.json())
       .then(data => {
+
         allListings = data;
         renderListings(allListings);
+
       })
       .catch(err => {
+
         console.error("Listings error:", err);
 
         listingsContainer.innerHTML =
@@ -67,6 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
             ? "<p>Advertenties volgen binnenkort.</p>"
             : "<p>Listings coming soon.</p>";
       });
+
+    /* =====================================================
+       RENDER LISTINGS
+    ===================================================== */
 
     function renderListings(listings) {
 
@@ -85,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
       listings.forEach(item => {
 
         const card = document.createElement("article");
+
         card.className = "listing-card hide";
 
         const imgSrc =
@@ -94,14 +104,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.innerHTML = `
           <div class="listing-image">
-            <img src="${imgSrc}" alt="${item.title}" loading="lazy">
 
-            ${item.featured
-              ? `<span class="badge">Featured</span>`
-              : ""}
+            <img
+              src="${imgSrc}"
+              alt="${item.title}"
+              loading="lazy"
+            >
+
+            ${
+              item.featured
+                ? `<span class="badge">Featured</span>`
+                : ""
+            }
+
           </div>
 
           <div class="listing-content">
+
             <h3>${item.title}</h3>
 
             <p class="price" data-price="${Number(item.price)}">
@@ -111,12 +130,20 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="location">${item.location}</p>
 
             <div class="cta">
-              <a href="/${getCurrentLang() === "nl" ? "nl/" : ""}property.html?id=${item.id}" class="btn">
-                ${getCurrentLang() === "nl"
-                  ? "Bekijk details"
-                  : "View Details"}
+
+              <a
+                href="/${getCurrentLang() === "nl" ? "nl/" : ""}property.html?id=${item.id}"
+                class="btn"
+              >
+                ${
+                  getCurrentLang() === "nl"
+                    ? "Bekijk details"
+                    : "View Details"
+                }
               </a>
+
             </div>
+
           </div>
         `;
 
@@ -125,8 +152,13 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           card.classList.remove("hide");
         }, 20);
+
       });
     }
+
+    /* =====================================================
+       FILTER LISTINGS
+    ===================================================== */
 
     function filterListings() {
 
@@ -150,32 +182,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const filtered = allListings.filter(item => {
 
-        const type = item.propertyType?.toLowerCase() || "";
-        const status = item.status?.toLowerCase() || "";
-        const price = Number(item.price) || 0;
-        const title = item.title?.toLowerCase() || "";
-        const location = item.location?.toLowerCase() || "";
-        const reference = item.reference?.toLowerCase() || "";
+        const type =
+          item.propertyType?.toLowerCase() || "";
+
+        const status =
+          item.status?.toLowerCase() || "";
+
+        const price =
+          Number(item.price) || 0;
+
+        const title =
+          item.title?.toLowerCase() || "";
+
+        const location =
+          item.location?.toLowerCase() || "";
+
+        const reference =
+          item.reference?.toLowerCase() || "";
+
+        /* CATEGORY */
 
         let categoryMatch = true;
 
         if (selectedCategory !== "all") {
 
           if (selectedCategory === "lots") {
+
             categoryMatch =
-              type === "lots" || type === "land";
+              type === "lots" ||
+              type === "land";
+
           } else {
+
             categoryMatch =
               status === selectedCategory ||
               type === selectedCategory;
           }
         }
 
+        /* PRICE */
+
         const priceMatch =
-          price >= minPrice && price <= maxPrice;
+          price >= minPrice &&
+          price <= maxPrice;
+
+        /* LOCATION */
 
         const locationMatch =
-          !locationValue || location.includes(locationValue);
+          !locationValue ||
+          location.includes(locationValue);
+
+        /* KEYWORD */
 
         const keywordMatch =
           !keywordValue ||
@@ -193,21 +250,49 @@ document.addEventListener("DOMContentLoaded", () => {
       renderListings(filtered);
     }
 
+    /* CATEGORY FILTER */
+
     if (categoryFilter) {
-      categoryFilter.addEventListener("change", filterListings);
+      categoryFilter.addEventListener(
+        "change",
+        filterListings
+      );
     }
 
+    /* SEARCH BUTTON */
+
     if (searchBtn) {
-      searchBtn.addEventListener("click", filterListings);
+      searchBtn.addEventListener(
+        "click",
+        filterListings
+      );
     }
+
+    /* LIVE FILTERING */
+
+    [
+      priceMinInput,
+      priceMaxInput,
+      locationSearch,
+      keywordSearch
+    ].forEach(input => {
+
+      if (!input) return;
+
+      input.addEventListener("input", filterListings);
+
+    });
   }
 
   /* =====================================================
      PROPERTY PAGE
   ===================================================== */
 
-  const imageEl = document.getElementById("propertyImage");
-  const featuresEl = document.getElementById("features");
+  const imageEl =
+    document.getElementById("propertyImage");
+
+  const featuresEl =
+    document.getElementById("features");
 
   if (imageEl && featuresEl) {
     loadProperty();
@@ -215,7 +300,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function loadProperty() {
 
-    const params = new URLSearchParams(window.location.search);
+    const params =
+      new URLSearchParams(window.location.search);
+
     const propertyId = params.get("id");
 
     if (!propertyId) return;
@@ -230,6 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
           : "/assets/data/listings.json";
 
       const res = await fetch(dataFile);
+
       const listings = await res.json();
 
       const property = listings.find(
@@ -238,13 +326,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!property) return;
 
+      /* BASIC INFO */
+
       document.getElementById("title").textContent =
         property.title;
 
-      const priceEl = document.getElementById("price");
+      const priceEl =
+        document.getElementById("price");
 
-      priceEl.dataset.price = Number(property.price);
-      priceEl.textContent = formatPrice(Number(property.price));
+      priceEl.dataset.price =
+        Number(property.price);
+
+      priceEl.textContent =
+        formatPrice(Number(property.price));
 
       document.getElementById("location").textContent =
         property.location;
@@ -261,6 +355,8 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("description").textContent =
         property.description;
 
+      /* FORM TRACKING */
+
       const propertyField =
         document.getElementById("propertyField");
 
@@ -268,27 +364,35 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("propertyUrl");
 
       if (propertyField) {
-        propertyField.value = `${property.title} | ${property.price} | ${property.location}`;
+
+        propertyField.value =
+          `${property.title} | ${property.price} | ${property.location}`;
       }
 
       if (propertyUrl) {
         propertyUrl.value = window.location.href;
       }
 
+      /* FEATURES */
+
       featuresEl.innerHTML = "";
 
       property.features.forEach(feature => {
 
         const li = document.createElement("li");
+
         li.textContent = feature;
 
         featuresEl.appendChild(li);
+
       });
 
       initGallery(property.images);
 
     } catch (err) {
+
       console.error("Property page error:", err);
+
     }
   }
 
@@ -300,20 +404,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!images || images.length === 0) return;
 
-    const imageEl = document.getElementById("propertyImage");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightboxImage");
+    const imageEl =
+      document.getElementById("propertyImage");
 
-    const nextBtn = document.querySelector(".slider-btn.next");
-    const prevBtn = document.querySelector(".slider-btn.prev");
+    const lightbox =
+      document.getElementById("lightbox");
 
-    const lightNext = document.querySelector(".lightbox-arrow.next");
-    const lightPrev = document.querySelector(".lightbox-arrow.prev");
+    const lightboxImg =
+      document.getElementById("lightboxImage");
 
-    const closeBtn = document.querySelector(".lightbox-close");
+    const nextBtn =
+      document.querySelector(".slider-btn.next");
 
-    const zoomIn = document.getElementById("zoomIn");
-    const zoomOut = document.getElementById("zoomOut");
+    const prevBtn =
+      document.querySelector(".slider-btn.prev");
+
+    const lightNext =
+      document.querySelector(".lightbox-arrow.next");
+
+    const lightPrev =
+      document.querySelector(".lightbox-arrow.prev");
+
+    const closeBtn =
+      document.querySelector(".lightbox-close");
+
+    const zoomIn =
+      document.getElementById("zoomIn");
+
+    const zoomOut =
+      document.getElementById("zoomOut");
 
     let currentIndex = 0;
     let scale = 1;
@@ -335,19 +454,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     showImage(0);
 
+    /* SLIDER */
+
     if (nextBtn) {
+
       nextBtn.addEventListener("click", () => {
-        showImage((currentIndex + 1) % images.length);
+
+        showImage(
+          (currentIndex + 1) % images.length
+        );
+
       });
     }
 
     if (prevBtn) {
+
       prevBtn.addEventListener("click", () => {
+
         showImage(
-          (currentIndex - 1 + images.length) % images.length
+          (currentIndex - 1 + images.length) %
+          images.length
         );
+
       });
     }
+
+    /* OPEN LIGHTBOX */
 
     if (imageEl && lightbox) {
 
@@ -358,71 +490,108 @@ document.addEventListener("DOMContentLoaded", () => {
         lightboxImg.src = images[currentIndex];
 
         scale = 1;
+
         lightboxImg.style.transform = "scale(1)";
       });
     }
 
+    /* CLOSE LIGHTBOX */
+
     if (closeBtn && lightbox) {
 
       closeBtn.addEventListener("click", () => {
+
         lightbox.classList.remove("active");
+
       });
     }
 
+    /* LIGHTBOX NAVIGATION */
+
     if (lightNext) {
+
       lightNext.addEventListener("click", () => {
-        showImage((currentIndex + 1) % images.length);
+
+        showImage(
+          (currentIndex + 1) % images.length
+        );
+
       });
     }
 
     if (lightPrev) {
+
       lightPrev.addEventListener("click", () => {
+
         showImage(
-          (currentIndex - 1 + images.length) % images.length
+          (currentIndex - 1 + images.length) %
+          images.length
         );
+
       });
     }
 
+    /* ZOOM */
+
     if (zoomIn) {
+
       zoomIn.addEventListener("click", () => {
 
         scale += 0.2;
 
-        lightboxImg.style.transform = `scale(${scale})`;
+        lightboxImg.style.transform =
+          `scale(${scale})`;
+
       });
     }
 
     if (zoomOut) {
+
       zoomOut.addEventListener("click", () => {
 
         scale = Math.max(1, scale - 0.2);
 
-        lightboxImg.style.transform = `scale(${scale})`;
+        lightboxImg.style.transform =
+          `scale(${scale})`;
+
       });
     }
+
+    /* MOBILE SWIPE */
 
     if (lightbox) {
 
       let startX = 0;
 
       lightbox.addEventListener("touchstart", e => {
-        startX = e.changedTouches[0].screenX;
+
+        startX =
+          e.changedTouches[0].screenX;
+
       });
 
       lightbox.addEventListener("touchend", e => {
 
-        const endX = e.changedTouches[0].screenX;
+        const endX =
+          e.changedTouches[0].screenX;
 
         if (startX - endX > 50) {
-          showImage((currentIndex + 1) % images.length);
+
+          showImage(
+            (currentIndex + 1) % images.length
+          );
         }
 
         if (endX - startX > 50) {
+
           showImage(
-            (currentIndex - 1 + images.length) % images.length
+            (currentIndex - 1 + images.length) %
+            images.length
           );
         }
       });
+
+      /* DESKTOP WHEEL ZOOM */
 
       lightboxImg.addEventListener("wheel", e => {
 
@@ -434,17 +603,27 @@ document.addEventListener("DOMContentLoaded", () => {
           scale -= 0.15;
         }
 
-        scale = Math.min(Math.max(1, scale), 4);
+        scale = Math.min(
+          Math.max(1, scale),
+          4
+        );
 
-        lightboxImg.style.transform = `scale(${scale})`;
+        lightboxImg.style.transform =
+          `scale(${scale})`;
+
       });
+
+      /* RESET ZOOM */
 
       lightboxImg.addEventListener("click", () => {
 
         scale = 1;
 
         lightboxImg.style.transform = "scale(1)";
+
       });
+
+      /* PINCH ZOOM */
 
       let startDistance = 0;
 
@@ -470,9 +649,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const zoom = newDistance / startDistance;
 
-          scale = Math.min(Math.max(1, zoom), 4);
+          scale = Math.min(
+            Math.max(1, zoom),
+            4
+          );
 
-          lightboxImg.style.transform = `scale(${scale})`;
+          lightboxImg.style.transform =
+            `scale(${scale})`;
         }
       });
     }
@@ -482,7 +665,8 @@ document.addEventListener("DOMContentLoaded", () => {
      CONTACT FORM TRACKING
   ===================================================== */
 
-  const contactForm = document.querySelector(".contact-form");
+  const contactForm =
+    document.querySelector(".contact-form");
 
   if (contactForm) {
 
@@ -510,6 +694,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (propertyUrl && !propertyUrl.value) {
+
         propertyUrl.value = window.location.href;
       }
     });
@@ -540,6 +725,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (openNewsletter) {
+
     openNewsletter.addEventListener(
       "click",
       openNewsletterForm
@@ -547,6 +733,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (openNewsletterBlog) {
+
     openNewsletterBlog.addEventListener(
       "click",
       openNewsletterForm
@@ -555,7 +742,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =====================================================
-   JOURNEY MODALS
+   JOURNEY SECTION
 ===================================================== */
 
 function openJourney(type) {
@@ -570,8 +757,8 @@ function openJourney(type) {
       <p>
         Buying property is an important decision.
         At Bai Pe Real Estate we guide buyers
-        through the process with professional
-        advice, market insights, and a structured approach.
+        through the process with professional advice,
+        market insights, and a structured approach.
       </p>
 
       <h3>How We Guide You</h3>
@@ -584,11 +771,16 @@ function openJourney(type) {
         <li>Guidance through the purchase process</li>
       </ul>
 
-      <a href="contact.html" class="btn">Contact Us</a>
+      <a href="contact.html" class="btn">
+        Contact Us
+      </a>
 
       <br><br>
 
-      <button class="btn close-btn" onclick="closeJourney()">
+      <button
+        class="btn close-btn"
+        onclick="closeJourney()"
+      >
         Close
       </button>
     `;
@@ -600,8 +792,7 @@ function openJourney(type) {
 
       <p>
         Selling a property requires more than just
-        listing it online. We use a structured marketing
-        strategy to position your property correctly in the market.
+        listing it online.
       </p>
 
       <h3>Our Selling Strategy</h3>
@@ -614,11 +805,16 @@ function openJourney(type) {
         <li>Negotiation and transaction guidance</li>
       </ul>
 
-      <a href="contact.html" class="btn">Contact Us</a>
+      <a href="contact.html" class="btn">
+        Contact Us
+      </a>
 
       <br><br>
 
-      <button class="btn close-btn" onclick="closeJourney()">
+      <button
+        class="btn close-btn"
+        onclick="closeJourney()"
+      >
         Close
       </button>
     `;
@@ -629,10 +825,8 @@ function openJourney(type) {
       <h2>Rental Services</h2>
 
       <p>
-        Whether you are looking for a rental property
-        or want to rent out your investment, we provide
-        professional assistance to make the process
-        simple and secure.
+        We provide professional rental assistance
+        for owners and tenants.
       </p>
 
       <h3>How We Assist</h3>
@@ -645,11 +839,16 @@ function openJourney(type) {
         <li>Guidance throughout the rental process</li>
       </ul>
 
-      <a href="contact.html" class="btn">Contact Us</a>
+      <a href="contact.html" class="btn">
+        Contact Us
+      </a>
 
       <br><br>
 
-      <button class="btn close-btn" onclick="closeJourney()">
+      <button
+        class="btn close-btn"
+        onclick="closeJourney()"
+      >
         Close
       </button>
     `;
@@ -691,6 +890,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
       }
+
     });
 
   }, {
@@ -715,13 +915,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const isNL = path.startsWith("/nl/");
 
+  /* SET DROPDOWN STATE */
+
   if (langSwitcher) {
 
     langSwitcher.value = isNL ? "nl" : "en";
 
-    const savedLang = localStorage.getItem("lang");
+    const savedLang =
+      localStorage.getItem("lang");
 
-    if (savedLang && savedLang !== langSwitcher.value) {
+    if (
+      savedLang &&
+      savedLang !== langSwitcher.value
+    ) {
       switchLanguage(savedLang);
     }
 
@@ -729,19 +935,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const selectedLang = this.value;
 
-      localStorage.setItem("lang", selectedLang);
+      localStorage.setItem(
+        "lang",
+        selectedLang
+      );
 
       switchLanguage(selectedLang);
+
     });
   }
 
+  /* SWITCH LANGUAGE */
+
   function switchLanguage(lang) {
 
-    let currentPath = window.location.pathname;
-    const query = window.location.search;
+    let currentPath =
+      window.location.pathname;
 
-    currentPath = currentPath.replace(/^\/+/, "");
-    currentPath = currentPath.replace(/^nl\//, "");
+    const query =
+      window.location.search;
+
+    currentPath =
+      currentPath.replace(/^\/+/, "");
+
+    currentPath =
+      currentPath.replace(/^nl\//, "");
 
     if (currentPath === "") {
       currentPath = "index.html";
@@ -755,11 +973,15 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = newUrl;
   }
 
-  const links = document.querySelectorAll("a[href$='.html']");
+  /* LOCALIZE ALL LINKS */
+
+  const links =
+    document.querySelectorAll("a[href$='.html']");
 
   links.forEach(link => {
 
-    let href = link.getAttribute("href");
+    let href =
+      link.getAttribute("href");
 
     if (!href || href.startsWith("http")) return;
 
@@ -768,11 +990,12 @@ document.addEventListener("DOMContentLoaded", () => {
     link.href = isNL
       ? "/nl/" + href
       : "/" + href;
+
   });
-}
+});
 
 /* =====================================================
-   FORMAT PRICE HELPER
+   PRICE FORMATTER
 ===================================================== */
 
 function formatPrice(price) {
