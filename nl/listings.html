@@ -65,45 +65,41 @@
 
 <section class="filter-bar container">
 
-  <!-- CATEGORY (KEEP SAME ID) -->
-  <div class="filter-group">
-    <label>Categorie</label>
-    <select id="categoryFilter">
-      <option value="all">Alle categorieën</option>
-      <option value="for sale">Te koop</option>
-      <option value="for rent">Te huur</option>
-      <option value="residential">Residentieel</option>
-      <option value="commercial">Commercieel</option>
-      <option value="lots">Kavels / Bouwgrond</option>
-    </select>
-  </div>
+<div class="filter-group">
+<label>Categorie</label>
+<select id="categoryFilter">
+<option value="all">Alle categorieën</option>
+<option value="for sale">Te koop</option>
+<option value="for rent">Te huur</option>
+<option value="residential">Residentieel</option>
+<option value="commercial">Commercieel</option>
+<option value="lots">Kavels / Bouwgrond</option>
+</select>
+</div>
 
-  <!-- PRICE -->
-  <div class="filter-group">
-    <label>Prijs (min - max)</label>
-    <div class="price-range">
-      <input type="number" id="priceMin" placeholder="0">
-      <span>-</span>
-      <input type="number" id="priceMax" placeholder="Geen max">
-    </div>
-  </div>
+<div class="filter-group">
+<label>Prijs</label>
+<div class="price-range">
+<input type="number" id="priceMin" placeholder="Min">
+<input type="number" id="priceMax" placeholder="Max">
+</div>
+</div>
 
-  <!-- LOCATION -->
-  <div class="filter-group">
-    <label>Locatie</label>
-    <input type="text" id="locationSearch" placeholder="Bijv. Jan Thiel">
-  </div>
+<div class="filter-group">
+<label>Locatie</label>
+<input type="text" id="locationSearch" placeholder="Bijv. Jan Thiel">
+</div>
 
-  <!-- KEYWORD -->
-  <div class="filter-group">
-    <label>Zoeken</label>
-    <input type="text" id="keywordSearch" placeholder="Referentie, titel...">
-  </div>
+<div class="filter-group">
+<label>Zoekwoord</label>
+<input type="text" id="keywordSearch" placeholder="Titel of referentie">
+</div>
 
-  <!-- BUTTON -->
-  <div class="filter-group button-group">
-    <button id="searchBtn" class="btn-primary">Zoeken</button>
-  </div>
+<div class="filter-group">
+<button id="searchBtn" class="btn-primary">Zoeken</button>
+</div>
+
+
 
 </section>
 
