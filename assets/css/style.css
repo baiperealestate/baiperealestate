@@ -2722,12 +2722,17 @@ p {
   }
 
   /* HAMBURGER NEXT TO SWITCHERS */
-  .hamburger{
-    display: flex;
-    position: static;
-    transform: none;
-    z-index: 1001;
-  }
+.hamburger{
+  display: flex;
+  position: static;
+  transform: none;
+  z-index: 1001;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 1px;
+}
 
   /* MOBILE MENU */
   .nav-links{
