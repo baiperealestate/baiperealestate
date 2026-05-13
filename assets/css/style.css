@@ -2493,3 +2493,52 @@ p {
   }
 }
 
+/* =========================================
+   TOP SWITCHERS
+========================================= */
+
+.top-switchers{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.language-switcher,
+.currency-switcher{
+  padding:8px 14px;
+  border:1px solid #dcdcdc;
+  border-radius:8px;
+  background:#fff;
+  font-size:14px;
+  font-weight:500;
+  cursor:pointer;
+  transition:all 0.3s ease;
+}
+
+.language-switcher:hover,
+.currency-switcher:hover{
+  border-color:#b89b5e;
+}
+
+.language-switcher:focus,
+.currency-switcher:focus{
+  outline:none;
+  border-color:#b89b5e;
+  box-shadow:0 0 0 3px rgba(184,155,94,0.15);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .top-switchers{
+    margin-left:auto;
+  }
+
+  .language-switcher,
+  .currency-switcher{
+    padding:7px 10px;
+    font-size:13px;
+  }
+
+}
