@@ -329,11 +329,10 @@ if (searchBtn) {
 /* ENTER KEY */
 
 document.addEventListener("keydown", e => {
-
   if (e.key === "Enter") {
+    e.preventDefault();
     window.filterListings();
   }
-
 });
 
 } // ← VERY IMPORTANT  
