@@ -2718,7 +2718,7 @@ p {
     align-items: center;
     gap: 10px;
     margin-left: auto;
-    margin-right: 4px;
+    margin-right: 0px;
   }
 
   /* HAMBURGER NEXT TO SWITCHERS */
