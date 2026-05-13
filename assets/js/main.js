@@ -36,7 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================================== */
 
   const listingsContainer = document.getElementById("listings");
-  const categoryFilter = document.getElementById("categoryFilter");
+
+const categoryFilter = document.getElementById("categoryFilter");
+const priceMinInput = document.getElementById("priceMin");
+const priceMaxInput = document.getElementById("priceMax");
+const locationSearch = document.getElementById("locationSearch");
+const keywordSearch = document.getElementById("keywordSearch");
+const searchBtn = document.getElementById("searchBtn");
 
   if (listingsContainer) {
 
@@ -121,34 +127,101 @@ card.innerHTML = `
 
     }
 
-    if (categoryFilter) {
+  function filterListings() {
 
-      categoryFilter.addEventListener("change", e => {
+  const selectedCategory = categoryFilter?.value.toLowerCase() || "all";
 
-        const selected = e.target.value.toLowerCase();
+  const minPrice = Number(priceMinInput?.value) || 0;
+  const maxPrice = Number(priceMaxInput?.value) || Infinity;
 
-        const filtered = selected === "all"
-          ? allListings
-          : allListings.filter(item => {
+  const locationValue = locationSearch?.value.toLowerCase().trim() || "";
+  const keywordValue = keywordSearch?.value.toLowerCase().trim() || "";
 
-              const type = item.propertyType?.toLowerCase();
-              const status = item.status?.toLowerCase();
+  const filtered = allListings.filter(item => {
 
-              if (selected === "lots") {
-                return type === "lots" || type === "land";
-              }
+    const type = item.propertyType?.toLowerCase() || "";
+    const status = item.status?.toLowerCase() || "";
 
-              return status === selected || type === selected;
+    const price = Number(item.price) || 0;
 
-            });
+    const title = item.title?.toLowerCase() || "";
+    const location = item.location?.toLowerCase() || "";
+    const reference = item.reference?.toLowerCase() || "";
 
-        renderListings(filtered);
+    /* CATEGORY */
 
-      });
+    let categoryMatch = true;
+
+    if (selectedCategory !== "all") {
+
+      if (selectedCategory === "lots") {
+
+        categoryMatch =
+          type === "lots" ||
+          type === "land";
+
+      } else {
+
+        categoryMatch =
+          status === selectedCategory ||
+          type === selectedCategory;
+
+      }
 
     }
 
-  }
+    /* PRICE */
+
+    const priceMatch =
+      price >= minPrice &&
+      price <= maxPrice;
+
+    /* LOCATION */
+
+    const locationMatch =
+      location.includes(locationValue);
+
+    /* KEYWORD */
+
+    const keywordMatch =
+      title.includes(keywordValue) ||
+      reference.includes(keywordValue);
+
+    return (
+      categoryMatch &&
+      priceMatch &&
+      locationMatch &&
+      keywordMatch
+    );
+
+  });
+
+  renderListings(filtered);
+
+}
+
+/* CATEGORY CHANGE */
+
+if (categoryFilter) {
+  categoryFilter.addEventListener("change", filterListings);
+}
+
+/* SEARCH BUTTON */
+
+if (searchBtn) {
+  searchBtn.addEventListener("click", filterListings);
+}
+
+/* LIVE FILTERING */
+
+[priceMinInput, priceMaxInput, locationSearch, keywordSearch]
+.forEach(input => {
+
+  if (!input) return;
+
+  input.addEventListener("input", filterListings);
+
+});
 
   /* =====================================================
      PROPERTY PAGE
