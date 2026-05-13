@@ -127,7 +127,7 @@ card.innerHTML = `
 
     }
 
-  function filterListings() {
+function filterListings() {
 
   const selectedCategory = categoryFilter?.value.toLowerCase() || "all";
 
@@ -222,6 +222,8 @@ if (searchBtn) {
   input.addEventListener("input", filterListings);
 
 });
+
+  }
 
   /* =====================================================
      PROPERTY PAGE
