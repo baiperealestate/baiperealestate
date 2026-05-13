@@ -8,53 +8,19 @@ const exchangeRates = {
   EUR: 0.52
 };
 
+// Saved currency
 let currentCurrency =
   localStorage.getItem("currency") || "USD";
 
-document.addEventListener("DOMContentLoaded", () => {
-
-  const languageSwitcher =
-    document.getElementById("languageSwitcher");
-
-  if (!languageSwitcher) return;
-
-  if (document.getElementById("currencySwitcher")) return;
-
-  const currencySwitcher =
-    document.createElement("select");
-
-  currencySwitcher.id = "currencySwitcher";
-  currencySwitcher.className = "language-switcher";
-
-  currencySwitcher.innerHTML = `
-    <option value="USD">USD $</option>
-    <option value="EUR">EUR €</option>
-    <option value="XCG">XCG ƒ</option>
-  `;
-
-  currencySwitcher.value = currentCurrency;
-
-  languageSwitcher.insertAdjacentElement(
-    "afterend",
-    currencySwitcher
-  );
-
-currencySwitcher.addEventListener("change", () => {
-
-  currentCurrency = currencySwitcher.value;
-
-localStorage.setItem(
-  "currency",
-  currentCurrency
-);
-
-  updatePrices();
-
-});
+// ========================================
+// FORMAT PRICE
+// ========================================
 
 function formatPrice(priceXCG) {
 
-  if (!priceXCG || isNaN(priceXCG)) return "";
+  if (!priceXCG || isNaN(priceXCG)) {
+    return "";
+  }
 
   const converted =
     priceXCG * exchangeRates[currentCurrency];
@@ -87,7 +53,6 @@ function formatPrice(priceXCG) {
   })}`;
 }
 
-
 // ========================================
 // UPDATE ALL PRICES
 // ========================================
@@ -110,3 +75,38 @@ function updatePrices() {
     });
 
 }
+
+// ========================================
+// INIT
+// ========================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const currencySwitcher =
+    document.getElementById("currencySwitcher");
+
+  if (!currencySwitcher) return;
+
+  // Set saved currency
+  currencySwitcher.value =
+    currentCurrency;
+
+  // Currency change
+  currencySwitcher.addEventListener("change", () => {
+
+    currentCurrency =
+      currencySwitcher.value;
+
+    localStorage.setItem(
+      "currency",
+      currentCurrency
+    );
+
+    updatePrices();
+
+  });
+
+  // Initial prices
+  updatePrices();
+
+});
