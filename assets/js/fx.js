@@ -103,6 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     updatePrices();
+    updatePrices();
+updatePricePlaceholders();
 
   });
 
