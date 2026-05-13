@@ -2698,37 +2698,47 @@ p {
   .navbar,
   .header-inner{
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    justify-content: center;
-
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding: 16px 20px;
   }
 
-  /* LOGO CENTER */
+  /* LOGO LEFT */
   .logo{
-    margin: 0 auto;
+    margin: 0;
+    display: flex;
+    align-items: center;
   }
 
-  /* HAMBURGER TOP RIGHT */
+  /* RIGHT SIDE CONTROLS */
+  .top-switchers{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: 12px;
+  }
+
+  /* HAMBURGER NEXT TO SWITCHERS */
   .hamburger{
     display: flex;
-
-    position: absolute;
-
-    top: 50%;
-    right: 20px;
-
-    transform: translateY(-50%);
-
+    position: static;
+    transform: none;
     z-index: 1001;
   }
 
   /* MOBILE MENU */
   .nav-links{
-    top: 78px;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    width: 100%;
 
     padding: 10px 0;
+
+    background: #ffffff;
 
     box-shadow:
       0 15px 40px rgba(0,0,0,0.08);
@@ -2736,7 +2746,6 @@ p {
 
   .nav-links a{
     padding: 16px 20px;
-
     font-size: 15px;
     font-weight: 600;
   }
