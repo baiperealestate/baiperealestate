@@ -176,12 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
      if (isNaN(maxPrice)) {
 
-  maxPrice =
-    currentCurrency === "USD"
-      ? 8000000 * exchangeRates.USD
-      : currentCurrency === "EUR"
-      ? 8000000 * exchangeRates.EUR
-      : 8000000;
+if (isNaN(maxPrice)) {
+  maxPrice = Infinity;
 }
 
       minPrice = Math.max(0, minPrice);
@@ -244,16 +240,27 @@ const priceMatch =
 
         /* LOCATION */
 
-        const locationMatch =
-          !locationValue ||
-          location.includes(locationValue);
+       const cleanLocation =
+  location.replace(/[\s,-]+/g, "");
+
+const cleanSearch =
+  locationValue.replace(/[\s,-]+/g, "");
+
+const locationMatch =
+  !locationValue ||
+  cleanLocation.includes(cleanSearch);
 
         /* KEYWORD */
 
-        const keywordMatch =
-          !keywordValue ||
-          title.includes(keywordValue) ||
-          reference.includes(keywordValue);
+   const description =
+  item.description?.toLowerCase() || "";
+
+const keywordMatch =
+  !keywordValue ||
+  title.includes(keywordValue) ||
+  reference.includes(keywordValue) ||
+  location.includes(keywordValue) ||
+  description.includes(keywordValue);
 
         return (
           categoryMatch &&
@@ -300,8 +307,17 @@ const priceMatch =
       input.addEventListener("input", filterListings);
 
     });
+    
+document.addEventListener("keydown", e => {
+
+  if (e.key === "Enter") {
+    filterListings();
   }
 
+});
+
+    }
+  }
   /* =====================================================
      PROPERTY PAGE
   ===================================================== */
