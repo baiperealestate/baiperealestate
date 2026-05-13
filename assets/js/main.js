@@ -100,7 +100,7 @@ card.innerHTML = `
 
           <div class="listing-content">
             <h3>${item.title}</h3>
-  <p class="price">
+  <p class="price" data-price="${Number(item.price)}">
   ${formatPrice(Number(item.price))}
 </p>
             <p class="location">${item.location}</p>
@@ -189,7 +189,12 @@ const res = await fetch(dataFile);
       /* BASIC INFO */
 
       document.getElementById("title").textContent = property.title;
-     document.getElementById("price").textContent = formatPrice(Number(property.price));
+    const priceEl = document.getElementById("price");
+
+priceEl.dataset.price = Number(property.price);
+
+priceEl.textContent =
+  formatPrice(Number(property.price));
       document.getElementById("location").textContent = property.location;
       document.getElementById("bedrooms").textContent = property.bedrooms;
       document.getElementById("bathrooms").textContent = property.bathrooms;
