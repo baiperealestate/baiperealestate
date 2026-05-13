@@ -3,9 +3,9 @@
 // ========================================
 
 const exchangeRates = {
-  USD: 1,
-  EUR: 0.92,
-  XCG: 1.79
+  XCG: 1,
+  USD: 0.56,
+  EUR: 0.52
 };
 
 let currentCurrency =
