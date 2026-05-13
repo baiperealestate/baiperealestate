@@ -48,17 +48,49 @@
       </a>
     </div>
 
-    <nav class="nav-links">
-      <a href="/nl/index.html">Home</a>
-      <a href="/nl/about.html">Over ons</a>
-      <a href="/nl/team.html">Team</a>
-      <a href="/nl/listings.html">Aanbod</a>
-      <a href="/nl/contact.html">Contact</a>
-      <a href="/nl/blog.html">Blog</a>
-      <a href="/nl/social.html">Social Media</a>
-      <a href="/nl/buying-selling-guide.html">Gids</a>
-      <a href="/nl/calculator.html" class="active">Calculator</a>
-    </nav>
+<section class="filter-bar container">
+
+  <!-- CATEGORY (KEEP SAME ID) -->
+  <div class="filter-group">
+    <label>Categorie</label>
+    <select id="categoryFilter">
+      <option value="all">Alle categorieën</option>
+      <option value="for sale">Te koop</option>
+      <option value="for rent">Te huur</option>
+      <option value="residential">Residentieel</option>
+      <option value="commercial">Commercieel</option>
+      <option value="lots">Kavels / Bouwgrond</option>
+    </select>
+  </div>
+
+  <!-- PRICE -->
+  <div class="filter-group">
+    <label>Prijs (min - max)</label>
+    <div class="price-range">
+      <input type="number" id="priceMin" placeholder="0">
+      <span>-</span>
+      <input type="number" id="priceMax" placeholder="Geen max">
+    </div>
+  </div>
+
+  <!-- LOCATION -->
+  <div class="filter-group">
+    <label>Locatie</label>
+    <input type="text" id="locationSearch" placeholder="Bijv. Jan Thiel">
+  </div>
+
+  <!-- KEYWORD -->
+  <div class="filter-group">
+    <label>Zoeken</label>
+    <input type="text" id="keywordSearch" placeholder="Referentie, titel...">
+  </div>
+
+  <!-- BUTTON -->
+  <div class="filter-group button-group">
+    <button id="searchBtn" class="btn-primary">Zoeken</button>
+  </div>
+
+</section>
 
     <div class="hamburger" aria-label="Menu openen">
       <span></span>
