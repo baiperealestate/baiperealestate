@@ -77,42 +77,8 @@ function updatePrices() {
 }
 
 // ========================================
-// INIT
+// UPDATE PLACEHOLDERS
 // ========================================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const currencySwitcher =
-    document.getElementById("currencySwitcher");
-
-  if (!currencySwitcher) return;
-
-  // Set saved currency
-  currencySwitcher.value =
-    currentCurrency;
-
-  // Currency change
-  currencySwitcher.addEventListener("change", () => {
-
-    currentCurrency =
-      currencySwitcher.value;
-
-    localStorage.setItem(
-      "currency",
-      currentCurrency
-    );
-
-    updatePrices();
-    updatePrices();
-updatePricePlaceholders();
-
-  });
-
-  // Initial prices
-  updatePrices();
-
-});
-
 
 function updatePricePlaceholders() {
 
@@ -140,4 +106,44 @@ function updatePricePlaceholders() {
 
 }
 
+// ========================================
+// INIT
+// ========================================
 
+document.addEventListener("DOMContentLoaded", () => {
+
+  const currencySwitcher =
+    document.getElementById("currencySwitcher");
+
+  if (!currencySwitcher) return;
+
+  // Set saved currency
+  currencySwitcher.value =
+    currentCurrency;
+
+  // Initial updates
+  updatePrices();
+  updatePricePlaceholders();
+
+  // Currency change
+  currencySwitcher.addEventListener("change", () => {
+
+    currentCurrency =
+      currencySwitcher.value;
+
+    localStorage.setItem(
+      "currency",
+      currentCurrency
+    );
+
+    updatePrices();
+    updatePricePlaceholders();
+
+    // Refresh filters immediately
+    if (typeof filterListings === "function") {
+      filterListings();
+    }
+
+  });
+
+});
