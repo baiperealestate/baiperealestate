@@ -2,32 +2,24 @@
 // BAI PE REAL ESTATE — CURRENCY SYSTEM
 // ========================================
 
-// Exchange rates based on USD
 const exchangeRates = {
   USD: 1,
-  EUR: 0.56,
-  XCG: 0.52
+  EUR: 0.92,
+  XCG: 1.79
 };
 
-// Current currency
 let currentCurrency =
   localStorage.getItem("baipe_currency") || "USD";
 
-// ========================================
-// CREATE CURRENCY SWITCHER
-// ========================================
 document.addEventListener("DOMContentLoaded", () => {
 
   const languageSwitcher =
     document.getElementById("languageSwitcher");
 
-  // Stop if language switcher not found
   if (!languageSwitcher) return;
 
-  // Avoid duplicates
   if (document.getElementById("currencySwitcher")) return;
 
-  // Create currency select
   const currencySwitcher =
     document.createElement("select");
 
@@ -40,16 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
     <option value="XCG">XCG ƒ</option>
   `;
 
-  // Saved currency
   currencySwitcher.value = currentCurrency;
 
-  // Insert beside language switcher
   languageSwitcher.insertAdjacentElement(
     "afterend",
     currencySwitcher
   );
 
-  // Change currency
   currencySwitcher.addEventListener("change", () => {
 
     currentCurrency = currencySwitcher.value;
@@ -59,80 +48,39 @@ document.addEventListener("DOMContentLoaded", () => {
       currentCurrency
     );
 
-    updatePrices();
+    location.reload();
   });
 
-  // Initial update
-  updatePrices();
 });
 
-// ========================================
-// FORMAT PRICE
-// ========================================
 function formatPrice(priceUSD) {
+
+  if (!priceUSD || isNaN(priceUSD)) return "";
 
   const converted =
     priceUSD * exchangeRates[currentCurrency];
 
-  // USD
   if (currentCurrency === "USD") {
+
     return new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
       maximumFractionDigits: 0
     }).format(converted);
+
   }
 
-  // EUR
   if (currentCurrency === "EUR") {
+
     return new Intl.NumberFormat("nl-NL", {
       style: "currency",
       currency: "EUR",
       maximumFractionDigits: 0
     }).format(converted);
+
   }
 
-  // XCG
   return `XCG ${converted.toLocaleString("en-US", {
     maximumFractionDigits: 0
   })}`;
-}
-
-// ========================================
-// UPDATE PRICES
-// ========================================
-function updatePrices() {
-
-  // LISTINGS PAGE
-  document.querySelectorAll("[data-price-usd]")
-    .forEach(priceElement => {
-
-      const usdPrice =
-        Number(priceElement.dataset.priceUsd);
-
-      if (!isNaN(usdPrice)) {
-
-        priceElement.textContent =
-          formatPrice(usdPrice);
-      }
-    });
-
-  // PROPERTY PAGE
-  const propertyPrice =
-    document.getElementById("price");
-
-  if (
-    propertyPrice &&
-    propertyPrice.dataset.priceUsd
-  ) {
-
-    const usdPrice =
-      Number(propertyPrice.dataset.priceUsd);
-
-    if (!isNaN(usdPrice)) {
-
-      propertyPrice.textContent =
-        formatPrice(usdPrice);
-    }
-  }
 }
