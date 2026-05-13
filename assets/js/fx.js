@@ -5,8 +5,8 @@
 // Exchange rates based on USD
 const exchangeRates = {
   USD: 1,
-  EUR: 0.92,
-  XCG: 1.79
+  EUR: 0.56,
+  XCG: 0.52
 };
 
 // Current currency
