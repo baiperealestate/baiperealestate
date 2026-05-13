@@ -131,15 +131,31 @@ function filterListings() {
 
   const selectedCategory = categoryFilter?.value.toLowerCase() || "all";
 
-const minPrice = Math.max(
-  0,
-  Number(priceMinInput?.value) || 0
-);
+/* PRICE FILTER */
 
-const maxPrice = Math.min(
-  8000000,
-  Number(priceMaxInput?.value) || 8000000
-);
+let minPrice =
+  Number(priceMinInput?.value);
+
+let maxPrice =
+  Number(priceMaxInput?.value);
+
+/* EMPTY VALUES */
+
+if (isNaN(minPrice)) {
+  minPrice = 0;
+}
+
+if (isNaN(maxPrice)) {
+  maxPrice = 8000000;
+}
+
+/* LIMITS */
+
+minPrice = Math.max(0, minPrice);
+
+maxPrice = Math.min(8000000, maxPrice);
+
+  
 
   const locationValue = locationSearch?.value.toLowerCase().trim() || "";
   const keywordValue = keywordSearch?.value.toLowerCase().trim() || "";
