@@ -1,24 +1,138 @@
-/* =====================================================
-   FX ENGINE – CENTRAL BANK OF CURAÇAO & SINT MAARTEN
-   Purpose: Property price display (XCG → USD / EUR)
-   Rate type: Selling rates to the public
-   Valid: January 23, 2026
-   ===================================================== */
+// ========================================
+// BAI PE REAL ESTATE — CURRENCY SYSTEM
+// ========================================
 
-const FX = Object.freeze({
-  // Selling rates to the public
-  USD: 1.82,      // 1 USD = 1.82 XCG
-  EUR: 2.1325,    // 1 EUR = 2.1325 XCG
+// Exchange rates based on USD
+const exchangeRates = {
+  USD: 1,
+  EUR: 0.92,
+  XCG: 1.79
+};
 
-  toUSD(xcg) {
-    return xcg / this.USD;
-  },
+// Current currency
+let currentCurrency =
+  localStorage.getItem("baipe_currency") || "USD";
 
-  toEUR(xcg) {
-    return xcg / this.EUR;
-  }
+// ========================================
+// CREATE CURRENCY SWITCHER
+// ========================================
+document.addEventListener("DOMContentLoaded", () => {
+
+  const languageSwitcher =
+    document.getElementById("languageSwitcher");
+
+  // Stop if language switcher not found
+  if (!languageSwitcher) return;
+
+  // Avoid duplicates
+  if (document.getElementById("currencySwitcher")) return;
+
+  // Create currency select
+  const currencySwitcher =
+    document.createElement("select");
+
+  currencySwitcher.id = "currencySwitcher";
+  currencySwitcher.className = "language-switcher";
+
+  currencySwitcher.innerHTML = `
+    <option value="USD">USD $</option>
+    <option value="EUR">EUR €</option>
+    <option value="XCG">XCG ƒ</option>
+  `;
+
+  // Saved currency
+  currencySwitcher.value = currentCurrency;
+
+  // Insert beside language switcher
+  languageSwitcher.insertAdjacentElement(
+    "afterend",
+    currencySwitcher
+  );
+
+  // Change currency
+  currencySwitcher.addEventListener("change", () => {
+
+    currentCurrency = currencySwitcher.value;
+
+    localStorage.setItem(
+      "baipe_currency",
+      currentCurrency
+    );
+
+    updatePrices();
+  });
+
+  // Initial update
+  updatePrices();
 });
 
-function formatAmount(value, currency) {
-  return `${currency} ${Math.round(value).toLocaleString("en-US")}`;
+// ========================================
+// FORMAT PRICE
+// ========================================
+function formatPrice(priceUSD) {
+
+  const converted =
+    priceUSD * exchangeRates[currentCurrency];
+
+  // USD
+  if (currentCurrency === "USD") {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 0
+    }).format(converted);
+  }
+
+  // EUR
+  if (currentCurrency === "EUR") {
+    return new Intl.NumberFormat("nl-NL", {
+      style: "currency",
+      currency: "EUR",
+      maximumFractionDigits: 0
+    }).format(converted);
+  }
+
+  // XCG
+  return `XCG ${converted.toLocaleString("en-US", {
+    maximumFractionDigits: 0
+  })}`;
+}
+
+// ========================================
+// UPDATE PRICES
+// ========================================
+function updatePrices() {
+
+  // LISTINGS PAGE
+  document.querySelectorAll("[data-price-usd]")
+    .forEach(priceElement => {
+
+      const usdPrice =
+        Number(priceElement.dataset.priceUsd);
+
+      if (!isNaN(usdPrice)) {
+
+        priceElement.textContent =
+          formatPrice(usdPrice);
+      }
+    });
+
+  // PROPERTY PAGE
+  const propertyPrice =
+    document.getElementById("price");
+
+  if (
+    propertyPrice &&
+    propertyPrice.dataset.priceUsd
+  ) {
+
+    const usdPrice =
+      Number(propertyPrice.dataset.priceUsd);
+
+    if (!isNaN(usdPrice)) {
+
+      propertyPrice.textContent =
+        formatPrice(usdPrice);
+    }
+  }
 }
