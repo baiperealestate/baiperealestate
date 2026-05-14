@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
 window.filterListings = function () {
 
   const selectedCategory =
-    categoryFilter?.value.toLowerCase() || "all";
+    categoryFilter?.value?.toLowerCase() || "all";
 
   let minPrice =
     Number(priceMinInput?.value);
@@ -177,19 +177,15 @@ window.filterListings = function () {
     minPrice = 0;
   }
 
-  if (isNaN(maxPrice)) {
-    maxPrice = 8000000;
+  if (isNaN(maxPrice) || maxPrice === 0) {
+    maxPrice = 999999999;
   }
 
-  // Limit values
-  minPrice = Math.max(0, minPrice);
-  maxPrice = Math.min(8000000, maxPrice);
-
   const locationValue =
-    locationSearch?.value.toLowerCase().trim() || "";
+    locationSearch?.value?.toLowerCase().trim() || "";
 
   const keywordValue =
-    keywordSearch?.value.toLowerCase().trim() || "";
+    keywordSearch?.value?.toLowerCase().trim() || "";
 
   const filtered = allListings.filter(item => {
 
@@ -199,12 +195,8 @@ window.filterListings = function () {
     const status =
       item.status?.toLowerCase() || "";
 
-    const priceXCG =
+    const price =
       Number(item.price) || 0;
-
-    // Convert price to selected currency
-    const convertedPrice =
-      priceXCG * exchangeRates[currentCurrency];
 
     const title =
       item.title?.toLowerCase() || "";
@@ -217,6 +209,67 @@ window.filterListings = function () {
 
     const reference =
       item.reference?.toLowerCase() || "";
+
+    // CATEGORY
+
+    let categoryMatch = true;
+
+    if (selectedCategory !== "all") {
+
+      if (selectedCategory === "lots") {
+
+        categoryMatch =
+          type === "lots" ||
+          type === "land";
+
+      } else {
+
+        categoryMatch =
+          status === selectedCategory ||
+          type === selectedCategory;
+
+      }
+    }
+
+    // PRICE
+
+    const priceMatch =
+      price >= minPrice &&
+      price <= maxPrice;
+
+    // LOCATION
+
+    const cleanLocation =
+      location.replace(/[\s,-]+/g, "");
+
+    const cleanSearch =
+      locationValue.replace(/[\s,-]+/g, "");
+
+    const locationMatch =
+      !locationValue ||
+      cleanLocation.includes(cleanSearch);
+
+    // KEYWORDS
+
+    const keywordMatch =
+      !keywordValue ||
+      title.includes(keywordValue) ||
+      description.includes(keywordValue) ||
+      location.includes(keywordValue) ||
+      reference.includes(keywordValue);
+
+    return (
+      categoryMatch &&
+      priceMatch &&
+      locationMatch &&
+      keywordMatch
+    );
+
+  });
+
+  renderListings(filtered);
+
+};
 
     // =====================================
     // CATEGORY FILTER
@@ -430,7 +483,19 @@ document.addEventListener("keydown", e => {
 
       featuresEl.innerHTML = "";
 
-      property.features.forEach(feature => {
+     if (property.features && property.features.length) {
+
+  property.features.forEach(feature => {
+
+    const li = document.createElement("li");
+
+    li.textContent = feature;
+
+    featuresEl.appendChild(li);
+
+  });
+
+}
 
         const li = document.createElement("li");
 
