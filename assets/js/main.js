@@ -280,52 +280,7 @@ if (categoryFilter) {
     window.filterListings
   );
 }
-
-    // =====================================
-    // PRICE FILTER
-    // =====================================
-
-    const priceMatch =
-      convertedPrice >= minPrice &&
-      convertedPrice <= maxPrice;
-
-    // =====================================
-    // LOCATION FILTER
-    // =====================================
-
-    const cleanLocation =
-      location.replace(/[\s,-]+/g, "");
-
-    const cleanSearch =
-      locationValue.replace(/[\s,-]+/g, "");
-
-    const locationMatch =
-      !locationValue ||
-      cleanLocation.includes(cleanSearch);
-
-    // =====================================
-    // KEYWORD FILTER
-    // =====================================
-
-    const keywordMatch =
-      !keywordValue ||
-      title.includes(keywordValue) ||
-      description.includes(keywordValue) ||
-      location.includes(keywordValue) ||
-      reference.includes(keywordValue);
-
-    return (
-      categoryMatch &&
-      priceMatch &&
-      locationMatch &&
-      keywordMatch
-    );
-
-  });
-
-  renderListings(filtered);
-
-};
+ 
 
   /* CATEGORY FILTER */
 
