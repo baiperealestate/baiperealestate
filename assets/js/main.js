@@ -100,7 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="listing-content">
             <h3>${item.title}</h3>
 
-            <p class="price">${item.price}</p>
+          <p class="price">
+  ${formatPrice(item.price)}
+</p>
 
             <p class="location">${item.location}</p>
 
