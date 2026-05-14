@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
      MOBILE NAVIGATION
   ===================================================== */
-
   const hamburger = document.querySelector(".hamburger");
   const nav = document.querySelector(".nav-links");
 
@@ -33,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
      LISTINGS PAGE
   ===================================================== */
-
   const listingsContainer = document.getElementById("listings");
   const categoryFilter = document.getElementById("categoryFilter");
 
@@ -52,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch(err => {
         console.error("Listings error:", err);
-        const lang = getCurrentLang();
         listingsContainer.innerHTML =
           lang === "nl"
             ? "<p>Advertenties volgen binnenkort.</p>"
@@ -63,10 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
       listingsContainer.innerHTML = "";
 
       if (!listings || listings.length === 0) {
-        const lang = getCurrentLang();
         listingsContainer.innerHTML =
           lang === "nl"
-            ? "<p>Er zijn geen resultaten gevonden die overeenkomen met uw selectie..</p>"
+            ? "<p>Er zijn geen resultaten gevonden die overeenkomen met uw selectie.</p>"
             : "<p>No listings match your selection.</p>";
         return;
       }
@@ -85,15 +81,15 @@ document.addEventListener("DOMContentLoaded", () => {
             <img src="${imgSrc}" alt="${item.title}" loading="lazy">
             ${item.featured ? `<span class="badge">Featured</span>` : ""}
           </div>
-
           <div class="listing-content">
             <h3>${item.title}</h3>
-            <p class="price">${item.price}</p>
+            <p class="price" data-price="${Number(item.price)}">
+              ${formatPrice(Number(item.price))}
+            </p>
             <p class="location">${item.location}</p>
-
             <div class="cta">
-              <a href="/${getCurrentLang() === "nl" ? "nl/" : ""}property.html?id=${item.id}" class="btn">
-                ${getCurrentLang() === "nl" ? "Bekijk details" : "View Details"}
+              <a href="/${lang === "nl" ? "nl/" : ""}property.html?id=${item.id}" class="btn">
+                ${lang === "nl" ? "Bekijk details" : "View Details"}
               </a>
             </div>
           </div>
@@ -128,74 +124,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================================
-     PROPERTY PAGE
-  ===================================================== */
-
-  const imageEl = document.getElementById("propertyImage");
-  const featuresEl = document.getElementById("features");
-
-  if (imageEl && featuresEl) {
-    loadProperty();
-  }
-
-  async function loadProperty() {
-    const params = new URLSearchParams(window.location.search);
-    const propertyId = params.get("id");
-
-    if (!propertyId) return;
-
-    try {
-      const lang = getCurrentLang();
-      const dataFile = lang === "nl"
-        ? "/assets/data/listings-nl.json"
-        : "/assets/data/listings.json";
-
-      const res = await fetch(dataFile);
-      const listings = await res.json();
-
-      const property = listings.find(p => p.id === propertyId);
-      if (!property) return;
-
-      /* BASIC INFO */
-      document.getElementById("title").textContent = property.title;
-      document.getElementById("price").textContent = property.price;
-      document.getElementById("location").textContent = property.location;
-      document.getElementById("bedrooms").textContent = property.bedrooms;
-      document.getElementById("bathrooms").textContent = property.bathrooms;
-      document.getElementById("size").textContent = property.size;
-      document.getElementById("description").textContent = property.description;
-
-      /* FORM TRACKING */
-      const propertyField = document.getElementById("propertyField");
-      const propertyUrl = document.getElementById("propertyUrl");
-
-      if (propertyField) {
-        propertyField.value = `${property.title} | ${property.price} | ${property.location}`;
-      }
-
-      if (propertyUrl) {
-        propertyUrl.value = window.location.href;
-      }
-
-      /* FEATURES */
-      featuresEl.innerHTML = "";
-      property.features.forEach(feature => {
-        const li = document.createElement("li");
-        li.textContent = feature;
-        featuresEl.appendChild(li);
-      });
-
-      initGallery(property.images);
-
-    } catch (err) {
-      console.error("Property page error:", err);
-    }
-  }
-
-  /* =====================================================
      CONTACT FORM TRACKING
   ===================================================== */
-
   const contactForm = document.querySelector(".contact-form");
 
   if (contactForm) {
@@ -218,3 +148,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+/* =====================================================
+   JOURNEY MODAL
+===================================================== */
+function openJourney(type) {
+  let content = "";
+
+  if (type === "buy") {
+    content = `
+      <h2>Buying Property in Curaçao</h2>
+      <p>Buying property is an important decision...</p>
+      <button onclick="closeJourney()">Close</button>
+    `;
+  }
+
+  const details = document.getElementById("journeyDetails");
+  const contentBox = document.getElementById("journeyContent");
+
+  contentBox.innerHTML = content;
+  details.style.display = "block";
+}
+
+function closeJourney() {
+  document.getElementById("journeyDetails").style.display = "none";
+}
