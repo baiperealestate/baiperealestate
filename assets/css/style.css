@@ -2777,3 +2777,101 @@ p {
   }
 
 }
+
+
+/* =========================================
+   FINAL MOBILE NAVBAR FIX
+========================================= */
+
+@media (max-width: 768px){
+
+  /* NAVBAR */
+  .navbar,
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:14px 18px;
+    min-height:80px;
+  }
+
+  /* LOGO */
+  .logo{
+    display:flex;
+    align-items:center;
+  }
+
+  .logo img{
+    max-height:52px;
+    width:auto;
+    display:block;
+  }
+
+  /* RIGHT SIDE */
+  .top-switchers{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    margin-left:auto;
+  }
+
+  /* SAME SIZE SWITCHERS */
+  .language-switcher,
+  .currency-switcher{
+    height:42px;
+    min-width:86px;
+
+    padding:0 12px;
+
+    font-size:14px;
+    font-weight:600;
+
+    border-radius:10px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    appearance:none;
+  }
+
+  /* HAMBURGER PERFECT CENTER */
+  .hamburger{
+    display:flex !important;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    width:42px;
+    height:42px;
+
+    margin:0;
+    padding:0;
+
+    position:relative;
+    top:0;
+
+    cursor:pointer;
+  }
+
+  .hamburger span{
+    width:26px;
+    height:3px;
+
+    margin:3px 0;
+
+    background:#0F514F;
+    border-radius:3px;
+
+    display:block;
+  }
+
+  /* MOBILE MENU */
+  .nav-links{
+    top:80px;
+  }
+
+}
