@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-// ========================================
+   // ========================================
 // FILTER LISTINGS
 // ========================================
 
@@ -202,6 +202,7 @@ window.filterListings = function () {
     const priceXCG =
       Number(item.price) || 0;
 
+    // Convert price to selected currency
     const convertedPrice =
       priceXCG * exchangeRates[currentCurrency];
 
@@ -217,7 +218,9 @@ window.filterListings = function () {
     const reference =
       item.reference?.toLowerCase() || "";
 
+    // =====================================
     // CATEGORY FILTER
+    // =====================================
 
     let categoryMatch = true;
 
@@ -236,15 +239,20 @@ window.filterListings = function () {
           type === selectedCategory;
 
       }
+
     }
 
+    // =====================================
     // PRICE FILTER
+    // =====================================
 
     const priceMatch =
       convertedPrice >= minPrice &&
       convertedPrice <= maxPrice;
 
+    // =====================================
     // LOCATION FILTER
+    // =====================================
 
     const cleanLocation =
       location.replace(/[\s,-]+/g, "");
@@ -256,7 +264,9 @@ window.filterListings = function () {
       !locationValue ||
       cleanLocation.includes(cleanSearch);
 
+    // =====================================
     // KEYWORD FILTER
+    // =====================================
 
     const keywordMatch =
       !keywordValue ||
@@ -278,7 +288,7 @@ window.filterListings = function () {
 
 };
 
-/* CATEGORY FILTER */
+  /* CATEGORY FILTER */
 
 if (categoryFilter) {
 
@@ -319,16 +329,13 @@ if (searchBtn) {
 /* ENTER KEY */
 
 document.addEventListener("keydown", e => {
-
   if (e.key === "Enter") {
-
     e.preventDefault();
-
     window.filterListings();
-
   }
-
 });
+
+} // ← VERY IMPORTANT  
   /* =====================================================
      PROPERTY PAGE
   ===================================================== */
