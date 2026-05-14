@@ -1,14 +1,15 @@
 // ========================================
-// BAI PE REAL ESTATE — CURRENCY SYSTEM
+// BAI PE REAL ESTATE - FX SYSTEM
 // ========================================
 
+// EXCHANGE RATES
 const exchangeRates = {
   XCG: 1,
   USD: 0.56,
   EUR: 0.52
 };
 
-// Default currency = XCG
+// CURRENT CURRENCY
 let currentCurrency =
   localStorage.getItem("currency") || "XCG";
 
@@ -16,14 +17,11 @@ let currentCurrency =
 // FORMAT PRICE
 // ========================================
 
-ffunction formatPrice(priceXCG) {
-
-  if (!priceXCG || isNaN(priceXCG)) return "";
+function formatPrice(price) {
 
   const converted =
-    priceXCG * exchangeRates[currentCurrency];
+    price * exchangeRates[currentCurrency];
 
-  // USD
   if (currentCurrency === "USD") {
 
     return new Intl.NumberFormat("en-US", {
@@ -34,7 +32,6 @@ ffunction formatPrice(priceXCG) {
 
   }
 
-  // EUR
   if (currentCurrency === "EUR") {
 
     return new Intl.NumberFormat("nl-NL", {
@@ -45,64 +42,11 @@ ffunction formatPrice(priceXCG) {
 
   }
 
-  // XCG
-  return `XCG ${converted.toLocaleString("en-US", {
-    maximumFractionDigits: 0
-  })}`;
-}
-// ========================================
-// UPDATE ALL PRICES
-// ========================================
-
-function updatePrices() {
-
-  document.querySelectorAll("[data-price]")
-    .forEach(el => {
-
-      const originalPrice =
-        Number(el.dataset.price);
-
-      if (!isNaN(originalPrice)) {
-
-        el.textContent =
-          formatPrice(originalPrice);
-
-      }
-
-    });
-
+  return `XCG ${converted.toLocaleString("en-US")}`;
 }
 
 // ========================================
-// UPDATE PLACEHOLDERS
-// ========================================
-
-function updatePricePlaceholders() {
-
-  const minInput =
-    document.getElementById("priceMin");
-
-  const maxInput =
-    document.getElementById("priceMax");
-
-  if (!minInput || !maxInput) return;
-
-  const currencyLabel =
-    currentCurrency === "USD"
-      ? "USD"
-      : currentCurrency === "EUR"
-      ? "EUR"
-      : "XCG";
-
-  minInput.placeholder =
-    `Min ${currencyLabel}`;
-
-  maxInput.placeholder =
-    `Max ${currencyLabel}`;
-}
-
-// ========================================
-// INIT
+// INIT CURRENCY SWITCHER
 // ========================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -112,31 +56,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!currencySwitcher) return;
 
-  // Set saved currency
-  currencySwitcher.value =
-    currentCurrency;
+  // SET SAVED VALUE
+  currencySwitcher.value = currentCurrency;
 
-  // Initial updates
-  updatePrices();
-  updatePricePlaceholders();
-
-  // Currency change
+  // CHANGE EVENT
   currencySwitcher.addEventListener("change", () => {
 
-    currentCurrency =
-      currencySwitcher.value;
+    currentCurrency = currencySwitcher.value;
 
     localStorage.setItem(
       "currency",
       currentCurrency
     );
 
-    updatePrices();
-    updatePricePlaceholders();
-
-    // Refresh listing filters
-    if (window.filterListings) {
-      window.filterListings();
+    // RELOAD LISTINGS
+    if (window.renderListings) {
+      window.renderListings();
     }
 
   });
