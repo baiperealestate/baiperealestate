@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-   // ========================================
+// ========================================
 // FILTER LISTINGS
 // ========================================
 
@@ -237,105 +237,7 @@ window.filterListings = function () {
         categoryMatch =
           status === selectedCategory ||
           type === selectedCategory;
-
-      }
-
-    }
-
-    // =====================================
-    // PRICE FILTER
-    // =====================================
-
-    const priceMatch =
-      convertedPrice >= minPrice &&
-      convertedPrice <= maxPrice;
-
-    // =====================================
-    // LOCATION FILTER
-    // =====================================
-
-    const cleanLocation =
-      location.replace(/[\s,-]+/g, "");
-
-    const cleanSearch =
-      locationValue.replace(/[\s,-]+/g, "");
-
-    const locationMatch =
-      !locationValue ||
-      cleanLocation.includes(cleanSearch);
-
-    // =====================================
-    // KEYWORD FILTER
-    // =====================================
-
-    const keywordMatch =
-      !keywordValue ||
-      title.includes(keywordValue) ||
-      description.includes(keywordValue) ||
-      location.includes(keywordValue) ||
-      reference.includes(keywordValue);
-
-    return (
-      categoryMatch &&
-      priceMatch &&
-      locationMatch &&
-      keywordMatch
-    );
-
-  });
-
-  renderListings(filtered);
-
-};
-
-  /* CATEGORY FILTER */
-
-if (categoryFilter) {
-
-  categoryFilter.addEventListener(
-    "change",
-    window.filterListings
-  );
-}
-
-/* SEARCH BUTTON */
-
-if (searchBtn) {
-
-  searchBtn.addEventListener(
-    "click",
-    window.filterListings
-  );
-}
-
-/* LIVE FILTERING */
-
-[
-  priceMinInput,
-  priceMaxInput,
-  locationSearch,
-  keywordSearch
-].forEach(input => {
-
-  if (!input) return;
-
-  input.addEventListener(
-    "input",
-    window.filterListings
-  );
-
 });
-
-/* ENTER KEY */
-
-document.addEventListener("keydown", e => {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    window.filterListings();
-  }
-});
-
-} // ← VERY IMPORTANT  
   /* =====================================================
      PROPERTY PAGE
   ===================================================== */
