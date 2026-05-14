@@ -2,14 +2,12 @@
 // BAI PE REAL ESTATE - FX SYSTEM
 // ========================================
 
-// EXCHANGE RATES
 const exchangeRates = {
   XCG: 1,
   USD: 0.56,
   EUR: 0.52
 };
 
-// CURRENT CURRENCY
 let currentCurrency =
   localStorage.getItem("currency") || "XCG";
 
@@ -19,9 +17,14 @@ let currentCurrency =
 
 function formatPrice(price) {
 
+  if (!price || isNaN(price)) {
+    return "";
+  }
+
   const converted =
     price * exchangeRates[currentCurrency];
 
+  // USD
   if (currentCurrency === "USD") {
 
     return new Intl.NumberFormat("en-US", {
@@ -32,6 +35,7 @@ function formatPrice(price) {
 
   }
 
+  // EUR
   if (currentCurrency === "EUR") {
 
     return new Intl.NumberFormat("nl-NL", {
@@ -42,11 +46,14 @@ function formatPrice(price) {
 
   }
 
-  return `XCG ${converted.toLocaleString("en-US")}`;
+  // XCG
+  return `XCG ${converted.toLocaleString("en-US", {
+    maximumFractionDigits: 0
+  })}`;
 }
 
 // ========================================
-// INIT CURRENCY SWITCHER
+// INIT SWITCHER
 // ========================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -56,10 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!currencySwitcher) return;
 
-  // SET SAVED VALUE
   currencySwitcher.value = currentCurrency;
 
-  // CHANGE EVENT
   currencySwitcher.addEventListener("change", () => {
 
     currentCurrency = currencySwitcher.value;
@@ -69,9 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
       currentCurrency
     );
 
-    // RELOAD LISTINGS
-    if (window.renderListings) {
-      window.renderListings();
+    // RE-RENDER LISTINGS
+    if (window.refreshListings) {
+      window.refreshListings();
     }
 
   });
