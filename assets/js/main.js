@@ -438,16 +438,17 @@ if (property.features && property.features.length) {
 
   });
 
+}
 
-      initGallery(property.images);
+/* INIT GALLERY */
 
-    } catch (err) {
+initGallery(property.images);
 
-      console.error("Property page error:", err);
+} catch (err) {
 
-    }
-  }
+  console.error("Property page error:", err);
 
+}
   /* =====================================================
      PROPERTY GALLERY + LIGHTBOX
   ===================================================== */
