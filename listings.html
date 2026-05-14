@@ -94,21 +94,15 @@
     <option value="en">EN</option>
     <option value="nl">NL</option>
   </select>
-
 </div>
- 
   </header>
 
   <!-- ================= MAIN ================= -->
-  <main class="listings-page">
+ main class="listings-page">
 
-<section class="filter-bar container">
-
-  <div class="filter-group">
-
-    <label>Category</label>
-
-    <select id="categoryFilter">
+  <!-- FILTER -->
+  <section class="container">
+   <select id="categoryFilter" class="filter-select">
       <option value="all">All Categories</option>
       <option value="for sale">For Sale</option>
       <option value="for rent">For Rent</option>
@@ -116,9 +110,6 @@
       <option value="commercial">Commercial</option>
       <option value="lots">Lots / Land</option>
     </select>
-
-  </div>
-
 </section>
 
     <!-- LISTINGS GRID -->
@@ -142,10 +133,9 @@
     </div>
   </footer>
 
-  <!-- JS -->
-
-<script src="/assets/js/main.js"></script>
-
+ <!-- JS (FIXED) -->
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/fx.js" defer></script>
 
 
 </body>
