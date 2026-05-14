@@ -271,29 +271,15 @@ window.filterListings = function () {
 
 };
 
-    // =====================================
-    // CATEGORY FILTER
-    // =====================================
+  /* CATEGORY FILTER */
 
-    let categoryMatch = true;
+if (categoryFilter) {
 
-    if (selectedCategory !== "all") {
-
-      if (selectedCategory === "lots") {
-
-        categoryMatch =
-          type === "lots" ||
-          type === "land";
-
-      } else {
-
-        categoryMatch =
-          status === selectedCategory ||
-          type === selectedCategory;
-
-      }
-
-    }
+  categoryFilter.addEventListener(
+    "change",
+    window.filterListings
+  );
+}
 
     // =====================================
     // PRICE FILTER
@@ -388,7 +374,7 @@ document.addEventListener("keydown", e => {
   }
 });
 
-} // ← VERY IMPORTANT  
+} 
   /* =====================================================
      PROPERTY PAGE
   ===================================================== */
