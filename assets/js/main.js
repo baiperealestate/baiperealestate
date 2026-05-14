@@ -50,14 +50,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetch(dataFile)
       .then(res => res.json())
-      .then(data => {
-        allListings = data;
-        window.refreshListings = () => {
-  renderListings(allListings);
-};
+.then(data => {
 
-renderListings(allListings);
-      })
+  allListings = data;
+
+  window.refreshListings = () => {
+
+    const selected =
+      categoryFilter?.value?.toLowerCase() || "all";
+
+    const filtered =
+      selected === "all"
+        ? allListings
+        : allListings.filter(item => {
+
+            const type =
+              item.propertyType?.toLowerCase();
+
+            const status =
+              item.status?.toLowerCase();
+
+            if (selected === "lots") {
+              return type === "lots" || type === "land";
+            }
+
+            return (
+              status === selected ||
+              type === selected
+            );
+
+          });
+
+    renderListings(filtered);
+
+  };
+
+  window.refreshListings();
+
+})
+
+
+      
       .catch(err => {
         console.error("Listings error:", err);
 
@@ -105,7 +138,9 @@ renderListings(allListings);
             <h3>${item.title}</h3>
 
           <p class="price">
-  ${formatPrice(item.price)}
+ ${typeof formatPrice === "function"
+  ? formatPrice(item.price)
+  : item.price}
 </p>
 
             <p class="location">${item.location}</p>
