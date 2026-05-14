@@ -123,33 +123,20 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    if (categoryFilter) {
+   
+  // ========================================
+  // CATEGORY FILTER
+  // ========================================
 
-      categoryFilter.addEventListener("change", e => {
+  if (categoryFilter) {
 
-        const selected = e.target.value.toLowerCase();
+    categoryFilter.addEventListener(
+      "change",
+      renderListings
+    );
 
-        const filtered =
-          selected === "all"
-            ? allListings
-            : allListings.filter(item => {
-
-                const type = item.propertyType?.toLowerCase();
-                const status = item.status?.toLowerCase();
-
-                if (selected === "lots") {
-                  return type === "lots" || type === "land";
-                }
-
-                return status === selected || type === selected;
-
-              });
-
-        renderListings(filtered);
-
-      });
-    }
   }
+
 
   /* =====================================================
      PROPERTY PAGE
