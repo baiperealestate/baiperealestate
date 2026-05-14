@@ -449,6 +449,8 @@ initGallery(property.images);
   console.error("Property page error:", err);
 
 }
+
+} 
   /* =====================================================
      PROPERTY GALLERY + LIGHTBOX
   ===================================================== */
