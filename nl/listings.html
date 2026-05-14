@@ -25,7 +25,7 @@
   <link rel="icon" href="https://baiperealestate.com/assets/images/logo.png" type="image/png">
 
   <!-- CSS -->
-<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JT23SBTX7H"></script>
@@ -35,100 +35,89 @@
     gtag('js', new Date());
     gtag('config', 'G-JT23SBTX7H');
   </script>
-
 </head>
 
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header class="navbar">
-    <div class="logo">
-      <a href="/nl/index.html">
-        <img src="/assets/images/logo.png" alt="Bai Pe Real Estate Logo">
-      </a>
-    </div>
-    
- <nav class="nav-links">
-  <a href="/nl/index.html">Home</a>
-  <a href="/nl/about.html">Over ons</a>
-  <a href="/nl/team.html">Team</a>
-  <a href="/nl/listings.html">Aanbod</a>
-  <a href="/nl/contact.html">Contact</a>
-  <a href="/nl/blog.html">Blog</a>
-  <a href="/nl/social.html">Social Media</a>
-  <a href="/nl/buying-selling-guide.html">Gids</a>
-  <a href="/nl/calculator.html" class="active">Calculator</a>
-</nav>
+<!-- ================= HEADER ================= -->
+<header class="navbar">
+  <div class="logo">
+    <a href="/nl/index.html">
+      <img src="/assets/images/logo.png" alt="Bai Pe Real Estate Logo">
+    </a>
+  </div>
 
-  <div class="hamburger" aria-label="Open Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+  <nav class="nav-links">
+    <a href="/nl/index.html">Home</a>
+    <a href="/nl/about.html">Over ons</a>
+    <a href="/nl/team.html">Team</a>
+    <a href="/nl/listings.html">Aanbod</a>
+    <a href="/nl/contact.html">Contact</a>
+    <a href="/nl/blog.html">Blog</a>
+    <a href="/nl/social.html">Social Media</a>
+    <a href="/nl/buying-selling-guide.html">Gids</a>
+    <a href="/nl/calculator.html" class="active">Calculator</a>
+  </nav>
 
-<div class="top-switchers">
+  <div class="hamburger" aria-label="Menu openen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
+  <div class="top-switchers">
+    <select class="currency-switcher" id="currencySwitcher">
+      <option value="XCG">XCG</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
 
-  <!-- Currency -->
-  <select class="currency-switcher" id="currencySwitcher">
-  <option value="XCG">XCG</option>
-  <option value="USD">USD</option>
-  <option value="EUR">EUR</option>
-</select>
+    <select class="language-switcher" id="languageSwitcher">
+      <option value="nl">NL</option>
+      <option value="en">EN</option>
+    </select>
+  </div>
+</header>
 
-  <!-- Language -->
-  <select class="language-switcher" id="languageSwitcher">
-    <option value="en">EN</option>
-    <option value="nl">NL</option>
-  </select>
+<!-- ================= MAIN ================= -->
+<main class="listings-page">
 
-</div>
- 
-  </header>
-    
-  <!-- ================= MAIN ================= -->
-  <main class="listings-page">
+  <!-- FILTER -->
+  <section class="container">
+    <select id="categoryFilter" class="filter-select">
+      <option value="all">Alle categorieën</option>
+      <option value="for sale">Te koop</option>
+      <option value="for rent">Te huur</option>
+      <option value="residential">Residentieel</option>
+      <option value="commercial">Commercieel</option>
+      <option value="lots">Kavels / Bouwgrond</option>
+    </select>
+  </section>
 
-<section class="filter-bar container">
+  <!-- LISTINGS GRID -->
+  <section id="listings" class="listings-grid"></section>
 
-<div class="filter-group">
-<label>Categorie</label>
-<select id="categoryFilter">
-<option value="all">Alle categorieën</option>
-<option value="for sale">Te koop</option>
-<option value="for rent">Te huur</option>
-<option value="residential">Residentieel</option>
-<option value="commercial">Commercieel</option>
-<option value="lots">Kavels / Bouwgrond</option>
-</select>
-   </div>
-</section>
+</main>
 
-    <!-- LISTINGS GRID -->
-    <section id="listings" class="listings-grid"></section>
+<!-- ================= WHATSAPP ================= -->
+<a href="https://wa.me/59996654776" class="whatsapp-btn">
+  WhatsApp
+</a>
 
-  </main>
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Bai Pe Real Estate | Curaçao</p>
+    <p>
+      <a href="/nl/privacy.html">Privacybeleid</a> |
+      <a href="/nl/terms.html">Algemene voorwaarden</a>
+    </p>
+  </div>
+</footer>
 
-  <!-- ================= WHATSAPP ================= -->
-  <a href="https://wa.me/59996654776" class="whatsapp-btn">
-    WhatsApp
-  </a>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 Bai Pe Real Estate | Curaçao</p>
-      <p>
-        <a href="/nl/privacy.html">Privacybeleid</a> |
-        <a href="/nl/terms.html">Algemene voorwaarden</a>
-      </p>
-    </div>
-  </footer>
-
-  <!-- JS -->
-
-<script src="/assets/js/main.js"></script>
-
+<!-- JS (FIXED) -->
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/fx.js" defer></script>
 
 </body>
 </html>
