@@ -422,9 +422,11 @@ document.addEventListener("keydown", e => {
 
       /* FEATURES */
 
-      featuresEl.innerHTML = "";
+/* FEATURES */
 
-     if (property.features && property.features.length) {
+featuresEl.innerHTML = "";
+
+if (property.features && property.features.length) {
 
   property.features.forEach(feature => {
 
@@ -436,15 +438,6 @@ document.addEventListener("keydown", e => {
 
   });
 
-}
-
-        const li = document.createElement("li");
-
-        li.textContent = feature;
-
-        featuresEl.appendChild(li);
-
-      });
 
       initGallery(property.images);
 
