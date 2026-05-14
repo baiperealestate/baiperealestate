@@ -1,11 +1,10 @@
 function getCurrentLang() {
-  return window.location.pathname.startsWith("/nl/")
-    ? "nl"
-    : "en";
+  return window.location.pathname.startsWith("/nl/") ? "nl" : "en";
 }
 
 /* =====================================================
    BAI PE REAL ESTATE – MAIN JS
+   Clean Professional Structure
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -18,19 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".nav-links");
 
   if (hamburger && nav) {
-
     hamburger.addEventListener("click", () => {
       nav.classList.toggle("active");
       hamburger.classList.toggle("active");
     });
 
     document.querySelectorAll(".nav-links a").forEach(link => {
-
       link.addEventListener("click", () => {
         nav.classList.remove("active");
         hamburger.classList.remove("active");
       });
-
     });
   }
 
@@ -40,11 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const listingsContainer = document.getElementById("listings");
   const categoryFilter = document.getElementById("categoryFilter");
-  const priceMinInput = document.getElementById("priceMin");
-  const priceMaxInput = document.getElementById("priceMax");
-  const locationSearch = document.getElementById("locationSearch");
-  const keywordSearch = document.getElementById("keywordSearch");
-  const searchBtn = document.getElementById("searchBtn");
 
   if (listingsContainer) {
 
@@ -60,13 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(dataFile)
       .then(res => res.json())
       .then(data => {
-
         allListings = data;
         renderListings(allListings);
-
       })
       .catch(err => {
-
         console.error("Listings error:", err);
 
         listingsContainer.innerHTML =
@@ -74,10 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ? "<p>Advertenties volgen binnenkort.</p>"
             : "<p>Listings coming soon.</p>";
       });
-
-    /* =====================================================
-       RENDER LISTINGS
-    ===================================================== */
 
     function renderListings(listings) {
 
@@ -106,46 +90,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.innerHTML = `
           <div class="listing-image">
+            <img src="${imgSrc}" alt="${item.title}" loading="lazy">
 
-            <img
-              src="${imgSrc}"
-              alt="${item.title}"
-              loading="lazy"
-            >
-
-            ${
-              item.featured
-                ? `<span class="badge">Featured</span>`
-                : ""
-            }
-
+            ${item.featured
+              ? `<span class="badge">Featured</span>`
+              : ""}
           </div>
 
           <div class="listing-content">
-
             <h3>${item.title}</h3>
 
-            <p class="price" data-price="${Number(item.price)}">
-              ${formatPrice(Number(item.price))}
-            </p>
+            <p class="price">${item.price}</p>
 
             <p class="location">${item.location}</p>
 
             <div class="cta">
-
-              <a
-                href="/${getCurrentLang() === "nl" ? "nl/" : ""}property.html?id=${item.id}"
-                class="btn"
-              >
-                ${
-                  getCurrentLang() === "nl"
-                    ? "Bekijk details"
-                    : "View Details"
-                }
+              <a href="/${getCurrentLang() === "nl" ? "nl/" : ""}property.html?id=${item.id}" class="btn">
+                ${getCurrentLang() === "nl"
+                  ? "Bekijk details"
+                  : "View Details"}
               </a>
-
             </div>
-
           </div>
         `;
 
@@ -158,193 +123,40 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-   // ========================================
-// FILTER LISTINGS
-// ========================================
+    if (categoryFilter) {
 
-window.filterListings = function () {
+      categoryFilter.addEventListener("change", e => {
 
-  const selectedCategory =
-    categoryFilter?.value.toLowerCase() || "all";
+        const selected = e.target.value.toLowerCase();
 
-  let minPrice =
-    Number(priceMinInput?.value);
+        const filtered =
+          selected === "all"
+            ? allListings
+            : allListings.filter(item => {
 
-  let maxPrice =
-    Number(priceMaxInput?.value);
+                const type = item.propertyType?.toLowerCase();
+                const status = item.status?.toLowerCase();
 
-  if (isNaN(minPrice)) {
-    minPrice = 0;
-  }
+                if (selected === "lots") {
+                  return type === "lots" || type === "land";
+                }
 
-  if (isNaN(maxPrice)) {
-    maxPrice = 8000000;
-  }
+                return status === selected || type === selected;
 
-  // Limit values
-  minPrice = Math.max(0, minPrice);
-  maxPrice = Math.min(8000000, maxPrice);
+              });
 
-  const locationValue =
-    locationSearch?.value.toLowerCase().trim() || "";
+        renderListings(filtered);
 
-  const keywordValue =
-    keywordSearch?.value.toLowerCase().trim() || "";
-
-  const filtered = allListings.filter(item => {
-
-    const type =
-      item.propertyType?.toLowerCase() || "";
-
-    const status =
-      item.status?.toLowerCase() || "";
-
-    const priceXCG =
-      Number(item.price) || 0;
-
-    // Convert price to selected currency
-    const convertedPrice =
-      priceXCG * exchangeRates[currentCurrency];
-
-    const title =
-      item.title?.toLowerCase() || "";
-
-    const location =
-      item.location?.toLowerCase() || "";
-
-    const description =
-      item.description?.toLowerCase() || "";
-
-    const reference =
-      item.reference?.toLowerCase() || "";
-
-    // =====================================
-    // CATEGORY FILTER
-    // =====================================
-
-    let categoryMatch = true;
-
-    if (selectedCategory !== "all") {
-
-      if (selectedCategory === "lots") {
-
-        categoryMatch =
-          type === "lots" ||
-          type === "land";
-
-      } else {
-
-        categoryMatch =
-          status === selectedCategory ||
-          type === selectedCategory;
-
-      }
-
+      });
     }
-
-    // =====================================
-    // PRICE FILTER
-    // =====================================
-
-    const priceMatch =
-      convertedPrice >= minPrice &&
-      convertedPrice <= maxPrice;
-
-    // =====================================
-    // LOCATION FILTER
-    // =====================================
-
-    const cleanLocation =
-      location.replace(/[\s,-]+/g, "");
-
-    const cleanSearch =
-      locationValue.replace(/[\s,-]+/g, "");
-
-    const locationMatch =
-      !locationValue ||
-      cleanLocation.includes(cleanSearch);
-
-    // =====================================
-    // KEYWORD FILTER
-    // =====================================
-
-    const keywordMatch =
-      !keywordValue ||
-      title.includes(keywordValue) ||
-      description.includes(keywordValue) ||
-      location.includes(keywordValue) ||
-      reference.includes(keywordValue);
-
-    return (
-      categoryMatch &&
-      priceMatch &&
-      locationMatch &&
-      keywordMatch
-    );
-
-  });
-
-  renderListings(filtered);
-
-};
-
-  /* CATEGORY FILTER */
-
-if (categoryFilter) {
-
-  categoryFilter.addEventListener(
-    "change",
-    window.filterListings
-  );
-}
-
-/* SEARCH BUTTON */
-
-if (searchBtn) {
-
-  searchBtn.addEventListener(
-    "click",
-    window.filterListings
-  );
-}
-
-/* LIVE FILTERING */
-
-[
-  priceMinInput,
-  priceMaxInput,
-  locationSearch,
-  keywordSearch
-].forEach(input => {
-
-  if (!input) return;
-
-  input.addEventListener(
-    "input",
-    window.filterListings
-  );
-
-});
-
-/* ENTER KEY */
-
-document.addEventListener("keydown", e => {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    window.filterListings();
   }
-});
 
-} // ← VERY IMPORTANT  
   /* =====================================================
      PROPERTY PAGE
   ===================================================== */
 
-  const imageEl =
-    document.getElementById("propertyImage");
-
-  const featuresEl =
-    document.getElementById("features");
+  const imageEl = document.getElementById("propertyImage");
+  const featuresEl = document.getElementById("features");
 
   if (imageEl && featuresEl) {
     loadProperty();
@@ -352,9 +164,7 @@ document.addEventListener("keydown", e => {
 
   async function loadProperty() {
 
-    const params =
-      new URLSearchParams(window.location.search);
-
+    const params = new URLSearchParams(window.location.search);
     const propertyId = params.get("id");
 
     if (!propertyId) return;
@@ -369,55 +179,28 @@ document.addEventListener("keydown", e => {
           : "/assets/data/listings.json";
 
       const res = await fetch(dataFile);
-
       const listings = await res.json();
 
-      const property = listings.find(
-        p => p.id === propertyId
-      );
+      const property = listings.find(p => p.id === propertyId);
 
       if (!property) return;
 
       /* BASIC INFO */
 
-      document.getElementById("title").textContent =
-        property.title;
-
-      const priceEl =
-        document.getElementById("price");
-
-      priceEl.dataset.price =
-        Number(property.price);
-
-      priceEl.textContent =
-        formatPrice(Number(property.price));
-      updatePrices();
-
-      document.getElementById("location").textContent =
-        property.location;
-
-      document.getElementById("bedrooms").textContent =
-        property.bedrooms;
-
-      document.getElementById("bathrooms").textContent =
-        property.bathrooms;
-
-      document.getElementById("size").textContent =
-        property.size;
-
-      document.getElementById("description").textContent =
-        property.description;
+      document.getElementById("title").textContent = property.title;
+      document.getElementById("price").textContent = property.price;
+      document.getElementById("location").textContent = property.location;
+      document.getElementById("bedrooms").textContent = property.bedrooms;
+      document.getElementById("bathrooms").textContent = property.bathrooms;
+      document.getElementById("size").textContent = property.size;
+      document.getElementById("description").textContent = property.description;
 
       /* FORM TRACKING */
 
-      const propertyField =
-        document.getElementById("propertyField");
-
-      const propertyUrl =
-        document.getElementById("propertyUrl");
+      const propertyField = document.getElementById("propertyField");
+      const propertyUrl = document.getElementById("propertyUrl");
 
       if (propertyField) {
-
         propertyField.value =
           `${property.title} | ${property.price} | ${property.location}`;
       }
@@ -457,35 +240,21 @@ document.addEventListener("keydown", e => {
 
     if (!images || images.length === 0) return;
 
-    const imageEl =
-      document.getElementById("propertyImage");
+    const imageEl = document.getElementById("propertyImage");
 
-    const lightbox =
-      document.getElementById("lightbox");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImage");
 
-    const lightboxImg =
-      document.getElementById("lightboxImage");
+    const nextBtn = document.querySelector(".slider-btn.next");
+    const prevBtn = document.querySelector(".slider-btn.prev");
 
-    const nextBtn =
-      document.querySelector(".slider-btn.next");
+    const lightNext = document.querySelector(".lightbox-arrow.next");
+    const lightPrev = document.querySelector(".lightbox-arrow.prev");
 
-    const prevBtn =
-      document.querySelector(".slider-btn.prev");
+    const closeBtn = document.querySelector(".lightbox-close");
 
-    const lightNext =
-      document.querySelector(".lightbox-arrow.next");
-
-    const lightPrev =
-      document.querySelector(".lightbox-arrow.prev");
-
-    const closeBtn =
-      document.querySelector(".lightbox-close");
-
-    const zoomIn =
-      document.getElementById("zoomIn");
-
-    const zoomOut =
-      document.getElementById("zoomOut");
+    const zoomIn = document.getElementById("zoomIn");
+    const zoomOut = document.getElementById("zoomOut");
 
     let currentIndex = 0;
     let scale = 1;
@@ -495,8 +264,7 @@ document.addEventListener("keydown", e => {
       currentIndex = index;
 
       const src =
-        images[currentIndex] ||
-        "/assets/images/placeholder.jpg";
+        images[currentIndex] || "/assets/images/placeholder.jpg";
 
       imageEl.src = src;
 
@@ -507,30 +275,17 @@ document.addEventListener("keydown", e => {
 
     showImage(0);
 
-    /* NEXT IMAGE */
+    /* SLIDER */
 
     if (nextBtn) {
-
       nextBtn.addEventListener("click", () => {
-
-        showImage(
-          (currentIndex + 1) % images.length
-        );
-
+        showImage((currentIndex + 1) % images.length);
       });
     }
 
-    /* PREVIOUS IMAGE */
-
     if (prevBtn) {
-
       prevBtn.addEventListener("click", () => {
-
-        showImage(
-          (currentIndex - 1 + images.length) %
-          images.length
-        );
-
+        showImage((currentIndex - 1 + images.length) % images.length);
       });
     }
 
@@ -547,6 +302,7 @@ document.addEventListener("keydown", e => {
         scale = 1;
 
         lightboxImg.style.transform = "scale(1)";
+
       });
     }
 
@@ -555,40 +311,26 @@ document.addEventListener("keydown", e => {
     if (closeBtn && lightbox) {
 
       closeBtn.addEventListener("click", () => {
-
         lightbox.classList.remove("active");
-
       });
+
     }
 
-    /* LIGHTBOX NEXT */
+    /* LIGHTBOX NAVIGATION */
 
     if (lightNext) {
-
       lightNext.addEventListener("click", () => {
-
-        showImage(
-          (currentIndex + 1) % images.length
-        );
-
+        showImage((currentIndex + 1) % images.length);
       });
     }
-
-    /* LIGHTBOX PREVIOUS */
 
     if (lightPrev) {
-
       lightPrev.addEventListener("click", () => {
-
-        showImage(
-          (currentIndex - 1 + images.length) %
-          images.length
-        );
-
+        showImage((currentIndex - 1 + images.length) % images.length);
       });
     }
 
-    /* ZOOM IN */
+    /* ZOOM */
 
     if (zoomIn) {
 
@@ -596,13 +338,10 @@ document.addEventListener("keydown", e => {
 
         scale += 0.2;
 
-        lightboxImg.style.transform =
-          `scale(${scale})`;
+        lightboxImg.style.transform = `scale(${scale})`;
 
       });
     }
-
-    /* ZOOM OUT */
 
     if (zoomOut) {
 
@@ -610,47 +349,36 @@ document.addEventListener("keydown", e => {
 
         scale = Math.max(1, scale - 0.2);
 
-        lightboxImg.style.transform =
-          `scale(${scale})`;
+        lightboxImg.style.transform = `scale(${scale})`;
 
       });
     }
 
-    /* MOBILE SWIPE */
+    /* SWIPE MOBILE */
 
     if (lightbox) {
 
       let startX = 0;
 
       lightbox.addEventListener("touchstart", e => {
-
-        startX =
-          e.changedTouches[0].screenX;
-
+        startX = e.changedTouches[0].screenX;
       });
 
       lightbox.addEventListener("touchend", e => {
 
-        const endX =
-          e.changedTouches[0].screenX;
+        const endX = e.changedTouches[0].screenX;
 
         if (startX - endX > 50) {
-
-          showImage(
-            (currentIndex + 1) % images.length
-          );
+          showImage((currentIndex + 1) % images.length);
         }
 
         if (endX - startX > 50) {
-
-          showImage(
-            (currentIndex - 1 + images.length) %
-            images.length
-          );
+          showImage((currentIndex - 1 + images.length) % images.length);
         }
+
       });
 
-      /* SCROLL WHEEL ZOOM */
+      /* SCROLL ZOOM */
 
       lightboxImg.addEventListener("wheel", e => {
 
@@ -662,13 +390,9 @@ document.addEventListener("keydown", e => {
           scale -= 0.15;
         }
 
-        scale = Math.min(
-          Math.max(1, scale),
-          4
-        );
+        scale = Math.min(Math.max(1, scale), 4);
 
-        lightboxImg.style.transform =
-          `scale(${scale})`;
+        lightboxImg.style.transform = `scale(${scale})`;
 
       });
 
@@ -678,8 +402,7 @@ document.addEventListener("keydown", e => {
 
         scale = 1;
 
-        lightboxImg.style.transform =
-          "scale(1)";
+        lightboxImg.style.transform = "scale(1)";
 
       });
 
@@ -695,6 +418,7 @@ document.addEventListener("keydown", e => {
             e.touches[0].pageX - e.touches[1].pageX,
             e.touches[0].pageY - e.touches[1].pageY
           );
+
         }
       });
 
@@ -709,14 +433,12 @@ document.addEventListener("keydown", e => {
 
           const zoom = newDistance / startDistance;
 
-          scale = Math.min(
-            Math.max(1, zoom),
-            4
-          );
+          scale = Math.min(Math.max(1, zoom), 4);
 
-          lightboxImg.style.transform =
-            `scale(${scale})`;
+          lightboxImg.style.transform = `scale(${scale})`;
+
         }
+
       });
     }
   }
@@ -725,18 +447,14 @@ document.addEventListener("keydown", e => {
      CONTACT FORM TRACKING
   ===================================================== */
 
-  const contactForm =
-    document.querySelector(".contact-form");
+  const contactForm = document.querySelector(".contact-form");
 
   if (contactForm) {
 
     contactForm.addEventListener("submit", () => {
 
-      const propertyField =
-        document.getElementById("propertyField");
-
-      const propertyUrl =
-        document.getElementById("propertyUrl");
+      const propertyField = document.getElementById("propertyField");
+      const propertyUrl = document.getElementById("propertyUrl");
 
       const title =
         document.getElementById("title")?.innerText || "";
@@ -751,12 +469,15 @@ document.addEventListener("keydown", e => {
 
         propertyField.value =
           `${title} | ${price} | ${location}`;
+
       }
 
       if (propertyUrl && !propertyUrl.value) {
 
         propertyUrl.value = window.location.href;
+
       }
+
     });
   }
 
@@ -764,8 +485,7 @@ document.addEventListener("keydown", e => {
      NEWSLETTER
   ===================================================== */
 
-  const newsletterForm =
-    document.getElementById("newsletterForm");
+  const newsletterForm = document.getElementById("newsletterForm");
 
   const openNewsletter =
     document.getElementById("openNewsletter");
@@ -785,24 +505,17 @@ document.addEventListener("keydown", e => {
   }
 
   if (openNewsletter) {
-
-    openNewsletter.addEventListener(
-      "click",
-      openNewsletterForm
-    );
+    openNewsletter.addEventListener("click", openNewsletterForm);
   }
 
   if (openNewsletterBlog) {
-
-    openNewsletterBlog.addEventListener(
-      "click",
-      openNewsletterForm
-    );
+    openNewsletterBlog.addEventListener("click", openNewsletterForm);
   }
+
 });
 
 /* =====================================================
-   JOURNEY SECTION
+   JOURNEY MODAL
 ===================================================== */
 
 function openJourney(type) {
@@ -816,8 +529,8 @@ function openJourney(type) {
 
       <p>
         Buying property is an important decision.
-        At Bai Pe Real Estate we guide buyers
-        through the process with professional advice,
+        At Bai Pe Real Estate we guide buyers through
+        the process with professional advice,
         market insights, and a structured approach.
       </p>
 
@@ -831,16 +544,11 @@ function openJourney(type) {
         <li>Guidance through the purchase process</li>
       </ul>
 
-      <a href="contact.html" class="btn">
-        Contact Us
-      </a>
+      <a href="contact.html" class="btn">Contact Us</a>
 
       <br><br>
 
-      <button
-        class="btn close-btn"
-        onclick="closeJourney()"
-      >
+      <button class="btn close-btn" onclick="closeJourney()">
         Close
       </button>
     `;
@@ -852,7 +560,9 @@ function openJourney(type) {
 
       <p>
         Selling a property requires more than just
-        listing it online.
+        listing it online. We use a structured
+        marketing strategy to position your property
+        correctly in the market.
       </p>
 
       <h3>Our Selling Strategy</h3>
@@ -865,16 +575,11 @@ function openJourney(type) {
         <li>Negotiation and transaction guidance</li>
       </ul>
 
-      <a href="contact.html" class="btn">
-        Contact Us
-      </a>
+      <a href="contact.html" class="btn">Contact Us</a>
 
       <br><br>
 
-      <button
-        class="btn close-btn"
-        onclick="closeJourney()"
-      >
+      <button class="btn close-btn" onclick="closeJourney()">
         Close
       </button>
     `;
@@ -885,8 +590,10 @@ function openJourney(type) {
       <h2>Rental Services</h2>
 
       <p>
-        We provide professional rental assistance
-        for owners and tenants.
+        Whether you are looking for a rental property
+        or want to rent out your investment,
+        we provide professional assistance
+        to make the process simple and secure.
       </p>
 
       <h3>How We Assist</h3>
@@ -899,26 +606,18 @@ function openJourney(type) {
         <li>Guidance throughout the rental process</li>
       </ul>
 
-      <a href="contact.html" class="btn">
-        Contact Us
-      </a>
+      <a href="contact.html" class="btn">Contact Us</a>
 
       <br><br>
 
-      <button
-        class="btn close-btn"
-        onclick="closeJourney()"
-      >
+      <button class="btn close-btn" onclick="closeJourney()">
         Close
       </button>
     `;
   }
 
-  const details =
-    document.getElementById("journeyDetails");
-
-  const contentBox =
-    document.getElementById("journeyContent");
+  const details = document.getElementById("journeyDetails");
+  const contentBox = document.getElementById("journeyContent");
 
   contentBox.innerHTML = content;
 
@@ -931,15 +630,15 @@ function openJourney(type) {
 
 function closeJourney() {
 
-  const details =
-    document.getElementById("journeyDetails");
+  const details = document.getElementById("journeyDetails");
 
   details.style.display = "none";
+
 }
 
-/* =====================================================
+/* ===============================
    SCROLL ANIMATION
-===================================================== */
+=============================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -960,10 +659,11 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".fade-up").forEach(el => {
     observer.observe(el);
   });
+
 });
 
 /* =====================================================
-   LANGUAGE SYSTEM
+   LANGUAGE SYSTEM - COMPLETE
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -971,26 +671,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const langSwitcher =
     document.getElementById("languageSwitcher");
 
-  const path =
-    window.location.pathname;
+  const path = window.location.pathname;
 
-  const isNL =
-    path.startsWith("/nl/");
+  const isNL = path.startsWith("/nl/");
 
-  /* SET DROPDOWN STATE */
+  /* ================================
+     SET DROPDOWN STATE
+  ================================ */
 
   if (langSwitcher) {
 
-    langSwitcher.value =
-      isNL ? "nl" : "en";
+    langSwitcher.value = isNL ? "nl" : "en";
 
-    const savedLang =
-      localStorage.getItem("lang");
+    const savedLang = localStorage.getItem("lang");
 
-    if (
-      savedLang &&
-      savedLang !== langSwitcher.value
-    ) {
+    if (savedLang && savedLang !== langSwitcher.value) {
       switchLanguage(savedLang);
     }
 
@@ -998,37 +693,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const selectedLang = this.value;
 
-      localStorage.setItem(
-        "lang",
-        selectedLang
-      );
+      localStorage.setItem("lang", selectedLang);
 
       switchLanguage(selectedLang);
 
     });
   }
 
-  /* SWITCH LANGUAGE */
+  /* ================================
+     SWITCH LANGUAGE
+  ================================ */
 
   function switchLanguage(lang) {
 
-    let currentPath =
-      window.location.pathname;
+    let currentPath = window.location.pathname;
 
-    const query =
-      window.location.search;
+    let query = window.location.search;
 
-    currentPath =
-      currentPath.replace(/^\/+/, "");
-
-    currentPath =
-      currentPath.replace(/^nl\//, "");
+    currentPath = currentPath.replace(/^\/+/, "");
+    currentPath = currentPath.replace(/^nl\//, "");
 
     if (currentPath === "") {
       currentPath = "index.html";
     }
 
-    const newUrl =
+    let newUrl =
       lang === "nl"
         ? "/nl/" + currentPath + query
         : "/" + currentPath + query;
@@ -1036,24 +725,26 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = newUrl;
   }
 
-  /* LOCALIZE INTERNAL LINKS */
+  /* ================================
+     LOCALIZE ALL LINKS
+  ================================ */
 
   const links =
     document.querySelectorAll("a[href$='.html']");
 
   links.forEach(link => {
 
-    let href =
-      link.getAttribute("href");
+    let href = link.getAttribute("href");
 
+    // Skip external links
     if (!href || href.startsWith("http")) return;
 
-    href =
-      href.replace(/^\/?nl\//, "");
+    href = href.replace(/^\/?nl\//, "");
 
     link.href = isNL
       ? "/nl/" + href
       : "/" + href;
 
   });
+
 });
