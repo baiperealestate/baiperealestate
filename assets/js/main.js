@@ -127,14 +127,32 @@ document.addEventListener("DOMContentLoaded", () => {
   // ========================================
   // CATEGORY FILTER
   // ========================================
+ if (categoryFilter) {
 
-  if (categoryFilter) {
+      categoryFilter.addEventListener("change", e => {
 
-    categoryFilter.addEventListener(
-      "change",
-      renderListings
-    );
+        const selected = e.target.value.toLowerCase();
 
+        const filtered =
+          selected === "all"
+            ? allListings
+            : allListings.filter(item => {
+
+                const type = item.propertyType?.toLowerCase();
+                const status = item.status?.toLowerCase();
+
+                if (selected === "lots") {
+                  return type === "lots" || type === "land";
+                }
+
+                return status === selected || type === selected;
+
+              });
+
+        renderListings(filtered);
+
+      });
+    }
   }
 
 
