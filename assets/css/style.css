@@ -2875,3 +2875,34 @@ p {
   }
 
 }
+
+
+
+/* FORCE SAME SIZE: LANGUAGE + CURRENCY SWITCHER */
+.language-switcher,
+.currency-switcher {
+  height: 42px;
+  min-width: 86px;
+  padding: 0 12px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+}
+
+/* IMPORTANT: normalize select behavior (fixes listings page mismatch) */
+.language-switcher,
+.currency-switcher {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
