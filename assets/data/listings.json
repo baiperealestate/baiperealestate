@@ -2,7 +2,7 @@
   {
     "id": "modernapartment-janthiel-002",
     "title": " For Rent - Modern Apartment Near Beaches – Jan Thiel, Curaçao",
-     "price": " XCG 2300",
+     "price": 2300,
     "status": "For Rent",
     "propertyType": "residential",
     "location": "Jan Thiel, Curaçao",
@@ -41,7 +41,7 @@
   {
   "id": "luxuryvilla-bluebay-006",
   "title": "For Rent - Luxury Family Villa with Private Apartment & Pool – Blue Bay, Curaçao",
-   "price": "XCG 10000",
+   "price": 10000,
   "status": "For Rent",
   "propertyType": "residential",
   "location": "Blue Bay, Curaçao",
