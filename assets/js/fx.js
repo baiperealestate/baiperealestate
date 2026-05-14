@@ -16,11 +16,9 @@ let currentCurrency =
 // FORMAT PRICE
 // ========================================
 
-function formatPrice(priceXCG) {
+ffunction formatPrice(priceXCG) {
 
-  if (!priceXCG || isNaN(priceXCG)) {
-    return "";
-  }
+  if (!priceXCG || isNaN(priceXCG)) return "";
 
   const converted =
     priceXCG * exchangeRates[currentCurrency];
@@ -52,7 +50,6 @@ function formatPrice(priceXCG) {
     maximumFractionDigits: 0
   })}`;
 }
-
 // ========================================
 // UPDATE ALL PRICES
 // ========================================
