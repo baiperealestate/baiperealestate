@@ -52,7 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(res => res.json())
       .then(data => {
         allListings = data;
-        renderListings(allListings);
+        window.refreshListings = () => {
+  renderListings(allListings);
+};
+
+renderListings(allListings);
       })
       .catch(err => {
         console.error("Listings error:", err);
