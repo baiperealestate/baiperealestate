@@ -1,44 +1,5 @@
 [
   {
-    "id": "modernapartment-janthiel-002",
-    "title": "Te huur – Modern appartement nabij stranden – Jan Thiel, Curaçao",
-    "price": 2300,
-    "status": "For Rent",
-    "propertyType": "residential",
-    "location": "Jan Thiel, Curaçao",
-    "bedrooms": 1,
-    "bathrooms": 1,
-    "size": "- m²",
-    "featured": false,
-    "images": [
-      "/assets/images/listings/apartment1-1.jpg",
-      "/assets/images/listings/apartment1-2.jpg",
-      "/assets/images/listings/apartment1-3.jpg",
-      "/assets/images/listings/apartment1-4.jpg",
-      "/assets/images/listings/apartment1-5.jpg",
-      "/assets/images/listings/apartment1-6.jpg",
-      "/assets/images/listings/apartment1-7.jpg",
-      "/assets/images/listings/apartment1-8.jpg"
-    ],
-    "description": "Dit goed onderhouden en volledig gemeubileerde appartement is gelegen in de zeer gewilde wijk Jan Thiel op Curaçao, op loopafstand van Jan Thiel Beach, populaire hotels, restaurants, winkelgelegenheden en de Van den Tweel Supermarkt. De locatie biedt een comfortabele en aangename woonomgeving in een van de meest populaire woongebieden van het eiland. Het appartement beschikt over een comfortabele slaapkamer met airconditioning, een moderne open keuken en een eigen entree, wat zorgt voor privacy en gebruiksgemak. De badkamer is voorzien van een boiler en de gezellige achterporch biedt een fijne buitenruimte om te ontspannen. Extra voorzieningen zijn onder andere WiFi, toegang tot een wasruimte met plaats voor een eigen wasmachine en beperkt gebruik van het zwembad in overleg. Voor meer informatie of het plannen van een bezichtiging kunt u contact opnemen met Bai Pe Real Estate via info@baiperealestate.com of via WhatsApp op +599 96654776.",
-    "features": [
-      "Volledig gemeubileerd",
-      "Slaapkamer met airconditioning",
-      "Moderne open keuken",
-      "Beperkt gebruik van zwembad (in overleg)",
-      "Eigen entree",
-      "Badkamer met boiler",
-      "Gezellige achterporch",
-      "Wasruimte (ruimte voor eigen wasmachine)",
-      "Huisdieren niet toegestaan",
-      "Inclusief WiFi",
-      "Exclusief water, elektra en gas",
-      "Minimale huurperiode: 6 maanden",
-      "Borg: XCG 4.600 (betaling in termijnen mogelijk)"
-    ]
-  },
- 
-  {
   "id": "luxuryvilla-bluebay-006",
   "title": "Te huur – Luxe familievilla met privé appartement & zwembad – Blue Bay, Curaçao",
   "price": 10000,
