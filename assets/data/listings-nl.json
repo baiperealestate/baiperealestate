@@ -79,6 +79,65 @@
     "Borg: XCG 10.000,-",
     "Exclusief water en elektra"
   ]
-}
-]
+},
 
+{
+  "id": "kwartje-presale-001",
+  "title": "EXCLUSIEVE PRE-SALE – Nieuwe gezinswoning – Kwartje, Curaçao",
+  "price": 720000,
+  "status": "For Sale",
+  "propertyType": "residential",
+  "location": "Kwartje, Curaçao",
+  "bedrooms": 3,
+  "bathrooms": 3,
+  "size": "180 m² woonoppervlakte | 375 m² perceel",
+  "featured": false,
+
+  "images": [
+    "/assets/images/listings/apartmentkwartje-1.jpg",
+    "/assets/images/listings/apartmentkwartje-2.jpg",
+    "/assets/images/listings/apartmentkwartje-3.jpg",
+    "/assets/images/listings/apartmentkwartje-4.jpg",
+    "/assets/images/listings/apartmentkwartje-5.jpg",
+    "/assets/images/listings/apartmentkwartje-6.jpg",
+    "/assets/images/listings/apartmentkwartje-7.jpg",
+    "/assets/images/listings/apartmentkwartje-8.jpg",
+    "/assets/images/listings/apartmentkwartje-9.jpg",
+    "/assets/images/listings/apartmentkwartje-10.jpg",
+    "/assets/images/listings/apartmentkwartje-11.jpg",
+    "/assets/images/listings/apartmentkwartje-12.jpg",
+    "/assets/images/listings/apartmentkwartje-13.jpg",
+    "/assets/images/listings/apartmentkwartje-14.jpg",
+    "/assets/images/listings/apartmentkwartje-15.jpg",
+    "/assets/images/listings/apartmentkwartje-16.jpg",
+    "/assets/images/listings/apartmentkwartje-17.jpg",
+    "/assets/images/listings/apartmentkwartje-18.jpg",
+    "/assets/images/listings/apartmentkwartje-19.jpg"
+  ],
+
+  "description": "Een unieke kans om een volledig nieuwe gezinswoning te bemachtigen in een centraal gelegen woongebied op Curaçao. Deze exclusieve pre-sale woning in Kwartje combineert modern design, comfort en functionaliteit en is ideaal voor gezinnen en investeerders die op zoek zijn naar een hoogwaardige woning met lange termijn waarde. De woning is gunstig gelegen nabij St. Rosaweg, een van de belangrijkste commerciële locaties van het eiland, met supermarkten, restaurants, scholen, fitnessfaciliteiten, apotheken, bouwmarkten, tankstations en dagelijkse voorzieningen op slechts 3 tot 10 minuten afstand. Populaire locaties zoals Jan Thiel Beach bevinden zich op ongeveer 15 minuten rijden. Deze moderne woning met twee verdiepingen biedt ruime leefruimtes, een privézwembad en eigen grond, waardoor het de ideale woning vormt voor comfortabel wonen en toekomstgerichte investering. De woning wordt aangeboden als exclusieve pre-sale waarbij aankoop en eigendomsoverdracht plaatsvinden via de notaris, waarna de bouw naar verwachting binnen ongeveer 6 tot 8 maanden wordt voltooid.",
+
+  "features": [
+    "Nieuwe gezinswoning met 2 verdiepingen",
+    "3 ruime slaapkamers",
+    "3 moderne badkamers",
+    "Moderne leefruimtes",
+    "Moderne keuken",
+    "Privézwembad (ca. 12m²)",
+    "Eigen grond (375m²)",
+    "Woonoppervlakte circa 180m²",
+    "Exclusieve pre-sale mogelijkheid",
+    "Bouwoplevering binnen circa 6–8 maanden na aankoop",
+    "Centraal gelegen in Kwartje",
+    "Nabij St. Rosaweg",
+    "3–10 minuten van supermarkten",
+    "3–10 minuten van restaurants",
+    "3–10 minuten van scholen",
+    "3–10 minuten van fitnessfaciliteiten",
+    "3–10 minuten van apotheken",
+    "3–10 minuten van bouwmarkten",
+    "3–10 minuten van tankstations",
+    "Circa 15 minuten van Jan Thiel Beach",
+    "Kosten koper van toepassing"
+  ]
+}
