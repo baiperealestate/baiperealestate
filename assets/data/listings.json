@@ -79,7 +79,68 @@
     " Deposit: XCG 10.000,-",
     "Excluding water and electricity"
   ]
-}
+},
+
+  {
+    "id": "kwartje-presale-001",
+    "title": "EXCLUSIVE PRE-SALE | Brand New Family Home | Kwartje, Curaçao",
+    "price": 720000,
+    "status": "For Sale",
+    "propertyType": "residential",
+    "location": "Kwartje, Curaçao",
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "size": "180 m² Built Area | 375 m² Land",
+    "featured": true,
+
+ "images": [
+  "/assets/images/listings/apartmentkwartje-1.jpg",
+  "/assets/images/listings/apartmentkwartje-2.jpg",
+  "/assets/images/listings/apartmentkwartje-3.jpg",
+  "/assets/images/listings/apartmentkwartje-4.jpg",
+  "/assets/images/listings/apartmentkwartje-5.jpg",
+  "/assets/images/listings/apartmentkwartje-6.jpg",
+  "/assets/images/listings/apartmentkwartje-7.jpg",
+  "/assets/images/listings/apartmentkwartje-8.jpg",
+  "/assets/images/listings/apartmentkwartje-9.jpg",
+  "/assets/images/listings/apartmentkwartje-10.jpg",
+  "/assets/images/listings/apartmentkwartje-11.jpg",
+  "/assets/images/listings/apartmentkwartje-12.jpg",
+  "/assets/images/listings/apartmentkwartje-13.jpg",
+  "/assets/images/listings/apartmentkwartje-14.jpg",
+  "/assets/images/listings/apartmentkwartje-15.jpg",
+  "/assets/images/listings/apartmentkwartje-16.jpg",
+  "/assets/images/listings/apartmentkwartje-17.jpg",
+  "/assets/images/listings/apartmentkwartje-18.jpg",
+  "/assets/images/listings/apartmentkwartje-19.jpg"
+],
+
+    "description": "An exceptional opportunity to secure a brand-new family residence in one of Curaçao’s centrally positioned residential areas. Located in Kwartje, this exclusive pre-sale development combines modern design, comfort, and convenience, offering an ideal lifestyle for families and investors seeking long-term value. Perfectly positioned near St. Rosaweg, one of the island’s most established and convenient commercial corridors, residents benefit from easy access to supermarkets, restaurants, schools, fitness facilities, pharmacies, hardware stores, gas stations, and everyday amenities, all within approximately 3–10 minutes. Popular destinations such as Jan Thiel Beach can be reached in approximately 15 minutes. This modern 2-storey residence offers spacious living areas, a private swimming pool, and private freehold land, creating an ideal setting for comfortable family living and long-term investment value. The property is available through an exclusive pre-sale structure where purchase and transfer are completed through the notary, with construction expected to be finalized within approximately 6–8 months after purchase.",
+
+    "features": [
+      "Brand-new 2-storey family residence",
+      "3 spacious bedrooms",
+      "3 modern bathrooms",
+      "Contemporary living spaces",
+      "Modern kitchen",
+      "Private swimming pool (approx. 12m²)",
+      "Private freehold land (375m²)",
+      "Built area approximately 180m²",
+      "Exclusive pre-sale opportunity",
+      "Construction completion approximately 6–8 months after purchase",
+      "Located in centrally positioned Kwartje",
+      "Near St. Rosaweg commercial area",
+      "3–10 minutes from supermarkets",
+      "3–10 minutes from restaurants",
+      "3–10 minutes from schools",
+      "3–10 minutes from fitness facilities",
+      "3–10 minutes from pharmacies",
+      "3–10 minutes from hardware stores",
+      "3–10 minutes from gas stations",
+      "Approximately 15 minutes from Jan Thiel Beach",
+      "Buyer costs applicable"
+    ]
+  }
 ]
 
 
