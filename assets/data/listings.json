@@ -91,7 +91,7 @@
     "bedrooms": 3,
     "bathrooms": 3,
     "size": "180 m² Built Area | 375 m² Land",
-    "featured": true,
+    "featured": false,
 
  "images": [
   "/assets/images/listings/apartmentkwartje-1.jpg",
