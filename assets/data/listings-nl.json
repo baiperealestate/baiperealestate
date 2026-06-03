@@ -190,5 +190,56 @@
     "Dicht bij scholen",
     "Borg: XCG 3.900,-"
   ]
-}
+},
+
+ {
+  "id": "juandomingo-apartments-001",
+  "title": "Te Huur – Ruime 2-Slaapkamer Appartementen | Juan Domingo, Mahuma, Curaçao",
+  "price": 1500,
+  "status": "Te Huur",
+  "propertyType": "residentieel",
+  "location": "Juan Domingo, Mahuma, Curaçao",
+  "bedrooms": 2,
+  "bathrooms": 1,
+  "size": "Ruim Appartement",
+  "featured": false,
+  "images": [
+    "/assets/images/listings/juandomingo-1.jpg",
+    "/assets/images/listings/juandomingo-2.jpg",
+    "/assets/images/listings/juandomingo-3.jpg",
+    "/assets/images/listings/juandomingo-4.jpg",
+    "/assets/images/listings/juandomingo-5.jpg",
+    "/assets/images/listings/juandomingo-6.jpg",
+    "/assets/images/listings/juandomingo-7.jpg",
+    "/assets/images/listings/juandomingo-8.jpg",
+    "/assets/images/listings/juandomingo-9.jpg",
+    "/assets/images/listings/juandomingo-10.jpg"
+  ],
+  "description": "Comfortabele en ruime 2-slaapkamer appartementen te huur in de populaire woonwijk Juan Domingo / Mahuma op Curaçao. De appartementen bevinden zich op een gunstige locatie nabij de luchthaven, supermarkten, tankstations, de universiteit en op loopafstand van een minimarkt. Elke woning beschikt over een open woonkamer met open keuken, twee ruime slaapkamers, één badkamer, een privébalkon met aangename natuurlijke ventilatie, een eigen parkeerplaats, een eigen watermeter, een prepaid elektriciteitsmeter en een privé droogruimte buiten. Deze appartementen zijn ideaal voor werkende professionals, stellen of kleine gezinnen die op zoek zijn naar comfortabel wonen op een centrale locatie. Het bovenappartement is beschikbaar vanaf 1 juli en het benedenappartement vanaf 8 juli. Neem vandaag nog contact op met Bai Pe Real Estate om een bezichtiging in te plannen.",
+  "features": [
+    "2 ruime slaapkamers",
+    "1 badkamer",
+    "Open woonkamer",
+    "Open keuken",
+    "Privébalkon",
+    "Natuurlijke ventilatie",
+    "Eigen parkeerplaats",
+    "Gedeelde parkeergelegenheid",
+    "Eigen watermeter",
+    "Prepaid elektriciteitsmeter",
+    "Privé droogruimte buiten",
+    "Gelegen in Juan Domingo / Mahuma",
+    "Dichtbij de luchthaven",
+    "Dichtbij supermarkten",
+    "Dichtbij tankstations",
+    "Dichtbij de universiteit",
+    "Op loopafstand van een minimarkt",
+    "Bovenappartement beschikbaar vanaf 1 juli",
+    "Benedenappartement beschikbaar vanaf 8 juli",
+    "Borg: XCG 1.500,-",
+    "Geldig identiteitsbewijs vereist",
+    "Vast inkomen vereist",
+    "Vaste dienst vereist"
+  ]
+} 
 ]
