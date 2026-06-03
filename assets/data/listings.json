@@ -189,5 +189,57 @@
     "Close to schools",
     "Deposit: XCG 3.900,-"
   ]
+},
+
+
+{
+  "id": "juandomingo-apartments-001",
+  "title": "For Rent – Spacious 2-Bedroom Apartments | Juan Domingo, Mahuma, Curaçao",
+  "price": 1500,
+  "status": "For Rent",
+  "propertyType": "residential",
+  "location": "Juan Domingo, Mahuma, Curaçao",
+  "bedrooms": 2,
+  "bathrooms": 1,
+  "size": "Spacious Apartment",
+  "featured": false,
+  "images": [
+    "/assets/images/listings/juandomingo-1.jpg",
+    "/assets/images/listings/juandomingo-2.jpg",
+    "/assets/images/listings/juandomingo-3.jpg",
+    "/assets/images/listings/juandomingo-4.jpg",
+    "/assets/images/listings/juandomingo-5.jpg",
+    "/assets/images/listings/juandomingo-6.jpg",
+    "/assets/images/listings/juandomingo-7.jpg",
+    "/assets/images/listings/juandomingo-8.jpg",
+    "/assets/images/listings/juandomingo-9.jpg",
+    "/assets/images/listings/juandomingo-10.jpg"
+  ],
+  "description": "Comfortable and spacious 2-bedroom apartments available for rent in the highly desirable Juan Domingo / Mahuma area of Curaçao. Conveniently located near the airport, supermarkets, gas stations, the university, and within walking distance of a minimarket, these apartments offer the perfect combination of comfort, accessibility, and practicality. Each apartment features an open-concept living room and kitchen, two spacious bedrooms, one bathroom, a private balcony with refreshing natural airflow, private parking, individual water and prepaid electricity meters, and a private outdoor clothes drying area. Ideal for professionals, couples, or small families seeking a centrally located home. The upper apartment will be available from 1 July and the ground floor apartment from 8 July. Contact Bai Pe Real Estate today to schedule a viewing.",
+  "features": [
+    "2 spacious bedrooms",
+    "1 bathroom",
+    "Open living room",
+    "Open kitchen layout",
+    "Private balcony",
+    "Natural airflow throughout apartment",
+    "Private parking space",
+    "Shared parking lot",
+    "Private water meter",
+    "Private prepaid electricity meter",
+    "Private outdoor clothes drying area",
+    "Located in Juan Domingo / Mahuma",
+    "Near Curaçao International Airport",
+    "Close to supermarkets",
+    "Close to gas stations",
+    "Close to university",
+    "Walking distance to minimarket",
+    "Upper apartment available from 1 July",
+    "Ground floor apartment available from 8 July",
+    "Deposit: XCG 1.500,-",
+    "Valid ID required",
+    "Stable income required",
+    "Permanent employment (Vaste Dienst)"
+  ]
 }
-]  
+]
