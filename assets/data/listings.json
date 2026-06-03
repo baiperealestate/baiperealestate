@@ -1,14 +1,14 @@
 [
   {
-  "id": "luxuryvilla-bluebay-006",
-  "title": "For Rent - Luxury Family Villa with Private Apartment & Pool – Blue Bay, Curaçao",
-   "price": 10000,
-  "status": "For Rent",
-  "propertyType": "residential",
-  "location": "Blue Bay, Curaçao",
+  "id":"luxuryvilla-bluebay-006",
+  "title":"For Rent - Luxury Family Villa with Private Apartment & Pool – Blue Bay, Curaçao",
+   "price":10000,
+  "status":"For Rent",
+  "propertyType":"residential",
+  "location":"Blue Bay, Curaçao",
   "bedrooms": 6,
   "bathrooms": 4,
-  "size": "Spacious Layout",
+  "size":"Spacious Layout",
   "featured": false,
 "images": [
   "/assets/images/listings/bluebayvilla-1.jpg",
@@ -84,10 +84,10 @@
   
   {
     "id": "kwartje-presale-001",
-    "title": "EXCLUSIVE PRE-SALE | Brand New Family Home | Kwartje, Curaçao",
-    "price": 720000,
-    "status": "For Sale",
-    "propertyType": "residential",
+    "title":"EXCLUSIVE PRE-SALE | Brand New Family Home | Kwartje, Curaçao",
+    "price":720000,
+    "status":"For Sale",
+    "propertyType":"residential",
     "location": "Kwartje, Curaçao",
     "bedrooms": 3,
     "bathrooms": 3,
@@ -144,16 +144,16 @@
   },
 
 {
-  "id": "traiseru-rental-001",
-  "title": "For Rent – Semi-Furnished House | Tra'i Seru, Curaçao",
-  "price": 1950,
-  "status": "For Rent",
-  "propertyType": "residential",
-  "location": "Tra'i Seru, Curaçao",
-  "bedrooms": 3,
-  "bathrooms": 1,
-  "size": "Comfortable Family Home",
-  "featured": false,
+  "id":"traiseru-rental-001",
+  "title":"For Rent – Semi-Furnished House | Tra'i Seru, Curaçao",
+  "price":1950,
+  "status":"For Rent",
+  "propertyType":"residential",
+  "location":"Tra'i Seru, Curaçao",
+  "bedrooms":3,
+  "bathrooms":1,
+  "size":"Comfortable Family Home",
+  "featured":false,
 
 "images": [
 "/assets/images/listings/traiseru-1.jpg",
@@ -173,11 +173,11 @@
 "/assets/images/listings/traiseru-15.jpg"
 ],
 
-  "description": "Comfortable and centrally located semi-furnished home available for rent in Tra'i Seru. This property features 3 bedrooms with air conditioning, 1 bathroom, a new kitchen, and a cozy living room. Conveniently located near Brievengat, with supermarkets, gas stations, restaurants, pharmacies, schools, and other essential amenities just minutes away. Ideal for families or professionals looking for a comfortable home in a central location. Interested? Contact us today to schedule a viewing and make this house your next home.",
+  "description":"Comfortable and centrally located semi-furnished home available for rent in Tra'i Seru. This property features 3 bedrooms with air conditioning, 1 bathroom, a new kitchen, and a cozy living room. Conveniently located near Brievengat, with supermarkets, gas stations, restaurants, pharmacies, schools, and other essential amenities just minutes away. Ideal for families or professionals looking for a comfortable home in a central location. Interested? Contact us today to schedule a viewing and make this house your next home.",
 
 
 
-  "features": [
+  "features":[
     "3 bedrooms with air conditioning",
     "1 bathroom",
     "New kitchen",
