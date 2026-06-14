@@ -148,14 +148,14 @@
 
 {
   "id": "juandomingo-apartments-001",
-  "title": "For Rent – Spacious 2-Bedroom Apartments | Juan Domingo, Mahuma, Curaçao",
-  "price": 1500,
-  "status": "For Rent",
+  "title": "For Sale– Apartment Complex for Sale | Juan Domingo, Mahuma, Curaçao",
+  "price": 720000,
+  "status": "For Sale",
   "propertyType": "residential",
   "location": "Juan Domingo, Mahuma, Curaçao",
-  "bedrooms": 2,
-  "bathrooms": 1,
-  "size": "Spacious Apartment",
+  "bedrooms": 6,
+  "bathrooms": 3,
+  "size": "484 m²",
   "featured": false,
   "images": [
     "/assets/images/listings/juandomingo-1.jpg",
@@ -167,12 +167,18 @@
     "/assets/images/listings/juandomingo-7.jpg",
     "/assets/images/listings/juandomingo-8.jpg",
     "/assets/images/listings/juandomingo-9.jpg",
-    "/assets/images/listings/juandomingo-10.jpg"
+    "/assets/images/listings/juandomingo-10.jpg",
+    "/assets/images/listings/juandomingo-11.jpg",
+     "/assets/images/listings/juandomingo-12.jpg",
+     "/assets/images/listings/juandomingo-13.jpg",
+     "/assets/images/listings/juandomingo-14.jpg",
+     "/assets/images/listings/juandomingo-15.jpg",
+      "/assets/images/listings/juandomingo-16.jpg"
   ],
-  "description": "Comfortable and spacious 2-bedroom apartments available for rent in the highly desirable Juan Domingo / Mahuma area of Curaçao. Conveniently located near the airport, supermarkets, gas stations, the university, and within walking distance of a minimarket, these apartments offer the perfect combination of comfort, accessibility, and practicality. The  apartment features an open-concept living room and kitchen, two spacious bedrooms, one bathroom, a private balcony with refreshing natural airflow, private parking, individual water and prepaid electricity meters, and a private outdoor clothes drying area. Ideal for professionals, couples. Contact Bai Pe Real Estate today to schedule a viewing.",
+  "description": "Located in the quiet yet centrally located neighborhood of Juan Domingo near Mahuma, this well-maintained apartment complex sits on 484 m² of freehold land and presents an excellent investment opportunity. The property consists of three apartments, all currently rented, making it especially attractive for investors seeking immediate rental income. Each apartment features 2 bedrooms, 1 bathroom, a comfortable living area with an open kitchen layout, and private on-site parking. The property also includes a fully asphalted yard, providing a clean, organized, and low-maintenance outdoor space. Conveniently situated in a central area of Curaçao, the complex is close to gas stations, supermarkets, universities and schools, shopping areas including Sambil Mall, major roads for easy access across the island, Curaçao International Airport, beaches, and many other daily conveniences. Its strategic location makes it ideal for long-term rental purposes while offering easy access to important destinations across the island. For more information or to schedule a viewing, contact Bai Pe Real Estate via email at info@baiperealestate.com or WhatsApp at +599 96654776.",
   "features": [
-    "2 spacious bedrooms",
-    "1 bathroom",
+    "Each with 2 spacious bedrooms",
+    "Each with 1 bathroom",
     "Open living room",
     "Open kitchen layout",
     "Private balcony",
@@ -188,10 +194,8 @@
     "Close to gas stations",
     "Close to university",
     "Walking distance to minimarket",
-    "Deposit: XCG 1.500,-",
-    "Valid ID required",
-    "Stable income required",
-    "Permanent employment (Vaste Dienst)"
+    "Close to shopping areas, including Sambil Mall"
+    
   ]
 }
 ]
