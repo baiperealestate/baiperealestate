@@ -2876,4 +2876,1337 @@ p {
 
 }
 
+/* =========================================================
+   BAI PE REAL ESTATE
+   SELLER PAGE — SELL.HTML
+   Add this section at the VERY BOTTOM of style.css
+========================================================= */
 
+
+/* =========================================================
+   SELL PAGE — GLOBAL
+========================================================= */
+
+.sell-hero,
+.sell-introduction,
+.sell-approach,
+.sell-feature,
+.sell-services,
+.sell-control,
+.sell-guide,
+.sell-inquiry,
+.sell-final-cta {
+  position: relative;
+}
+
+.sell-label {
+  margin: 0 0 14px;
+  color: #D8AE5E;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.sell-heading {
+  max-width: 760px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.sell-heading h2 {
+  margin: 0 0 18px;
+  color: #0F514F;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.sell-heading p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #555;
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   SELL HERO
+========================================================= */
+
+.sell-hero {
+  position: relative;
+  min-height: 650px;
+  height: 78vh;
+  max-height: 820px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 10px 10px;
+  background: #0F514F;
+}
+
+
+/* Hero image wrapper */
+
+.sell-hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Hero image */
+
+.sell-hero-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* Dark overlay */
+
+.sell-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.58) 0%,
+      rgba(0, 0, 0, 0.38) 45%,
+      rgba(0, 0, 0, 0.48) 100%
+    );
+}
+
+
+/* Subtle bottom gradient */
+
+.sell-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 35%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.35),
+    transparent
+  );
+}
+
+
+/* Hero content */
+
+.sell-hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+
+/* Eyebrow */
+
+.sell-eyebrow {
+  margin: 0 0 22px;
+  color: #D8AE5E;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+
+/* Hero heading */
+
+.sell-hero h1 {
+  margin: 0 auto 24px;
+  max-width: 900px;
+  color: #fff;
+  font-size: clamp(2.7rem, 6vw, 5.3rem);
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.28);
+}
+
+
+/* Hero paragraph */
+
+.sell-hero-text {
+  max-width: 760px;
+  margin: 0 auto 35px;
+  color: #fff;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.7;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Hero buttons */
+
+.sell-hero-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+
+
+/* Existing .btn enhanced specifically inside hero */
+
+.sell-hero .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 15px 30px;
+  border: 1px solid #D8AE5E;
+  border-radius: 8px;
+  background: #D8AE5E;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.16);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.sell-hero .btn:hover {
+  background: #c99d4d;
+  border-color: #c99d4d;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Hero secondary link */
+
+.sell-scroll-link {
+  color: #fff;
+  font-size: 0.98rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  transition: color 0.25s ease;
+}
+
+.sell-scroll-link:hover {
+  color: #D8AE5E;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.sell-introduction {
+  padding-top: 95px;
+  padding-bottom: 100px;
+}
+
+
+.sell-introduction-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 70px;
+  align-items: center;
+}
+
+
+.sell-introduction-text {
+  max-width: 570px;
+}
+
+
+.sell-introduction-text h2 {
+  margin: 0 0 25px;
+  color: #0F514F;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.15;
+}
+
+
+.sell-introduction-text p {
+  margin: 0 0 20px;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+
+.sell-introduction-text .btn {
+  margin-top: 12px;
+}
+
+
+/* Introduction image */
+
+.sell-introduction-image {
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 18px 45px rgba(15, 81, 79, 0.14);
+}
+
+
+.sell-introduction-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+
+.sell-introduction-image:hover img {
+  transform: scale(1.025);
+}
+
+
+/* =========================================================
+   APPROACH SECTION
+========================================================= */
+
+.sell-approach {
+  padding: 100px 0;
+  background: #F4F6FC;
+}
+
+
+.sell-process {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+.sell-process-item {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 35px 30px;
+  background: #fff;
+  border: 1px solid rgba(15, 81, 79, 0.08);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.sell-process-item:hover {
+  position: relative;
+  z-index: 2;
+  transform: translateY(-4px);
+  box-shadow: 0 14px 35px rgba(15, 81, 79, 0.10);
+}
+
+
+.sell-process-item > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #0F514F;
+  color: #D8AE5E;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+
+.sell-process-item h3 {
+  margin: 2px 0 10px;
+  color: #0F514F;
+  font-size: 1.25rem;
+}
+
+
+.sell-process-item p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   FEATURE IMAGE
+========================================================= */
+
+.sell-feature {
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: #0F514F;
+}
+
+
+.sell-feature > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.sell-feature-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(15, 81, 79, 0.92) 0%,
+      rgba(15, 81, 79, 0.72) 40%,
+      rgba(15, 81, 79, 0.25) 100%
+    );
+}
+
+
+.sell-feature-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  color: #fff;
+}
+
+
+.sell-feature-content .sell-label {
+  color: #D8AE5E;
+}
+
+
+.sell-feature-content h2 {
+  max-width: 650px;
+  margin: 0 0 22px;
+  color: #fff;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 1.08;
+}
+
+
+.sell-feature-content p {
+  max-width: 620px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   SERVICES / WHY BAI PE
+========================================================= */
+
+.sell-services {
+  padding-top: 100px;
+  padding-bottom: 110px;
+}
+
+
+.sell-service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+
+.sell-service {
+  min-height: 280px;
+  padding: 35px 28px;
+  background: #fff;
+  border: 1px solid rgba(15, 81, 79, 0.10);
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(15, 81, 79, 0.05);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.sell-service:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(15, 81, 79, 0.11);
+}
+
+
+.sell-service > span {
+  display: block;
+  margin-bottom: 25px;
+  color: #D8AE5E;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+
+.sell-service h3 {
+  margin: 0 0 14px;
+  color: #0F514F;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+
+.sell-service p {
+  margin: 0;
+  color: #666;
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   SELLER CONTROL
+========================================================= */
+
+.sell-control {
+  padding: 100px 0;
+  background: #F4F6FC;
+}
+
+
+.sell-control-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 75px;
+  align-items: center;
+}
+
+
+.sell-control-image {
+  overflow: hidden;
+  min-height: 570px;
+  border-radius: 10px;
+}
+
+
+.sell-control-image img {
+  display: block;
+  width: 100%;
+  height: 570px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+
+.sell-control-image:hover img {
+  transform: scale(1.025);
+}
+
+
+.sell-control-text h2 {
+  margin: 0 0 24px;
+  color: #0F514F;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 1.1;
+}
+
+
+.sell-control-text > p {
+  max-width: 600px;
+  margin: 0 0 35px;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+
+.sell-control-points {
+  display: grid;
+  gap: 0;
+}
+
+
+.sell-control-points > div {
+  padding: 22px 0;
+  border-top: 1px solid rgba(15, 81, 79, 0.15);
+}
+
+
+.sell-control-points > div:last-child {
+  border-bottom: 1px solid rgba(15, 81, 79, 0.15);
+}
+
+
+.sell-control-points strong {
+  display: block;
+  margin-bottom: 7px;
+  color: #0F514F;
+  font-size: 1rem;
+}
+
+
+.sell-control-points p {
+  margin: 0;
+  color: #666;
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   SELLER GUIDE
+========================================================= */
+
+.sell-guide {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+
+.sell-guide-content {
+  position: relative;
+  overflow: hidden;
+  padding: 65px 70px;
+  border-radius: 10px;
+  background: #0F514F;
+  box-shadow: 0 18px 45px rgba(15, 81, 79, 0.16);
+}
+
+
+.sell-guide-content::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  right: -100px;
+  top: -120px;
+  border: 1px solid rgba(216, 174, 94, 0.35);
+  border-radius: 50%;
+}
+
+
+.sell-guide-content .sell-label {
+  position: relative;
+  z-index: 2;
+  color: #D8AE5E;
+}
+
+
+.sell-guide-content h2 {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  margin: 0 0 20px;
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+}
+
+
+.sell-guide-content p {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 0 28px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+
+.sell-guide-content .btn {
+  position: relative;
+  z-index: 3;
+  margin-right: 20px;
+  background: #D8AE5E;
+  border-color: #D8AE5E;
+  color: #fff;
+}
+
+
+.sell-guide-content .btn:hover {
+  background: #c99d4d;
+  border-color: #c99d4d;
+}
+
+
+.sell-pdf-link {
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  padding-bottom: 3px;
+}
+
+
+.sell-pdf-link:hover {
+  color: #D8AE5E;
+  border-color: #D8AE5E;
+}
+
+
+/* =========================================================
+   SELLER INQUIRY / LEAD FORM
+========================================================= */
+
+.sell-inquiry {
+  padding: 105px 0;
+  background: #F4F6FC;
+}
+
+
+.sell-inquiry-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 80px;
+  align-items: start;
+}
+
+
+.sell-inquiry-text {
+  padding-top: 20px;
+}
+
+
+.sell-inquiry-text h2 {
+  max-width: 520px;
+  margin: 0 0 25px;
+  color: #0F514F;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+}
+
+
+.sell-inquiry-text > p {
+  max-width: 550px;
+  margin: 0 0 20px;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+
+.sell-contact-note {
+  margin-top: 35px;
+  padding: 22px 25px;
+  border-left: 3px solid #D8AE5E;
+  background: #fff;
+}
+
+
+.sell-contact-note strong {
+  display: block;
+  margin-bottom: 7px;
+  color: #0F514F;
+}
+
+
+.sell-contact-note p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+
+/* Form card */
+
+.sell-form {
+  padding: 45px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 81, 79, 0.08);
+  box-shadow: 0 18px 45px rgba(15, 81, 79, 0.09);
+}
+
+
+.sell-form form {
+  width: 100%;
+}
+
+
+.sell-form label {
+  display: block;
+  margin: 0 0 8px;
+  color: #0F514F;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+
+.sell-form input,
+.sell-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 22px;
+  padding: 14px 16px;
+  border: 1px solid #d9dfe3;
+  border-radius: 6px;
+  background: #fff;
+  color: #333;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.sell-form input {
+  min-height: 50px;
+}
+
+
+.sell-form textarea {
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+
+.sell-form input::placeholder,
+.sell-form textarea::placeholder {
+  color: #999;
+}
+
+
+.sell-form input:focus,
+.sell-form textarea:focus {
+  border-color: #0F514F;
+  box-shadow: 0 0 0 3px rgba(15, 81, 79, 0.08);
+}
+
+
+.sell-form .btn {
+  width: 100%;
+  min-height: 54px;
+  border: 1px solid #D8AE5E;
+  background: #D8AE5E;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.sell-form .btn:hover {
+  background: #c99d4d;
+  border-color: #c99d4d;
+  transform: translateY(-2px);
+}
+
+
+.sell-form-disclaimer {
+  margin: 15px 0 0;
+  color: #888;
+  font-size: 0.75rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.sell-final-cta {
+  padding: 110px 20px;
+  background: #0F514F;
+  text-align: center;
+}
+
+
+.sell-final-cta .sell-label {
+  color: #D8AE5E;
+}
+
+
+.sell-final-cta h2 {
+  max-width: 850px;
+  margin: 0 auto 25px;
+  color: #fff;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 1.08;
+}
+
+
+.sell-final-cta p {
+  margin: 0 auto 32px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.05rem;
+}
+
+
+.sell-final-cta .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 55px;
+  padding: 15px 32px;
+  background: #D8AE5E;
+  border: 1px solid #D8AE5E;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.sell-final-cta .btn:hover {
+  background: #c99d4d;
+  border-color: #c99d4d;
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   SELL PAGE — FADE UP
+========================================================= */
+
+.sell-introduction.fade-up,
+.sell-approach.fade-up,
+.sell-feature.fade-up,
+.sell-services.fade-up,
+.sell-control.fade-up,
+.sell-guide.fade-up,
+.sell-inquiry.fade-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   SELL PAGE — TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .sell-hero {
+    min-height: 600px;
+    height: 72vh;
+  }
+
+
+  .sell-introduction-grid,
+  .sell-control-grid {
+    gap: 45px;
+  }
+
+
+  .sell-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+
+  .sell-process {
+    grid-template-columns: 1fr;
+  }
+
+
+  .sell-process-item {
+    border-bottom: 0;
+  }
+
+
+  .sell-process-item:last-child {
+    border-bottom: 1px solid rgba(15, 81, 79, 0.08);
+  }
+
+
+  .sell-inquiry-grid {
+    gap: 45px;
+  }
+
+}
+
+
+/* =========================================================
+   SELL PAGE — MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Hero */
+
+  .sell-hero {
+    min-height: 650px;
+    height: 78vh;
+    border-radius: 0 0 7px 7px;
+  }
+
+
+  .sell-hero-image img {
+    object-position: center center;
+  }
+
+
+  .sell-hero-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.48) 0%,
+        rgba(0, 0, 0, 0.58) 100%
+      );
+  }
+
+
+  .sell-hero-content {
+    padding: 70px 20px;
+  }
+
+
+  .sell-eyebrow {
+    margin-bottom: 18px;
+    font-size: 0.7rem;
+    letter-spacing: 1.7px;
+  }
+
+
+  .sell-hero h1 {
+    font-size: clamp(2.25rem, 11vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.8px;
+  }
+
+
+  .sell-hero-text {
+    max-width: 500px;
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+
+  .sell-hero-buttons {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+
+  .sell-hero .btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+
+  /* Introduction */
+
+  .sell-introduction {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+
+  .sell-introduction-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+
+  .sell-introduction-text {
+    max-width: none;
+  }
+
+
+  .sell-introduction-text h2 {
+    font-size: 2.2rem;
+  }
+
+
+  .sell-introduction-image {
+    min-height: 380px;
+  }
+
+
+  .sell-introduction-image img {
+    min-height: 380px;
+  }
+
+
+  /* Section headings */
+
+  .sell-heading {
+    margin-bottom: 40px;
+  }
+
+
+  .sell-heading h2 {
+    font-size: 2.2rem;
+  }
+
+
+  /* Approach */
+
+  .sell-approach {
+    padding: 70px 0;
+  }
+
+
+  .sell-process-item {
+    grid-template-columns: 55px 1fr;
+    gap: 18px;
+    padding: 28px 20px;
+  }
+
+
+  .sell-process-item > span {
+    width: 45px;
+    height: 45px;
+  }
+
+
+  /* Feature */
+
+  .sell-feature {
+    min-height: 520px;
+  }
+
+
+  .sell-feature-content {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+
+  .sell-feature-content h2 {
+    font-size: 2.4rem;
+  }
+
+
+  /* Services */
+
+  .sell-services {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+
+  .sell-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .sell-service {
+    min-height: auto;
+  }
+
+
+  /* Seller control */
+
+  .sell-control {
+    padding: 70px 0;
+  }
+
+
+  .sell-control-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+
+  .sell-control-image,
+  .sell-control-image img {
+    min-height: 400px;
+    height: 400px;
+  }
+
+
+  .sell-control-text h2 {
+    font-size: 2.4rem;
+  }
+
+
+  /* Seller guide */
+
+  .sell-guide {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+
+
+  .sell-guide-content {
+    padding: 45px 28px;
+  }
+
+
+  .sell-guide-content h2 {
+    font-size: 2.2rem;
+  }
+
+
+  .sell-guide-content .btn {
+    margin-right: 0;
+    margin-bottom: 18px;
+  }
+
+
+  .sell-pdf-link {
+    display: block;
+    width: fit-content;
+  }
+
+
+  /* Inquiry */
+
+  .sell-inquiry {
+    padding: 70px 0;
+  }
+
+
+  .sell-inquiry-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+
+  .sell-inquiry-text {
+    padding-top: 0;
+  }
+
+
+  .sell-inquiry-text h2 {
+    font-size: 2.4rem;
+  }
+
+
+  .sell-form {
+    padding: 30px 22px;
+  }
+
+
+  /* Final CTA */
+
+  .sell-final-cta {
+    padding: 80px 20px;
+  }
+
+
+  .sell-final-cta h2 {
+    font-size: 2.5rem;
+  }
+
+}
+
+
+/* =========================================================
+   SELL PAGE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .sell-hero {
+    min-height: 620px;
+  }
+
+
+  .sell-hero-content {
+    padding: 60px 18px;
+  }
+
+
+  .sell-hero h1 {
+    font-size: 2.15rem;
+  }
+
+
+  .sell-hero-text {
+    font-size: 0.92rem;
+  }
+
+
+  .sell-introduction-text h2,
+  .sell-heading h2,
+  .sell-feature-content h2,
+  .sell-control-text h2,
+  .sell-inquiry-text h2 {
+    font-size: 2rem;
+  }
+
+
+  .sell-introduction-image,
+  .sell-introduction-image img {
+    min-height: 320px;
+  }
+
+
+  .sell-control-image,
+  .sell-control-image img {
+    min-height: 330px;
+    height: 330px;
+  }
+
+
+  .sell-form {
+    padding: 25px 18px;
+  }
+
+
+  .sell-final-cta h2 {
+    font-size: 2.15rem;
+  }
+
+}
+
+
+/* =========================================================
+   SELL PAGE — ACCESSIBILITY
+========================================================= */
+
+.sell-hero a:focus-visible,
+.sell-guide a:focus-visible,
+.sell-final-cta a:focus-visible,
+.sell-form input:focus-visible,
+.sell-form textarea:focus-visible,
+.sell-form button:focus-visible {
+  outline: 3px solid rgba(216, 174, 94, 0.55);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   SELL PAGE — REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .sell-introduction-image img,
+  .sell-control-image img,
+  .sell-service,
+  .sell-process-item,
+  .sell-hero .btn,
+  .sell-final-cta .btn {
+    transition: none;
+  }
+
+}
