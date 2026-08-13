@@ -4428,54 +4428,119 @@ p {
 
 
 /* =========================================================
-   FEATURE IMAGE
-   ========================================================= */
+   RENT FEATURE IMAGE — PREMIUM EDITORIAL SECTION
+========================================================= */
 
 .rent-feature {
   position: relative;
-  height: 650px;
+  width: 100%;
+  min-height: 560px;
+  margin: 90px 0;
   overflow: hidden;
   display: flex;
   align-items: center;
+  background: #0F514F;
 }
 
-.rent-feature > img {
+.rent-feature img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 55%;
+  z-index: 1;
 }
 
 .rent-feature-overlay {
   position: absolute;
   inset: 0;
+  z-index: 2;
+
   background:
     linear-gradient(
       90deg,
-      rgba(15,81,79,0.88),
-      rgba(15,81,79,0.28)
+      rgba(15, 81, 79, 0.92) 0%,
+      rgba(15, 81, 79, 0.72) 38%,
+      rgba(15, 81, 79, 0.30) 72%,
+      rgba(15, 81, 79, 0.10) 100%
     );
 }
 
 .rent-feature-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 90px 40px;
   color: #ffffff;
 }
 
-.rent-feature-content h2 {
-  max-width: 780px;
-  font-size: clamp(2.4rem, 5vw, 4.8rem);
-  line-height: 1.04;
-  font-weight: 500;
-  margin: 0 0 25px;
+.rent-feature-content .rent-label {
+  color: #D8AE5E;
+  margin-bottom: 18px;
 }
 
-.rent-feature-content p:last-child {
+.rent-feature-content h2 {
   max-width: 650px;
+  margin: 0 0 24px;
+  color: #ffffff;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -1.5px;
+}
+
+.rent-feature-content p {
+  max-width: 600px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 18px;
   line-height: 1.8;
-  font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   RENT FEATURE — MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .rent-feature {
+    min-height: 520px;
+    margin: 60px 0;
+  }
+
+  .rent-feature img {
+    object-position: center;
+  }
+
+  .rent-feature-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(15, 81, 79, 0.45) 0%,
+        rgba(15, 81, 79, 0.88) 75%,
+        rgba(15, 81, 79, 0.96) 100%
+      );
+  }
+
+  .rent-feature-content {
+    padding: 80px 25px;
+    align-self: flex-end;
+  }
+
+  .rent-feature-content h2 {
+    font-size: 38px;
+    letter-spacing: -0.8px;
+  }
+
+  .rent-feature-content p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
 }
 
 
