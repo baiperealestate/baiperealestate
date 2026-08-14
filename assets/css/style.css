@@ -4932,4 +4932,1469 @@ p {
 
 }
 
+/* =========================================================
+   BAI PE REAL ESTATE
+   BUYER PAGE — BUYING.HTML
+   Add this section to the bottom of style.css
+========================================================= */
 
+
+/* =========================================================
+   BUYER PAGE VARIABLES
+========================================================= */
+
+:root {
+  --buyer-green: #0F514F;
+  --buyer-green-dark: #0A3D3B;
+  --buyer-gold: #D8AE5E;
+  --buyer-gold-light: #E8CC91;
+  --buyer-light: #F4F6FC;
+  --buyer-white: #FFFFFF;
+  --buyer-text: #1C2928;
+  --buyer-muted: #667372;
+  --buyer-border: rgba(15, 81, 79, 0.14);
+  --buyer-shadow: 0 18px 50px rgba(15, 81, 79, 0.10);
+  --buyer-radius: 2px;
+}
+
+
+/* =========================================================
+   GLOBAL BUYER PAGE
+========================================================= */
+
+body {
+  color: var(--buyer-text);
+}
+
+.container {
+  width: min(1180px, calc(100% - 48px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =========================================================
+   BUYER HERO
+========================================================= */
+
+.buyer-hero {
+  position: relative;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--buyer-green-dark);
+}
+
+.buyer-hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.buyer-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.buyer-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 35, 34, 0.90) 0%,
+      rgba(8, 48, 46, 0.78) 42%,
+      rgba(8, 48, 46, 0.30) 75%,
+      rgba(8, 48, 46, 0.10) 100%
+    );
+}
+
+.buyer-hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  color: var(--buyer-white);
+}
+
+.buyer-eyebrow {
+  margin: 0 0 20px;
+  color: var(--buyer-gold-light);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.buyer-hero h1 {
+  max-width: 760px;
+  margin: 0;
+  color: var(--buyer-white);
+  font-size: clamp(46px, 6vw, 78px);
+  line-height: 0.98;
+  font-weight: 500;
+  letter-spacing: -2px;
+}
+
+.buyer-hero-text {
+  max-width: 650px;
+  margin: 30px 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.buyer-hero-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 38px;
+}
+
+
+/* =========================================================
+   BUYER BUTTONS
+========================================================= */
+
+.buyer-hero .btn,
+.buyer-cost-content .btn,
+.buyer-calculator-callout .btn,
+.buyer-inquiry-section .btn,
+.buyer-listings-section .btn,
+.buyer-final-cta .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 28px;
+  border: 1px solid var(--buyer-gold);
+  border-radius: 0;
+  background: var(--buyer-gold);
+  color: var(--buyer-green-dark);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.buyer-hero .btn:hover,
+.buyer-cost-content .btn:hover,
+.buyer-calculator-callout .btn:hover,
+.buyer-inquiry-section .btn:hover,
+.buyer-listings-section .btn:hover,
+.buyer-final-cta .btn:hover {
+  background: transparent;
+  border-color: var(--buyer-gold);
+  color: var(--buyer-white);
+  transform: translateY(-2px);
+}
+
+.buyer-scroll-link {
+  color: var(--buyer-white);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.buyer-scroll-link:hover {
+  color: var(--buyer-gold-light);
+}
+
+
+/* =========================================================
+   TRUST BAR
+========================================================= */
+
+.buyer-trust-bar {
+  position: relative;
+  z-index: 5;
+  background: var(--buyer-white);
+  border-bottom: 1px solid var(--buyer-border);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.buyer-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.buyer-trust-grid > div {
+  min-height: 100px;
+  padding: 24px 25px;
+  border-right: 1px solid var(--buyer-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buyer-trust-grid > div:last-child {
+  border-right: 0;
+}
+
+.buyer-trust-grid strong {
+  color: var(--buyer-green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.buyer-trust-grid span {
+  margin-top: 7px;
+  color: var(--buyer-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   BUYER INTRODUCTION
+========================================================= */
+
+.buyer-introduction {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.buyer-introduction-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 90px;
+  align-items: center;
+}
+
+.buyer-label {
+  margin: 0 0 16px;
+  color: var(--buyer-gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.4px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.buyer-introduction h2,
+.buyer-heading h2,
+.buyer-cost-content h2,
+.buyer-money-heading h2,
+.buyer-role-section h2 {
+  margin: 0;
+  color: var(--buyer-green);
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -1px;
+}
+
+.buyer-introduction-text > p:not(.buyer-label) {
+  max-width: 680px;
+  margin: 22px 0 0;
+  color: var(--buyer-muted);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.buyer-introduction-text .btn {
+  display: inline-flex;
+  margin-top: 30px;
+  padding: 14px 25px;
+  border: 1px solid var(--buyer-green);
+  background: var(--buyer-green);
+  color: var(--buyer-white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.buyer-introduction-text .btn:hover {
+  background: transparent;
+  color: var(--buyer-green);
+}
+
+.buyer-introduction-card {
+  position: relative;
+  padding: 55px;
+  background: var(--buyer-green);
+  color: var(--buyer-white);
+  box-shadow: var(--buyer-shadow);
+}
+
+.buyer-introduction-card::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: 45px;
+  height: 1px;
+  background: var(--buyer-gold);
+}
+
+.buyer-card-label {
+  margin: 0 0 25px;
+  color: var(--buyer-gold-light);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.buyer-introduction-card h3 {
+  margin: 0;
+  color: var(--buyer-white);
+  font-size: 29px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.buyer-introduction-card p:last-child {
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   LIGHT SECTION
+========================================================= */
+
+.buyer-light-section {
+  padding: 105px 0;
+  background: var(--buyer-light);
+}
+
+.buyer-heading {
+  max-width: 780px;
+  margin-bottom: 55px;
+}
+
+.buyer-heading > p:not(.buyer-label) {
+  max-width: 680px;
+  margin: 20px 0 0;
+  color: var(--buyer-muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   PREPARATION CARDS
+========================================================= */
+
+.buyer-prep-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--buyer-border);
+}
+
+.buyer-prep-card {
+  min-height: 250px;
+  padding: 34px;
+  background: var(--buyer-white);
+}
+
+.buyer-prep-card > span {
+  color: var(--buyer-gold);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.buyer-prep-card h3 {
+  margin: 35px 0 14px;
+  color: var(--buyer-green);
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.buyer-prep-card p {
+  margin: 0;
+  color: var(--buyer-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   RESIDENT / NON-RESIDENT
+========================================================= */
+
+.buyer-status-section {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.buyer-status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.buyer-status-card {
+  position: relative;
+  padding: 50px;
+  border: 1px solid var(--buyer-border);
+  background: var(--buyer-white);
+}
+
+.buyer-status-card.featured {
+  border-color: var(--buyer-gold);
+  box-shadow: var(--buyer-shadow);
+}
+
+.buyer-status-number {
+  color: var(--buyer-gold);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.buyer-status-card h3 {
+  margin: 28px 0 15px;
+  color: var(--buyer-green);
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.buyer-status-card > p {
+  margin: 0;
+  color: var(--buyer-muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.buyer-highlight {
+  margin-top: 35px;
+  padding-top: 24px;
+  border-top: 1px solid var(--buyer-border);
+}
+
+.buyer-highlight strong {
+  display: block;
+  color: var(--buyer-green);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.buyer-highlight span {
+  display: block;
+  margin-top: 7px;
+  color: var(--buyer-gold);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.buyer-footnote {
+  margin: 25px 0 0;
+  color: #7A8584;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   PURCHASE COST SECTION
+========================================================= */
+
+.buyer-cost-section {
+  padding: 110px 0;
+  background: var(--buyer-green);
+  color: var(--buyer-white);
+}
+
+.buyer-cost-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.buyer-cost-content .buyer-label {
+  color: var(--buyer-gold-light);
+}
+
+.buyer-cost-content h2 {
+  color: var(--buyer-white);
+}
+
+.buyer-cost-content p:not(.buyer-label) {
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.buyer-cost-content .btn {
+  margin-top: 30px;
+}
+
+.buyer-cost-list {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.buyer-cost-list > div {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 18px;
+  padding: 23px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.buyer-cost-list span {
+  color: var(--buyer-gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.buyer-cost-list strong {
+  display: block;
+  color: var(--buyer-white);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.buyer-cost-list small {
+  display: block;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   MONEY / DOWN PAYMENT SECTION
+========================================================= */
+
+.buyer-money-section {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.buyer-money-heading {
+  max-width: 780px;
+}
+
+.buyer-money-heading > p:not(.buyer-label) {
+  margin-top: 22px;
+  color: var(--buyer-muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.buyer-money-flow {
+  display: flex;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.buyer-money-flow > div:not(.buyer-flow-line) {
+  flex: 1;
+}
+
+.buyer-money-flow span {
+  display: block;
+  color: var(--buyer-gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.buyer-money-flow strong {
+  display: block;
+  margin-top: 14px;
+  color: var(--buyer-green);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.buyer-money-flow small {
+  display: block;
+  max-width: 180px;
+  margin-top: 7px;
+  color: var(--buyer-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.buyer-flow-line {
+  flex: 0 0 45px;
+  height: 1px;
+  margin: 0 15px;
+  background: var(--buyer-gold);
+}
+
+.buyer-calculator-callout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  margin-top: 65px;
+  padding: 40px 45px;
+  background: var(--buyer-light);
+  border-left: 3px solid var(--buyer-gold);
+}
+
+.buyer-calculator-callout h3 {
+  max-width: 650px;
+  margin: 0;
+  color: var(--buyer-green);
+  font-size: 23px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.buyer-calculator-callout .btn {
+  flex-shrink: 0;
+  border-color: var(--buyer-green);
+  background: var(--buyer-green);
+  color: var(--buyer-white);
+}
+
+.buyer-calculator-callout .btn:hover {
+  background: transparent;
+  color: var(--buyer-green);
+}
+
+
+/* =========================================================
+   BUYING PROCESS
+========================================================= */
+
+.buyer-process-section {
+  padding: 110px 0;
+  background: var(--buyer-light);
+}
+
+.buyer-heading.centered {
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.buyer-heading.centered > p:not(.buyer-label) {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buyer-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--buyer-border);
+}
+
+.buyer-process-item {
+  min-height: 250px;
+  padding: 35px;
+  background: var(--buyer-white);
+}
+
+.buyer-process-item > span {
+  color: var(--buyer-gold);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.buyer-process-item h3 {
+  margin: 30px 0 12px;
+  color: var(--buyer-green);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.buyer-process-item p {
+  margin: 0;
+  color: var(--buyer-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   BAI PE ROLE
+========================================================= */
+
+.buyer-role-section {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.buyer-role-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 100px;
+}
+
+.buyer-role-grid > div:first-child > p:not(.buyer-label) {
+  margin: 22px 0 0;
+  color: var(--buyer-muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.buyer-role-list {
+  border-top: 1px solid var(--buyer-border);
+}
+
+.buyer-role-list > div {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--buyer-border);
+}
+
+.buyer-role-list span {
+  flex: 0 0 40px;
+  color: var(--buyer-gold);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.buyer-role-list p {
+  margin: 0;
+  color: var(--buyer-green);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   BUYER INQUIRY / LEAD FORM
+========================================================= */
+
+.buyer-inquiry-section {
+  padding: 110px 0;
+  background: var(--buyer-light);
+}
+
+.buyer-inquiry-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.buyer-inquiry-content {
+  position: sticky;
+  top: 100px;
+}
+
+.buyer-inquiry-content h2 {
+  margin: 0;
+  color: var(--buyer-green);
+  font-size: clamp(38px, 4vw, 55px);
+  line-height: 1.05;
+  font-weight: 500;
+}
+
+.buyer-inquiry-content > p:not(.buyer-label) {
+  max-width: 530px;
+  margin: 22px 0 0;
+  color: var(--buyer-muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.buyer-inquiry-points {
+  margin-top: 40px;
+  border-top: 1px solid var(--buyer-border);
+}
+
+.buyer-inquiry-points > div {
+  padding: 17px 0;
+  border-bottom: 1px solid var(--buyer-border);
+}
+
+.buyer-inquiry-points strong {
+  display: block;
+  color: var(--buyer-green);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.buyer-inquiry-points span {
+  display: block;
+  margin-top: 5px;
+  color: var(--buyer-muted);
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.buyer-form-card {
+  padding: 48px;
+  background: var(--buyer-white);
+  box-shadow: var(--buyer-shadow);
+}
+
+.buyer-form-header {
+  margin-bottom: 32px;
+}
+
+.buyer-form-header h3 {
+  margin: 0;
+  color: var(--buyer-green);
+  font-size: 29px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.buyer-form-card form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 18px;
+  row-gap: 7px;
+}
+
+.buyer-form-card label {
+  display: block;
+  margin-top: 13px;
+  color: var(--buyer-green);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.buyer-form-card input,
+.buyer-form-card select,
+.buyer-form-card textarea {
+  width: 100%;
+  margin-top: 7px;
+  padding: 14px 15px;
+  border: 1px solid #D9DFDE;
+  border-radius: 0;
+  outline: none;
+  background: var(--buyer-white);
+  color: var(--buyer-text);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.buyer-form-card input,
+.buyer-form-card select {
+  min-height: 48px;
+}
+
+.buyer-form-card textarea {
+  min-height: 125px;
+  resize: vertical;
+}
+
+.buyer-form-card input:focus,
+.buyer-form-card select:focus,
+.buyer-form-card textarea:focus {
+  border-color: var(--buyer-gold);
+  box-shadow: 0 0 0 3px rgba(216, 174, 94, 0.12);
+}
+
+.buyer-form-card input::placeholder,
+.buyer-form-card textarea::placeholder {
+  color: #9AA4A3;
+}
+
+.buyer-form-card textarea,
+.buyer-form-card button,
+.buyer-form-card .buyer-form-disclaimer {
+  grid-column: 1 / -1;
+}
+
+.buyer-form-card button {
+  margin-top: 25px;
+  min-height: 54px;
+  border: 1px solid var(--buyer-green);
+  border-radius: 0;
+  background: var(--buyer-green);
+  color: var(--buyer-white);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.buyer-form-card button:hover {
+  background: var(--buyer-gold);
+  border-color: var(--buyer-gold);
+  color: var(--buyer-green-dark);
+}
+
+.buyer-form-disclaimer {
+  margin: 17px 0 0;
+  color: #87918F;
+  font-size: 10.5px;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   LISTINGS CTA
+========================================================= */
+
+.buyer-listings-section {
+  padding: 90px 0;
+  background: var(--buyer-green);
+}
+
+.buyer-listings-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.buyer-listings-grid .buyer-label {
+  color: var(--buyer-gold-light);
+}
+
+.buyer-listings-grid h2 {
+  max-width: 750px;
+  margin: 0;
+  color: var(--buyer-white);
+  font-size: clamp(34px, 4vw, 50px);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.buyer-listings-grid p:not(.buyer-label) {
+  max-width: 650px;
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.buyer-listings-grid > div:last-child {
+  flex-shrink: 0;
+}
+
+.buyer-listings-section .btn:hover {
+  color: var(--buyer-white);
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.buyer-faq-section {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.buyer-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 25px;
+  border-top: 1px solid var(--buyer-border);
+}
+
+.buyer-faq-grid details {
+  border-bottom: 1px solid var(--buyer-border);
+}
+
+.buyer-faq-grid summary {
+  position: relative;
+  padding: 23px 45px 23px 0;
+  color: var(--buyer-green);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  list-style: none;
+}
+
+.buyer-faq-grid summary::-webkit-details-marker {
+  display: none;
+}
+
+.buyer-faq-grid summary::after {
+  content: "+";
+  position: absolute;
+  top: 21px;
+  right: 3px;
+  color: var(--buyer-gold);
+  font-size: 20px;
+  font-weight: 400;
+  transition: transform 0.2s ease;
+}
+
+.buyer-faq-grid details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.buyer-faq-grid details p {
+  max-width: 620px;
+  margin: -4px 0 24px;
+  color: var(--buyer-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.buyer-final-cta {
+  padding: 115px 0;
+  background:
+    linear-gradient(
+      135deg,
+      var(--buyer-green-dark),
+      var(--buyer-green)
+    );
+  text-align: center;
+}
+
+.buyer-final-cta .buyer-label {
+  color: var(--buyer-gold-light);
+}
+
+.buyer-final-cta h2 {
+  margin: 0;
+  color: var(--buyer-white);
+  font-size: clamp(42px, 6vw, 70px);
+  line-height: 1.02;
+  font-weight: 500;
+  letter-spacing: -1.5px;
+}
+
+.buyer-final-cta > .container > p:not(.buyer-label) {
+  max-width: 650px;
+  margin: 25px auto 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.buyer-final-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 38px;
+}
+
+.buyer-final-link {
+  color: var(--buyer-white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.buyer-final-link:hover {
+  color: var(--buyer-gold-light);
+}
+
+
+/* =========================================================
+   WHATSAPP BUTTON
+========================================================= */
+
+.whatsapp-btn {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 115px;
+  min-height: 48px;
+  padding: 12px 18px;
+  border-radius: 30px;
+  background: #25D366;
+  color: #FFFFFF;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+.fade-up {
+  animation: buyerFadeUp 0.75s ease both;
+}
+
+@keyframes buyerFadeUp {
+
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .buyer-prep-grid,
+  .buyer-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .buyer-introduction-grid,
+  .buyer-cost-grid,
+  .buyer-role-grid,
+  .buyer-inquiry-grid {
+    gap: 55px;
+  }
+
+  .buyer-money-flow {
+    flex-wrap: wrap;
+    gap: 35px 0;
+  }
+
+  .buyer-money-flow > div:not(.buyer-flow-line) {
+    flex: 0 0 45%;
+  }
+
+  .buyer-flow-line {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .container {
+    width: min(100% - 32px, 680px);
+  }
+
+  .buyer-hero {
+    min-height: 610px;
+  }
+
+  .buyer-hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5, 35, 34, 0.88),
+        rgba(5, 35, 34, 0.62)
+      );
+  }
+
+  .buyer-hero-content {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .buyer-hero h1 {
+    font-size: clamp(42px, 12vw, 60px);
+    letter-spacing: -1.5px;
+  }
+
+  .buyer-hero-text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .buyer-trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .buyer-trust-grid > div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .buyer-trust-grid > div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--buyer-border);
+  }
+
+  .buyer-introduction {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .buyer-introduction-grid,
+  .buyer-cost-grid,
+  .buyer-role-grid,
+  .buyer-inquiry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .buyer-introduction-card {
+    padding: 40px;
+  }
+
+  .buyer-light-section,
+  .buyer-status-section,
+  .buyer-cost-section,
+  .buyer-money-section,
+  .buyer-process-section,
+  .buyer-role-section,
+  .buyer-inquiry-section,
+  .buyer-faq-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .buyer-status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .buyer-cost-grid {
+    gap: 50px;
+  }
+
+  .buyer-money-flow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px 25px;
+  }
+
+  .buyer-money-flow > div:not(.buyer-flow-line) {
+    flex: initial;
+  }
+
+  .buyer-calculator-callout {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 32px;
+  }
+
+  .buyer-listings-grid {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .buyer-inquiry-content {
+    position: static;
+  }
+
+  .buyer-form-card {
+    padding: 35px 25px;
+  }
+
+  .buyer-faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .buyer-final-cta {
+    padding: 85px 0;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .container {
+    width: min(100% - 28px, 500px);
+  }
+
+  .buyer-hero {
+    min-height: 650px;
+  }
+
+  .buyer-eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .buyer-hero h1 {
+    font-size: 43px;
+  }
+
+  .buyer-hero-buttons {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .buyer-hero .btn {
+    width: 100%;
+  }
+
+  .buyer-scroll-link {
+    text-align: center;
+  }
+
+  .buyer-trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .buyer-trust-grid > div,
+  .buyer-trust-grid > div:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--buyer-border);
+  }
+
+  .buyer-trust-grid > div:last-child {
+    border-bottom: 0;
+  }
+
+  .buyer-prep-grid,
+  .buyer-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .buyer-prep-card,
+  .buyer-process-item {
+    min-height: auto;
+  }
+
+  .buyer-introduction-card {
+    padding: 35px 28px;
+  }
+
+  .buyer-status-card {
+    padding: 35px 28px;
+  }
+
+  .buyer-cost-list > div {
+    grid-template-columns: 40px 1fr;
+  }
+
+  .buyer-money-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .buyer-money-flow small {
+    max-width: 100%;
+  }
+
+  .buyer-form-card {
+    padding: 30px 20px;
+  }
+
+  .buyer-form-card form {
+    grid-template-columns: 1fr;
+  }
+
+  .buyer-form-card textarea,
+  .buyer-form-card button,
+  .buyer-form-card .buyer-form-disclaimer {
+    grid-column: auto;
+  }
+
+  .buyer-form-card button {
+    width: 100%;
+  }
+
+  .buyer-final-buttons {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .buyer-final-cta .btn {
+    width: 100%;
+  }
+
+  .whatsapp-btn {
+    right: 15px;
+    bottom: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.buyer-form-card input:required:invalid:not(:placeholder-shown),
+.buyer-form-card select:required:invalid {
+  border-color: #C7A36A;
+}
+
+.buyer-form-card input:required:valid,
+.buyer-form-card select:required:valid {
+  border-color: #BFCBC9;
+}
+
+.buyer-form-card button:focus-visible,
+.buyer-hero a:focus-visible,
+.buyer-listings-section a:focus-visible,
+.buyer-final-cta a:focus-visible,
+.buyer-faq-grid summary:focus-visible {
+  outline: 2px solid var(--buyer-gold);
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .fade-up {
+    animation: none;
+  }
+
+  .buyer-hero .btn,
+  .buyer-cost-content .btn,
+  .buyer-calculator-callout .btn,
+  .buyer-inquiry-section .btn,
+  .buyer-listings-section .btn,
+  .buyer-final-cta .btn,
+  .whatsapp-btn {
+    transition: none;
+  }
+
+}
