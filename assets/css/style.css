@@ -4820,38 +4820,123 @@ p {
 
 
 /* =========================================================
-   FINAL CTA
-   ========================================================= */
+   RENT FINAL CTA — PREMIUM CLOSING SECTION
+========================================================= */
 
 .rent-final-cta {
+  position: relative;
+  width: 100%;
+  margin-top: 100px;
+  padding: 110px 30px;
   background: #0F514F;
   color: #ffffff;
-  padding: 120px 0;
   text-align: center;
+  overflow: hidden;
+}
+
+/* Subtle luxury background detail */
+
+.rent-final-cta::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(216, 174, 94, 0.18);
+  border-radius: 50%;
+  top: -210px;
+  left: -120px;
+}
+
+.rent-final-cta::after {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border: 1px solid rgba(216, 174, 94, 0.12);
+  border-radius: 50%;
+  bottom: -300px;
+  right: -150px;
 }
 
 .rent-final-cta .container {
+  position: relative;
+  z-index: 2;
   max-width: 900px;
+  margin: 0 auto;
 }
 
 .rent-final-cta .rent-label {
   color: #D8AE5E;
+  margin-bottom: 22px;
 }
 
 .rent-final-cta h2 {
-  font-size: clamp(2.8rem, 6vw, 5.8rem);
-  line-height: 0.98;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  margin: 0 0 30px;
+  margin: 0 auto 24px;
+  max-width: 800px;
+  color: #ffffff;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -2px;
 }
 
-.rent-final-cta p:not(.rent-label) {
-  color: rgba(255,255,255,0.78);
-  font-size: 1.05rem;
-  margin-bottom: 35px;
+.rent-final-cta p {
+  max-width: 600px;
+  margin: 0 auto 35px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 18px;
+  line-height: 1.7;
 }
 
+.rent-final-cta .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 210px;
+  padding: 16px 30px;
+  background: #D8AE5E;
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.rent-final-cta .btn:hover {
+  background: #ffffff;
+  color: #0F514F;
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   RENT FINAL CTA — MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .rent-final-cta {
+    margin-top: 70px;
+    padding: 80px 22px;
+  }
+
+  .rent-final-cta h2 {
+    font-size: 42px;
+    letter-spacing: -1px;
+  }
+
+  .rent-final-cta p {
+    font-size: 16px;
+  }
+
+  .rent-final-cta .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+}
 
 /* =========================================================
    MOBILE
