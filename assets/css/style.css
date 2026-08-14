@@ -5182,3 +5182,310 @@ p {
   }
 
 }
+
+/* =========================================================
+   RENT FINAL CTA — FINAL OVERRIDE
+   IMPORTANT: KEEP THIS AT THE VERY BOTTOM OF style.css
+========================================================= */
+
+section.rent-final-cta {
+    position: relative !important;
+
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+
+    margin: 80px 0 0 !important;
+    padding: 90px 20px 90px !important;
+
+    background: #0F514F !important;
+    color: #ffffff !important;
+
+    box-sizing: border-box !important;
+
+    text-align: center !important;
+
+    overflow: hidden !important;
+}
+
+
+/* ---------------------------------------------------------
+   REMOVE POSSIBLE GLOBAL CONTAINER PROBLEMS
+--------------------------------------------------------- */
+
+section.rent-final-cta > .container {
+    position: relative !important;
+
+    width: 100% !important;
+    max-width: 900px !important;
+
+    min-height: 0 !important;
+    height: auto !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+}
+
+
+/* ---------------------------------------------------------
+   GOLD TOP DETAIL
+--------------------------------------------------------- */
+
+section.rent-final-cta > .container::before {
+    content: "" !important;
+
+    display: block !important;
+
+    width: 50px !important;
+    height: 2px !important;
+
+    margin: 0 auto 30px !important;
+
+    background: #D8AE5E !important;
+}
+
+
+/* ---------------------------------------------------------
+   LABEL
+--------------------------------------------------------- */
+
+section.rent-final-cta .rent-label {
+    display: block !important;
+
+    width: auto !important;
+    max-width: none !important;
+
+    margin: 0 0 18px !important;
+    padding: 0 !important;
+
+    color: #D8AE5E !important;
+
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+
+    font-weight: 700 !important;
+
+    letter-spacing: 4px !important;
+
+    text-transform: uppercase !important;
+
+    text-align: center !important;
+}
+
+
+/* ---------------------------------------------------------
+   HEADING
+--------------------------------------------------------- */
+
+section.rent-final-cta h2 {
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 760px !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 auto 24px !important;
+    padding: 0 !important;
+
+    color: #ffffff !important;
+
+    font-size: clamp(42px, 5vw, 62px) !important;
+
+    line-height: 1.08 !important;
+
+    font-weight: 600 !important;
+
+    letter-spacing: -1.5px !important;
+
+    text-align: center !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+
+/* ---------------------------------------------------------
+   DESCRIPTION
+--------------------------------------------------------- */
+
+section.rent-final-cta > .container > p:not(.rent-label) {
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 580px !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 auto 32px !important;
+    padding: 0 !important;
+
+    color: rgba(255,255,255,0.88) !important;
+
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+
+    text-align: center !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+
+/* ---------------------------------------------------------
+   BUTTON
+--------------------------------------------------------- */
+
+section.rent-final-cta a.btn {
+    display: inline-flex !important;
+
+    width: auto !important;
+    min-width: 230px !important;
+    max-width: 100% !important;
+
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 16px 32px !important;
+
+    box-sizing: border-box !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: #D8AE5E !important;
+
+    color: #ffffff !important;
+
+    border: 1px solid #D8AE5E !important;
+    border-radius: 4px !important;
+
+    font-size: 15px !important;
+    font-weight: 700 !important;
+
+    line-height: 1.4 !important;
+
+    letter-spacing: 0.4px !important;
+
+    text-decoration: none !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    transition: all 0.3s ease !important;
+}
+
+section.rent-final-cta a.btn:hover {
+    background: #ffffff !important;
+
+    color: #0F514F !important;
+
+    border-color: #ffffff !important;
+
+    transform: translateY(-2px) !important;
+}
+
+
+/* ---------------------------------------------------------
+   BOTTOM GOLD DETAIL
+--------------------------------------------------------- */
+
+section.rent-final-cta > .container::after {
+    content: "" !important;
+
+    display: block !important;
+
+    width: 45px !important;
+    height: 1px !important;
+
+    margin: 38px auto 0 !important;
+
+    background: rgba(216,174,94,0.6) !important;
+}
+
+
+/* ---------------------------------------------------------
+   DECORATIVE CIRCLE LEFT
+--------------------------------------------------------- */
+
+section.rent-final-cta::before {
+    content: "" !important;
+
+    position: absolute !important;
+
+    width: 500px !important;
+    height: 500px !important;
+
+    top: -330px !important;
+    left: -180px !important;
+
+    border: 1px solid rgba(216,174,94,0.14) !important;
+
+    border-radius: 50% !important;
+
+    pointer-events: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   DECORATIVE CIRCLE RIGHT
+--------------------------------------------------------- */
+
+section.rent-final-cta::after {
+    content: "" !important;
+
+    position: absolute !important;
+
+    width: 600px !important;
+    height: 600px !important;
+
+    right: -220px !important;
+    bottom: -430px !important;
+
+    border: 1px solid rgba(216,174,94,0.10) !important;
+
+    border-radius: 50% !important;
+
+    pointer-events: none !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    section.rent-final-cta {
+        margin-top: 55px !important;
+        padding: 70px 20px 75px !important;
+    }
+
+    section.rent-final-cta h2 {
+        font-size: 40px !important;
+        line-height: 1.1 !important;
+        letter-spacing: -0.8px !important;
+    }
+
+    section.rent-final-cta > .container > p:not(.rent-label) {
+        font-size: 16px !important;
+        line-height: 1.65 !important;
+    }
+
+    section.rent-final-cta a.btn {
+        width: 100% !important;
+        max-width: 300px !important;
+    }
+
+}
