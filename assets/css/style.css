@@ -7728,7 +7728,7 @@ body {
       rgba(15,81,79,.62),
       rgba(15,81,79,.18)
     ),
-    url(".../images/rent/rent-guide.jpg") center/cover no-repeat;
+    url("/images/rent/rent-guide.jpg") center/cover no-repeat;
   color: #fff;
 }
 
