@@ -7709,3 +7709,532 @@ body {
   }
 
 }
+
+/* =========================================================
+   RENTAL GUIDE PAGE
+   BAI PE REAL ESTATE
+========================================================= */
+
+.rental-guide-hero {
+  position: relative;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(15,81,79,.94),
+      rgba(15,81,79,.62),
+      rgba(15,81,79,.18)
+    ),
+    url("../images/rent/rent-hero.jpg") center/cover no-repeat;
+  color: #fff;
+}
+
+.rental-guide-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(15,81,79,.45),
+    transparent
+  );
+}
+
+.rental-guide-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.rental-guide-eyebrow,
+.rental-guide-label {
+  color: #D8AE5E;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.rental-guide-eyebrow {
+  margin-bottom: 22px;
+}
+
+.rental-guide-hero h1 {
+  max-width: 800px;
+  margin: 0 0 25px;
+  font-size: clamp(48px, 6vw, 78px);
+  line-height: 1.02;
+  letter-spacing: -2px;
+  font-weight: 600;
+}
+
+.rental-guide-hero p {
+  max-width: 650px;
+  font-size: 19px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.9);
+}
+
+.rental-guide-hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 35px;
+}
+
+.rental-guide-secondary-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.rental-guide-secondary-link:hover {
+  color: #D8AE5E;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.rental-guide-intro {
+  padding-top: 110px;
+  padding-bottom: 100px;
+}
+
+.rental-guide-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.rental-guide-intro h2,
+.rental-guide-heading h2,
+.rental-guide-tax h2,
+.rental-guide-ozb h2,
+.rental-guide-owner h2,
+.rental-guide-tenants h2,
+.rental-guide-lead h2 {
+  color: #0F514F;
+  font-size: clamp(38px, 4vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -1.2px;
+  font-weight: 600;
+  margin: 15px 0 25px;
+}
+
+.rental-guide-intro p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   INFORMATION SECTION
+========================================================= */
+
+.rental-guide-section {
+  padding: 100px 0;
+  background: #F4F6FC;
+}
+
+.rental-guide-heading {
+  max-width: 760px;
+  margin-bottom: 55px;
+}
+
+.rental-guide-heading > p:last-child {
+  color: #666;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.rental-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.rental-guide-card {
+  background: #fff;
+  padding: 35px 30px;
+  border: 1px solid rgba(15,81,79,.08);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.rental-guide-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(15,81,79,.10);
+}
+
+.rental-guide-card span,
+.rental-tax-card span {
+  display: block;
+  color: #D8AE5E;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.rental-guide-card h3,
+.rental-tax-card h3,
+.rental-owner-grid h3 {
+  color: #0F514F;
+  font-size: 23px;
+  margin: 0 0 15px;
+}
+
+.rental-guide-card p,
+.rental-tax-card p,
+.rental-owner-grid p {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+
+/* =========================================================
+   TAX SECTION
+========================================================= */
+
+.rental-guide-tax {
+  padding: 110px 0;
+  background: #0F514F;
+  color: #fff;
+}
+
+.rental-guide-tax-header {
+  max-width: 800px;
+  margin-bottom: 55px;
+}
+
+.rental-guide-tax h2 {
+  color: #fff;
+}
+
+.rental-guide-tax-header > p:last-child {
+  color: rgba(255,255,255,.82);
+  line-height: 1.75;
+  font-size: 17px;
+}
+
+.rental-tax-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.rental-tax-card {
+  padding: 35px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(216,174,94,.22);
+}
+
+.rental-tax-card h3 {
+  color: #fff;
+}
+
+.rental-tax-card p {
+  color: rgba(255,255,255,.78);
+}
+
+.rental-guide-tax-note {
+  display: flex;
+  gap: 10px;
+  margin-top: 35px;
+  padding: 20px;
+  border-left: 2px solid #D8AE5E;
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.78);
+  line-height: 1.7;
+}
+
+.rental-guide-tax-note strong {
+  color: #D8AE5E;
+}
+
+.rental-guide-official-links {
+  margin-top: 35px;
+}
+
+.rental-guide-official-links p {
+  color: rgba(255,255,255,.7);
+}
+
+.rental-guide-official-links a {
+  display: inline-block;
+  margin-right: 25px;
+  margin-bottom: 10px;
+  color: #D8AE5E;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.rental-guide-official-links a:hover {
+  color: #fff;
+}
+
+
+/* =========================================================
+   OZB
+========================================================= */
+
+.rental-guide-ozb {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.rental-guide-ozb-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.rental-guide-ozb-grid > div:last-child > p {
+  color: #666;
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+.ozb-rates {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 35px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.ozb-rates div {
+  padding: 25px 15px;
+  border-right: 1px solid #ddd;
+}
+
+.ozb-rates div:last-child {
+  border-right: none;
+}
+
+.ozb-rates strong {
+  display: block;
+  color: #0F514F;
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.ozb-rates span {
+  color: #777;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.rental-guide-small-note {
+  font-size: 14px !important;
+}
+
+
+/* =========================================================
+   OWNER SECTION
+========================================================= */
+
+.rental-guide-owner {
+  padding: 110px 0;
+  background: #F4F6FC;
+}
+
+.rental-guide-owner-header {
+  max-width: 800px;
+  margin-bottom: 55px;
+}
+
+.rental-owner-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.rental-owner-grid > div {
+  background: #fff;
+  padding: 30px;
+  border-top: 2px solid #D8AE5E;
+}
+
+.rental-guide-owner-cta {
+  margin-top: 55px;
+  padding: 35px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.rental-guide-owner-cta p {
+  color: #0F514F;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+
+/* =========================================================
+   TENANTS
+========================================================= */
+
+.rental-guide-tenants {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.rental-guide-tenants-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 90px;
+}
+
+.rental-guide-tenants-grid > div:last-child p {
+  color: #666;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.rental-guide-tenants ul {
+  padding-left: 20px;
+  margin: 25px 0 35px;
+}
+
+.rental-guide-tenants li {
+  margin-bottom: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FINAL LEAD CTA
+========================================================= */
+
+.rental-guide-lead {
+  padding: 100px 30px;
+  background: #0F514F;
+  text-align: center;
+  color: #fff;
+}
+
+.rental-guide-lead .container {
+  max-width: 850px;
+}
+
+.rental-guide-lead h2 {
+  color: #fff;
+}
+
+.rental-guide-lead > .container > p:not(.rental-guide-label) {
+  max-width: 650px;
+  margin: 0 auto;
+  color: rgba(255,255,255,.82);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.rental-guide-lead-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 35px;
+}
+
+.rental-guide-contact-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.rental-guide-contact-link:hover {
+  color: #D8AE5E;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .rental-guide-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rental-owner-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rental-guide-intro-grid,
+  .rental-guide-ozb-grid,
+  .rental-guide-tenants-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .rental-guide-hero {
+    min-height: 570px;
+  }
+
+  .rental-guide-hero h1 {
+    font-size: 46px;
+  }
+
+  .rental-guide-hero-buttons,
+  .rental-guide-lead-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rental-guide-grid,
+  .rental-tax-grid,
+  .rental-owner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rental-guide-intro,
+  .rental-guide-section,
+  .rental-guide-tax,
+  .rental-guide-ozb,
+  .rental-guide-owner,
+  .rental-guide-tenants {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .ozb-rates {
+    grid-template-columns: 1fr;
+  }
+
+  .ozb-rates div {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .ozb-rates div:last-child {
+    border-bottom: none;
+  }
+
+  .rental-guide-owner-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
