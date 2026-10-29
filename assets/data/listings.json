@@ -127,9 +127,58 @@
       "Buyer costs applicable"
     
   ]
-}
-]
+},
 
+{
+  "id": "grote-berg-family-home-001",
+  "title": "SPACIOUS FAMILY HOME FOR SALE | Grote Berg, Curaçao",
+  "price": 775000,
+  "status": "For Sale",
+  "propertyType": "residential",
+  "location": "Grote Berg, Curaçao",
+  "bedrooms": 4,
+  "bathrooms": 2,
+  "size": "502 m² Land",
+  "featured": false,
+  "images": [
+    "/assets/images/listings/groteberg-1.jpg",
+    "/assets/images/listings/groteberg-2.jpg",
+    "/assets/images/listings/groteberg-3.jpg",
+    "/assets/images/listings/groteberg-4.jpg",
+    "/assets/images/listings/groteberg-5.jpg",
+     "/assets/images/listings/groteberg-6.jpg",
+    "/assets/images/listings/groteberg-7.jpg",
+    "/assets/images/listings/groteberg-8.jpg",
+    "/assets/images/listings/groteberg-9.jpg",
+    "/assets/images/listings/groteberg-10.jpg",
+    "/assets/images/listings/groteberg-11.jpg",
+     "/assets/images/listings/groteberg-12.jpg",
+    "/assets/images/listings/groteberg-13.jpg",
+    "/assets/images/listings/groteberg-14.jpg",
+    "/assets/images/listings/groteberg-15.jpg",
+    "/assets/images/listings/groteberg-16.jpg"
+    
+  ],
+  "description": "Discover the potential of this spacious family home in the peaceful residential neighborhood of Grote Berg, Curaçao. Offering four bedrooms, generous living spaces, and a swimming pool currently under construction, this property provides an inviting foundation for comfortable family living. The home features a bright living area, a spacious open kitchen with a separate dining area, and a master bedroom with a private ensuite bathroom. Outside, the covered front porch and well-maintained landscaping add to the property's appeal. Set on 502 m² of freehold land, the property offers space to enjoy and the opportunity to personalize and upgrade the home to suit your preferences. Its quiet residential location also provides convenient access to main roads, beaches, and everyday amenities. Asking price: XCG 775,000. Buyer's costs apply. Contact Bai Pe Real Estate for further information or to arrange a viewing. We are here to guide you through your property journey with personal attention and professional care.",
+  "features": [
+    "Spacious family home",
+    "4 bedrooms",
+    "Master bedroom with private ensuite bathroom",
+    "Bright and generous living area",
+    "Spacious open kitchen",
+    "Separate dining area",
+    "Covered front porch",
+    "Well-maintained landscaping",
+    "Swimming pool under construction",
+    "502 m² freehold land",
+    "Potential to personalize and upgrade",
+    "Quiet residential neighborhood",
+    "Convenient access to main roads",
+    "Accessible to beaches and everyday amenities",
+    "Buyer costs applicable"
+  ]
+}  
+]
 
 
 
