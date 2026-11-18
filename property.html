@@ -167,6 +167,7 @@
     <h3>Request Information</h3>
 
     
+
 <form action="https://formspree.io/f/xzdpvjnk"
       method="POST"
       class="contact-form">
@@ -203,50 +204,66 @@
            placeholder="Phone / WhatsApp"
            autocomplete="tel">
 
-    <!-- Buyer location -->
+    <!-- Buyer location (Required) -->
     <label for="buyer_location">
-        Where are you currently based?
+        Where are you currently based? *
     </label>
 
-    <select name="buyer_location" id="buyer_location">
+    <select name="buyer_location"
+            id="buyer_location"
+            required>
+
         <option value="" selected disabled>
             Select your current location
         </option>
+
         <option value="Currently living in Curaçao">
             I currently live in Curaçao
         </option>
+
         <option value="Currently living abroad">
             I currently live abroad
         </option>
+
         <option value="Planning to relocate to Curaçao">
             I am planning to relocate to Curaçao
         </option>
+
     </select>
 
-    <!-- Financing position -->
+    <!-- Financing position (Required) -->
     <label for="financing_position">
-        What is your current financing position?
+        What is your current financing position? *
     </label>
 
-    <select name="financing_position" id="financing_position">
+    <select name="financing_position"
+            id="financing_position"
+            required>
+
         <option value="" selected disabled>
             Select your financing position
         </option>
+
         <option value="Cash buyer - own funds">
             Cash buyer (own funds)
         </option>
+
         <option value="Mortgage pre-approved">
             Mortgage pre-approved
         </option>
+
         <option value="Planning to apply for a mortgage">
             Planning to apply for a mortgage
         </option>
+
         <option value="Still exploring financing options">
             Still exploring financing options
         </option>
+
         <option value="Would appreciate financing guidance">
             I would appreciate guidance on financing
         </option>
+
     </select>
 
     <!-- Additional message -->
