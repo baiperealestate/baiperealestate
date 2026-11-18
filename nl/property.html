@@ -119,20 +119,117 @@
     <div class="contact-card">
       <h3>Informatie aanvragen</h3>
 
-      <form action="https://formspree.io/f/xzdpvjnk" method="POST" class="contact-form">
+      
+<form action="https://formspree.io/f/xzdpvjnk"
+      method="POST"
+      class="contact-form">
 
-        <input type="hidden" name="_subject" value="Aanvraag woning – Bai Pe Real Estate">
-        <input type="hidden" name="property" id="propertyField">
-        <input type="hidden" name="property_url" id="propertyUrl">
+    <!-- E-mail onderwerp -->
+    <input type="hidden"
+           name="_subject"
+           value="Nieuwe woningaanvraag | Bai Pe Real Estate">
 
-        <input type="text" name="name" placeholder="Volledige naam" required>
-        <input type="email" name="email" placeholder="E-mailadres" required>
-        <input type="tel" name="phone" placeholder="Telefoon / WhatsApp">
+    <!-- Woninginformatie -->
+    <input type="hidden"
+           name="property"
+           id="propertyField">
 
-        <textarea name="message" placeholder="Ik ben geïnteresseerd in deze woning. Neem alstublieft contact met mij op." required></textarea>
+    <input type="hidden"
+           name="property_url"
+           id="propertyUrl">
 
-        <button type="submit" class="btn">Neem contact op</button>
-      </form>
+    <!-- Contactgegevens -->
+    <input type="text"
+           name="name"
+           placeholder="Volledige naam"
+           autocomplete="name"
+           required>
+
+    <input type="email"
+           name="email"
+           placeholder="E-mailadres"
+           autocomplete="email"
+           required>
+
+    <input type="tel"
+           name="phone"
+           placeholder="Telefoonnummer / WhatsApp"
+           autocomplete="tel">
+
+    <!-- Huidige woonplaats (Verplicht) -->
+    <label for="buyer_location">
+        Waar woont u momenteel? *
+    </label>
+
+    <select name="buyer_location"
+            id="buyer_location"
+            required>
+
+        <option value="" selected disabled>
+            Selecteer uw huidige woonplaats
+        </option>
+
+        <option value="Momenteel woonachtig op Curaçao">
+            Ik woon momenteel op Curaçao
+        </option>
+
+        <option value="Momenteel woonachtig in het buitenland">
+            Ik woon momenteel in het buitenland
+        </option>
+
+        <option value="Van plan om naar Curaçao te verhuizen">
+            Ik ben van plan naar Curaçao te verhuizen
+        </option>
+
+    </select>
+
+    <!-- Financieringspositie (Verplicht) -->
+    <label for="financing_position">
+        Wat is uw huidige financieringssituatie? *
+    </label>
+
+    <select name="financing_position"
+            id="financing_position"
+            required>
+
+        <option value="" selected disabled>
+            Selecteer uw financieringssituatie
+        </option>
+
+        <option value="Koper met eigen middelen">
+            Ik koop met eigen middelen
+        </option>
+
+        <option value="Hypotheek vooraf goedgekeurd">
+            Mijn hypotheek is vooraf goedgekeurd
+        </option>
+
+        <option value="Van plan een hypotheek aan te vragen">
+            Ik ben van plan een hypotheek aan te vragen
+        </option>
+
+        <option value="Oriënteert zich op financieringsmogelijkheden">
+            Ik oriënteer mij nog op financieringsmogelijkheden
+        </option>
+
+        <option value="Wenst begeleiding bij financiering">
+            Ik ontvang graag begeleiding bij de financiering
+        </option>
+
+    </select>
+
+    <!-- Aanvullende informatie -->
+    <textarea name="message"
+              placeholder="Ik heb interesse in deze woning. Neem alstublieft contact met mij op."
+              rows="4"></textarea>
+
+    <!-- Verzenden -->
+    <button type="submit" class="btn">
+        Neem contact op met Bai Pe Real Estate
+    </button>
+
+</form>
+
 
     </div>
   </aside>
