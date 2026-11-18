@@ -166,21 +166,100 @@
   <div class="contact-card">
     <h3>Request Information</h3>
 
-    <form action="https://formspree.io/f/xzdpvjnk" method="POST" class="contact-form">
+    
+<form action="https://formspree.io/f/xzdpvjnk"
+      method="POST"
+      class="contact-form">
 
-      <!-- Optional but professional -->
-      <input type="hidden" name="_subject" value="Property Inquiry – Bai Pe Real Estate">
-       <input type="hidden" name="property" id="propertyField">
-       <input type="hidden" name="property_url" id="propertyUrl">
+    <!-- Email subject -->
+    <input type="hidden"
+           name="_subject"
+           value="New Property Inquiry | Bai Pe Real Estate">
 
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-      <input type="tel" name="phone" placeholder="Phone / WhatsApp">
+    <!-- Property information -->
+    <input type="hidden"
+           name="property"
+           id="propertyField">
 
-      <textarea name="message" placeholder="I'm interested in this property. Please contact me." required></textarea>
+    <input type="hidden"
+           name="property_url"
+           id="propertyUrl">
 
-      <button type="submit" class="btn">Contact Bai Pe Real Estate</button>
-    </form>
+    <!-- Contact information -->
+    <input type="text"
+           name="name"
+           placeholder="Full Name"
+           autocomplete="name"
+           required>
+
+    <input type="email"
+           name="email"
+           placeholder="Email Address"
+           autocomplete="email"
+           required>
+
+    <input type="tel"
+           name="phone"
+           placeholder="Phone / WhatsApp"
+           autocomplete="tel">
+
+    <!-- Buyer location -->
+    <label for="buyer_location">
+        Where are you currently based?
+    </label>
+
+    <select name="buyer_location" id="buyer_location">
+        <option value="" selected disabled>
+            Select your current location
+        </option>
+        <option value="Currently living in Curaçao">
+            I currently live in Curaçao
+        </option>
+        <option value="Currently living abroad">
+            I currently live abroad
+        </option>
+        <option value="Planning to relocate to Curaçao">
+            I am planning to relocate to Curaçao
+        </option>
+    </select>
+
+    <!-- Financing position -->
+    <label for="financing_position">
+        What is your current financing position?
+    </label>
+
+    <select name="financing_position" id="financing_position">
+        <option value="" selected disabled>
+            Select your financing position
+        </option>
+        <option value="Cash buyer - own funds">
+            Cash buyer (own funds)
+        </option>
+        <option value="Mortgage pre-approved">
+            Mortgage pre-approved
+        </option>
+        <option value="Planning to apply for a mortgage">
+            Planning to apply for a mortgage
+        </option>
+        <option value="Still exploring financing options">
+            Still exploring financing options
+        </option>
+        <option value="Would appreciate financing guidance">
+            I would appreciate guidance on financing
+        </option>
+    </select>
+
+    <!-- Additional message -->
+    <textarea name="message"
+              placeholder="I'm interested in this property. Please contact me."
+              rows="4"></textarea>
+
+    <!-- Submit -->
+    <button type="submit" class="btn">
+        Contact Bai Pe Real Estate
+    </button>
+
+</form>
 
   </div>
 </aside>
