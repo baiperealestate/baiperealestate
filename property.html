@@ -1,24 +1,27 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title id="pageTitle">Woningdetails | Bai Pe Real Estate Curaçao</title>
 
-  <title id="pageTitle">Property Details | Bai Pe Real Estate Curaçao</title>
-  <meta name="description" content="View detailed property information in Curaçao with Bai Pe Real Estate. Discover pricing, features, and professional guidance for buyers and investors.">
+  <meta name="description" content="Bekijk gedetailleerde woninginformatie op Curaçao met Bai Pe Real Estate. Ontdek prijzen, kenmerken en professionele begeleiding voor kopers en investeerders.">
   <meta name="robots" content="index, follow">
 
   <!-- SEO -->
-  <link rel="canonical" href="https://baiperealestate.com/property.html">
- <link rel="alternate" href="https://baiperealestate.com/property.html" hreflang="en">
- <link rel="alternate" href="https://baiperealestate.com/nl/property.html" hreflang="nl">
- 
+  <link rel="canonical" href="https://baiperealestate.com/nl/property.html">
+  <link rel="alternate" href="https://baiperealestate.com/property.html" hreflang="en">
+  <link rel="alternate" href="https://baiperealestate.com/nl/property.html" hreflang="nl">
+  <link rel="alternate" href="https://baiperealestate.com/property.html" hreflang="x-default">
+
   <!-- Open Graph / Social Sharing -->
-  <meta property="og:title" content="Property Details | Bai Pe Real Estate Curaçao">
-  <meta property="og:description" content="Explore property details, features, pricing, and more with Bai Pe Real Estate in Curaçao.">
+  <meta property="og:title" content="Woningdetails | Bai Pe Real Estate Curaçao">
+  <meta property="og:description" content="Bekijk woningdetails, kenmerken en prijzen met Bai Pe Real Estate op Curaçao.">
   <meta property="og:image" content="https://baiperealestate.com/assets/images/logo.png">
-  <meta property="og:url" content="https://baiperealestate.com/property.html">
+  <meta property="og:url" content="https://baiperealestate.com/nl/property.html">
   <meta property="og:type" content="website">
 
   <!-- Favicon -->
@@ -42,7 +45,7 @@
     "@context": "https://schema.org",
     "@type": "SingleFamilyResidence",
     "name": "",
-    "url": "https://baiperealestate.com/property-details.html",
+    "url": "https://baiperealestate.com/nl/property.html",
     "image": [
       ""
     ],
@@ -67,9 +70,9 @@
     "offers": {
       "@type": "Offer",
       "price": "",
-      "priceCurrency": "USD",
+      "priceCurrency": "XCG",
       "availability": "https://schema.org/InStock",
-      "url": "https://baiperealestate.com/property-details.html"
+      "url": "https://baiperealestate.com/nl/property.html"
     },
     "seller": {
       "@type": "RealEstateAgent",
@@ -79,235 +82,259 @@
     }
   }
   </script>
+
 </head>
 
 <body>
 
 <!-- ================= HEADER ================= -->
 <header class="navbar">
+
   <div class="logo">
-    <a href="index.html">
+    <a href="/nl/index.html">
       <img src="/assets/images/logo.png" alt="Bai Pe Real Estate Logo">
     </a>
   </div>
 
- <nav class="nav-links">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="team.html">Team</a>
-  <a href="listings.html">Listings</a>
-  <a href="contact.html">Contact</a>
-  <a href="blog.html">Blog</a>
-  <a href="social.html">Social Media</a>
-  <a href="buying-selling-guide.html">Guide</a>
-  <a href="calculator.html" class="active">Calculator</a>
-</nav>
-
+  <nav class="nav-links">
+    <a href="/nl/index.html">Home</a>
+    <a href="/nl/about.html">Over ons</a>
+    <a href="/nl/team.html">Team</a>
+    <a href="/nl/listings.html">Aanbod</a>
+    <a href="/nl/contact.html">Contact</a>
+    <a href="/nl/blog.html">Blog</a>
+    <a href="/nl/social.html">Social Media</a>
+    <a href="/nl/buying-selling-guide.html">Gids</a>
+    <a href="/nl/calculator.html" class="active">Calculator</a>
+  </nav>
 
   <div class="hamburger">
     <span></span><span></span><span></span>
   </div>
 
-<div class="top-switchers">
+  <div class="top-switchers">
 
-  <!-- Currency -->
-  <select class="currency-switcher" id="currencySwitcher">
-    <option value="XCG">XCG</option>
-    <option value="USD">USD</option>
-    <option value="EUR">EUR</option>
- 
-  </select>
+    <!-- Currency -->
+    <select class="currency-switcher" id="currencySwitcher">
+      <option value="XCG">XCG</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
 
-  <!-- Language -->
-  <select class="language-switcher" id="languageSwitcher">
-    <option value="en">EN</option>
-    <option value="nl">NL</option>
-  </select>
+    <!-- Language -->
+    <select class="language-switcher" id="languageSwitcher">
+      <option value="nl">NL</option>
+      <option value="en">EN</option>
+    </select>
 
-</div>
-   
+  </div>
+
 </header>
-  
+
+
+<!-- ================= PROPERTY CONTENT ================= -->
 <section class="property-container">
+
   <!-- LEFT -->
   <div class="property-main">
- <div class="property-gallery">
-      <button class="slider-btn prev">‹</button>
-      <img id="propertyImage" src="" alt="Property image">
-      <button class="slider-btn next">›</button>
+
+    <div class="property-gallery">
+      <button class="slider-btn prev" type="button" aria-label="Vorige afbeelding">‹</button>
+      <img id="propertyImage" src="" alt="Afbeelding van de woning">
+      <button class="slider-btn next" type="button" aria-label="Volgende afbeelding">›</button>
     </div>
 
-  <div class="property-summary">
+    <div class="property-summary">
+
       <h1 id="title"></h1>
       <p class="price" id="price"></p>
-      <p class="location" id="location"></p>  
-
+      <p class="location" id="location"></p>
 
       <ul class="property-meta">
-        <li><strong>Bedrooms</strong><span id="bedrooms"></span></li>
-        <li><strong>Bathrooms</strong><span id="bathrooms"></span></li>
-        <li><strong>Lot Size</strong><span id="size"></span></li>
+        <li><strong>Slaapkamers</strong><span id="bedrooms"></span></li>
+        <li><strong>Badkamers</strong><span id="bathrooms"></span></li>
+        <li><strong>Perceelgrootte</strong><span id="size"></span></li>
       </ul>
+
     </div>
-    
-<section class="property-description">
-  <h2>Property Description</h2>
-  <p id="description"></p>
-</section>
- <section class="property-features">
-  <h2>Property Features</h2>
-  <ul id="features" class="features-list"></ul>
-</section>
-   
-</div>
+
+    <section class="property-description">
+      <h2>Woningbeschrijving</h2>
+      <p id="description"></p>
+    </section>
+
+    <section class="property-features">
+      <h2>Woningkenmerken</h2>
+      <ul id="features" class="features-list"></ul>
+    </section>
+
+  </div>
+
 
   <!-- RIGHT -->
- <aside class="property-sidebar">
-  <div class="contact-card">
-    <h3>Request Information</h3>
+  <aside class="property-sidebar">
 
-    
+    <div class="contact-card">
 
-<form action="https://formspree.io/f/xzdpvjnk"
-      method="POST"
-      class="contact-form">
+      <h3>Informatie aanvragen</h3>
 
-    <!-- Email subject -->
-    <input type="hidden"
-           name="_subject"
-           value="New Property Inquiry | Bai Pe Real Estate">
+      <form action="https://formspree.io/f/xzdpvjnk"
+            method="POST"
+            class="contact-form">
 
-    <!-- Property information -->
-    <input type="hidden"
-           name="property"
-           id="propertyField">
+        <!-- Email subject -->
+        <input type="hidden"
+               name="_subject"
+               value="Nieuwe woningaanvraag | Bai Pe Real Estate">
 
-    <input type="hidden"
-           name="property_url"
-           id="propertyUrl">
+        <!-- Property information -->
+        <input type="hidden"
+               name="property"
+               id="propertyField">
 
-    <!-- Contact information -->
-    <input type="text"
-           name="name"
-           placeholder="Full Name"
-           autocomplete="name"
-           required>
+        <input type="hidden"
+               name="property_url"
+               id="propertyUrl">
 
-    <input type="email"
-           name="email"
-           placeholder="Email Address"
-           autocomplete="email"
-           required>
+        <!-- Contact information -->
+        <input type="text"
+               name="name"
+               placeholder="Volledige naam"
+               autocomplete="name"
+               required>
 
-    <input type="tel"
-           name="phone"
-           placeholder="Phone / WhatsApp"
-           autocomplete="tel">
+        <input type="email"
+               name="email"
+               placeholder="E-mailadres"
+               autocomplete="email"
+               required>
 
-    <!-- Buyer location (Required) -->
-    <label for="buyer_location">
-        Where are you currently based? *
-    </label>
+        <input type="tel"
+               name="phone"
+               placeholder="Telefoonnummer / WhatsApp"
+               autocomplete="tel">
 
-    <select name="buyer_location"
-            id="buyer_location"
-            required>
+        <!-- Buyer location (Required) -->
+        <label for="buyer_location">
+          Waar woont u momenteel? *
+        </label>
 
-        <option value="" selected disabled>
-            Select your current location
-        </option>
+        <select name="buyer_location"
+                id="buyer_location"
+                required>
 
-        <option value="Currently living in Curaçao">
-            I currently live in Curaçao
-        </option>
+          <option value="" selected disabled>
+            Selecteer uw huidige woonplaats
+          </option>
 
-        <option value="Currently living abroad">
-            I currently live abroad
-        </option>
+          <option value="Momenteel woonachtig op Curaçao">
+            Ik woon momenteel op Curaçao
+          </option>
 
-        <option value="Planning to relocate to Curaçao">
-            I am planning to relocate to Curaçao
-        </option>
+          <option value="Momenteel woonachtig in het buitenland">
+            Ik woon momenteel in het buitenland
+          </option>
 
-    </select>
+          <option value="Van plan om naar Curaçao te verhuizen">
+            Ik ben van plan naar Curaçao te verhuizen
+          </option>
 
-    <!-- Financing position (Required) -->
-    <label for="financing_position">
-        What is your current financing position? *
-    </label>
+        </select>
 
-    <select name="financing_position"
-            id="financing_position"
-            required>
+        <!-- Financing position (Required) -->
+        <label for="financing_position">
+          Wat is uw huidige financieringssituatie? *
+        </label>
 
-        <option value="" selected disabled>
-            Select your financing position
-        </option>
+        <select name="financing_position"
+                id="financing_position"
+                required>
 
-        <option value="Cash buyer - own funds">
-            Cash buyer (own funds)
-        </option>
+          <option value="" selected disabled>
+            Selecteer uw financieringssituatie
+          </option>
 
-        <option value="Mortgage pre-approved">
-            Mortgage pre-approved
-        </option>
+          <option value="Koper met eigen middelen">
+            Ik koop met eigen middelen
+          </option>
 
-        <option value="Planning to apply for a mortgage">
-            Planning to apply for a mortgage
-        </option>
+          <option value="Hypotheek vooraf goedgekeurd">
+            Mijn hypotheek is vooraf goedgekeurd
+          </option>
 
-        <option value="Still exploring financing options">
-            Still exploring financing options
-        </option>
+          <option value="Van plan een hypotheek aan te vragen">
+            Ik ben van plan een hypotheek aan te vragen
+          </option>
 
-        <option value="Would appreciate financing guidance">
-            I would appreciate guidance on financing
-        </option>
+          <option value="Oriënteert zich op financieringsmogelijkheden">
+            Ik oriënteer mij nog op financieringsmogelijkheden
+          </option>
 
-    </select>
+          <option value="Wenst begeleiding bij financiering">
+            Ik ontvang graag begeleiding bij de financiering
+          </option>
 
-    <!-- Additional message -->
-    <textarea name="message"
-              placeholder="I'm interested in this property. Please contact me."
-              rows="4"></textarea>
+        </select>
 
-    <!-- Submit -->
-    <button type="submit" class="btn">
-        Contact Bai Pe Real Estate
-    </button>
+        <!-- Additional message -->
+        <textarea name="message"
+                  placeholder="Ik heb interesse in deze woning. Neem gerust contact met mij op."
+                  rows="4"></textarea>
 
-</form>
+        <!-- Submit -->
+        <button type="submit" class="btn">
+          Neem contact op met Bai Pe Real Estate
+        </button>
 
-  </div>
-</aside>
+      </form>
+
+    </div>
+
+  </aside>
 
 </section>
- <div id="lightbox" class="lightbox">
+
+
+<!-- ================= LIGHTBOX ================= -->
+<div id="lightbox" class="lightbox">
+
   <div class="lightbox-overlay"></div>
 
-  <button class="lightbox-close">&times;</button>
+  <button class="lightbox-close" type="button" aria-label="Sluiten">&times;</button>
 
-  <button class="lightbox-arrow prev">‹</button>
+  <button class="lightbox-arrow prev" type="button" aria-label="Vorige afbeelding">‹</button>
 
   <div class="lightbox-image-wrapper">
-    <img id="lightboxImage" src="" alt="Property Image">
+    <img id="lightboxImage" src="" alt="Woning afbeelding">
   </div>
 
-  <button class="lightbox-arrow next">›</button>
+  <button class="lightbox-arrow next" type="button" aria-label="Volgende afbeelding">›</button>
 
 </div>
+
 
 <!-- ================= WHATSAPP ================= -->
 <a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
 
+
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer">
+
   <div class="container">
+
     <p>© 2026 Bai Pe Real Estate | Curaçao</p>
-    <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+
+    <p>
+      <a href="/nl/privacy.html">Privacybeleid</a> |
+      <a href="/nl/terms.html">Algemene voorwaarden</a>
+    </p>
+
   </div>
+
 </footer>
 
+
+<!-- JAVASCRIPT -->
 <script src="/assets/js/main.js" defer></script>
 <script src="/assets/js/fx.js" defer></script>
 
