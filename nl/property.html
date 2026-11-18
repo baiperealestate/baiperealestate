@@ -1,20 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title id="pageTitle">Woningdetails | Bai Pe Real Estate Curaçao</title>
 
-  <meta name="description" content="Bekijk gedetailleerde woninginformatie op Curaçao met Bai Pe Real Estate. Ontdek prijzen, kenmerken en professioneel advies voor kopers en investeerders.">
+  <meta name="description" content="Bekijk gedetailleerde woninginformatie op Curaçao met Bai Pe Real Estate. Ontdek prijzen, kenmerken en professionele begeleiding voor kopers en investeerders.">
   <meta name="robots" content="index, follow">
 
   <!-- SEO -->
   <link rel="canonical" href="https://baiperealestate.com/nl/property.html">
   <link rel="alternate" href="https://baiperealestate.com/property.html" hreflang="en">
   <link rel="alternate" href="https://baiperealestate.com/nl/property.html" hreflang="nl">
+  <link rel="alternate" href="https://baiperealestate.com/property.html" hreflang="x-default">
 
-  <!-- Open Graph -->
+  <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="Woningdetails | Bai Pe Real Estate Curaçao">
   <meta property="og:description" content="Bekijk woningdetails, kenmerken en prijzen met Bai Pe Real Estate op Curaçao.">
   <meta property="og:image" content="https://baiperealestate.com/assets/images/logo.png">
@@ -36,11 +39,57 @@
     gtag('config', 'G-JT23SBTX7H');
   </script>
 
+  <!-- Structured Data for Property Listing -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SingleFamilyResidence",
+    "name": "",
+    "url": "https://baiperealestate.com/nl/property.html",
+    "image": [
+      ""
+    ],
+    "description": "",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "",
+      "addressRegion": "Curaçao",
+      "streetAddress": ""
+    },
+    "numberOfRooms": "",
+    "floorSize": {
+      "@type": "QuantitativeValue",
+      "value": "",
+      "unitCode": "M2"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "",
+      "longitude": ""
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "",
+      "priceCurrency": "XCG",
+      "availability": "https://schema.org/InStock",
+      "url": "https://baiperealestate.com/nl/property.html"
+    },
+    "seller": {
+      "@type": "RealEstateAgent",
+      "name": "Bai Pe Real Estate",
+      "url": "https://baiperealestate.com",
+      "logo": "https://baiperealestate.com/assets/images/logo.png"
+    }
+  }
+  </script>
+
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
 <header class="navbar">
+
   <div class="logo">
     <a href="/nl/index.html">
       <img src="/assets/images/logo.png" alt="Bai Pe Real Estate Logo">
@@ -63,35 +112,40 @@
     <span></span><span></span><span></span>
   </div>
 
- 
-<div class="top-switchers">
+  <div class="top-switchers">
 
-  <select class="currency-switcher" id="currencySwitcher">
-    <option value="XCG">XCG</option>
-    <option value="USD">USD</option>
-    <option value="EUR">EUR</option>
+    <!-- Currency -->
+    <select class="currency-switcher" id="currencySwitcher">
+      <option value="XCG">XCG</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
 
-  </select>
+    <!-- Language -->
+    <select class="language-switcher" id="languageSwitcher">
+      <option value="nl">NL</option>
+      <option value="en">EN</option>
+    </select>
 
-  <select class="language-switcher" id="languageSwitcher">
-    <option value="nl">NL</option>
-    <option value="en">EN</option>
-  </select>
+  </div>
 
-</div>
 </header>
 
+
+<!-- ================= PROPERTY CONTENT ================= -->
 <section class="property-container">
-  
- <!-- LEFT -->
+
+  <!-- LEFT -->
   <div class="property-main">
+
     <div class="property-gallery">
-      <button class="slider-btn prev">‹</button>
-      <img id="propertyImage" src="" alt="Afbeelding van woning">
-      <button class="slider-btn next">›</button>
+      <button class="slider-btn prev" type="button" aria-label="Vorige afbeelding">‹</button>
+      <img id="propertyImage" src="" alt="Afbeelding van de woning">
+      <button class="slider-btn next" type="button" aria-label="Volgende afbeelding">›</button>
     </div>
 
     <div class="property-summary">
+
       <h1 id="title"></h1>
       <p class="price" id="price"></p>
       <p class="location" id="location"></p>
@@ -101,164 +155,186 @@
         <li><strong>Badkamers</strong><span id="bathrooms"></span></li>
         <li><strong>Perceelgrootte</strong><span id="size"></span></li>
       </ul>
+
     </div>
 
     <section class="property-description">
-      <h2>Beschrijving</h2>
+      <h2>Woningbeschrijving</h2>
       <p id="description"></p>
     </section>
 
     <section class="property-features">
-      <h2>Kenmerken</h2>
+      <h2>Woningkenmerken</h2>
       <ul id="features" class="features-list"></ul>
     </section>
 
   </div>
 
+
+  <!-- RIGHT -->
   <aside class="property-sidebar">
+
     <div class="contact-card">
+
       <h3>Informatie aanvragen</h3>
 
-      
-<form action="https://formspree.io/f/xzdpvjnk"
-      method="POST"
-      class="contact-form">
+      <form action="https://formspree.io/f/xzdpvjnk"
+            method="POST"
+            class="contact-form">
 
-    <!-- E-mail onderwerp -->
-    <input type="hidden"
-           name="_subject"
-           value="Nieuwe woningaanvraag | Bai Pe Real Estate">
+        <!-- Email subject -->
+        <input type="hidden"
+               name="_subject"
+               value="Nieuwe woningaanvraag | Bai Pe Real Estate">
 
-    <!-- Woninginformatie -->
-    <input type="hidden"
-           name="property"
-           id="propertyField">
+        <!-- Property information -->
+        <input type="hidden"
+               name="property"
+               id="propertyField">
 
-    <input type="hidden"
-           name="property_url"
-           id="propertyUrl">
+        <input type="hidden"
+               name="property_url"
+               id="propertyUrl">
 
-    <!-- Contactgegevens -->
-    <input type="text"
-           name="name"
-           placeholder="Volledige naam"
-           autocomplete="name"
-           required>
+        <!-- Contact information -->
+        <input type="text"
+               name="name"
+               placeholder="Volledige naam"
+               autocomplete="name"
+               required>
 
-    <input type="email"
-           name="email"
-           placeholder="E-mailadres"
-           autocomplete="email"
-           required>
+        <input type="email"
+               name="email"
+               placeholder="E-mailadres"
+               autocomplete="email"
+               required>
 
-    <input type="tel"
-           name="phone"
-           placeholder="Telefoonnummer / WhatsApp"
-           autocomplete="tel">
+        <input type="tel"
+               name="phone"
+               placeholder="Telefoonnummer / WhatsApp"
+               autocomplete="tel">
 
-    <!-- Huidige woonplaats (Verplicht) -->
-    <label for="buyer_location">
-        Waar woont u momenteel? *
-    </label>
+        <!-- Buyer location (Required) -->
+        <label for="buyer_location">
+          Waar woont u momenteel? *
+        </label>
 
-    <select name="buyer_location"
-            id="buyer_location"
-            required>
+        <select name="buyer_location"
+                id="buyer_location"
+                required>
 
-        <option value="" selected disabled>
+          <option value="" selected disabled>
             Selecteer uw huidige woonplaats
-        </option>
+          </option>
 
-        <option value="Momenteel woonachtig op Curaçao">
+          <option value="Momenteel woonachtig op Curaçao">
             Ik woon momenteel op Curaçao
-        </option>
+          </option>
 
-        <option value="Momenteel woonachtig in het buitenland">
+          <option value="Momenteel woonachtig in het buitenland">
             Ik woon momenteel in het buitenland
-        </option>
+          </option>
 
-        <option value="Van plan om naar Curaçao te verhuizen">
+          <option value="Van plan om naar Curaçao te verhuizen">
             Ik ben van plan naar Curaçao te verhuizen
-        </option>
+          </option>
 
-    </select>
+        </select>
 
-    <!-- Financieringspositie (Verplicht) -->
-    <label for="financing_position">
-        Wat is uw huidige financieringssituatie? *
-    </label>
+        <!-- Financing position (Required) -->
+        <label for="financing_position">
+          Wat is uw huidige financieringssituatie? *
+        </label>
 
-    <select name="financing_position"
-            id="financing_position"
-            required>
+        <select name="financing_position"
+                id="financing_position"
+                required>
 
-        <option value="" selected disabled>
+          <option value="" selected disabled>
             Selecteer uw financieringssituatie
-        </option>
+          </option>
 
-        <option value="Koper met eigen middelen">
+          <option value="Koper met eigen middelen">
             Ik koop met eigen middelen
-        </option>
+          </option>
 
-        <option value="Hypotheek vooraf goedgekeurd">
+          <option value="Hypotheek vooraf goedgekeurd">
             Mijn hypotheek is vooraf goedgekeurd
-        </option>
+          </option>
 
-        <option value="Van plan een hypotheek aan te vragen">
+          <option value="Van plan een hypotheek aan te vragen">
             Ik ben van plan een hypotheek aan te vragen
-        </option>
+          </option>
 
-        <option value="Oriënteert zich op financieringsmogelijkheden">
+          <option value="Oriënteert zich op financieringsmogelijkheden">
             Ik oriënteer mij nog op financieringsmogelijkheden
-        </option>
+          </option>
 
-        <option value="Wenst begeleiding bij financiering">
+          <option value="Wenst begeleiding bij financiering">
             Ik ontvang graag begeleiding bij de financiering
-        </option>
+          </option>
 
-    </select>
+        </select>
 
-    <!-- Aanvullende informatie -->
-    <textarea name="message"
-              placeholder="Ik heb interesse in deze woning. Neem alstublieft contact met mij op."
-              rows="4"></textarea>
+        <!-- Additional message -->
+        <textarea name="message"
+                  placeholder="Ik heb interesse in deze woning. Neem gerust contact met mij op."
+                  rows="4"></textarea>
 
-    <!-- Verzenden -->
-    <button type="submit" class="btn">
-        Neem contact op met Bai Pe Real Estate
-    </button>
+        <!-- Submit -->
+        <button type="submit" class="btn">
+          Neem contact op met Bai Pe Real Estate
+        </button>
 
-</form>
-
+      </form>
 
     </div>
+
   </aside>
 
 </section>
 
+
+<!-- ================= LIGHTBOX ================= -->
 <div id="lightbox" class="lightbox">
+
   <div class="lightbox-overlay"></div>
-  <button class="lightbox-close">&times;</button>
-  <button class="lightbox-arrow prev">‹</button>
+
+  <button class="lightbox-close" type="button" aria-label="Sluiten">&times;</button>
+
+  <button class="lightbox-arrow prev" type="button" aria-label="Vorige afbeelding">‹</button>
 
   <div class="lightbox-image-wrapper">
     <img id="lightboxImage" src="" alt="Woning afbeelding">
   </div>
 
-  <button class="lightbox-arrow next">›</button>
+  <button class="lightbox-arrow next" type="button" aria-label="Volgende afbeelding">›</button>
+
 </div>
 
+
+<!-- ================= WHATSAPP ================= -->
 <a href="https://wa.me/59996654776" class="whatsapp-btn">WhatsApp</a>
 
+
+<!-- ================= FOOTER ================= -->
 <footer class="site-footer">
+
   <div class="container">
+
     <p>© 2026 Bai Pe Real Estate | Curaçao</p>
+
     <p>
       <a href="/nl/privacy.html">Privacybeleid</a> |
       <a href="/nl/terms.html">Algemene voorwaarden</a>
     </p>
+
   </div>
+
 </footer>
+
+
+<!-- JAVASCRIPT -->
 <script src="/assets/js/main.js" defer></script>
 <script src="/assets/js/fx.js" defer></script>
 
