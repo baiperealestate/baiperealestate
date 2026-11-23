@@ -10256,3 +10256,24 @@ body {
   }
 
 }
+
+/* SELLER CTA – CENTER CONTENT */
+
+.seller-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.seller-cta .container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.seller-cta-content {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
