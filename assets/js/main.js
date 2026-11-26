@@ -1059,3 +1059,258 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 });
+
+
+/* =====================================================
+   HOMEPAGE FEATURED PROPERTY CAROUSEL
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const track = document.getElementById("featuredListings");
+
+  if (!track) return;
+
+  const previousButton = document.querySelector(".featured-prev");
+  const nextButton = document.querySelector(".featured-next");
+  const countLabel = document.getElementById("featuredCount");
+
+  const isDutch = window.location.pathname.startsWith("/nl/");
+
+  const dataFile = isDutch
+    ? "/assets/data/listings-nl.json"
+    : "/assets/data/listings.json";
+
+  const text = isDutch
+    ? {
+        loading: "Uitgelichte woningen worden geladen...",
+        empty: "Er zijn momenteel geen uitgelichte woningen beschikbaar.",
+        error: "De woningen konden momenteel niet worden geladen.",
+        sale: "Te koop",
+        details: "Bekijk details",
+        bedrooms: "Slaapkamers",
+        bathrooms: "Badkamers",
+        featured: "Uitgelicht",
+        count: "Uitgelichte woningen"
+      }
+    : {
+        loading: "Loading featured properties...",
+        empty: "There are currently no featured properties available.",
+        error: "Properties could not be loaded at this time.",
+        sale: "For Sale",
+        details: "View Details",
+        bedrooms: "Bedrooms",
+        bathrooms: "Bathrooms",
+        featured: "Featured",
+        count: "Featured properties"
+      };
+
+  track.innerHTML = `<p class="featured-loading">${text.loading}</p>`;
+
+  function formatListingPrice(price) {
+    const amount = Number(price);
+
+    if (!Number.isFinite(amount)) return "";
+
+    return "XCG " + new Intl.NumberFormat(
+      isDutch ? "nl-NL" : "en-US",
+      { maximumFractionDigits: 0 }
+    ).format(amount);
+  }
+
+  function createPropertyCard(property) {
+
+    const card = document.createElement("article");
+    card.className = "featured-card";
+
+    const image = document.createElement("img");
+
+    image.src =
+      property.images && property.images.length
+        ? property.images[0]
+        : "/assets/images/placeholder.jpg";
+
+    image.alt = property.title || "Property in Curaçao";
+    image.loading = "lazy";
+
+    image.onerror = () => {
+      image.onerror = null;
+      image.src = "/assets/images/placeholder.jpg";
+    };
+
+    const imageWrapper = document.createElement("div");
+    imageWrapper.className = "featured-card-image";
+    imageWrapper.appendChild(image);
+
+    const status = document.createElement("span");
+    status.className = "featured-status";
+    status.textContent = text.sale;
+
+    imageWrapper.appendChild(status);
+
+    const content = document.createElement("div");
+    content.className = "featured-card-content";
+
+    const title = document.createElement("h3");
+    title.textContent = property.title || "Property in Curaçao";
+
+    const location = document.createElement("p");
+    location.className = "featured-location";
+    location.textContent = property.location || "Curaçao";
+
+    const price = document.createElement("p");
+    price.className = "featured-price";
+    price.textContent = formatListingPrice(property.price);
+
+    const details = document.createElement("div");
+    details.className = "featured-details";
+
+    if (property.bedrooms) {
+      const bedrooms = document.createElement("span");
+      bedrooms.textContent =
+        ` ${property.bedrooms} ${text.bedrooms}`;
+
+      details.appendChild(bedrooms);
+    }
+
+    if (property.bathrooms) {
+      const bathrooms = document.createElement("span");
+      bathrooms.textContent =
+        ` ${property.bathrooms} ${text.bathrooms}`;
+
+      details.appendChild(bathrooms);
+    }
+
+    if (property.size) {
+      const size = document.createElement("span");
+      size.textContent = property.size;
+
+      details.appendChild(size);
+    }
+
+    const link = document.createElement("a");
+    link.className = "btn";
+
+    link.href =
+      `/${isDutch ? "nl/" : ""}property.html?id=${encodeURIComponent(property.id)}`;
+
+    link.textContent = text.details;
+
+    content.appendChild(title);
+    content.appendChild(location);
+    content.appendChild(price);
+    content.appendChild(details);
+    content.appendChild(link);
+
+    card.appendChild(imageWrapper);
+    card.appendChild(content);
+
+    return card;
+  }
+
+  function updateCarouselButtons() {
+
+    if (!previousButton || !nextButton) return;
+
+    const maxScroll =
+      track.scrollWidth - track.clientWidth;
+
+    previousButton.disabled = track.scrollLeft <= 5;
+    nextButton.disabled =
+      track.scrollLeft >= maxScroll - 5;
+  }
+
+  function scrollCarousel(direction) {
+
+    const card = track.querySelector(".featured-card");
+
+    if (!card) return;
+
+    const gap = 24;
+    const amount = card.getBoundingClientRect().width + gap;
+
+    track.scrollBy({
+      left: direction * amount,
+      behavior: window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches ? "auto" : "smooth"
+    });
+  }
+
+  if (previousButton) {
+    previousButton.addEventListener("click", () => {
+      scrollCarousel(-1);
+    });
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      scrollCarousel(1);
+    });
+  }
+
+  track.addEventListener("scroll", updateCarouselButtons);
+
+  window.addEventListener("resize", updateCarouselButtons);
+
+  fetch(dataFile)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Unable to load listing data.");
+      }
+
+      return response.json();
+    })
+    .then(listings => {
+
+      track.innerHTML = "";
+
+      const featuredProperties = listings.filter(property => {
+        return (
+          property.featured === true &&
+          property.status?.toLowerCase() === "for sale"
+        );
+      });
+
+      if (!featuredProperties.length) {
+        track.innerHTML =
+          `<p class="featured-empty">${text.empty}</p>`;
+
+        if (countLabel) {
+          countLabel.textContent = text.count;
+        }
+
+        if (previousButton) previousButton.hidden = true;
+        if (nextButton) nextButton.hidden = true;
+
+        return;
+      }
+
+      featuredProperties.forEach(property => {
+        track.appendChild(createPropertyCard(property));
+      });
+
+      if (countLabel) {
+        countLabel.textContent =
+          `${featuredProperties.length} ${text.count}`;
+      }
+
+      updateCarouselButtons();
+
+      if (featuredProperties.length <= 1) {
+        if (previousButton) previousButton.hidden = true;
+        if (nextButton) nextButton.hidden = true;
+      }
+    })
+    .catch(error => {
+
+      console.error("Featured properties error:", error);
+
+      track.innerHTML =
+        `<p class="featured-empty">${text.error}</p>`;
+
+      if (previousButton) previousButton.hidden = true;
+      if (nextButton) nextButton.hidden = true;
+    });
+
+});
