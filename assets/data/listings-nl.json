@@ -140,7 +140,7 @@
   "bedrooms": 4,
   "bathrooms": 2,
   "size": "502 m² Perceel",
-  "featured": true,
+  "featured":true,
   "images": [
     "/assets/images/listings/groteberg-1.jpg",
     "/assets/images/listings/groteberg-2.jpg",
