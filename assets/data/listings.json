@@ -9,7 +9,7 @@
     "bedrooms": 3,
     "bathrooms": 3,
     "size": "180 m² Built Area | 375 m² Land",
-    "featured": false,
+    "featured": true,
 
  "images": [
   "/assets/images/listings/apartmentkwartje-1.jpg",
@@ -74,7 +74,7 @@
     "bedrooms": 3,
     "bathrooms": 3,
     "size": "180 m² Built Area | 375 m² Land",
-    "featured": false,
+    "featured": true,
 
  "images": [
   "/assets/images/listings/apartmentkwartje-1.jpg",
@@ -139,7 +139,7 @@
   "bedrooms": 4,
   "bathrooms": 2,
   "size": "502 m² Land",
-  "featured": false,
+  "featured": true,
   "images": [
     "/assets/images/listings/groteberg-1.jpg",
     "/assets/images/listings/groteberg-2.jpg",
